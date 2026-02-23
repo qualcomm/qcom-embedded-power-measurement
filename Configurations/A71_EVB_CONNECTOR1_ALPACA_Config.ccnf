@@ -1,0 +1,452 @@
+{
+    "author": " HAIPINGS",
+    "channels": [
+        {
+            "category": "SAR2130P",
+            "color": "#1c91e2",
+            "description": "SAR2130P VDD_MXA",
+            "disabled": "false",
+            "index": 0,
+            "name": "S6A_VDD_MXA",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SAR2130P",
+            "color": "#6ac6ff",
+            "description": "SAR2130P VDD_MXC",
+            "disabled": "false",
+            "index": 1,
+            "name": "S8A_VDD_MXC",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SAR2130P",
+            "color": "#bde958",
+            "description": "SAR2130P VDD_CX",
+            "disabled": "false",
+            "index": 2,
+            "name": "S1A_SOC_VDD_CX",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SAR2130P",
+            "color": "#bde958",
+            "description": "SAR2130P VDD_LPI_CX",
+            "disabled": "false",
+            "index": 3,
+            "name": "L9A_LPI_CX",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SAR2130P",
+            "color": "#3acdcb",
+            "description": "SAR2130P VDD_LPI_MX",
+            "disabled": "false",
+            "index": 4,
+            "name": "L11A_LPI_MX",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "PMIC",
+            "color": "#2c7a79",
+            "description": "PMAR2130 L1A_L8A_L11A IN",
+            "disabled": "false",
+            "index": 5,
+            "name": "S4A_LV_SUBREG",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "PMIC",
+            "color": "#6a9212",
+            "description": "PMAR2130 L7A_L12A_L14A_L15A IN",
+            "disabled": "false",
+            "index": 6,
+            "name": "S5A_HV_SUBREG",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SAR2130P",
+            "color": "#004a4a",
+            "description": "S10A OUTPUT",
+            "disabled": "false",
+            "index": 8,
+            "name": "S10A_VDD_EBI",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SAR2130P",
+            "color": "#295800",
+            "description": "L18A OUTPUT",
+            "disabled": "false",
+            "index": 9,
+            "name": "L18A_PX",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "SAR2130P",
+            "color": "#47abff",
+            "description": "SAR2130P EBI_EUSB_PX ",
+            "disabled": "false",
+            "index": 10,
+            "name": "L15A_DDR_EUSB",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "MCU",
+            "color": "#9fcc3b",
+            "description": "MCU DEBUG",
+            "disabled": "false",
+            "index": 11,
+            "name": "L15A_DEBUG",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "MCU",
+            "color": "#109e9c",
+            "description": "MCU 1V8",
+            "disabled": "false",
+            "index": 12,
+            "name": "L15A_MCU",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "NPU",
+            "color": "#005daa",
+            "description": "NPU 1V8",
+            "disabled": "false",
+            "index": 13,
+            "name": "L15A_NPU_LS",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "WLAN",
+            "color": "#00ff00",
+            "description": "WLAN BT 1V8",
+            "disabled": "false",
+            "index": 14,
+            "name": "L15A_WLAN_BT",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "AUDIO",
+            "color": "#046262",
+            "description": "SPEAKER AMPLIFIER 1V8",
+            "disabled": "false",
+            "index": 15,
+            "name": "L15A_AUDIO",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "SENSOR",
+            "color": "#002f75",
+            "description": "LEFT IMU VDD",
+            "disabled": "false",
+            "index": 16,
+            "name": "L15A_L_IMU",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "SENSOR",
+            "color": "#003434",
+            "description": "RIGT IMU VDD",
+            "disabled": "false",
+            "index": 17,
+            "name": "L15A_R_IMU",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "MISC",
+            "color": "#104100",
+            "description": "MISC1V8",
+            "disabled": "false",
+            "index": 18,
+            "name": "L15A_MISC",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "DISPLAY",
+            "color": "#d4b217",
+            "description": "DISPLAY VDDIO",
+            "disabled": "false",
+            "index": 19,
+            "name": "L15A_DISPLAY_LDO",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "CAMERA",
+            "color": "#917a13",
+            "description": "WCAM ALS VDD",
+            "disabled": "false",
+            "index": 20,
+            "name": "L15A_WCAM_ALS",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "SAR2130P",
+            "color": "#fed51a",
+            "description": "SAR2130P VDD_PX11",
+            "disabled": "false",
+            "index": 21,
+            "name": "L4A_PX11",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "SAR2130P",
+            "color": "#b39715",
+            "description": "SAR2130P USB_PCIE 1V2",
+            "disabled": "false",
+            "index": 22,
+            "name": "L3A_USB_PCIE",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SAR2130P",
+            "color": "#6f9715",
+            "description": "SAR2130P USB_CSI_DSI_PCIE 0V88",
+            "disabled": "false",
+            "index": 23,
+            "name": "L8A_MSIP",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "SAR2130P",
+            "color": "#f7921e",
+            "description": "SAR2130P USBSS_DP 0V9",
+            "disabled": "false",
+            "index": 24,
+            "name": "L1A_USB_DP",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "LPDDR",
+            "color": "#ca791d",
+            "description": "LPDDR VDD2",
+            "disabled": "false",
+            "index": 26,
+            "name": "L5A_LPDDR_VDD2",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "LPDDR",
+            "color": "#a46217",
+            "description": "LPDDR EBI_IO VDDQ",
+            "disabled": "false",
+            "index": 27,
+            "name": "L6A_LPDDR_EBI_IO_VDDQ",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "EUSB",
+            "color": "#7a4910",
+            "description": "EUSB 3V0",
+            "disabled": "false",
+            "index": 28,
+            "name": "L2A_EUSB",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "EMMC",
+            "color": "#e42329",
+            "description": "EMMC VCCQ",
+            "disabled": "false",
+            "index": 29,
+            "name": "L7A_EMMC_VCCQ",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "EMMC",
+            "color": "#ac0005",
+            "description": "EMMC VCC",
+            "disabled": "false",
+            "index": 30,
+            "name": "L10A_EMMC_VCC",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "SAR2130P",
+            "color": "#de00de",
+            "description": "SAR2130P VDD_APC0",
+            "disabled": "false",
+            "index": 31,
+            "name": "S9A_VDD_APC0",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "PMIC",
+            "color": "#830083",
+            "description": "PMAR2130 L2_L10_L13_L16_L17 IN",
+            "disabled": "false",
+            "index": 32,
+            "name": "BOB_PMIC_VDD",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "DISPLAY",
+            "color": "#502f0a",
+            "description": "DISPLAY LDO",
+            "disabled": "false",
+            "index": 33,
+            "name": "BOB_DISPLAY",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "PMIC",
+            "color": "#740004",
+            "description": "PM8008 L3_L4_L5_L6_L7 IN",
+            "disabled": "false",
+            "index": 34,
+            "name": "BOB_PMIC_WCAM_VIN",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "CAMERA",
+            "color": "#460046",
+            "description": "ET CAMERA LDO IN",
+            "disabled": "false",
+            "index": 35,
+            "name": "BOB_ET",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "PMIC",
+            "color": "#1c91e2",
+            "description": "VSYS VPH_PWR",
+            "disabled": "false",
+            "index": 36,
+            "name": "PPVAR_SYS",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "WLAN",
+            "color": "#6ac6ff",
+            "description": "WLAN VPH_PWR IN",
+            "disabled": "false",
+            "index": 37,
+            "name": "PPVAR_USI_PWR",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "DISPLAY",
+            "color": "#bde958",
+            "description": "DISPLAY BOOST VPH_PWR",
+            "disabled": "false",
+            "index": 38,
+            "name": "PPVAR_DISP_BOOST",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MCU",
+            "color": "#bde958",
+            "description": "MCU VDDCORE BUCK IN VPH_PWR",
+            "disabled": "false",
+            "index": 41,
+            "name": "PPVAR_MCU_PMIC_VIN",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "AUDIO",
+            "color": "#3acdcb",
+            "description": "RIGHT AUDIO AMPLIFIER VPH_PWR",
+            "disabled": "false",
+            "index": 42,
+            "name": "PPVAR_AUD_R_SPKR",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "AUDIO",
+            "color": "#2c7a79",
+            "description": "LEFT AUDIO AMPILFIER VPH_PWR",
+            "disabled": "false",
+            "index": 43,
+            "name": "PPVAR_AUD_L_SPKR",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "CHARGER",
+            "color": "#6a9212",
+            "description": "CHARGER VBUS INPUT",
+            "disabled": "false",
+            "index": 44,
+            "name": "USB_VBUS",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "CHARER",
+            "color": "#004a4a",
+            "description": "CHARGER VBAT OUTPUT",
+            "disabled": "false",
+            "index": 45,
+            "name": "PPVAR_VBAT_PMIC",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "",
+            "color": "#295800",
+            "description": "External trigger",
+            "disabled": "false",
+            "index": 1,
+            "name": "KIBBLE B TRIG 1",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "",
+            "color": "#47abff",
+            "description": "MCU GPIO PIO0_3",
+            "disabled": "false",
+            "index": 2,
+            "name": "MCU KIBBLE1",
+            "resistor_value": 0,
+            "type": "MARKER"
+        }
+    ],
+    "creation_date": "Sun Nov 10 21:03:35 2024",
+    "description": "A17 EVB ALPACA CONNECTOR#1",
+    "epm_version": "QEPM 5.0.4",
+    "label": "A17 EVB",
+    "modify_date": "Mon Nov 11 09:52:27 2024",
+    "spm_version": 1,
+    "target": "SAR2130P"
+}

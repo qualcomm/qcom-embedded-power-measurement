@@ -1,0 +1,172 @@
+{
+    "author": "yao",
+    "channels": [
+        {
+            "category": "Battery",
+            "color": "#1c91e2",
+            "description": "",
+            "disabled": "true",
+            "index": 0,
+            "name": "VBAT",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "S2C_S3C_S4C_GFX",
+            "color": "#6ac6ff",
+            "description": "",
+            "disabled": "true",
+            "index": 1,
+            "name": "S2C_S3C_S4C_GFX",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "VPH_PWR_RF_QET",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "true",
+            "index": 2,
+            "name": "VPH_PWR_RF_QET",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "OLEDB",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "true",
+            "index": 3,
+            "name": "OLEDB",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "DISPLAY_DDIC",
+            "color": "#3acdcb",
+            "description": "",
+            "disabled": "true",
+            "index": 4,
+            "name": "DISPLAY_DDIC",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "ELVDD",
+            "color": "#2c7a79",
+            "description": "",
+            "disabled": "true",
+            "index": 5,
+            "name": "ELVDD",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "S4B_S5B_S6B_APC1",
+            "color": "#6a9212",
+            "description": "",
+            "disabled": "true",
+            "index": 6,
+            "name": "S4B_S5B_S6B_APC1",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "S6C_S7C_VDD_MODEM",
+            "color": "#004a4a",
+            "description": "",
+            "disabled": "true",
+            "index": 7,
+            "name": "S6C_S7C_VDD_MODEM",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "VDD_MX_C",
+            "color": "#295800",
+            "description": "",
+            "disabled": "true",
+            "index": 8,
+            "name": "VDD_MX_C",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "VDD_CX",
+            "color": "#47abff",
+            "description": "",
+            "disabled": "true",
+            "index": 9,
+            "name": "VDD_CX",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "L12C_OLED_IO",
+            "color": "#9fcc3b",
+            "description": "",
+            "disabled": "true",
+            "index": 10,
+            "name": "L12C_OLED_IO",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "S1K_LPDDR4x_VDD2_PX1",
+            "color": "#109e9c",
+            "description": "",
+            "disabled": "true",
+            "index": 11,
+            "name": "S1K_LPDDR4x_VDD2_PX1",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "ELVSS",
+            "color": "#005daa",
+            "description": "",
+            "disabled": "true",
+            "index": 12,
+            "name": "ELVSS",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "S3B_APC0",
+            "color": "#437116",
+            "description": "",
+            "disabled": "true",
+            "index": 13,
+            "name": "S3B_APC0",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "VDD_MX_A",
+            "color": "#046262",
+            "description": "",
+            "disabled": "true",
+            "index": 14,
+            "name": "VDD_MX_A",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "S5C_VDDMM_CAM_CX",
+            "color": "#002f75",
+            "description": "",
+            "disabled": "true",
+            "index": 15,
+            "name": "S5C_VDDMM_CAM_CX",
+            "resistor_value": 10,
+            "type": "SPM"
+        }
+    ],
+    "creation_date": "Fri Feb 11 11:20:27 2022",
+    "description": "for_display_DDIC",
+    "epm_version": "Alpaca 2.8.7",
+    "label": "QRD7450",
+    "modify_date": "Fri Feb 11 11:30:42 2022",
+    "spm_version": 1,
+    "target": "7450"
+}

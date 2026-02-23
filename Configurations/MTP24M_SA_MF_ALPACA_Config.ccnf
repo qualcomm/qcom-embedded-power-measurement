@@ -1,0 +1,191 @@
+{
+    "author": "",
+    "channels": [
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#1c91e2",
+            "description": "MARKER 1 (SDX24M GPIO 16)",
+            "disabled": "true",
+            "index": 1,
+            "name": "MARKER 1 (SDX24M GPIO 16)",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#6ac6ff",
+            "description": "MARKER 2 (PMX24 GPIO 7)",
+            "disabled": "true",
+            "index": 2,
+            "name": "AOSS_SLEEP_INDICATOR",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#bde958",
+            "description": "XO shutdown indicator (PMX24 GPIO 3)",
+            "disabled": "true",
+            "index": 3,
+            "name": "XO_SHUTDOWN_INDICATOR",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#bde958",
+            "description": "USB0 disconnect signal",
+            "disabled": "true",
+            "index": 4,
+            "name": "TAC_USB0_DIS",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#3acdcb",
+            "description": "Low current mode enable signal",
+            "disabled": "true",
+            "index": 5,
+            "name": "LOW_CURRENT_MODE_EN",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "BATTERY",
+            "color": "#2c7a79",
+            "description": "Battery power measured on the BB card",
+            "disabled": "true",
+            "index": 1,
+            "name": "BATTERY_BB",
+            "resistor_value": 5,
+            "type": "RCM"
+        },
+        {
+            "category": "MODEM",
+            "color": "#6a9212",
+            "description": "The S1 power for VDD Modem",
+            "disabled": "true",
+            "index": 2,
+            "name": "VREG_S1M",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "MODEM",
+            "color": "#004a4a",
+            "description": "The output power for S5 input of SDX24M",
+            "disabled": "true",
+            "index": 3,
+            "name": "VPH_PWR_S5M_IN",
+            "resistor_value": 200,
+            "type": "RCM"
+        },
+        {
+            "category": "MODEM",
+            "color": "#295800",
+            "description": "The input power for S5 of SDX24M",
+            "disabled": "true",
+            "index": 6,
+            "name": "VREG_S5M",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "QLINK",
+            "color": "#47abff",
+            "description": "The Qlink HV power of SDX24M",
+            "disabled": "true",
+            "index": 7,
+            "name": "VREG_L1M_QPHY",
+            "resistor_value": 499,
+            "type": "RCM"
+        },
+        {
+            "category": "PCIE ",
+            "color": "#9fcc3b",
+            "description": "The PCIE power of SDX24M",
+            "disabled": "true",
+            "index": 8,
+            "name": "VREG_L1M_PCIE",
+            "resistor_value": 499,
+            "type": "RCM"
+        },
+        {
+            "category": "QLINK",
+            "color": "#109e9c",
+            "description": "The Qlink LV CK power of SDX24M",
+            "disabled": "true",
+            "index": 11,
+            "name": "VREG_L4M_QPHY",
+            "resistor_value": 499,
+            "type": "RCM"
+        },
+        {
+            "category": "PCIE",
+            "color": "#005daa",
+            "description": "The PCIE power of SDX24M",
+            "disabled": "true",
+            "index": 12,
+            "name": "VREG_L4M_PCIE",
+            "resistor_value": 499,
+            "type": "RCM"
+        },
+        {
+            "category": "MODEM VDD MX",
+            "color": "#437116",
+            "description": "The VDD MX power of SDX24M",
+            "disabled": "true",
+            "index": 17,
+            "name": "VREG_L9M",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "MDX VPH PWR",
+            "color": "#046262",
+            "description": "The VPH PWR power of SDX",
+            "disabled": "true",
+            "index": 19,
+            "name": "VPH_PWR_MDM",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "XO RF",
+            "color": "#002f75",
+            "description": "Tthe XO RF power for SDX24M",
+            "disabled": "true",
+            "index": 23,
+            "name": "VIN_XO_RF",
+            "resistor_value": 2000,
+            "type": "RCM"
+        },
+        {
+            "category": "BATTERY",
+            "color": "#33ff33",
+            "description": "Low current mode battery channel",
+            "disabled": "true",
+            "index": 52,
+            "name": "BATTERY_LCM",
+            "resistor_value": 300,
+            "type": "SPM"
+        },
+        {
+            "category": "BATTERY",
+            "color": "#00ff00",
+            "description": "Battery power measured on the debug board",
+            "disabled": "true",
+            "index": 54,
+            "name": "BATTERY",
+            "resistor_value": 10,
+            "type": "SPM"
+        }
+    ],
+    "creation_date": "",
+    "description": "MTP24M SA MF using ALPACA",
+    "label": "MTP24M SA MF using ALPACA",
+    "modify_date": "Fri Apr 30 09:18:55 2021",
+    "spm_version": 0,
+    "target": "SDX24M"
+}

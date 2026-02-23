@@ -1,0 +1,351 @@
+{
+    "author": "",
+    "channels": [
+        {
+            "category": "GPIO Channels",
+            "color": "#1c91e2",
+            "description": "MARKER 1 (SDX50MV2 GPIO 43) - CTI_TRIG_OUT",
+            "disabled": "true",
+            "index": 1,
+            "name": "MARKER 1 (SDX50MV2 GPIO 43)",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#6ac6ff",
+            "description": "MARKER 2 (PM855L GPIO 1)",
+            "disabled": "true",
+            "index": 2,
+            "name": "AOSS_SLEEP_INDICATOR",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO Channels",
+            "color": "#bde958",
+            "description": "XO enable signal",
+            "disabled": "true",
+            "index": 3,
+            "name": "MSM XO enable signal",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#bde958",
+            "description": "USB0 disconnect signal",
+            "disabled": "true",
+            "index": 4,
+            "name": "TAC_USB0_DIS",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#3acdcb",
+            "description": "Low current mode enable signal",
+            "disabled": "true",
+            "index": 5,
+            "name": "LOW_CURRENT_MODE_EN",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "RF",
+            "color": "#2c7a79",
+            "description": "VPH_PWR_RF_RCM_M",
+            "disabled": "true",
+            "index": 1,
+            "name": "VIN_VPH_PWR_LOADS",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "RF",
+            "color": "#6a9212",
+            "description": "RCM_VPH_PHASER0_M",
+            "disabled": "true",
+            "index": 2,
+            "name": "VPH_PWR_RF0",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "RF",
+            "color": "#004a4a",
+            "description": "RCM_VPH_PHASER1_M",
+            "disabled": "true",
+            "index": 3,
+            "name": "VPH_PWR_RF1",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "CPU",
+            "color": "#295800",
+            "description": "S10A_RCM_M (APC0_SILVER)",
+            "disabled": "true",
+            "index": 4,
+            "name": "VDD_APC0_0P75",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "CPU",
+            "color": "#47abff",
+            "description": "S7A_S8A_S9A_RCM_M (APC1 GOLD)",
+            "disabled": "true",
+            "index": 5,
+            "name": "VDD_APC1_0P75",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "Core/System",
+            "color": "#9fcc3b",
+            "description": "S6C_S7C_RCM_M (SDM_CX)",
+            "disabled": "true",
+            "index": 6,
+            "name": "VDDCX_1_0P75",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "Memory",
+            "color": "#109e9c",
+            "description": "S4C_RCM_M (SDM_MX)",
+            "disabled": "true",
+            "index": 7,
+            "name": "VDDMX_1_0P75",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "Memory",
+            "color": "#005daa",
+            "description": "S1C   SDM_LPDDR4 (VDD2)",
+            "disabled": "true",
+            "index": 8,
+            "name": "LPDDR4X_VDD2_1P13",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "Memory",
+            "color": "#437116",
+            "description": "S4A   SDM_LPDDR4 (VDD1)",
+            "disabled": "true",
+            "index": 9,
+            "name": "LPDDR4X_VDD1_1P8",
+            "resistor_value": 50,
+            "type": "RCM"
+        },
+        {
+            "category": "Memory",
+            "color": "#046262",
+            "description": "S2A   SDM_LPDDR4 (VDD1)",
+            "disabled": "true",
+            "index": 10,
+            "name": "LPDDR4X_VDDQ;VDDIO_CK_EBI;VDDIO_EBI(0P6)",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "Memory",
+            "color": "#002f75",
+            "description": "S3A   SDM_LPDDR4 (VDDQ, VDDIO)",
+            "disabled": "true",
+            "index": 11,
+            "name": "VDDA_CC_EBI;VDDA_EBI(0P8)",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "RF",
+            "color": "#003434",
+            "description": "S4M_1P85_PHASER0/1",
+            "disabled": "true",
+            "index": 12,
+            "name": "S4A_RF_1P9",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "Memory",
+            "color": "#104100",
+            "description": "VREG_S1M_0P8 (PMX50)",
+            "disabled": "true",
+            "index": 13,
+            "name": "S1A_0P8",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "System",
+            "color": "#d4b217",
+            "description": "VREG_S2M_1P224 (PMX50)",
+            "disabled": "true",
+            "index": 14,
+            "name": "S2A_1P22",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "System",
+            "color": "#917a13",
+            "description": "VREG_S3M_0P824 (PMX50)",
+            "disabled": "true",
+            "index": 15,
+            "name": "S3A_0P9",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "System",
+            "color": "#fed51a",
+            "description": "VREG_S4M_1P85 (PMX50)",
+            "disabled": "true",
+            "index": 16,
+            "name": "S4A_1P9",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "Core/System",
+            "color": "#b39715",
+            "description": "VREG_S5M_0P75 (PMX50)",
+            "disabled": "true",
+            "index": 17,
+            "name": "S5A_0P75",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "System",
+            "color": "#6f9715",
+            "description": "VREG_L1M_1P2 (PMX50)",
+            "disabled": "true",
+            "index": 18,
+            "name": "L1A_1P2",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "Memory",
+            "color": "#f7921e",
+            "description": "VREG_L2M_1P128 (PMX50)",
+            "disabled": "true",
+            "index": 19,
+            "name": "L2A_1P13",
+            "resistor_value": 20,
+            "type": "RCM"
+        },
+        {
+            "category": "RF",
+            "color": "#ca791d",
+            "description": "VREG_L3M_0P8 (PMX50)",
+            "disabled": "true",
+            "index": 20,
+            "name": "L3A_0P8",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "System",
+            "color": "#a46217",
+            "description": "VREG_L4M_0P872 (PMX50)",
+            "disabled": "true",
+            "index": 21,
+            "name": "L4A_0P87",
+            "resistor_value": 20,
+            "type": "RCM"
+        },
+        {
+            "category": "RF",
+            "color": "#7a4910",
+            "description": "VREG_L5M_1P8 (PMX24/50)",
+            "disabled": "true",
+            "index": 22,
+            "name": "L5A_1P8",
+            "resistor_value": 40,
+            "type": "RCM"
+        },
+        {
+            "category": "RF",
+            "color": "#e42329",
+            "description": "VREG_L6M_1P8 (PMX24/50)",
+            "disabled": "true",
+            "index": 23,
+            "name": "L6A_1P8",
+            "resistor_value": 30,
+            "type": "RCM"
+        },
+        {
+            "category": "RF",
+            "color": "#ac0005",
+            "description": "VREG_L8M_0P8 (PMX24/50)",
+            "disabled": "true",
+            "index": 24,
+            "name": "L8A_0P8",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "RF",
+            "color": "#de00de",
+            "description": "VREG_L9M_0P8 (PMX24/50)",
+            "disabled": "true",
+            "index": 25,
+            "name": "L9A_0P8",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "Memory",
+            "color": "#830083",
+            "description": "VREG_L14M_0P6 (PMX24/50)",
+            "disabled": "true",
+            "index": 26,
+            "name": "L14A_0P6",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "Modem",
+            "color": "#502f0a",
+            "description": "VREG_S1MC_S4MC_0P752 (PM5005)",
+            "disabled": "true",
+            "index": 27,
+            "name": "S1C_S4C_S3C_0P75",
+            "resistor_value": 5,
+            "type": "RCM"
+        },
+        {
+            "category": "BATTERY",
+            "color": "#33ff33",
+            "description": "Low current mode battery channel",
+            "disabled": "true",
+            "index": 52,
+            "name": "BATTERY_LCM",
+            "resistor_value": 100,
+            "type": "SPM"
+        },
+        {
+            "category": "BATTERY",
+            "color": "#00ff00",
+            "description": "Battery power measured on the debug board",
+            "disabled": "true",
+            "index": 54,
+            "name": "BATTERY",
+            "resistor_value": 10,
+            "type": "SPM"
+        }
+    ],
+    "creation_date": "",
+    "description": "MTP50MV2 using ALPACA",
+    "label": "MTP50MV2 using ALPACA",
+    "modify_date": "Fri Apr 30 09:19:21 2021",
+    "spm_version": 0,
+    "target": "SDX50MV2"
+}

@@ -1,0 +1,28 @@
+version, kVersionHash
+getname, kGetNameHash
+setname, kSetNameHash
+sys getFSUUID, kGetUUIDHash
+help, kHelpHash
+devicePower, kBatteryHash
+usbDevicePower, kUSB0Hash
+gpio, kGPIOHash
+ttl, kTTLHash
+gpio vbusdis1 0, kUSB1OnHash
+gpio vbusdis1 1, kUSB1OffHash
+gpio volup 1, kVolumeUpOnHash
+gpio volup 0, kVolumeUpOffHash
+ttl output 2 1, kVolumeDownOnHash
+ttl output 2 0, kVolumeDownOffHash
+gpio focus 1, kFocusOnHash
+gpio focus 0, kFocusOffHash
+gpio snap 1, kSnapOnHash
+gpio snap 0, kSnapOffHash
+ttl outputBit 4 1, kEDLOnHash
+ttl outputBit 4 0, kEDLOffHash
+ttl outputBit 6 1, kUIM1OnHash
+ttl outputBit 6 0, kUIM1OffHash
+ttl outputBit 7 1, kUIM2OnHash
+ttl outputbit 7 0, kUIM2OffHash
+getresetcount, kGetResetCount
+clearresetcount, kClearResetCount
+

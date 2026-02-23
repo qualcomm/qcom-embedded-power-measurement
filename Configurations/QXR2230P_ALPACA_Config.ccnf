@@ -1,0 +1,172 @@
+{
+    "author": "Xiyao Wang <xiyawang@qti.qualcomm.com>",
+    "channels": [
+        {
+            "category": "EBI",
+            "color": "#6ac6ff",
+            "description": "",
+            "disabled": "false",
+            "index": 2,
+            "name": "VDDA_EBI",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "GPU",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "false",
+            "index": 3,
+            "name": "VDD_GFX",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "EBI",
+            "color": "#2c7a79",
+            "description": "",
+            "disabled": "true",
+            "index": 4,
+            "name": "VDDIO_EBI",
+            "resistor_value": 0,
+            "type": "SPM"
+        },
+        {
+            "category": "DDR",
+            "color": "#004a4a",
+            "description": "",
+            "disabled": "false",
+            "index": 5,
+            "name": "LPDDR5_VDD2L",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "WLAN",
+            "color": "#47abff",
+            "description": "",
+            "disabled": "false",
+            "index": 6,
+            "name": "WCN_PCIE_1P8",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "LPI_CX",
+            "color": "#109e9c",
+            "description": "",
+            "disabled": "false",
+            "index": 7,
+            "name": "VDD_LPI_CX",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "LPI_MX",
+            "color": "#00ff00",
+            "description": "",
+            "disabled": "false",
+            "index": 8,
+            "name": "VDD_LPI_MX",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "DDR",
+            "color": "#002f75",
+            "description": "",
+            "disabled": "false",
+            "index": 16,
+            "name": "LPDDR5_VDD2H",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MM",
+            "color": "#104100",
+            "description": "",
+            "disabled": "false",
+            "index": 17,
+            "name": "VDD_MM",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "MXC",
+            "color": "#917a13",
+            "description": "",
+            "disabled": "false",
+            "index": 18,
+            "name": "VDD_MXC",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "CX",
+            "color": "#b39715",
+            "description": "",
+            "disabled": "false",
+            "index": 19,
+            "name": "VDD_CX",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "APC1",
+            "color": "#f7921e",
+            "description": "",
+            "disabled": "false",
+            "index": 20,
+            "name": "VDD_APC1",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "APC0",
+            "color": "#a46217",
+            "description": "",
+            "disabled": "false",
+            "index": 21,
+            "name": "VDD_APC0",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "MX",
+            "color": "#e42329",
+            "description": "",
+            "disabled": "false",
+            "index": 22,
+            "name": "VDD_MX",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM_IO",
+            "color": "#de00de",
+            "description": "",
+            "disabled": "false",
+            "index": 23,
+            "name": "VDD_PX3_PX0",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "WLAN",
+            "color": "#502f0a",
+            "description": "",
+            "disabled": "false",
+            "index": 24,
+            "name": "WCN_PCIE_0P92",
+            "resistor_value": 10,
+            "type": "SPM"
+        }
+    ],
+    "creation_date": "Tue May 14 15:42:12 2024",
+    "description": "QXR2230P using ALPACA",
+    "epm_version": "QEPM 4.0.5",
+    "label": "QXR2230P",
+    "modify_date": "Tue May 14 15:42:25 2024",
+    "spm_version": 1,
+    "target": "SXR2230P"
+}

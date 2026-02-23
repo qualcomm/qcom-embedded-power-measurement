@@ -1,0 +1,282 @@
+{
+    "author": "Nagendra",
+    "channels": [
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#295800",
+            "description": "GPIO68",
+            "disabled": "false",
+            "index": 1,
+            "name": "MARKER0",
+            "resistor_value": 10,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#47abff",
+            "description": "GPIO66",
+            "disabled": "true",
+            "index": 2,
+            "name": "MARKER1",
+            "resistor_value": 10,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#9fcc3b",
+            "description": "VREG_BB",
+            "disabled": "true",
+            "index": 3,
+            "name": "MARKER2",
+            "resistor_value": 10,
+            "type": "MARKER"
+        },
+        {
+            "category": "BATTERY",
+            "color": "#109e9c",
+            "description": "Battery Power",
+            "disabled": "false",
+            "index": 2,
+            "name": "VBATT",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "APC0",
+            "color": "#00ff00",
+            "description": "APC0",
+            "disabled": "false",
+            "index": 4,
+            "name": "VREG_S1F_S2F_0P752",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "VDD_CX",
+            "color": "#046262",
+            "description": "VDD_CX",
+            "disabled": "false",
+            "index": 5,
+            "name": "VREG_S6F_0P73",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "APC1",
+            "color": "#002f75",
+            "description": "APC1",
+            "disabled": "false",
+            "index": 7,
+            "name": "VREG_S7F_S8F_0P73",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "PX3",
+            "color": "#003434",
+            "description": "PX3",
+            "disabled": "false",
+            "index": 8,
+            "name": "VREG_L7B_1P8",
+            "resistor_value": 1000,
+            "type": "SPM"
+        },
+        {
+            "category": "MX_A",
+            "color": "#104100",
+            "description": "MX_A",
+            "disabled": "false",
+            "index": 9,
+            "name": "VREG_S3F_0P752",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MX_C",
+            "color": "#d4b217",
+            "description": "MX_C",
+            "disabled": "false",
+            "index": 10,
+            "name": "VREG_S4D_0P75",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MM",
+            "color": "#917a13",
+            "description": "MM",
+            "disabled": "false",
+            "index": 11,
+            "name": "VREG_S3B_S4B_S5B_0P7",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "VDDA_EBI",
+            "color": "#fed51a",
+            "description": "VDDA_EBI",
+            "disabled": "false",
+            "index": 12,
+            "name": "VREG_S2C_0P892",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "LPI_CX",
+            "color": "#b39715",
+            "description": "LPI_CX",
+            "disabled": "false",
+            "index": 13,
+            "name": "VREG_L03F_0P728",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "LPI_MX",
+            "color": "#6f9715",
+            "description": "LPI_MX",
+            "disabled": "false",
+            "index": 14,
+            "name": "VREG_L02F_0P752",
+            "resistor_value": 25,
+            "type": "SPM"
+        },
+        {
+            "category": "VDDIO_VDDQ",
+            "color": "#f7921e",
+            "description": "VDDIO_VDDQ",
+            "disabled": "false",
+            "index": 15,
+            "name": "VDDIO_EBI_VDDQ",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "DISP_CX",
+            "color": "#ca791d",
+            "description": "DISP_CX",
+            "disabled": "false",
+            "index": 16,
+            "name": "VREG_S6B_0P72",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "GFX_MX",
+            "color": "#a46217",
+            "description": "GFX_MX",
+            "disabled": "false",
+            "index": 17,
+            "name": "VREG_S3D_0P752",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "NSP1",
+            "color": "#7a4910",
+            "description": "NSP1",
+            "disabled": "false",
+            "index": 19,
+            "name": "VREG_S1C_S6C_0P856",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "DDR_VDD2H",
+            "color": "#e42329",
+            "description": "VDD2H",
+            "disabled": "false",
+            "index": 21,
+            "name": "VREG_S4F_1P1",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "DDR_VDD2L",
+            "color": "#ac0005",
+            "description": "VDD2L",
+            "disabled": "false",
+            "index": 23,
+            "name": "VREG_S5F_0P9",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "VDD1-DDR",
+            "color": "#de00de",
+            "description": "VDD1-DDR",
+            "disabled": "false",
+            "index": 25,
+            "name": "VREG_L7B_1P8_VDD1",
+            "resistor_value": 100,
+            "type": "SPM"
+        },
+        {
+            "category": "KOHALA- VPH-H",
+            "color": "#830083",
+            "description": "KOHALA- VPH-H",
+            "disabled": "false",
+            "index": 27,
+            "name": "KOHALA_H_VPH",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "WLAN-FEM",
+            "color": "#502f0a",
+            "description": "WLAN-FEM",
+            "disabled": "false",
+            "index": 41,
+            "name": "VPH_PWR_WLAN",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "KOHALA-VPH-I",
+            "color": "#740004",
+            "description": "KOHALA-VPH-I",
+            "disabled": "false",
+            "index": 42,
+            "name": "KOHALA_I_VPH",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "THUNDERHILL-VPH",
+            "color": "#460046",
+            "description": "THUNDERHILL-VPH",
+            "disabled": "false",
+            "index": 43,
+            "name": "THUNDERHILL_VPH",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "CAMERA-DOVDD",
+            "color": "#1c91e2",
+            "description": "CAMERA-DOVDD",
+            "disabled": "false",
+            "index": 44,
+            "name": "VREG_L4B_1P8",
+            "resistor_value": 200,
+            "type": "SPM"
+        },
+        {
+            "category": "NSP2",
+            "color": "#6ac6ff",
+            "description": "NSP2",
+            "disabled": "false",
+            "index": 45,
+            "name": "VREG_S4C_S5C_0P732",
+            "resistor_value": 5,
+            "type": "SPM"
+        }
+    ],
+    "creation_date": "Wed Oct 30 15:02:04 2024",
+    "description": "XDP2350_ALPACA_Config_Vtry",
+    "epm_version": "QEPM 5.0.1",
+    "label": "XDP2350",
+    "modify_date": "Mon Nov 18 15:28:20 2024",
+    "spm_version": 1,
+    "target": "SXR2350"
+}

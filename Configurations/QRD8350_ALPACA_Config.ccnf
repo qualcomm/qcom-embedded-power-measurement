@@ -1,0 +1,201 @@
+{
+    "author": "Ignas Mikulevicius <ignasm@qti.qualcomm.com>",
+    "channels": [
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#1c91e2",
+            "description": "RCM_MARKER_1 (SM8350 GPIO 14)",
+            "disabled": "true",
+            "index": 1,
+            "name": "SM8350_GPIO_14",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#6ac6ff",
+            "description": "RCM_MARKER_2 (SM8350 GPIO 27)",
+            "disabled": "true",
+            "index": 2,
+            "name": "SM8350_GPIO_27",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#bde958",
+            "description": "RCM_EXT_TRIGGER (XO_EN using VREG_BB from 'Tokei')",
+            "disabled": "true",
+            "index": 3,
+            "name": "XO_EN",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "Battery",
+            "color": "#00ff00",
+            "description": "",
+            "disabled": "true",
+            "index": 0,
+            "name": "Battery",
+            "resistor_value": 0,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "true",
+            "index": 1,
+            "name": "S5B_VDDMX_AO",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "RF PA",
+            "color": "#3acdcb",
+            "description": "",
+            "disabled": "true",
+            "index": 2,
+            "name": "VPH_RF_BEAMER_QTM",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "display",
+            "color": "#2c7a79",
+            "description": "",
+            "disabled": "true",
+            "index": 3,
+            "name": "OLEDB",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "DDR",
+            "color": "#6a9212",
+            "description": "",
+            "disabled": "true",
+            "index": 4,
+            "name": "S10B_DDR5_VDD1",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "display",
+            "color": "#004a4a",
+            "description": "",
+            "disabled": "true",
+            "index": 5,
+            "name": "ELVDD",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#295800",
+            "description": "",
+            "disabled": "true",
+            "index": 6,
+            "name": "S9B_VDDMX_PC",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "DDR",
+            "color": "#47abff",
+            "description": "",
+            "disabled": "true",
+            "index": 7,
+            "name": "S10C_DDR_VDD2H",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#9fcc3b",
+            "description": "",
+            "disabled": "true",
+            "index": 8,
+            "name": "S6C_7C_VDDCX",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Modem",
+            "color": "#109e9c",
+            "description": "",
+            "disabled": "true",
+            "index": 9,
+            "name": "S4C_5C_MODEM",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "display",
+            "color": "#005daa",
+            "description": "",
+            "disabled": "true",
+            "index": 10,
+            "name": "L12C_OLEDB_VDDIO",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#437116",
+            "description": "",
+            "disabled": "true",
+            "index": 11,
+            "name": "S8C_9C_VDDMM",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "display",
+            "color": "#046262",
+            "description": "",
+            "disabled": "true",
+            "index": 12,
+            "name": "ELVSS",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM APC",
+            "color": "#002f75",
+            "description": "",
+            "disabled": "true",
+            "index": 13,
+            "name": "S1B_APC0",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM GFX",
+            "color": "#003434",
+            "description": "",
+            "disabled": "true",
+            "index": 14,
+            "name": "S6B_7B_8B_GFX",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM APC",
+            "color": "#104100",
+            "description": "",
+            "disabled": "true",
+            "index": 15,
+            "name": "S2B_3B_4B_APC1",
+            "resistor_value": 5,
+            "type": "SPM"
+        }
+    ],
+    "creation_date": "Thu May 7 10:18:14 2020",
+    "description": "QRD8350 using ALPACA",
+    "label": "QRD8350",
+    "modify_date": "Fri Apr 30 09:23:00 2021",
+    "spm_version": 1,
+    "target": "SM8350"
+}

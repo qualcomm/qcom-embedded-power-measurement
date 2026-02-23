@@ -1,0 +1,202 @@
+{
+    "author": "hguastaf@qti.qualcomm.com",
+    "channels": [
+        {
+            "category": "SYSTEM",
+            "color": "#1c91e2",
+            "description": "System 12v input ",
+            "disabled": "false",
+            "index": 0,
+            "name": "EPM_VREG_12P0",
+            "resistor_value": 1,
+            "type": "SPM"
+        },
+        {
+            "category": "SYSTEM",
+            "color": "#1c91e2",
+            "description": "SYSTEM 5V",
+            "disabled": "false",
+            "index": 4,
+            "name": "EPM_VREG_5P0",
+            "resistor_value": 4,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC",
+            "color": "#6ac6ff",
+            "description": "SOC 3.3V",
+            "disabled": "false",
+            "index": 8,
+            "name": "EPM_VREG_3P3_SOC",
+            "resistor_value": 1,
+            "type": "SPM"
+        },
+        {
+            "category": "SYSTEM",
+            "color": "#bde958",
+            "description": "PERIPHERAL 3.3V",
+            "disabled": "false",
+            "index": 12,
+            "name": "EPM_VREG_3P3",
+            "resistor_value": 4,
+            "type": "SPM"
+        },
+        {
+            "category": "SYSTEM",
+            "color": "#bde958",
+            "description": "SYSTEM 1.8V",
+            "disabled": "false",
+            "index": 16,
+            "name": "EPM_VREG_1P8",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC",
+            "color": "#3acdcb",
+            "description": "SoC Main Domain PX3 rail",
+            "disabled": "false",
+            "index": 20,
+            "name": "EPM_VREG_MDPX3",
+            "resistor_value": 50,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC",
+            "color": "#2c7a79",
+            "description": "SoC SAIL Domain PX3 rail",
+            "disabled": "false",
+            "index": 24,
+            "name": "EPM_VREG_SPX3",
+            "resistor_value": 50,
+            "type": "SPM"
+        },
+        {
+            "category": "CAMERA",
+            "color": "#6a9212",
+            "description": "Camera 12V Supply",
+            "disabled": "false",
+            "index": 1,
+            "name": "VREG_MAX_POC_12P0",
+            "resistor_value": 40,
+            "type": "SPM"
+        },
+        {
+            "category": "CAMERA",
+            "color": "#004a4a",
+            "description": "Camera Card 3.3V Supply",
+            "disabled": "false",
+            "index": 5,
+            "name": "VREG_CAM_3P3",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "CAMERA",
+            "color": "#295800",
+            "description": "Camera Card 1.8V Supply",
+            "disabled": "false",
+            "index": 9,
+            "name": "VREG_CAM_1P8",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "CAMERA",
+            "color": "#47abff",
+            "description": "Camera Card FPGA 1.0V Supply",
+            "disabled": "false",
+            "index": 13,
+            "name": "VREG_FPGA_1P0",
+            "resistor_value": 50,
+            "type": "SPM"
+        },
+        {
+            "category": "CAMERA",
+            "color": "#9fcc3b",
+            "description": "Camera Card FPGA 1.8V Supply",
+            "disabled": "false",
+            "index": 17,
+            "name": "VREG_FPGA_1P8",
+            "resistor_value": 200,
+            "type": "SPM"
+        },
+        {
+            "category": "PCIE",
+            "color": "#109e9c",
+            "description": "PCIE 12V Supply",
+            "disabled": "false",
+            "index": 2,
+            "name": "VREG_PCIE_12P0",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "PCIE",
+            "color": "#005daa",
+            "description": "PCIE 3.3V Supply",
+            "disabled": "false",
+            "index": 6,
+            "name": "VREG_PCIE_3P3",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "WLBT",
+            "color": "#437116",
+            "description": "WLBT 5.0V",
+            "disabled": "false",
+            "index": 10,
+            "name": "VREG_5P0_WLBT",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "ENET",
+            "color": "#046262",
+            "description": "ENET 3.3V",
+            "disabled": "false",
+            "index": 7,
+            "name": "VREG_ENET_3P3",
+            "resistor_value": 200,
+            "type": "SPM"
+        },
+        {
+            "category": "ENET",
+            "color": "#002f75",
+            "description": "ENET 5V Supply",
+            "disabled": "false",
+            "index": 11,
+            "name": "VREG_ENET_5P0",
+            "resistor_value": 100,
+            "type": "SPM"
+        },
+        {
+            "category": "DISPLAY",
+            "color": "#1c91e2",
+            "description": "Display 3.3V",
+            "disabled": "false",
+            "index": 28,
+            "name": "VREG_VIDEO_IN_3P3",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "DISPLAY",
+            "color": "#6ac6ff",
+            "description": "Display 1.8V",
+            "disabled": "false",
+            "index": 32,
+            "name": "VREG_VIDEO_IN_1P8",
+            "resistor_value": 100,
+            "type": "SPM"
+        }
+    ],
+    "creation_date": "Tue May 2 15:31:16 2022",
+    "description": "version 0.2",
+    "epm_version": "Alpaca 3.4.1",
+    "label": "Ride 4 SX",
+    "modify_date": "Tue May 2 10:43:59 2022",
+    "spm_version": 2,
+    "target": "SA8650"
+}

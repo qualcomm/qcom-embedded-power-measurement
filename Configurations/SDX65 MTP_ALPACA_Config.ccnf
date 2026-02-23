@@ -1,0 +1,431 @@
+{
+    "author": "Mai Pham",
+    "channels": [
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#1c91e2",
+            "description": "RCM_MARKER1 (SDX65_GPIO_65)",
+            "disabled": "true",
+            "index": 1,
+            "name": "SDX65_GPIO_65",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#6ac6ff",
+            "description": "RCM_MARKER2 (SDX65_GPIO_66)",
+            "disabled": "true",
+            "index": 2,
+            "name": "SDX65_GPIO_66",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#bde958",
+            "description": "PMX65_RCM_MARKER3 PMX_AOSS_SLEEP",
+            "disabled": "true",
+            "index": 3,
+            "name": "PMX65_GPIO_16",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "BATTERY",
+            "color": "#00ff00",
+            "description": "Battery power measured on the debug board",
+            "disabled": "true",
+            "index": 0,
+            "name": "BATTERY",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "SDX POWER",
+            "color": "#2c7a79",
+            "description": "SDX CX",
+            "disabled": "true",
+            "index": 1,
+            "name": "VREG_S5BM_CX_0P752\n",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "SDX POWER",
+            "color": "#6a9212",
+            "description": "SDX MX",
+            "disabled": "true",
+            "index": 2,
+            "name": "VREG_L19BM_MX_0P752\n",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "SDX POWER",
+            "color": "#004a4a",
+            "description": "SDX MODEM",
+            "disabled": "true",
+            "index": 3,
+            "name": "VREG_S1_S6BM_MODEM_0P752\n",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "CASTER POWER",
+            "color": "#295800",
+            "description": "CASTER 1P8",
+            "disabled": "true",
+            "index": 4,
+            "name": "VREG_L5BM_SMR_1P8\n",
+            "resistor_value": 301,
+            "type": "SPM"
+        },
+        {
+            "category": "SDX POWER",
+            "color": "#47abff",
+            "description": "SDX PCIE",
+            "disabled": "true",
+            "index": 5,
+            "name": "VREG_L1BM_BB_1P2\n",
+            "resistor_value": 100,
+            "type": "SPM"
+        },
+        {
+            "category": "RF POWER",
+            "color": "#9fcc3b",
+            "description": "SDR 0,1 AM",
+            "disabled": "true",
+            "index": 6,
+            "name": "VREG_L1BM_RF_1P2\n",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "RF POWER",
+            "color": "#109e9c",
+            "description": "SDR 0,1 CX",
+            "disabled": "true",
+            "index": 7,
+            "name": "VREG_L3BM_0P8\n",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "SDX POWER",
+            "color": "#005daa",
+            "description": "SDX_USB PCIE",
+            "disabled": "true",
+            "index": 8,
+            "name": "VREG_L4BM_BB_0P9\n",
+            "resistor_value": 25,
+            "type": "SPM"
+        },
+        {
+            "category": "SDX POWER",
+            "color": "#437116",
+            "description": "SDX QLINK 0,2",
+            "disabled": "true",
+            "index": 9,
+            "name": "VREG_L4BM_SDX_QLINK0_2_0P9\n",
+            "resistor_value": 50,
+            "type": "SPM"
+        },
+        {
+            "category": "RF POWER",
+            "color": "#046262",
+            "description": "SDR QPM, QDM,QLN AH",
+            "disabled": "true",
+            "index": 10,
+            "name": "VREG_L5BM_RF_1P8\n",
+            "resistor_value": 25,
+            "type": "SPM"
+        },
+        {
+            "category": "SDX POWER",
+            "color": "#002f75",
+            "description": "SDX 1P8",
+            "disabled": "true",
+            "index": 11,
+            "name": "VREG_L6BM_BB_1P8\n",
+            "resistor_value": 100,
+            "type": "SPM"
+        },
+        {
+            "category": "RF POWER",
+            "color": "#003434",
+            "description": "SDR_QET,QPA,QDM,QLN, SMR_PX",
+            "disabled": "true",
+            "index": 12,
+            "name": "VREG_L6BM_RF_1P8\n",
+            "resistor_value": 200,
+            "type": "SPM"
+        },
+        {
+            "category": "SDX POWER",
+            "color": "#104100",
+            "description": "SDX65 NAV_VDD",
+            "disabled": "true",
+            "index": 13,
+            "name": "VREG_L4BM_NAV_0P9\n",
+            "resistor_value": 100,
+            "type": "SPM"
+        },
+        {
+            "category": "RF POWER",
+            "color": "#d4b217",
+            "description": "SDR 0,1 AL",
+            "disabled": "true",
+            "index": 14,
+            "name": "VREG_L8BM_0P8\n",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "CASTER",
+            "color": "#917a13",
+            "description": "SMR AL",
+            "disabled": "true",
+            "index": 15,
+            "name": "VREG_L9BM_0P8\n",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "CASTER",
+            "color": "#fed51a",
+            "description": "SMR AM",
+            "disabled": "true",
+            "index": 16,
+            "name": "VREG_L12BM_1P2\n",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "RF POWER",
+            "color": "#b39715",
+            "description": "SDR 0,1 AH",
+            "disabled": "true",
+            "index": 17,
+            "name": "VREG_L16BM_1P8\n",
+            "resistor_value": 40,
+            "type": "SPM"
+        },
+        {
+            "category": "PMX65",
+            "color": "#6f9715",
+            "description": "PMX65_VPH_PWR",
+            "disabled": "true",
+            "index": 18,
+            "name": "VPH_PWR_PMX\n",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "APQ",
+            "color": "#f7921e",
+            "description": "APQ VPH_PWR",
+            "disabled": "true",
+            "index": 19,
+            "name": "VPH_PWR_AP\n",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "RF POWER",
+            "color": "#ca791d",
+            "description": "RF_0_VPH",
+            "disabled": "true",
+            "index": 20,
+            "name": "VPH_PWR_RF_0",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "RF POWER",
+            "color": "#a46217",
+            "description": "RF_1_VPH",
+            "disabled": "true",
+            "index": 21,
+            "name": "VPH_PWR_RF_1\n",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "QTM",
+            "color": "#7a4910",
+            "description": "QTM_0_VPH",
+            "disabled": "true",
+            "index": 22,
+            "name": "VPH_PWR_QTM0\n",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "QTM",
+            "color": "#e42329",
+            "description": "QTM_1_ VPH",
+            "disabled": "true",
+            "index": 23,
+            "name": "VPH_PWR_QTM1",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "QTM",
+            "color": "#ac0005",
+            "description": "QTM_0_S4",
+            "disabled": "true",
+            "index": 24,
+            "name": "VREG_S4E_QTM0\n",
+            "resistor_value": 100,
+            "type": "SPM"
+        },
+        {
+            "category": "QTM",
+            "color": "#de00de",
+            "description": "QTM_1_S4",
+            "disabled": "true",
+            "index": 25,
+            "name": "VREG_S4BM_QTM1\n",
+            "resistor_value": 100,
+            "type": "SPM"
+        },
+        {
+            "category": "QTM",
+            "color": "#830083",
+            "description": "QTM_2_VPH",
+            "disabled": "true",
+            "index": 26,
+            "name": "VPH_PWR_QTM2\n",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "QTM",
+            "color": "#502f0a",
+            "description": "QTM_2_S4",
+            "disabled": "true",
+            "index": 27,
+            "name": "VREG_S4BM_QTM2\n",
+            "resistor_value": 100,
+            "type": "SPM"
+        },
+        {
+            "category": "QTM",
+            "color": "#740004",
+            "description": "QTM_3_VPH",
+            "disabled": "true",
+            "index": 28,
+            "name": "VPH_PWR_QTM3\n",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "QTM",
+            "color": "#460046",
+            "description": "QTM_3_S4",
+            "disabled": "true",
+            "index": 29,
+            "name": "VREG_S4BM_QTM3",
+            "resistor_value": 100,
+            "type": "SPM"
+        },
+        {
+            "category": "SDX POWER",
+            "color": "#1c91e2",
+            "description": "SDX MXC",
+            "disabled": "true",
+            "index": 30,
+            "name": "VREG_L7BM_MXC_0P752",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "CASTER",
+            "color": "#6ac6ff",
+            "description": "SMR CX",
+            "disabled": "true",
+            "index": 31,
+            "name": "VREG_L17BM_SMR_0P8",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "SDX POWER",
+            "color": "#bde958",
+            "description": "SDX PX 1P2",
+            "disabled": "true",
+            "index": 32,
+            "name": "VREG_L15BM_1P2",
+            "resistor_value": 25,
+            "type": "SPM"
+        },
+        {
+            "category": "SDX POWER",
+            "color": "#bde958",
+            "description": "SDX_QLINK0,1,2_1P2",
+            "disabled": "true",
+            "index": 33,
+            "name": "VREG_L1BM_SDX_QLINK_1P2",
+            "resistor_value": 301,
+            "type": "SPM"
+        },
+        {
+            "category": "SDX POWER",
+            "color": "#3acdcb",
+            "description": "SDX_QLINK1_0P9",
+            "disabled": "true",
+            "index": 34,
+            "name": "VREG_L21BM_SDX_QLINK1_0P9",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "RF POWER",
+            "color": "#2c7a79",
+            "description": "SDR_QPHY1 and QPHY0",
+            "disabled": "true",
+            "index": 35,
+            "name": "VREG_L20BM_0P9",
+            "resistor_value": 25,
+            "type": "SPM"
+        },
+        {
+            "category": "CASTER",
+            "color": "#6a9212",
+            "description": "SMR MX",
+            "disabled": "true",
+            "index": 36,
+            "name": "VREG_L21BM_SMR_MX_0P912",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "CASTER",
+            "color": "#004a4a",
+            "description": "SMR PHY",
+            "disabled": "true",
+            "index": 37,
+            "name": "VREG_L21BM_SMR_PHY_0P912",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "RF POWER",
+            "color": "#295800",
+            "description": "SDR 0,1 MX",
+            "disabled": "true",
+            "index": 38,
+            "name": "VREG_L4BM_RF_0P9",
+            "resistor_value": 25,
+            "type": "SPM"
+        }
+    ],
+    "creation_date": "Sun Apr 18 11:58:02 2021",
+    "description": "SDX65M MTP",
+    "label": "MTP65",
+    "modify_date": "Fri Apr 30 09:23:23 2021",
+    "spm_version": 1,
+    "target": "SDX65M"
+}

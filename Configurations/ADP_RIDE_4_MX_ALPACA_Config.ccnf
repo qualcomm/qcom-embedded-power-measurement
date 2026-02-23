@@ -1,0 +1,272 @@
+{
+    "author": "Derrick Ow",
+    "channels": [
+        {
+            "category": "Platform",
+            "color": "#bde958",
+            "description": "Platform 12.0V",
+            "disabled": "false",
+            "index": 0,
+            "name": "VREG_12P0",
+            "resistor_value": 1,
+            "type": "SPM"
+        },
+        {
+            "category": "Platform",
+            "color": "#3acdcb",
+            "description": "Platform 5.0V",
+            "disabled": "false",
+            "index": 4,
+            "name": "VREG_5P0",
+            "resistor_value": 4,
+            "type": "SPM"
+        },
+        {
+            "category": "Platform",
+            "color": "#2c7a79",
+            "description": "Platform 3.3V",
+            "disabled": "false",
+            "index": 8,
+            "name": "VREG_3P3",
+            "resistor_value": 4,
+            "type": "SPM"
+        },
+        {
+            "category": "Platform",
+            "color": "#6a9212",
+            "description": "Platform 1.8V",
+            "disabled": "false",
+            "index": 12,
+            "name": "VREG_1P8",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Display_SoC1",
+            "color": "#004a4a",
+            "description": "Display_SoC1 3.3V",
+            "disabled": "false",
+            "index": 28,
+            "name": "DISPLAY_VREG_3P3_SOC1",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "Display_SoC1",
+            "color": "#295800",
+            "description": "Display_SoC1 1.8V",
+            "disabled": "false",
+            "index": 32,
+            "name": "DISPLAY_VREG_1P8_SOC1",
+            "resistor_value": 100,
+            "type": "SPM"
+        },
+        {
+            "category": "Camera",
+            "color": "#47abff",
+            "description": "Camera 12V Supply",
+            "disabled": "false",
+            "index": 1,
+            "name": "VREG_MAX_POC_12P0",
+            "resistor_value": 40,
+            "type": "SPM"
+        },
+        {
+            "category": "Camera",
+            "color": "#9fcc3b",
+            "description": "Camera 3.3V Supply",
+            "disabled": "false",
+            "index": 5,
+            "name": "VREG_CAM_3P3",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Camera",
+            "color": "#109e9c",
+            "description": "Camera 1.8V Supply",
+            "disabled": "false",
+            "index": 9,
+            "name": "VREG_CAM_1P8",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "Camera",
+            "color": "#005daa",
+            "description": "Camera Card 1.0V Supply",
+            "disabled": "false",
+            "index": 13,
+            "name": "VREG_FPGA_1P0",
+            "resistor_value": 50,
+            "type": "SPM"
+        },
+        {
+            "category": "Camera",
+            "color": "#437116",
+            "description": "Camera Card 1.8V Supply",
+            "disabled": "false",
+            "index": 17,
+            "name": "VREG_FPGA_1P8",
+            "resistor_value": 200,
+            "type": "SPM"
+        },
+        {
+            "category": "PCIE",
+            "color": "#046262",
+            "description": "WLBT 12V Supply",
+            "disabled": "false",
+            "index": 14,
+            "name": "VREG_12P0_WLBT",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "PCIE",
+            "color": "#002f75",
+            "description": "PCIE 3.3V Supply",
+            "disabled": "false",
+            "index": 6,
+            "name": "VREG_PCIE_3P3",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "PCIE",
+            "color": "#003434",
+            "description": "WLBT 5.0V Supply",
+            "disabled": "false",
+            "index": 10,
+            "name": "VREG_5P0_WLBT",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "PCIE",
+            "color": "#104100",
+            "description": "PCIE 12.0V Supply",
+            "disabled": "false",
+            "index": 2,
+            "name": "VREG_12P0_PCIE",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Display_SoC2",
+            "color": "#d4b217",
+            "description": "Display_SoC2 3.3V",
+            "disabled": "false",
+            "index": 30,
+            "name": "DISPLAY_VREG_3P3_SOC2",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "Display_SoC2",
+            "color": "#917a13",
+            "description": "Display_SoC2 1.8V",
+            "disabled": "false",
+            "index": 34,
+            "name": "DISPLAY_VREG_1P8_SOC2",
+            "resistor_value": 100,
+            "type": "SPM"
+        },
+        {
+            "category": "Ethernet",
+            "color": "#fed51a",
+            "description": "Ethernet 3.3V Supply",
+            "disabled": "false",
+            "index": 7,
+            "name": "VREG_ETH_3P3",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "Qranium",
+            "color": "#b39715",
+            "description": "Qranium1 12.0V Supply",
+            "disabled": "false",
+            "index": 35,
+            "name": "VIN_QAM1_12P0",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "Qranium",
+            "color": "#6f9715",
+            "description": "Qranium2 12.0V Supply",
+            "disabled": "false",
+            "index": 39,
+            "name": "VIN_QAM2_12P0",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "SoC1",
+            "color": "#f7921e",
+            "description": "SoC1 3.3V Supply",
+            "disabled": "false",
+            "index": 43,
+            "name": "VREG_S1_3P3",
+            "resistor_value": 1,
+            "type": "SPM"
+        },
+        {
+            "category": "SoC1",
+            "color": "#ca791d",
+            "description": "SoC1 SPX3 1.8V Supply",
+            "disabled": "false",
+            "index": 47,
+            "name": "VREG_S1_SPX3_1P8",
+            "resistor_value": 50,
+            "type": "SPM"
+        },
+        {
+            "category": "SoC1",
+            "color": "#a46217",
+            "description": "SoC1 MDPX3 1.8V Supply",
+            "disabled": "false",
+            "index": 51,
+            "name": "VREG_S1_MDPX3_1P8",
+            "resistor_value": 50,
+            "type": "SPM"
+        },
+        {
+            "category": "SoC2",
+            "color": "#7a4910",
+            "description": "SoC2 3.3V Supply",
+            "disabled": "false",
+            "index": 55,
+            "name": "VREG_S2_3P3",
+            "resistor_value": 1,
+            "type": "SPM"
+        },
+        {
+            "category": "SoC2",
+            "color": "#e42329",
+            "description": "SoC2 SPX3 1.8V Supply",
+            "disabled": "false",
+            "index": 59,
+            "name": "VREG_S2_SPX3_1P8",
+            "resistor_value": 50,
+            "type": "SPM"
+        },
+        {
+            "category": "SoC2",
+            "color": "#ac0005",
+            "description": "SoC2 MDPX3 1.8V Supply",
+            "disabled": "false",
+            "index": 63,
+            "name": "VREG_S2_MDPX3_1P8",
+            "resistor_value": 50,
+            "type": "SPM"
+        }
+    ],
+    "creation_date": "Wed Oct 19 17:52:36 2022",
+    "description": "ADP_RIDE_4_MX",
+    "epm_version": "Alpaca 3.4.5",
+    "label": "10-32761",
+    "modify_date": "Tue May 2 11:53:09 2022",
+    "spm_version": 1,
+    "target": "SA8650"
+}

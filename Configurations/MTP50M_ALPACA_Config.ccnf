@@ -1,0 +1,311 @@
+{
+    "author": "",
+    "channels": [
+        {
+            "category": "GPIO Channels",
+            "color": "#1c91e2",
+            "description": "MARKER 1 (MSM8998 GPIO90) - CTI_TRIG_OUT",
+            "disabled": "true",
+            "index": 1,
+            "name": "MARKER 1 (MSM8998 GPIO90)",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO Channels",
+            "color": "#6ac6ff",
+            "description": "MARKER 2 (MSM8998 GPIO76)",
+            "disabled": "true",
+            "index": 2,
+            "name": "MARKER 2 (MSM8998 GPIO76)",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO Channels",
+            "color": "#bde958",
+            "description": "XO enable signal",
+            "disabled": "true",
+            "index": 3,
+            "name": "MSM XO enable signal",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "Battery",
+            "color": "#4cff4c",
+            "description": "Battery Power",
+            "disabled": "true",
+            "index": 1,
+            "name": "VBATT_CONN",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "Modem",
+            "color": "#bde958",
+            "description": "SDX50 Modem (PM8005)",
+            "disabled": "true",
+            "index": 2,
+            "name": "RCM_S1MC_S4MC_0P75",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "Modem",
+            "color": "#3acdcb",
+            "description": "MSM8998 Modem; S2",
+            "disabled": "true",
+            "index": 3,
+            "name": "VDD_MODEM_RCM",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "Memory",
+            "color": "#2c7a79",
+            "description": "SDX50 MX  (PM8005)",
+            "disabled": "true",
+            "index": 4,
+            "name": "RCM_S3MC_0P8",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "CPU",
+            "color": "#6a9212",
+            "description": "MSM8998 KYRO GOLD; S11/S12/S13",
+            "disabled": "true",
+            "index": 5,
+            "name": "VDD_GOLD_APC1_RCM",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "Core/System",
+            "color": "#004a4a",
+            "description": "SDX50M CX",
+            "disabled": "true",
+            "index": 6,
+            "name": "RCM_S5M_0P75",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "System",
+            "color": "#295800",
+            "description": "SDX50  Subregulate L4; L1_L2",
+            "disabled": "true",
+            "index": 7,
+            "name": "RCM_S2M_1P22",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "System",
+            "color": "#47abff",
+            "description": "SDX50 Subregulate L9, L3_L8 ",
+            "disabled": "true",
+            "index": 8,
+            "name": "RCM_S3M_0P9",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "Memory",
+            "color": "#9fcc3b",
+            "description": "MSM8998 PX3/VDD1; S4",
+            "disabled": "true",
+            "index": 9,
+            "name": "LPDDR_VDD1_PX3_RCM",
+            "resistor_value": 100,
+            "type": "RCM"
+        },
+        {
+            "category": "System",
+            "color": "#109e9c",
+            "description": "SDX50 Subregulate L5_L6;XO_RF",
+            "disabled": "true",
+            "index": 10,
+            "name": "RCM_S4M_1P85",
+            "resistor_value": 25,
+            "type": "RCM"
+        },
+        {
+            "category": "RF",
+            "color": "#005daa",
+            "description": "SDX50 Phaser 0",
+            "disabled": "true",
+            "index": 11,
+            "name": "VPH_PHASER0_RCM",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "RF",
+            "color": "#437116",
+            "description": "SDX50 Phaser1",
+            "disabled": "true",
+            "index": 12,
+            "name": "VPH_PHASER1_RCM",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "Memory",
+            "color": "#046262",
+            "description": "SDX50 EBIX",
+            "disabled": "true",
+            "index": 13,
+            "name": "RCM_L3M_0P8",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "System",
+            "color": "#002f75",
+            "description": "SDX50 Analog for SS_HS USB, PCIE, PLL",
+            "disabled": "true",
+            "index": 14,
+            "name": "RCM_L4M_0P87",
+            "resistor_value": 50,
+            "type": "RCM"
+        },
+        {
+            "category": "Memory",
+            "color": "#003434",
+            "description": "MSM8998 LPDDR4_VDDQ; EBIX (PM8005)",
+            "disabled": "true",
+            "index": 15,
+            "name": "S3C_0P6_RCM",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "Battery",
+            "color": "#104100",
+            "description": "Battery Power",
+            "disabled": "true",
+            "index": 16,
+            "name": "RCM_VBATT_SENSE",
+            "resistor_value": 0,
+            "type": "RCM"
+        },
+        {
+            "category": "Core/System",
+            "color": "#d4b217",
+            "description": "MSM8998 CX; S1/S6",
+            "disabled": "true",
+            "index": 17,
+            "name": "VDDCX_RCM",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "System",
+            "color": "#917a13",
+            "description": "SDX50 PX3, PX7, eMMC, LPDDR4(VDD1)",
+            "disabled": "true",
+            "index": 18,
+            "name": "RCM_L6M_1P8",
+            "resistor_value": 40,
+            "type": "RCM"
+        },
+        {
+            "category": "Memory",
+            "color": "#fed51a",
+            "description": "MSM8998 LPDDR4x VDD2",
+            "disabled": "true",
+            "index": 19,
+            "name": "S2A_1P125_RCM",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "Graphics",
+            "color": "#b39715",
+            "description": "MSM8998 PM8005 S1C/S4C",
+            "disabled": "true",
+            "index": 20,
+            "name": "VDD_GFX_RCM",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "RF",
+            "color": "#6f9715",
+            "description": "SDX50 SDR052 (5G IFIC)",
+            "disabled": "true",
+            "index": 21,
+            "name": "RCM_L8M_0P8",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "System",
+            "color": "#f7921e",
+            "description": "SDX50  HSUSB, DAC, CXO, SDR052",
+            "disabled": "true",
+            "index": 22,
+            "name": "RCM_L5M_1P8",
+            "resistor_value": 200,
+            "type": "RCM"
+        },
+        {
+            "category": "RF",
+            "color": "#ca791d",
+            "description": "MSM8998 L3A",
+            "disabled": "true",
+            "index": 23,
+            "name": "WTR_VDDA_RCM",
+            "resistor_value": 50,
+            "type": "RCM"
+        },
+        {
+            "category": "RF",
+            "color": "#a46217",
+            "description": "MSM8998  S4A",
+            "disabled": "true",
+            "index": 24,
+            "name": "V_RF_1P8_RCM",
+            "resistor_value": 300,
+            "type": "RCM"
+        },
+        {
+            "category": "RF",
+            "color": "#7a4910",
+            "description": "MSM8998",
+            "disabled": "true",
+            "index": 25,
+            "name": "VPH_PWR_RF_RCM_CONN",
+            "resistor_value": 50,
+            "type": "RCM"
+        },
+        {
+            "category": "CPU",
+            "color": "#e42329",
+            "description": "MSM8998 KYRO SILVER; S10",
+            "disabled": "true",
+            "index": 26,
+            "name": "VDD_SILVER_APC0_RCM",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "Memory",
+            "color": "#ac0005",
+            "description": "MSM8998 MX, S9",
+            "disabled": "true",
+            "index": 27,
+            "name": "VDDMX_MSM_RCM",
+            "resistor_value": 10,
+            "type": "RCM"
+        }
+    ],
+    "creation_date": "",
+    "description": "MTP50M using ALPACA",
+    "label": "MTP50M using ALPACA",
+    "modify_date": "Fri Apr 30 09:19:12 2021",
+    "spm_version": 0,
+    "target": "SDX50M"
+}

@@ -1,0 +1,212 @@
+{
+    "author": "vgoldenf",
+    "channels": [
+        {
+            "category": "Battery",
+            "color": "#ff0000",
+            "description": "100-92918-R002",
+            "disabled": "false",
+            "index": 1,
+            "name": "RCM_CH1_VBATT",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "DDR",
+            "color": "#aa0000",
+            "description": "100-98256-ES02",
+            "disabled": "false",
+            "index": 2,
+            "name": "RCM_CH2_VDD2H_0",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "DDR",
+            "color": "#005500",
+            "description": "100-98256-ES02",
+            "disabled": "false",
+            "index": 3,
+            "name": "RCM_CH3_VDD2H_1",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#aa5500",
+            "description": "100-91652-R005",
+            "disabled": "false",
+            "index": 4,
+            "name": "RCM_CH4_APC0_MX",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#00aa00",
+            "description": "100-91652-R005",
+            "disabled": "false",
+            "index": 5,
+            "name": "RCM_CH5_APC1_MX",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#aaaa00",
+            "description": "100-92918-R002",
+            "disabled": "false",
+            "index": 6,
+            "name": "RCM_CH6_NSP1",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#00ff00",
+            "description": "100-92918-R002",
+            "disabled": "false",
+            "index": 7,
+            "name": "RCM_CH7_NSP2",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#aaff00",
+            "description": "100-91652-R010",
+            "disabled": "false",
+            "index": 8,
+            "name": "RCM_CH8_MX_A",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#00007f",
+            "description": "100-92918-R002",
+            "disabled": "false",
+            "index": 9,
+            "name": "RCM_CH9_MX_C",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#aa007f",
+            "description": "100-91652-R005",
+            "disabled": "false",
+            "index": 10,
+            "name": "RCM_CH10_GFX_MXC",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "VPH",
+            "color": "#00557f",
+            "description": "100-92918-R002",
+            "disabled": "false",
+            "index": 11,
+            "name": "RCM_CH11_VPH_PWR",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#aa557f",
+            "description": "100-92918-R002",
+            "disabled": "false",
+            "index": 12,
+            "name": "RCM_CH12_MM",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#00aa7f",
+            "description": "100-94680-R005",
+            "disabled": "false",
+            "index": 13,
+            "name": "RCM_CH13_CX",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#aaaa7f",
+            "description": "100-98256-ES00",
+            "disabled": "false",
+            "index": 14,
+            "name": "RCM_CH14_GFX",
+            "resistor_value": 1,
+            "type": "SPM"
+        },
+        {
+            "category": "WLAN",
+            "color": "#00ff7f",
+            "description": "100-91652-R100",
+            "disabled": "false",
+            "index": 15,
+            "name": "RCM_CH15_BOB_WLAN",
+            "resistor_value": 100,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#aaff7f",
+            "description": "100-91652-R005",
+            "disabled": "false",
+            "index": 16,
+            "name": "RCM_CH16_LPI_MX",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#0000ff",
+            "description": "100-94680-R010",
+            "disabled": "false",
+            "index": 17,
+            "name": "RCM_CH17_LPI_CX",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "RF Power",
+            "color": "#aa00ff",
+            "description": "100-92918-R002",
+            "disabled": "false",
+            "index": 18,
+            "name": "RCM_CH18_VPH_PWR_RF",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "RF Power",
+            "color": "#0055ff",
+            "description": "100-91652-R040",
+            "disabled": "false",
+            "index": 19,
+            "name": "RCM_CH19_VPH_PWR_QTM0_2",
+            "resistor_value": 40,
+            "type": "SPM"
+        },
+        {
+            "category": "RF Power",
+            "color": "#917a13",
+            "description": "100-91652-R040",
+            "disabled": "false",
+            "index": 20,
+            "name": "RCM_CH20_VPH_PWR_QTM1",
+            "resistor_value": 40,
+            "type": "SPM"
+        }
+    ],
+    "creation_date": "Wed Nov 6 19:08:29 2024",
+    "description": "Kaanapali MTP8850 using ALPACA Rev.C",
+    "epm_version": "QEPM 5.6.3",
+    "label": "MTP8850 Kaanapali using ALPACA",
+    "modify_date": "Thu Jul 17 11:11:32 2025",
+    "spm_version": 1,
+    "target": "SM8850"
+}

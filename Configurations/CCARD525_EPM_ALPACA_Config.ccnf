@@ -1,0 +1,292 @@
+{
+    "author": "Sam Hendrix <shendrix@qti.qualcomm.com>",
+    "channels": [
+        {
+            "category": "AON",
+            "color": "#",
+            "description": "1.8V AON",
+            "disabled": "false",
+            "index": 1,
+            "name": "VREG_1P8_AON",
+            "resistor_value": 100,
+            "type": "SPM"
+        },
+        {
+            "category": "WLAN",
+            "color": "#",
+            "description": "3.3V WLAN",
+            "disabled": "false",
+            "index": 5,
+            "name": "VREG_WLAN_3P3_RCM",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "NETWORK",
+            "color": "#",
+            "description": "0.7V NETWORK",
+            "disabled": "false",
+            "index": 9,
+            "name": "VREG_NETWORK_0P7",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "NETWORK",
+            "color": "#",
+            "description": "3.0V NETWORK",
+            "disabled": "false",
+            "index": 13,
+            "name": "VREG_NETWORK_3P0",
+            "resistor_value": 100,
+            "type": "SPM"
+        },
+        {
+            "category": "DSRC",
+            "color": "#",
+            "description": "5.0V DSRC",
+            "disabled": "false",
+            "index": 17,
+            "name": "VREG_DSRC_5P0",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "EAP",
+            "color": "#",
+            "description": "3.3V EAP",
+            "disabled": "false",
+            "index": 21,
+            "name": "VREG_EAP_3P3",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "VBATT",
+            "color": "#",
+            "description": "12.0V VBATT_CAR",
+            "disabled": "false",
+            "index": 25,
+            "name": "VBATT_CAR_12P0",
+            "resistor_value": 1,
+            "type": "SPM"
+        },
+        {
+            "category": "AON",
+            "color": "#",
+            "description": "3.3V AON",
+            "disabled": "false",
+            "index": 2,
+            "name": "VREG_3P3_AON",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "WLAN",
+            "color": "#",
+            "description": "5.0V WLAN",
+            "disabled": "false",
+            "index": 6,
+            "name": "VREG_WLAN_5P0_RCM",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "NETWORK",
+            "color": "#",
+            "description": "1.0V NETWORK",
+            "disabled": "false",
+            "index": 10,
+            "name": "VREG_NETWORK_1P0",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "COMP",
+            "color": "#",
+            "description": "12.0V DTRX COMPENSATOR",
+            "disabled": "false",
+            "index": 14,
+            "name": "VREG_COMP_DTRX_LDSW_12P0",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "DSRC",
+            "color": "#",
+            "description": "3.3V DSRC (LOAD SWITCH)",
+            "disabled": "false",
+            "index": 18,
+            "name": "VREG_LDSW_DSRC_3P3",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "USB",
+            "color": "#",
+            "description": "5.0V USB OTG NAD",
+            "disabled": "false",
+            "index": 22,
+            "name": "USB_OTG_5P0_NAD",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "NAD",
+            "color": "#",
+            "description": "4.0V VREG NAD",
+            "disabled": "false",
+            "index": 26,
+            "name": "VREG_NAD_4P0",
+            "resistor_value": 1,
+            "type": "SPM"
+        },
+        {
+            "category": "AON",
+            "color": "#",
+            "description": "3.3V AON LP",
+            "disabled": "false",
+            "index": 3,
+            "name": "VREG_3P3_LP_AON",
+            "resistor_value": 100,
+            "type": "SPM"
+        },
+        {
+            "category": "WLAN",
+            "color": "#",
+            "description": "1.05V, 1.9V (Default), or 2.2V WLAN IPA",
+            "disabled": "false",
+            "index": 7,
+            "name": "VREG_WLAN_IPA_RCM",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "NETWORK",
+            "color": "#",
+            "description": "1.8V NETWORK",
+            "disabled": "false",
+            "index": 11,
+            "name": "VREG_NETWORK_1P8",
+            "resistor_value": 50,
+            "type": "SPM"
+        },
+        {
+            "category": "COMP",
+            "color": "#",
+            "description": "12.0V COMPENSATOR",
+            "disabled": "false",
+            "index": 15,
+            "name": "VREG_COMP_PTRX_LDSW_12P0",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "SDC",
+            "color": "#",
+            "description": "1.8V, or 2.85V SD Card",
+            "disabled": "false",
+            "index": 19,
+            "name": "VREG_SDC_1P8_2P85",
+            "resistor_value": 100,
+            "type": "SPM"
+        },
+        {
+            "category": "EAP",
+            "color": "#",
+            "description": "5.0V EAP",
+            "disabled": "false",
+            "index": 23,
+            "name": "USB_OTG_5P0_EAP",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "CDC",
+            "color": "#",
+            "description": "5.0V CDC",
+            "disabled": "false",
+            "index": 27,
+            "name": "VREG_CDC_5P0",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "AON",
+            "color": "#",
+            "description": "5.0V AON",
+            "disabled": "false",
+            "index": 4,
+            "name": "VREG_5P0_AON",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "WLAN",
+            "color": "#",
+            "description": "1.05V WLAN",
+            "disabled": "false",
+            "index": 8,
+            "name": "VREG_WLAN_VL2_RCM",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "NETWORK",
+            "color": "#",
+            "description": "2.0V NETWORK",
+            "disabled": "false",
+            "index": 12,
+            "name": "VREG_NETWORK_2P0V",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "COMP",
+            "color": "#",
+            "description": "3.0V COMPENSATOR",
+            "disabled": "false",
+            "index": 16,
+            "name": "VREG_COMP_3P0",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "SDC",
+            "color": "#",
+            "description": "2.95V SD CARD",
+            "disabled": "false",
+            "index": 20,
+            "name": "VREG_NAD_SDC_2P95",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "CALYPSO",
+            "color": "#",
+            "description": "3.3V CALYPSO (LOAD SWITCH)",
+            "disabled": "false",
+            "index": 24,
+            "name": "VREG_LDSW_CAL_3P3",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "CV2X",
+            "color": "#",
+            "description": "5.5V CV2X",
+            "disabled": "false",
+            "index": 28,
+            "name": "VPH_5P5V_CV2X_SOS",
+            "resistor_value": 5,
+            "type": "SPM"
+        }
+    ],
+    "creation_date": "Fri Jul 28 16:49:26 2023",
+    "description": "CCARD525 EPM ",
+    "epm_version": "QEPM 3.7.1",
+    "label": "CCARD525",
+    "modify_date": "Thu Aug 31 17:36:54 2023",
+    "spm_version": 1,
+    "target": "CCARD525"
+}

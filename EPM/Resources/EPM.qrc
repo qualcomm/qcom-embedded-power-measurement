@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>EPM.bmp</file>
+        <file>EPM.png</file>
+        <file>About.txt</file>
+        <file>EPM_BS.png</file>
+        <file>BugWriter.png</file>
+        <file>NotificationBellRing.png</file>
+        <file>NotificationBellSilent.png</file>
+    </qresource>
+</RCC>

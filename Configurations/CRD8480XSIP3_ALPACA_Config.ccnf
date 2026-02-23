@@ -1,0 +1,172 @@
+{
+    "author": "",
+    "channels": [
+        {
+            "category": "PMK_ACTIVE/CXO",
+            "color": "#6ac6ff",
+            "description": "",
+            "disabled": "false",
+            "index": 1,
+            "name": "L3B_E0",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "USB Charger Codec Speaker IO",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "false",
+            "index": 2,
+            "name": "S9F_E0",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "PMIC Power",
+            "color": "#2c7a79",
+            "description": "",
+            "disabled": "false",
+            "index": 3,
+            "name": "VREG_1P8_SYS_B_E0",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "USB Type C Port 0 VBUS/Charger",
+            "color": "#004a4a",
+            "description": "",
+            "disabled": "false",
+            "index": 4,
+            "name": "V_USB_VBUS0_SMB0",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "PCIE/USB/REFGEN/SMB",
+            "color": "#47abff",
+            "description": "",
+            "disabled": "false",
+            "index": 5,
+            "name": "S7F_E0",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Speaker Amp(right channel only)/USB-A port3 VBUS buck",
+            "color": "#109e9c",
+            "description": "",
+            "disabled": "false",
+            "index": 6,
+            "name": "VIN_VSYS_LOADS_E",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "FAN Power",
+            "color": "#00ff00",
+            "description": "",
+            "disabled": "false",
+            "index": 7,
+            "name": "FAN_VCC/DBB_1",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "USB/EDPPHY/CSI/PCIE",
+            "color": "#002f75",
+            "description": "",
+            "disabled": "false",
+            "index": 8,
+            "name": "S8F_E0",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "1P2 DSI/EDP/PCIE/USB",
+            "color": "#104100",
+            "description": "",
+            "disabled": "false",
+            "index": 9,
+            "name": "L4F_E1",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "EDP_PHY",
+            "color": "#917a13",
+            "description": "",
+            "disabled": "false",
+            "index": 10,
+            "name": "L2F_E1",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Keyboard Backlight/LOGO LED",
+            "color": "#b39715",
+            "description": "",
+            "disabled": "false",
+            "index": 11,
+            "name": "DBU5_5",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "PMIC CBOOST",
+            "color": "#f7921e",
+            "description": "",
+            "disabled": "false",
+            "index": 12,
+            "name": "CBOOST_B_E0",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "PX(Display/PCIE/..)",
+            "color": "#a46217",
+            "description": "",
+            "disabled": "false",
+            "index": 13,
+            "name": "L11B_E0",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Touch Pad / Trackpad / Touch Panel/ Fingerprint",
+            "color": "#e42329",
+            "description": "",
+            "disabled": "false",
+            "index": 14,
+            "name": "SW_13",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Sensors Accelerometer/ALS/MAG",
+            "color": "#de00de",
+            "description": "",
+            "disabled": "false",
+            "index": 15,
+            "name": "L10B_E0",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "IR LED and RGB LED",
+            "color": "#502f0a",
+            "description": "",
+            "disabled": "false",
+            "index": 16,
+            "name": "BOB1_FLASH_RGB",
+            "resistor_value": 10,
+            "type": "SPM"
+        }
+    ],
+    "creation_date": "Tue Dec 17 16:38:19 2024",
+    "description": "CRD8480XSIP3 using ALPACA",
+    "epm_version": "QEPM 4.0.5",
+    "label": "CRD8480XSIP3",
+    "modify_date": "Tue Dec 17 16:38:42 2024",
+    "spm_version": 1,
+    "target": "CRD8480XSIP3"
+}

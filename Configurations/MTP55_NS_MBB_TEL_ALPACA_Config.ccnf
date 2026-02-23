@@ -1,0 +1,451 @@
+{
+    "author": "",
+    "channels": [
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#1c91e2",
+            "description": "RCM_MARKER1 (SDX55 GPIO 94)",
+            "disabled": "true",
+            "index": 1,
+            "name": "SDX55_GPIO_94",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#6ac6ff",
+            "description": "RCM_MARKER2 (AOSS sleep indicator - PMX55 GPIO 11)",
+            "disabled": "true",
+            "index": 2,
+            "name": "AOSS_SLEEP_IND",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#bde958",
+            "description": "EXT_TRIGGER_RCM (XO shutdown indicator - PMX55 GPIO 3)",
+            "disabled": "true",
+            "index": 3,
+            "name": "XO_SHUTDOWN_IND",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#bde958",
+            "description": "Internal USB0 disconnect signal",
+            "disabled": "true",
+            "index": 4,
+            "name": "TAC_USB0_DIS",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#3acdcb",
+            "description": "Internal low current mode enable signal",
+            "disabled": "true",
+            "index": 5,
+            "name": "LOW_CURRENT_MODE_EN",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "BATTERY",
+            "color": "#00ff00",
+            "description": "Battery power measured on the debug board",
+            "disabled": "true",
+            "index": 0,
+            "name": "BATTERY",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "BATTERY",
+            "color": "#2c7a79",
+            "description": "",
+            "disabled": "true",
+            "index": 1,
+            "name": "BATTERY_BB",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MODEM",
+            "color": "#6a9212",
+            "description": "",
+            "disabled": "true",
+            "index": 2,
+            "name": "VREG_S1E_S6E_MODEM_0P752",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MODEM",
+            "color": "#004a4a",
+            "description": "",
+            "disabled": "true",
+            "index": 3,
+            "name": "VREG_S5E_CX_0P752",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MODEM",
+            "color": "#295800",
+            "description": "",
+            "disabled": "true",
+            "index": 4,
+            "name": "VREG_S7E_MX_0P752",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "PMIC, WLAN",
+            "color": "#47abff",
+            "description": "",
+            "disabled": "true",
+            "index": 5,
+            "name": "VREG_S2E_1P224",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "PMIC, WLAN,MODEM",
+            "color": "#9fcc3b",
+            "description": "",
+            "disabled": "true",
+            "index": 6,
+            "name": "VREG_S3E_0P824",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "ALL",
+            "color": "#109e9c",
+            "description": "",
+            "disabled": "true",
+            "index": 7,
+            "name": "VREG_S4E_1P904",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "PCIE",
+            "color": "#005daa",
+            "description": "",
+            "disabled": "true",
+            "index": 8,
+            "name": "VREG_L1E_BB_1P2",
+            "resistor_value": 100,
+            "type": "SPM"
+        },
+        {
+            "category": "RF",
+            "color": "#437116",
+            "description": "",
+            "disabled": "true",
+            "index": 9,
+            "name": "VREG_L1E_RF_1P2",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MEMORY",
+            "color": "#046262",
+            "description": "",
+            "disabled": "true",
+            "index": 10,
+            "name": "VREG_L2E_1P13",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "RF",
+            "color": "#002f75",
+            "description": "",
+            "disabled": "true",
+            "index": 11,
+            "name": "VREG_L3E_0P8",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "USB, QLINK",
+            "color": "#003434",
+            "description": "",
+            "disabled": "true",
+            "index": 12,
+            "name": "VREG_L4E_BB_0P875",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "RF, STREAMER",
+            "color": "#104100",
+            "description": "",
+            "disabled": "true",
+            "index": 13,
+            "name": "VREG_L4E_RF_0P875",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "USB",
+            "color": "#d4b217",
+            "description": "",
+            "disabled": "true",
+            "index": 14,
+            "name": "VREG_L5E_BB_1P7",
+            "resistor_value": 499,
+            "type": "SPM"
+        },
+        {
+            "category": "RF, STREAMER",
+            "color": "#917a13",
+            "description": "",
+            "disabled": "true",
+            "index": 15,
+            "name": "VREG_L5E_RF_1P7",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "ALL BB",
+            "color": "#fed51a",
+            "description": "",
+            "disabled": "true",
+            "index": 16,
+            "name": "VREG_L6E_BB_1P8",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "RF",
+            "color": "#b39715",
+            "description": "",
+            "disabled": "true",
+            "index": 17,
+            "name": "VREG_L6E_RF_1P8",
+            "resistor_value": 100,
+            "type": "SPM"
+        },
+        {
+            "category": "STREAMER",
+            "color": "#6f9715",
+            "description": "",
+            "disabled": "true",
+            "index": 18,
+            "name": "VPH_BMR0",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "STREAMER",
+            "color": "#f7921e",
+            "description": "",
+            "disabled": "true",
+            "index": 19,
+            "name": "VPH_BMR1",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "STREAMER",
+            "color": "#ca791d",
+            "description": "",
+            "disabled": "true",
+            "index": 20,
+            "name": "VPH_BMR2",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "STREAMER",
+            "color": "#a46217",
+            "description": "",
+            "disabled": "true",
+            "index": 21,
+            "name": "VPH_BMR3",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "STREAMER",
+            "color": "#7a4910",
+            "description": "",
+            "disabled": "true",
+            "index": 22,
+            "name": "VREG_S4E_BMR0_1P904",
+            "resistor_value": 100,
+            "type": "SPM"
+        },
+        {
+            "category": "STREAMER",
+            "color": "#e42329",
+            "description": "",
+            "disabled": "true",
+            "index": 23,
+            "name": "VREG_S4E_BMR1_1P904",
+            "resistor_value": 100,
+            "type": "SPM"
+        },
+        {
+            "category": "STREAMER",
+            "color": "#ac0005",
+            "description": "",
+            "disabled": "true",
+            "index": 24,
+            "name": "VREG_S4E_BMR2_1P904",
+            "resistor_value": 100,
+            "type": "SPM"
+        },
+        {
+            "category": "STREAMER",
+            "color": "#de00de",
+            "description": "",
+            "disabled": "true",
+            "index": 25,
+            "name": "VREG_S4E_BMR3_1P904",
+            "resistor_value": 100,
+            "type": "SPM"
+        },
+        {
+            "category": "STREAMER",
+            "color": "#830083",
+            "description": "",
+            "disabled": "true",
+            "index": 28,
+            "name": "VREG_L7E_0P8",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "RF",
+            "color": "#502f0a",
+            "description": "",
+            "disabled": "true",
+            "index": 29,
+            "name": "VREG_L8E_0P8",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "STREAMER",
+            "color": "#740004",
+            "description": "",
+            "disabled": "true",
+            "index": 30,
+            "name": "VREG_L9E_0P8",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "USB",
+            "color": "#460046",
+            "description": "",
+            "disabled": "true",
+            "index": 31,
+            "name": "VREG_L10E_3P1",
+            "resistor_value": 499,
+            "type": "SPM"
+        },
+        {
+            "category": "STREAMER",
+            "color": "#1c91e2",
+            "description": "",
+            "disabled": "true",
+            "index": 32,
+            "name": "VREG_L12E_1P2",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MEMORY",
+            "color": "#6ac6ff",
+            "description": "",
+            "disabled": "true",
+            "index": 33,
+            "name": "VREG_L14E_0P6",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "RF",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "true",
+            "index": 34,
+            "name": "VREG_L15E_1P2",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "RF",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "true",
+            "index": 35,
+            "name": "VREG_L16E_1P8",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "RF",
+            "color": "#3acdcb",
+            "description": "",
+            "disabled": "true",
+            "index": 36,
+            "name": "VPH_PWR_RF",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "DBB1",
+            "color": "#2c7a79",
+            "description": "",
+            "disabled": "true",
+            "index": 37,
+            "name": "VREG_DBB1_3P3",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "ABUG",
+            "color": "#6a9212",
+            "description": "",
+            "disabled": "true",
+            "index": 38,
+            "name": "VPH_BOOST_ABUG",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "PMK8002",
+            "color": "#004a4a",
+            "description": "",
+            "disabled": "true",
+            "index": 39,
+            "name": "PMK_VIO",
+            "resistor_value": 499,
+            "type": "SPM"
+        },
+        {
+            "category": "BATTERY",
+            "color": "#33ff33",
+            "description": "Low current mode battery channel",
+            "disabled": "true",
+            "index": 63,
+            "name": "BATTERY_LCM",
+            "resistor_value": 300,
+            "type": "SPM"
+        }
+    ],
+    "creation_date": "",
+    "description": "MTP55 NS MBB TEL using ALPACA",
+    "label": "MTP55 NS MBB TEL using ALPACA",
+    "modify_date": "Fri Apr 30 09:19:40 2021",
+    "spm_version": 0,
+    "target": "SDX55"
+}

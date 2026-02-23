@@ -1,0 +1,291 @@
+{
+    "author": "",
+    "channels": [
+        {
+            "category": "MSM Core PDN",
+            "color": "#1c91e2",
+            "description": "VDD_GFX",
+            "disabled": "true",
+            "index": 1,
+            "name": "VREG_S1C_S2C_S3C_0P752",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#6ac6ff",
+            "description": "VDD_MODEM",
+            "disabled": "true",
+            "index": 2,
+            "name": "VREG_S8A_0P752",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#bde958",
+            "description": "VDD_GFX",
+            "disabled": "true",
+            "index": 3,
+            "name": "VREG_S3A_0P752",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#bde958",
+            "description": "VDDA_HV_EBI",
+            "disabled": "true",
+            "index": 5,
+            "name": "VREG_L8C_1P2",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#3acdcb",
+            "description": "VDDA_PLL_HV",
+            "disabled": "true",
+            "index": 6,
+            "name": "VREG_L5A_0P88",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#2c7a79",
+            "description": "VDDA_EBI",
+            "disabled": "true",
+            "index": 7,
+            "name": "VREG_L11C_0P8",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#6a9212",
+            "description": "VDDCX_1",
+            "disabled": "true",
+            "index": 8,
+            "name": "VREG_S7C_S8C_S9C_0P752",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#004a4a",
+            "description": "VDDMX_1",
+            "disabled": "true",
+            "index": 9,
+            "name": "VREG_S10C_0P752",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#295800",
+            "description": "VIN_L1A_L8A_L11A_LA3_LA4_LA5_L18_LA6_LA9",
+            "disabled": "true",
+            "index": 10,
+            "name": "VREG_S6A_0P92",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#47abff",
+            "description": "VIN_L7A_L12A_L14A_L15A",
+            "disabled": "true",
+            "index": 11,
+            "name": "VREG_S5A_2P04",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#9fcc3b",
+            "description": "VIN_L1C_L8C_L11C_L3C_L4C_L5C_L18C",
+            "disabled": "true",
+            "index": 12,
+            "name": "VREG_S4C_1P352",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#109e9c",
+            "description": "VIN_L7C_L12C_L14C_L15C",
+            "disabled": "true",
+            "index": 14,
+            "name": "VREG_S5C_2P04",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#005daa",
+            "description": "LPDDR_VDDQ_VDDIO_EBI",
+            "disabled": "true",
+            "index": 15,
+            "name": "VREG_S7A_0P6",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#437116",
+            "description": "LPDDR_VDD1",
+            "disabled": "true",
+            "index": 16,
+            "name": "VREG_S4A_1P8",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#046262",
+            "description": "LPDDR_VDD2_VDDPX_1",
+            "disabled": "true",
+            "index": 17,
+            "name": "VREG_S6C_1P128",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "PCIE",
+            "color": "#002f75",
+            "description": "12V PCIE 0",
+            "disabled": "true",
+            "index": 33,
+            "name": "VREG_12P0_PCIE0_3",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "PCIE",
+            "color": "#003434",
+            "description": "5V PCIE 0",
+            "disabled": "true",
+            "index": 34,
+            "name": "VREG_5P0_PCIE0_3",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "PCIE",
+            "color": "#104100",
+            "description": "3V PCIE 0",
+            "disabled": "true",
+            "index": 35,
+            "name": "VREG_3P3_PCIE0_3",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC MAIN",
+            "color": "#d4b217",
+            "description": "3V SOC MAIN 3P3",
+            "disabled": "true",
+            "index": 36,
+            "name": "VREG_3P3_SOC",
+            "resistor_value": 0.5,
+            "type": "SPM"
+        },
+        {
+            "category": "PCIE",
+            "color": "#917a13",
+            "description": "12V PCIE 1",
+            "disabled": "true",
+            "index": 37,
+            "name": "VREG_12P0_PCIE1_2",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "PCIE",
+            "color": "#fed51a",
+            "description": "5V PCIE 1",
+            "disabled": "true",
+            "index": 38,
+            "name": "VREG_5P0_PCIE1_2",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "PCIE",
+            "color": "#b39715",
+            "description": "3V PCIE 1",
+            "disabled": "true",
+            "index": 39,
+            "name": "VREG_3P3_PCIE1_2",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "VIDEO",
+            "color": "#6f9715",
+            "description": "VIDEO OUT 5.0V",
+            "disabled": "true",
+            "index": 49,
+            "name": "VREG_VIDEO_OUT_5P0",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "VIDEO",
+            "color": "#f7921e",
+            "description": "VIDEO EPM 5.0_EPM_PV",
+            "disabled": "true",
+            "index": 58,
+            "name": "VREG_VIDEO_IN_5P0_EPM_P",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "VIDEO",
+            "color": "#ca791d",
+            "description": "VIDEO IN 12.0V",
+            "disabled": "true",
+            "index": 59,
+            "name": "VREG_VIDEO_IN_12P0",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SENSOR",
+            "color": "#a46217",
+            "description": "SENSOR CH0 3.3V",
+            "disabled": "true",
+            "index": 62,
+            "name": "VREG_WIFIBT_CH0_3P3",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SENSOR",
+            "color": "#7a4910",
+            "description": "SENSOR CH1 3.3V",
+            "disabled": "true",
+            "index": 63,
+            "name": "VREG_WIFIBT_CH1_3P3",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "WLAN",
+            "color": "#e42329",
+            "description": "WLAN 3.7V",
+            "disabled": "true",
+            "index": 64,
+            "name": "VREG_PA_3P7",
+            "resistor_value": 10,
+            "type": "SPM"
+        }
+    ],
+    "creation_date": "Thu Jul 2 09:47:39 2020",
+    "description": "ADP AIR Hana using ALPACA",
+    "label": "ADP AIR SA8155",
+    "modify_date": "Fri Apr 30 09:22:29 2021",
+    "spm_version": 1,
+    "target": "SA8155"
+}

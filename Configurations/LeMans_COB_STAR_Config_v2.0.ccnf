@@ -1,0 +1,172 @@
+{
+    "author": "Mike G",
+    "channels": [
+        {
+            "category": "SOC",
+            "color": "#1c91e2",
+            "description": "SOC INPUT",
+            "disabled": "true",
+            "index": 0,
+            "name": "VREG_3P3R_SOC",
+            "resistor_value": 0.5,
+            "type": "SPM"
+        },
+        {
+            "category": "WLAN",
+            "color": "#6ac6ff",
+            "description": "WLAN 3.3V",
+            "disabled": "true",
+            "index": 4,
+            "name": "VREG_3P3R_WLAN_BT",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "BRAC",
+            "color": "#bde958",
+            "description": "BRAC 3.3V",
+            "disabled": "true",
+            "index": 8,
+            "name": "VREG_3P3R_BRAC",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "DISPLAY",
+            "color": "#bde958",
+            "description": "DP 3.3V",
+            "disabled": "true",
+            "index": 12,
+            "name": "VREG_3P3R_DP",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "CAMERA",
+            "color": "#3acdcb",
+            "description": "CAMERA 3.3V",
+            "disabled": "true",
+            "index": 16,
+            "name": "VREG_3P3R_CAM",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "ETHERNET",
+            "color": "#2c7a79",
+            "description": "ETHERNET 3.3V",
+            "disabled": "true",
+            "index": 20,
+            "name": "VREG_3P3R_NET",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "CAN",
+            "color": "#6a9212",
+            "description": "CAN 3.3V",
+            "disabled": "true",
+            "index": 24,
+            "name": "VREG_3P3R_CAN",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "PCIE",
+            "color": "#004a4a",
+            "description": "PCIE 3.3V",
+            "disabled": "true",
+            "index": 28,
+            "name": "VREG_3P3R_PCIE",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "DISPLAY",
+            "color": "#295800",
+            "description": "DSI 3.3V",
+            "disabled": "true",
+            "index": 32,
+            "name": "VREG_3P3R_DSI",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "USB",
+            "color": "#47abff",
+            "description": "USB 5V",
+            "disabled": "true",
+            "index": 36,
+            "name": "VREG_5P0R_USB",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "WLAN",
+            "color": "#9fcc3b",
+            "description": "WLAN 5V",
+            "disabled": "true",
+            "index": 40,
+            "name": "VREG_5P0R_WLAN_BT",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "BRAC",
+            "color": "#109e9c",
+            "description": "BRAC 5V",
+            "disabled": "true",
+            "index": 44,
+            "name": "VREG_5P0R_BRAC",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "CAMERA",
+            "color": "#005daa",
+            "description": "CAMERA 5V",
+            "disabled": "true",
+            "index": 48,
+            "name": "VREG_5P0R_CAM",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "CAN",
+            "color": "#437116",
+            "description": "CAN 5V",
+            "disabled": "true",
+            "index": 52,
+            "name": "VREG_5P0R_CAN",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SENSOR",
+            "color": "#046262",
+            "description": "SENSOR 3.3V",
+            "disabled": "true",
+            "index": 56,
+            "name": "SENSOR_3P3",
+            "resistor_value": 402,
+            "type": "SPM"
+        },
+        {
+            "category": "DSI",
+            "color": "#002f75",
+            "description": "DSI 5V",
+            "disabled": "true",
+            "index": 60,
+            "name": "VREG_5P0R_DSI",
+            "resistor_value": 10,
+            "type": "SPM"
+        }
+    ],
+    "creation_date": "Tue Jun 14 17:05:44 2022",
+    "description": "LemansAU COB STAR EPM Config v2.0",
+    "epm_version": "Alpaca 3.3.1",
+    "label": "LemansAU COB ADP STAR",
+    "modify_date": "Tue Jun 14 17:47:19 2023",
+    "spm_version": 2,
+    "target": "LemansAU"
+}

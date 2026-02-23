@@ -1,0 +1,211 @@
+{
+    "author": "",
+    "channels": [
+        {
+            "category": "MSM Core PDN",
+            "color": "#1c91e2",
+            "description": "VDDIO_EBI",
+            "disabled": "true",
+            "index": 1,
+            "name": "VREG_S3A_0P6",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#6ac6ff",
+            "description": "VDD_MODEM",
+            "disabled": "true",
+            "index": 2,
+            "name": "VREG_S1A_S2A_S10A_0P85",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#bde958",
+            "description": "VDD_APC0",
+            "disabled": "true",
+            "index": 3,
+            "name": "VREG_S9A_0P8",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#bde958",
+            "description": "VDD_APC1",
+            "disabled": "true",
+            "index": 4,
+            "name": "VREG_S7A_S8A_0P8",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#3acdcb",
+            "description": "VREG_PX3",
+            "disabled": "true",
+            "index": 5,
+            "name": "VREG_S4A_1P8",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#2c7a79",
+            "description": "VDDA_EBI",
+            "disabled": "true",
+            "index": 7,
+            "name": "VREG_S1A_S2A_S10A_0P85",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#6a9212",
+            "description": "VDDCX_1",
+            "disabled": "true",
+            "index": 8,
+            "name": "VREG_S1A_S2A_S10A_0P85",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "PCIE",
+            "color": "#004a4a",
+            "description": "12V PCIE 0",
+            "disabled": "true",
+            "index": 33,
+            "name": "VREG_12P0_PCIE0_3",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "PCIE",
+            "color": "#295800",
+            "description": "5V PCIE 0",
+            "disabled": "true",
+            "index": 34,
+            "name": "VREG_5P0_PCIE0_3",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "PCIE",
+            "color": "#47abff",
+            "description": "3V PCIE 0",
+            "disabled": "true",
+            "index": 35,
+            "name": "VREG_3P3_PCIE0_3",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC MAIN",
+            "color": "#9fcc3b",
+            "description": "3V SOC MAIN 3P3",
+            "disabled": "true",
+            "index": 36,
+            "name": "VREG_3P3_SOC",
+            "resistor_value": 0.5,
+            "type": "SPM"
+        },
+        {
+            "category": "PCIE",
+            "color": "#109e9c",
+            "description": "12V PCIE 1",
+            "disabled": "true",
+            "index": 37,
+            "name": "VREG_12P0_PCIE1_2",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "PCIE",
+            "color": "#005daa",
+            "description": "5V PCIE 1",
+            "disabled": "true",
+            "index": 38,
+            "name": "VREG_5P0_PCIE1_2",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "PCIE",
+            "color": "#437116",
+            "description": "3V PCIE 1",
+            "disabled": "true",
+            "index": 39,
+            "name": "VREG_3P3_PCIE1_2",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "VIDEO",
+            "color": "#046262",
+            "description": "VIDEO OUT 5.0V",
+            "disabled": "true",
+            "index": 49,
+            "name": "VREG_VIDEO_OUT_5P0",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "VIDOE",
+            "color": "#002f75",
+            "description": "VIDEO EPM 5.0_EPM_PV",
+            "disabled": "true",
+            "index": 58,
+            "name": "VREG_VIDEO_IN_5P0_EPM_P",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "VIDEO",
+            "color": "#003434",
+            "description": "VIDEO IN 12.0V",
+            "disabled": "true",
+            "index": 59,
+            "name": "VREG_VIDEO_IN_12P0",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SENSOR",
+            "color": "#104100",
+            "description": "SENSOR CH0 3.3V",
+            "disabled": "true",
+            "index": 62,
+            "name": "VREG_WIFIBT_CH0_3P3",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SENSOR",
+            "color": "#d4b217",
+            "description": "SENSOR CH1 3.3V",
+            "disabled": "true",
+            "index": 63,
+            "name": "VREG_WIFIBT_CH1_3P3",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "WLAN",
+            "color": "#917a13",
+            "description": "WLAN 3.7V",
+            "disabled": "true",
+            "index": 64,
+            "name": "VREG_PA_3P7",
+            "resistor_value": 10,
+            "type": "SPM"
+        }
+    ],
+    "creation_date": "Thu Jul 2 09:48:14 2020",
+    "description": "ADP AIR Talos using ALPACA",
+    "label": "ADP AIR SA8155",
+    "modify_date": "Fri Apr 30 09:22:20 2021",
+    "spm_version": 1,
+    "target": "SA6155"
+}

@@ -1,0 +1,312 @@
+{
+    "author": "PMIC_HW_CE_BDC",
+    "channels": [
+        {
+            "category": "Current",
+            "color": "#1c91e2",
+            "description": "",
+            "disabled": "true",
+            "index": 2,
+            "name": "VBATT_CONN_ISNS",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Voltage",
+            "color": "#6ac6ff",
+            "description": "",
+            "disabled": "true",
+            "index": 4,
+            "name": "V_L2A_APC0_0P752_RCM",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Voltage",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "true",
+            "index": 5,
+            "name": "V_S1A_CX_RCM",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Voltage",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "true",
+            "index": 6,
+            "name": "VPH_PWR_RF_JR1_RCM",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Voltage",
+            "color": "#3acdcb",
+            "description": "",
+            "disabled": "true",
+            "index": 7,
+            "name": "VPH_PWR_RF_JR2_RCM",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Voltage",
+            "color": "#2c7a79",
+            "description": "",
+            "disabled": "true",
+            "index": 8,
+            "name": "V_L4A_LPI_CX_0P752_RCM",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Voltage",
+            "color": "#6a9212",
+            "description": "",
+            "disabled": "true",
+            "index": 9,
+            "name": "V_L17A_VDDPX_3_1P8_RCM",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Voltage",
+            "color": "#004a4a",
+            "description": "",
+            "disabled": "true",
+            "index": 10,
+            "name": "V_L26A_3P3_WCN_CH0_RCM",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Voltage",
+            "color": "#295800",
+            "description": "",
+            "disabled": "true",
+            "index": 11,
+            "name": "V_L5A_LPI_MX_0P752_RCM",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Voltage",
+            "color": "#47abff",
+            "description": "",
+            "disabled": "true",
+            "index": 12,
+            "name": "V_L11A_SDR_RF_1P0_RCM",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Voltage",
+            "color": "#9fcc3b",
+            "description": "",
+            "disabled": "true",
+            "index": 13,
+            "name": "V_L6A_MXC_0P8_RCM",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Voltage",
+            "color": "#109e9c",
+            "description": "",
+            "disabled": "true",
+            "index": 14,
+            "name": "V_L3A_MXA_0P752_RCM",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Voltage",
+            "color": "#005daa",
+            "description": "",
+            "disabled": "true",
+            "index": 15,
+            "name": "V_L7A_VDDIO_EBI_0P624_RCM",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Voltage",
+            "color": "#437116",
+            "description": "",
+            "disabled": "true",
+            "index": 16,
+            "name": "V_L3A_VDDA_EBI_0P752_RCM",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Voltage",
+            "color": "#046262",
+            "description": "",
+            "disabled": "true",
+            "index": 17,
+            "name": "V_L8A_WCSS_CX_0P752_RCM",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Voltage",
+            "color": "#002f75",
+            "description": "",
+            "disabled": "true",
+            "index": 19,
+            "name": "VBATT_RCM_VSNS",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Voltage",
+            "color": "#003434",
+            "description": "",
+            "disabled": "true",
+            "index": 21,
+            "name": "V_L28A_QCC_VIN_2P9_RCM",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Voltage",
+            "color": "#104100",
+            "description": "",
+            "disabled": "true",
+            "index": 23,
+            "name": "V_L23A_VDD_WLAN_5GPA_RCM",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Voltage",
+            "color": "#d4b217",
+            "description": "",
+            "disabled": "true",
+            "index": 25,
+            "name": "V_L19A_QCC_1P8_RCM",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Voltage",
+            "color": "#917a13",
+            "description": "",
+            "disabled": "true",
+            "index": 27,
+            "name": "QCC_VDD_CX_RCM",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Voltage",
+            "color": "#fed51a",
+            "description": "",
+            "disabled": "true",
+            "index": 41,
+            "name": "QCC_VDD_MX1_RCM",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Voltage",
+            "color": "#b39715",
+            "description": "",
+            "disabled": "true",
+            "index": 42,
+            "name": "QCC_VDD_RFA_RCM",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Voltage",
+            "color": "#6f9715",
+            "description": "",
+            "disabled": "true",
+            "index": 43,
+            "name": "QCC_VDD_MDIG_RCM",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Voltage",
+            "color": "#f7921e",
+            "description": "",
+            "disabled": "true",
+            "index": 44,
+            "name": "QCC_VDD_AON_RCM",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Voltage",
+            "color": "#ca791d",
+            "description": "",
+            "disabled": "true",
+            "index": 45,
+            "name": "QCC_VDD_MX2_RCM",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Voltage",
+            "color": "#a46217",
+            "description": "",
+            "disabled": "true",
+            "index": 46,
+            "name": "QCC_VDD_FLASH_RCM",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Voltage",
+            "color": "#7a4910",
+            "description": "",
+            "disabled": "true",
+            "index": 47,
+            "name": "V_L19A_QCC_IO_1P8_RCM",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Voltage",
+            "color": "#e42329",
+            "description": "",
+            "disabled": "true",
+            "index": 48,
+            "name": "QRD_SPM_SENSE48",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Voltage",
+            "color": "#ac0005",
+            "description": "",
+            "disabled": "true",
+            "index": 52,
+            "name": "VBATT_CH52_SENSE",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Current",
+            "color": "#de00de",
+            "description": "",
+            "disabled": "true",
+            "index": 54,
+            "name": "HI_CURRENT CH",
+            "resistor_value": 10,
+            "type": "SPM"
+        }
+    ],
+    "creation_date": "Thu May 12 18:17:19 2022",
+    "description": "SW5100",
+    "epm_version": "Alpaca 3.2.5",
+    "label": "SW5100",
+    "modify_date": "Thu May 12 19:02:18 2022",
+    "spm_version": 1,
+    "target": "IDP5100"
+}

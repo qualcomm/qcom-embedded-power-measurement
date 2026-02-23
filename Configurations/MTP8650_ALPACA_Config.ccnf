@@ -1,0 +1,302 @@
+{
+    "author": "",
+    "channels": [
+        {
+            "category": "GPIO_CHANNELS",
+            "color": "#6ac6ff",
+            "description": "RCM_MARKER_1 (SM_GPIO_78)",
+            "disabled": "true",
+            "index": 1,
+            "name": "RCM_MARKER_1 (SM_GPIO_78)",
+            "resistor_value": 10,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO_CHANNELS",
+            "color": "#bde958",
+            "description": "RCM_MARKER_2 (SM_GPIO_79)",
+            "disabled": "true",
+            "index": 2,
+            "name": "RCM_MARKER_2 (SM_GPIO_79)",
+            "resistor_value": 10,
+            "type": "MARKER"
+        },
+        {
+            "category": "BATTERY",
+            "color": "#2c7a79",
+            "description": "Battery power measured on the baseband board.",
+            "disabled": "false",
+            "index": 1,
+            "name": "BATTERY",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#004a4a",
+            "description": "SM8650 APC0 Supply",
+            "disabled": "false",
+            "index": 2,
+            "name": "VDD_APC0",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#47abff",
+            "description": "SM8650 APC1 Supply",
+            "disabled": "false",
+            "index": 3,
+            "name": "VDD_APC1 ",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#109e9c",
+            "description": "SM8650 APC2 Supply",
+            "disabled": "false",
+            "index": 4,
+            "name": "VDD_APC2",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#437116",
+            "description": "SM8650 NSP1 Supply",
+            "disabled": "false",
+            "index": 5,
+            "name": "VDD_NSP1 ",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#002f75",
+            "description": "SM8650 NSP2 Supply",
+            "disabled": "false",
+            "index": 6,
+            "name": "VDD_NSP2 ",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#104100",
+            "description": "Supply",
+            "disabled": "false",
+            "index": 7,
+            "name": "VDD_MX_A ",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#917a13",
+            "description": "VDD_MXC (Collapsible MX)",
+            "disabled": "false",
+            "index": 8,
+            "name": "VDD_MX_C ",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#b39715",
+            "description": "MODEM Supply",
+            "disabled": "false",
+            "index": 9,
+            "name": "VDD_MODEM",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#f7921e",
+            "description": "Multi-Media Supply",
+            "disabled": "false",
+            "index": 10,
+            "name": "VDD_MM ",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#a46217",
+            "description": "CX Supply",
+            "disabled": "false",
+            "index": 11,
+            "name": "VDD_CX (VREG_S6C_7C_8C_9C)",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#e42329",
+            "description": "GFX Supply",
+            "disabled": "false",
+            "index": 12,
+            "name": "VDD_GFX  (VREG_S5B_6B_7B_8B)",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#de00de",
+            "description": "EBI VDDA Supply",
+            "disabled": "false",
+            "index": 13,
+            "name": "VDDA_EBI",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#502f0a",
+            "description": "LPI MX",
+            "disabled": "false",
+            "index": 14,
+            "name": "VDD_LPI_MX (VREG_L1H)",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#460046",
+            "description": "LPI CX",
+            "disabled": "false",
+            "index": 15,
+            "name": "VDD_LPI_CX (VREG_L8B)",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "RF Power",
+            "color": "#6ac6ff",
+            "description": "RF VPH_PWR ",
+            "disabled": "false",
+            "index": 16,
+            "name": "RF_CARD_VPH_PWR",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "RF Power",
+            "color": "#bde958",
+            "description": "QTM545 #0_#2 VPH_PWR",
+            "disabled": "false",
+            "index": 17,
+            "name": "QTM0_VPH_PWR",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "RF Power",
+            "color": "#2c7a79",
+            "description": "QTM545 #1 VPH_PWR",
+            "disabled": "false",
+            "index": 18,
+            "name": "QTM1_VPH_PWR",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "RF Power",
+            "color": "#004a4a",
+            "description": "SDR VDDCX supply",
+            "disabled": "false",
+            "index": 19,
+            "name": "VDD_CX_SDR",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "RF Power",
+            "color": "#47abff",
+            "description": "RF L4K supply",
+            "disabled": "false",
+            "index": 20,
+            "name": "VREG_L4K",
+            "resistor_value": 1,
+            "type": "SPM"
+        },
+        {
+            "category": "RF Power",
+            "color": "#109e9c",
+            "description": "RF L5K supply",
+            "disabled": "false",
+            "index": 21,
+            "name": "VREG_L5K",
+            "resistor_value": 1,
+            "type": "SPM"
+        },
+        {
+            "category": "RF Power",
+            "color": "#437116",
+            "description": "RF L6K supply",
+            "disabled": "false",
+            "index": 22,
+            "name": "VREG_L6K ",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "RF Power",
+            "color": "#002f75",
+            "description": "RF L7K supply",
+            "disabled": "false",
+            "index": 23,
+            "name": "VREG_L7K",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Connectivity",
+            "color": "#104100",
+            "description": "WLAN VPH",
+            "disabled": "false",
+            "index": 24,
+            "name": "WLAN_VPH_PWR",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "Connectivity",
+            "color": "#917a13",
+            "description": "WCN VDDCX",
+            "disabled": "false",
+            "index": 25,
+            "name": "VDDCX_WCN",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Sensor",
+            "color": "#b39715",
+            "description": "SENSOR 3.0V",
+            "disabled": "false",
+            "index": 26,
+            "name": "VREG_L2B_3P0_SENSOR",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "Sensor",
+            "color": "#f7921e",
+            "description": "SENSOR 1.8V",
+            "disabled": "false",
+            "index": 27,
+            "name": "VREG_L1B_1P8_SENSOR",
+            "resistor_value": 20,
+            "type": "SPM"
+        }
+    ],
+    "creation_date": "Tue Nov 29 09:30:45 2022",
+    "description": "MTP8650",
+    "epm_version": "Alpaca 3.4.6",
+    "label": "MTP8650",
+    "modify_date": "Tue Nov 29 09:31:35 2022",
+    "spm_version": 1,
+    "target": "SM8650"
+}

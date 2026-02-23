@@ -1,0 +1,191 @@
+{
+    "author": "",
+    "channels": [
+        {
+            "category": "SYSTEM",
+            "color": "#1c91e2",
+            "description": "System 12v input ",
+            "disabled": "true",
+            "index": 0,
+            "name": "VIN_12P0",
+            "resistor_value": 1000,
+            "type": "SPM"
+        },
+        {
+            "category": "VIP",
+            "color": "#6ac6ff",
+            "description": "Aurix A",
+            "disabled": "true",
+            "index": 2,
+            "name": "VIN_TLF3554_A",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "VIP",
+            "color": "#bde958",
+            "description": "Aurix B",
+            "disabled": "true",
+            "index": 4,
+            "name": "VIN_TLF3554_B",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC",
+            "color": "#bde958",
+            "description": "SoC, Primary",
+            "disabled": "true",
+            "index": 6,
+            "name": "VREG_S1_3P3",
+            "resistor_value": 0.5,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC",
+            "color": "#3acdcb",
+            "description": "SoC, Secondary",
+            "disabled": "true",
+            "index": 8,
+            "name": "VREG_S2_3P3",
+            "resistor_value": 0.5,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC",
+            "color": "#2c7a79",
+            "description": "QAM9000P 12v",
+            "disabled": "true",
+            "index": 32,
+            "name": "VIN_SA9000P_12P0",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "ETHERNET",
+            "color": "#6a9212",
+            "description": "Ethernet fabric 3.3v",
+            "disabled": "true",
+            "index": 34,
+            "name": "VREG_ETH_3P3",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "PCIE",
+            "color": "#004a4a",
+            "description": "PCIe switch 1.8v",
+            "disabled": "true",
+            "index": 36,
+            "name": "VREG_PCIE_1P8",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "PCIE",
+            "color": "#295800",
+            "description": "PCIe switch 12v ",
+            "disabled": "true",
+            "index": 38,
+            "name": "VREG_PCIE_12P0",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "CAMERA",
+            "color": "#47abff",
+            "description": "Camera POC 12v supply",
+            "disabled": "true",
+            "index": 64,
+            "name": "VREG_CAM_POC",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "CAMERA",
+            "color": "#9fcc3b",
+            "description": "Camera 3.3v",
+            "disabled": "true",
+            "index": 66,
+            "name": "VREG_CAM_3P3",
+            "resistor_value": 40,
+            "type": "SPM"
+        },
+        {
+            "category": "CAMERA",
+            "color": "#109e9c",
+            "description": "Camera 1.8v",
+            "disabled": "true",
+            "index": 68,
+            "name": "VREG_CAM_1P8",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "DISPLAY",
+            "color": "#005daa",
+            "description": "Display Output Serdes",
+            "disabled": "true",
+            "index": 70,
+            "name": "VREG_SERDES_3P3",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SYSTEM",
+            "color": "#437116",
+            "description": "System 5v",
+            "disabled": "true",
+            "index": 72,
+            "name": "VREG_MAIN_5P0",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "SYSTEM",
+            "color": "#046262",
+            "description": "System 3.3v",
+            "disabled": "true",
+            "index": 96,
+            "name": "VREG_MAIN_3P3",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "SYSTEM",
+            "color": "#002f75",
+            "description": "System 1.8v",
+            "disabled": "true",
+            "index": 98,
+            "name": "VREG_MAIN_1P8",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "PCIE",
+            "color": "#003434",
+            "description": "NVME ",
+            "disabled": "true",
+            "index": 100,
+            "name": "VREG_NVME_3P3",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "PCIE",
+            "color": "#104100",
+            "description": "10Gbe",
+            "disabled": "true",
+            "index": 102,
+            "name": "VREG_10GE_3P3",
+            "resistor_value": 5,
+            "type": "SPM"
+        }
+    ],
+    "creation_date": "Fri Apr 16 15:31:16 2021",
+    "description": "version 0.1",
+    "label": "Snapdragon Ride 3.0",
+    "modify_date": "Fri Apr 30 09:23:32 2021",
+    "spm_version": 2,
+    "target": "SA8540"
+}

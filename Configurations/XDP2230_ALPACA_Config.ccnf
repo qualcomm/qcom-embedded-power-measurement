@@ -1,0 +1,312 @@
+{
+    "author": "Nagendra, Ahmed Hussain <ahmhuss@qti.qualcomm.com>",
+    "channels": [
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#1c91e2",
+            "description": "GPIO_114",
+            "disabled": "false",
+            "index": 1,
+            "name": "MARKER_1",
+            "resistor_value": 10,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#bde958",
+            "description": "GPIO_115",
+            "disabled": "true",
+            "index": 2,
+            "name": "MARKER_2",
+            "resistor_value": 10,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#3acdcb",
+            "description": "VREG_BB",
+            "disabled": "true",
+            "index": 3,
+            "name": "XO_EN",
+            "resistor_value": 10,
+            "type": "MARKER"
+        },
+        {
+            "category": "BATTERY",
+            "color": "#2c7a79",
+            "description": "Battery Power",
+            "disabled": "false",
+            "index": 2,
+            "name": "VBATT",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#6a9212",
+            "description": "APC0",
+            "disabled": "false",
+            "index": 4,
+            "name": "VREG_S4C_S5C_0P752",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#004a4a",
+            "description": "VDDCX, VDDD_EBI",
+            "disabled": "false",
+            "index": 5,
+            "name": "VREG_S1D_S2D_S3D_S6D_0P73",
+            "resistor_value": 3,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#295800",
+            "description": "GFX",
+            "disabled": "false",
+            "index": 6,
+            "name": "VREG_S1F_S5F_S6F_S7F_S8F_0P68",
+            "resistor_value": 3,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#47abff",
+            "description": "APC1",
+            "disabled": "false",
+            "index": 7,
+            "name": "VREG_S1C_S2C_S6C_0P73",
+            "resistor_value": 3,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#9fcc3b",
+            "description": "VDD_PX3",
+            "disabled": "false",
+            "index": 8,
+            "name": "VREG_L07B_1P8",
+            "resistor_value": 1000,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#109e9c",
+            "description": "VDD_MX_A",
+            "disabled": "false",
+            "index": 9,
+            "name": "VREG_S3C_0P752",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#005daa",
+            "description": "VDD_MX_C",
+            "disabled": "false",
+            "index": 10,
+            "name": "VREG_S2F_S3F_0P75",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#00ff00",
+            "description": "VDD_MM",
+            "disabled": "false",
+            "index": 11,
+            "name": "VREG_S4B_S5B_S6B_0P7",
+            "resistor_value": 3,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#046262",
+            "description": "VDDA_EBI",
+            "disabled": "false",
+            "index": 12,
+            "name": "VREG_S4D_0P892",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#002f75",
+            "description": "VDD_LPI_CX",
+            "disabled": "false",
+            "index": 13,
+            "name": "VREG_L01C_0P752",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#003434",
+            "description": "VDD_LPI_MX",
+            "disabled": "false",
+            "index": 14,
+            "name": "VREG_L01F_0P75",
+            "resistor_value": 40,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA, MEMORY",
+            "color": "#104100",
+            "description": "VDDIO_EBI, LPDDR5_VDDQ",
+            "disabled": "false",
+            "index": 15,
+            "name": "VREG_S5D_0P5",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "DISPLAY",
+            "color": "#d4b217",
+            "description": "VPH_PWR_DISPLAY",
+            "disabled": "false",
+            "index": 16,
+            "name": "VPH_PWR_DISPLAY",
+            "resistor_value": 50,
+            "type": "SPM"
+        },
+        {
+            "category": "MEMORY",
+            "color": "#917a13",
+            "description": "LPDDR5_VDD2L",
+            "disabled": "false",
+            "index": 17,
+            "name": "VREG_L02D_0P9",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MEMORY",
+            "color": "#fed51a",
+            "description": "LPDDR5_VDD1",
+            "disabled": "false",
+            "index": 19,
+            "name": "VREG_VDD1_L07B_1P8",
+            "resistor_value": 100,
+            "type": "SPM"
+        },
+        {
+            "category": "MEMORY",
+            "color": "#b39715",
+            "description": "LPDDR5_VDD2H",
+            "disabled": "false",
+            "index": 21,
+            "name": "VREG_S3F_S1K_1P05",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SYSTEM",
+            "color": "#6f9715",
+            "description": "SYS_VPH_PWR",
+            "disabled": "false",
+            "index": 23,
+            "name": "VPH_PWR",
+            "resistor_value": 3,
+            "type": "SPM"
+        },
+        {
+            "category": "WLAN",
+            "color": "#f7921e",
+            "description": "VPH_PWR_WLAN",
+            "disabled": "false",
+            "index": 25,
+            "name": "VPH_PWR_WLAN",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "DISPLAY",
+            "color": "#ca791d",
+            "description": "DISPLAY_VDDI",
+            "disabled": "false",
+            "index": 27,
+            "name": "VREG_L5B_1P8",
+            "resistor_value": 200,
+            "type": "SPM"
+        },
+        {
+            "category": "CAMERAS",
+            "color": "#a46217",
+            "description": "6DoF_BR_AVDD",
+            "disabled": "false",
+            "index": 41,
+            "name": "VREG_L21B_2P8",
+            "resistor_value": 1000,
+            "type": "SPM"
+        },
+        {
+            "category": "CAMERAS",
+            "color": "#7a4910",
+            "description": "6DoF_TR_AVDD",
+            "disabled": "false",
+            "index": 42,
+            "name": "VREG_L22B_2P8",
+            "resistor_value": 1000,
+            "type": "SPM"
+        },
+        {
+            "category": "PMIC",
+            "color": "#e42329",
+            "description": "PM8010_2_VIN_1_2",
+            "disabled": "false",
+            "index": 43,
+            "name": "VREG_S2B_PM8010_N_1P2",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "PMIC",
+            "color": "#ac0005",
+            "description": "PM8010_1_VIN_3_4",
+            "disabled": "false",
+            "index": 44,
+            "name": "VREG_BOB1_PM8010_M",
+            "resistor_value": 200,
+            "type": "SPM"
+        },
+        {
+            "category": "PMIC",
+            "color": "#de00de",
+            "description": "PM8010_1_VIN_1_2",
+            "disabled": "false",
+            "index": 45,
+            "name": "VREG_S2B_PM8010_M_1P2",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "CAMERAS",
+            "color": "#830083",
+            "description": "CAMERA_DOVDD",
+            "disabled": "false",
+            "index": 46,
+            "name": "VREG_L8B_1P8",
+            "resistor_value": 200,
+            "type": "SPM"
+        },
+        {
+            "category": "PMIC",
+            "color": "#502f0a",
+            "description": "PM8010_2_VIN_3_4",
+            "disabled": "false",
+            "index": 47,
+            "name": "VREG_BOB1_PM8010_N",
+            "resistor_value": 200,
+            "type": "SPM"
+        }
+    ],
+    "creation_date": "Wed May 8 10:58:54 2024",
+    "description": "XDP2230_ALPACA_Config_V1",
+    "epm_version": "QEPM 4.0.3",
+    "label": "XDP2230",
+    "modify_date": "Wed May 8 18:45:01 2024",
+    "spm_version": 1,
+    "target": "SXR2230"
+}

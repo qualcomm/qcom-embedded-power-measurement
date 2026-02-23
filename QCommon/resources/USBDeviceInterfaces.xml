@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Qualcomm version="1.0">
+	<vendors>
+		<vendor name = "Qualcomm" id="1478" hexId="0x05C6">
+			<products>
+				<product name="Android" hexId="0x9025" diag="1" nmea="4" mass_storage="6"/>
+				<product name="GOBI" hexId="0x9201" diag="1" nmea="2" />
+				<product name="Qualcomm Device"  hexId="0x9000" diag="1" nema="2" modem="3" qmi="4" mass_storage="5" />
+				<product name="Qualcomm Device"  hexId="0x9001" diag="1" nema="2" modem="3" qmi="4" />
+				<product name="Qualcomm Device"  hexId="0x9002" diag="1" nema="2" modem="3" />
+				<product name="Qualcomm Device"  hexId="0x9003" diag="1" nema="2" modem="3" unused="+ AT commands port + NETWORK" />
+				<product name="Qualcomm Device"  hexId="0x9004" diag="1" modem="2" />
+				<product name="Qualcomm Device"  hexId="0x9005" diag="1" modem="2" unused=" + NETWORK (QMI/RmNet)" />
+				<product name="Qualcomm Device"  hexId="0x9006" diag="1" mass_storage="2" />
+				<product name="OBEX"  hexId="0x9008" undp=1" qdloader="2" />
+				<product name="Qualcomm Device"  hexId="0x9009" fs="1" diag=2" />
+				<product name="Qualcomm Device"  hexId="0x900A" diag="1" nema="2" modem="3" qmi="4" mass_storage="5" audio="6" />
+				<product name="Qualcomm Device"  hexId="0x900B" diag="1" unused=" + Standard CDC/ECM" />
+				<product name="Qualcomm Device"  hexId="0x900C" diag="1" nmea="2" ms="3" mdm="4" net1="5" net2="6" net3="7" />
+				<product name="Linux"  hexId="0x900D" diag="1" nmea="2" unused=" MS, Standard MDM, Standard-NET" />
+				<product name="ChromeOS"  hexId="0x900E" diag="1" />
+				<product name="Qualcomm Device"  hexId="0x900F" diag="1" nmea="2" mdm="3" net1="4" net2="5" net3="6" />
+				<product name="Qualcomm Device"  hexId="0x9010" diag="1" nmea="2", MS, MDM, NET1, NET2 />
+				<product name="Qualcomm Device"  hexId="0x9011" diag="1" nmea="2", MDM, NET1, NET2 />
+				<product name="Qualcomm Device"  hexId="0x9012" diag="1" unused=" (CDC/ACM) + MODEM (CDC/ACM) (currently used for Linux builds only) />
+				<product name="Qualcomm Device"  hexId="0x9013" diag="1" unused=" (CDC/ACM) + MODEM (CDC/ACM) + Mass Storage (currently used for Linux builds only) />
+				<product name="Qualcomm Device"  hexId="0x9014" mass_storage="0" unused="+ Standard CDC/ECM (currently used for Linux builds only) />
+				<product name="Qualcomm Device"  hexId="0x9015" - ADB + Mass Storage />
+				<product name="Linux"  hexId="0x9016" diag="1"  unused="(CDC/ACM) + MODEM (CDC/ACM) + NMEA (CDC/ACM)  />
+				<product name="Linux"  hexId="0x9017" diag="1"  (CDC/ACM) + MODEM (CDC/ACM) + NMEA (CDC/ACM) + Mass Storage (currently used for Linux builds only) />
+				<product name="Linux"  hexId="0x9018" diag="1"  + ADB (Android Debug) + MODEM + NMEA + Mass Storage (currently used for Linux builds only) />
+				<product name="WM Device"  hexId="0x9019" - MODEM + DIAG + NMEA (Using qcusbser.sys, currently for WM only) />
+				<product name="Linux"  hexId="0x901A" diag="1"  + ADB (Android Debug) + MODEM + NMEA (used for Linux builds only) />
+				<product name="Qualcomm Device"  hexId="0x901B" diag="1"  + MTP />
+				<product name="Qualcomm Device"  hexId="0x901C" diag="1"  (CDC/OBEX) + Digital Audio />
+				<product name="Qualcomm Device"  hexId="0x901D" diag="1"  + ADB (Android) />
+				<product name="Android"  hexId="0x901E - Modem + ADB (Android) />
+				<product name="Android"  hexId="0x901F" diag="1"  + ADB + MODEM (Android) />
+				<product name="Android"  hexId="0x9020" diag="1"  + ADB + MODEM + NMEA (Android) />
+				<product name="Qualcomm Device"  hexId="0x9021" diag="1"  + QMI_RMNET />
+				<product name="Android"  hexId="0x9022" diag="1"  + ADB + QMI_RMNET (Android) />
+				<product name="Android"  hexId="0x9023 - MSC + ADB + CDC/ECM (Android) />
+				<product name="Android"  hexId="0x9024 - RNDIS + ADB (Android) />
+				<product name="Android"  hexId="0x9026" diag="1" modem="2" + NMEA + QMI_RMNET + Mass Storage (Android) />
+				<product name="Android"  hexId="0x9027 - BREWMP Device single FD composition. />
+				<product name="Android"  hexId="0x9028" diag="1" nema="2" + Mass Storage (Android for Fusion - No modem on AP) />
+				<product name="Android"  hexId="0x9029 - ADB + DIAG + NMEA + Mass Storage (Android for Fusion - No modem on AP) />
+				<product name="Android"  hexId="0x902A - RNDIS + Mass Storage (Android) />
+				<product name="Qualcomm Device"  hexId="0x902B - RNDIS + ADB + Mass Storage />
+				<product name="Qualcomm Device"  hexId="0x902C rndis="1" diag="2" />
+				<product name="Android"  hexId="0x902D rndis="1" diag="2"+ ADB (Android) />
+				<product name="Android"  hexId="0x902E rndis="1" diag="2"+ MODEM + NMEA + QMI_RMNET + Mass Storage (Maemo - RNDIS is used for debugging instead of ADB) />
+				<product name="Android"  hexId="0x902F rndis="1" diag="2"+ Mass Storage (Android) />
+				<product name="Android"  hexId="0x9030 - RNDIS + ADB + DIAG + Mass Storage (Android) />
+				<product name="Android"  hexId="0x9031 - MSM DIAG + MDM DIAG + ADB + DUN + NMEA + RMNET + MSC (Android fusion CSFB) />
+				<product name="Android"  hexId="0x9032 - MSM DIAG + MDM DIAG + DUN + NMEA + RMNET + MSC (Android fusion CSFB) />
+				<product name="Android"  hexId="0x9033" diag="1" nmea="2" mdm="3" net1="4" net2="5" net3="6", NET4 (AMSS) />
+				<product name="Android"  hexId="0x9034" diag="1" nmea="2" mdm="3" net1="4" net2="5" net3="6", NET4, NET5 (AMSS) />
+				<product name="Android"  hexId="0x9035 - MSM DIAG + MDM DIAG + ADB + MODEM + RMNET + MSC (Android fusion CSFB) />
+				<product name="Android"  hexId="0x9036 - MSM DIAG + MDM DIAG + MODEM + RMNET + MSC (Android fusion CSFB) />
+				<product name="Android"  hexId="0x9037 - MSM DIAG + MDM DIAG + ADB + MDM DUN + MSM DUN + RMNET + MSC (Android fusion SVLTE-2) />
+				<product name="Android"  hexId="0x9038 - MSM DIAG + MDM DIAG + MDM DUN + MSM DUN + RMNET + MSC (Android fusion SVLTE-2) />
+				<product name="Android"  hexId="0x9039 - MTP + ADB (Linux Android) />
+				<product name="Android"  hexId="0x903A" diag="1"  + MTP + ADB (Linux Android) />
+				<product name="Android"  hexId="0x903B - MSM DIAG + MDM DIAG + ADB + MDM DUN (ACM) + MSM DUN (ACM) + RMNET + Mass Storage [Android fusion CSFB/SVLTE-2] />
+				<product name="Android"  hexId="0x903C - MSM DIAG + MDM DIAG + MDM DUN (ACM) + MSM DUN (ACM) + RMNET + Mass Storage [Android fusion CSFB/SVLTE-2] />
+				<product name="Android"  hexId="0x903D" diag="1"  + ADB + DUN1(ACM) + DUN2(ACM) + RMNET + Mass Storage [Android] />
+				<product name="Android"  hexId="0x903E" diag="1"  + DUN1(ACM) + DUN2(ACM) + RMNET + Mass Storage [Android] />
+				<product name="Android"  hexId="0x903F - MTP + MSM DIAG + MDM DIAG + ADB [Android Fusion] />
+				<product name="Android"  hexId="0x9040 - MTP + MSM DIAG + MDM DIAG [Android Fusion] />
+				<product name="Android"  hexId="0x9041 - RNDIS + MSM DIAG + MDM DIAG [Android Fusion] />
+				<product name="Android"  hexId="0x9042 - RNDIS + MSM DIAG + MDM DIAG + ADB [Android Fusion] />
+				<product name="Android"  hexId="0x9043" diag="1" nema="2" + MDM + MBIM [AMSS] />
+				<product name="Android"  hexId="0x9044 - MSM DIAG + MDM DIAG + ADB + SmartCard CCID [Android Fusion] />
+				<product name="Android"  hexId="0x9045 - MSM DIAG + MDM DIAG + SmartCard CCID [Android Fusion] />
+				<product name="Android"  hexId="0x9046" diag="1"  + ADB + DUN + QMI_RMNET1 + QMI_RMNET2 + QMI_RMNET3 + Mass Storage [Android] />
+				<product name="Android"  hexId="0x9047" diag="1"  + DUN + QMI_RMNET1 + QMI_RMNET2 + QMI_RMNET3 + Mass Storage [Android] />
+				<product name="Android"  hexId="0x9048" diag="1"  + SER3 (System monitor) + SER4 (EFS sync) + DUN + NET1 + NET2 + NET3 + NET4 + NET5 [AMSS for Linux Android Fusion3] />
+				<product name="Android"  hexId="0x9049" diag="1"  + ADB + DUN + QMI_RMNET + Mass Storage + QDSS Trace (bulk in) + QDSS Debug (bulk in/out) [Android] />
+				<product name="Android"  hexId="0x904A" diag="1"  + QDSS Trace (bulk in) + QDSS Debug (bulk in/out) [Android] />
+				<product name="Android"  hexId="0x904B" diag="1"  + ADB + DUN + MBIM + Mass Storage (Android) />
+				<product name="Android"  hexId="0x904C" diag="1"  + SER3 (System monitor) + SER4 (EFS sync) + DUN + CSVT + NET1 + NET2 + NET3 + NET4 [AMSS for Linux Android Fusion3] />
+				<product name="Android"  hexId="0x904D - PTP [Linux Android] />
+				<product name="Android"  hexId="0x904E - PTP + ADB [Linux Android] />
+				<product name="Android"  hexId="0x904F" diag="1"  + SER3 (System monitor) + DUN + MBIM [AMSS for WoS Fusion3 with SPI-NOR] />
+				<product name="Android"  hexId="0x9050" diag="1"  + SER3 (System monitor) + DUN + RmNET [AMSS for WoS Fusion3 with SPI-NOR] />
+				<product name="Android"  hexId="0x9051" diag="1"  + SER3 (System monitor) + SER4 (EFS sync) + DUN + MBIM [AMSS for WoS Fusion3 with Zero FLASH] />
+				<product name="Android"  hexId="0x9052" diag="1"  + SER3 (System monitor) + SER4 (EFS sync) + DUN + RmNET [AMSS for WoS Fusion3 with Zero FLASH] />
+				<product name="Android"  hexId="0x9053 - MSM_DIAG (0) + QSC_DIAG (1) + ADB (2) + MSM_DUN (3) + NMEA (4) + QSC_DUN (5) + MSM_RmNET (6) + QSC_RmNET (7) + MSC(8) [For Fusion 2.2 MSM8960 + QSC1215] />
+				<product name="Android"  hexId="0x9054 - MSM_DIAG (0) + QSC_DIAG (1) + MSM_DUN (2) + NMEA (3) + MSM_DUN (4) + MSM_RmNET (5) + QSC_RmNET (6) + MSC(7) [For Fusion 2.2 MSM8960 + QSC1215] />
+				<product name="Android"  hexId="0x9055" diag="1"  + SER4 (EFS sync) + DUN + NET1 + NET2 + NET3 + NET4 + NET5 [AMSS] />
+				<product name="Android"  hexId="0x9056" diag="1"  + ADB + DUN + RMNET + Mass Storage + Audio [Linux] />
+			</products>
+		</vendor>
+		<vendor name="Microsoft Zune" id="1118" hexId="0x045E">
+		</vendor>
+	</vendors>
+</Qualcomm>

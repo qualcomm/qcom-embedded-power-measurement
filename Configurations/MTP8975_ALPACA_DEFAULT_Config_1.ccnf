@@ -1,0 +1,212 @@
+{
+    "author": "mtoma",
+    "channels": [
+        {
+            "category": "Battery",
+            "color": "#1c91e2",
+            "description": "",
+            "disabled": "false",
+            "index": 0,
+            "name": "CH1_VBATT_M",
+            "resistor_value": 1,
+            "type": "SPM"
+        },
+        {
+            "category": "VPH",
+            "color": "#6ac6ff",
+            "description": "",
+            "disabled": "false",
+            "index": 1,
+            "name": "CH2_VPH_PWR_M",
+            "resistor_value": 1,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "false",
+            "index": 2,
+            "name": "CH3_DISPLAY_VREG_S7D_0P712",
+            "resistor_value": 3,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "false",
+            "index": 3,
+            "name": "CH4_VDD2H_0_VREG_S9D_1P052",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#3acdcb",
+            "description": "",
+            "disabled": "false",
+            "index": 4,
+            "name": "CH5_VDD2H_1_VREG_S7G_1P052",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#2c7a79",
+            "description": "",
+            "disabled": "false",
+            "index": 5,
+            "name": "CH6_NSP1_VREG_S1D_S2D_S3D_0P712",
+            "resistor_value": 1,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#6a9212",
+            "description": "",
+            "disabled": "false",
+            "index": 6,
+            "name": "CH7_NSP2_VREG_S4D_S5D_S6D_0P712",
+            "resistor_value": 1,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#004a4a",
+            "description": "",
+            "disabled": "false",
+            "index": 7,
+            "name": "CH8_MX_A_VREG_S9I_0P752",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#295800",
+            "description": "",
+            "disabled": "false",
+            "index": 8,
+            "name": "CH9_MX_C_VREG_S10D_0P752",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#47abff",
+            "description": "",
+            "disabled": "false",
+            "index": 9,
+            "name": "CH10_GFX_MXC_VREG_S10F_0P752",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#9fcc3b",
+            "description": "",
+            "disabled": "false",
+            "index": 10,
+            "name": "CH11_GFX_BX_VREG_S9F_0P712",
+            "resistor_value": 3,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#109e9c",
+            "description": "",
+            "disabled": "false",
+            "index": 11,
+            "name": "CH12_MM_VREG_S8D_0P712",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#005daa",
+            "description": "",
+            "disabled": "false",
+            "index": 12,
+            "name": "CH13_CX_VREG_S5G_S6G_0P712",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#00ff00",
+            "description": "",
+            "disabled": "false",
+            "index": 13,
+            "name": "CH14_GFX_VREG_S1F_S2F_S3F_S4F_S5F_S6F_0P712",
+            "resistor_value": 1,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM DDR PDN",
+            "color": "#046262",
+            "description": "",
+            "disabled": "false",
+            "index": 14,
+            "name": "CH15_VDDQ_VREG_S1C_0P5",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#002f75",
+            "description": "",
+            "disabled": "false",
+            "index": 15,
+            "name": "CH16_LPI_MX_VREG_L4I_0P752",
+            "resistor_value": 25,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#003434",
+            "description": "",
+            "disabled": "false",
+            "index": 16,
+            "name": "CH17_LPI_CX_VREG_S8G_0P712",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM DDR PDN",
+            "color": "#104100",
+            "description": "",
+            "disabled": "false",
+            "index": 17,
+            "name": "CH18_VDD1_VREG_L15B_1P8",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM DDR PDN",
+            "color": "#d4b217",
+            "description": "",
+            "disabled": "false",
+            "index": 18,
+            "name": "CH19_VDD2L_VREG_S7F_0P9",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM DDR PDN",
+            "color": "#917a13",
+            "description": "",
+            "disabled": "false",
+            "index": 19,
+            "name": "CH20_MODEM_VREG_S2C_0P712",
+            "resistor_value": 10,
+            "type": "SPM"
+        }
+    ],
+    "creation_date": "Tue Oct 14 10:30:21 2025",
+    "description": "MTP8975 HAWI CONFIG FILE",
+    "epm_version": "QEPM 5.7.0",
+    "label": "MTP8975 HAWI",
+    "modify_date": "Tue Oct 28 12:31:51 2025",
+    "spm_version": 1,
+    "target": "SM8975"
+}

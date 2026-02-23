@@ -1,0 +1,352 @@
+{
+    "author": "VKOMMIRE",
+    "channels": [
+        {
+            "category": "VBATT",
+            "color": "#1c91e2",
+            "description": "",
+            "disabled": "false",
+            "index": 1,
+            "name": "CH1_VBATT",
+            "resistor_value": 3,
+            "type": "RCM"
+        },
+        {
+            "category": "APC0",
+            "color": "#6ac6ff",
+            "description": "",
+            "disabled": "false",
+            "index": 2,
+            "name": "CH2_APC0",
+            "resistor_value": 1,
+            "type": "RCM"
+        },
+        {
+            "category": "APC1",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "false",
+            "index": 3,
+            "name": "CH3_APC1",
+            "resistor_value": 1,
+            "type": "RCM"
+        },
+        {
+            "category": "APC0_MX",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "false",
+            "index": 4,
+            "name": "CH4_APC0_MX",
+            "resistor_value": 2,
+            "type": "RCM"
+        },
+        {
+            "category": "APC1_MX",
+            "color": "#3acdcb",
+            "description": "",
+            "disabled": "false",
+            "index": 5,
+            "name": "CH5_APC1_MX",
+            "resistor_value": 1,
+            "type": "RCM"
+        },
+        {
+            "category": "NSP1",
+            "color": "#2c7a79",
+            "description": "",
+            "disabled": "false",
+            "index": 6,
+            "name": "CH6_NSP1",
+            "resistor_value": 1,
+            "type": "RCM"
+        },
+        {
+            "category": "MXA",
+            "color": "#004a4a",
+            "description": "",
+            "disabled": "false",
+            "index": 8,
+            "name": "CH8_MXA",
+            "resistor_value": 5,
+            "type": "RCM"
+        },
+        {
+            "category": "MXC",
+            "color": "#295800",
+            "description": "",
+            "disabled": "false",
+            "index": 9,
+            "name": "CH9_MXC",
+            "resistor_value": 2,
+            "type": "RCM"
+        },
+        {
+            "category": "MODEM",
+            "color": "#9fcc3b",
+            "description": "",
+            "disabled": "false",
+            "index": 10,
+            "name": "CH10_MODEM",
+            "resistor_value": 2,
+            "type": "RCM"
+        },
+        {
+            "category": "MM",
+            "color": "#109e9c",
+            "description": "",
+            "disabled": "false",
+            "index": 11,
+            "name": "CH11_MM",
+            "resistor_value": 1,
+            "type": "RCM"
+        },
+        {
+            "category": "CX",
+            "color": "#502f0a",
+            "description": "",
+            "disabled": "false",
+            "index": 12,
+            "name": "CH12_CX",
+            "resistor_value": 2,
+            "type": "RCM"
+        },
+        {
+            "category": "GFX",
+            "color": "#740004",
+            "description": "",
+            "disabled": "false",
+            "index": 13,
+            "name": "CH13_GFX",
+            "resistor_value": 1,
+            "type": "RCM"
+        },
+        {
+            "category": "VDDA_EBI",
+            "color": "#460046",
+            "description": "",
+            "disabled": "false",
+            "index": 14,
+            "name": "CH14_VDDA_EBI",
+            "resistor_value": 5,
+            "type": "RCM"
+        },
+        {
+            "category": "LPI_MX",
+            "color": "#1c91e2",
+            "description": "",
+            "disabled": "false",
+            "index": 15,
+            "name": "CH15_LPI_MX",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "LPI_CX",
+            "color": "#6ac6ff",
+            "description": "",
+            "disabled": "false",
+            "index": 16,
+            "name": "CH16_LPI_CX",
+            "resistor_value": 5,
+            "type": "RCM"
+        },
+        {
+            "category": "VPH_QTM",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "false",
+            "index": 17,
+            "name": "CH17_VPH_QTM",
+            "resistor_value": 2,
+            "type": "RCM"
+        },
+        {
+            "category": "VPH_QTM2",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "false",
+            "index": 18,
+            "name": "CH18_VPH_QTM2",
+            "resistor_value": 40,
+            "type": "RCM"
+        },
+        {
+            "category": "VPH_QTM1",
+            "color": "#3acdcb",
+            "description": "",
+            "disabled": "false",
+            "index": 19,
+            "name": "CH19_VPH_QTM1",
+            "resistor_value": 40,
+            "type": "RCM"
+        },
+        {
+            "category": "SDR_VDD_CX",
+            "color": "#2c7a79",
+            "description": "",
+            "disabled": "false",
+            "index": 20,
+            "name": "SDR_VDD_CX",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "L4K",
+            "color": "#6a9212",
+            "description": "",
+            "disabled": "false",
+            "index": 21,
+            "name": "CH21_L4K",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "L5K",
+            "color": "#004a4a",
+            "description": "",
+            "disabled": "false",
+            "index": 22,
+            "name": "CH22_L5K",
+            "resistor_value": 40,
+            "type": "RCM"
+        },
+        {
+            "category": "L6K",
+            "color": "#295800",
+            "description": "",
+            "disabled": "false",
+            "index": 23,
+            "name": "CH23_L6K",
+            "resistor_value": 100,
+            "type": "RCM"
+        },
+        {
+            "category": "L1D",
+            "color": "#47abff",
+            "description": "",
+            "disabled": "false",
+            "index": 24,
+            "name": "CH24_L1D",
+            "resistor_value": 50,
+            "type": "RCM"
+        },
+        {
+            "category": "ORNE_XFEM",
+            "color": "#9fcc3b",
+            "description": "",
+            "disabled": "false",
+            "index": 25,
+            "name": "CH25_ORNE_XFEM",
+            "resistor_value": 5,
+            "type": "RCM"
+        },
+        {
+            "category": "ORNE_CX",
+            "color": "#109e9c",
+            "description": "",
+            "disabled": "false",
+            "index": 26,
+            "name": "CH26_ORNE_CX",
+            "resistor_value": 5,
+            "type": "RCM"
+        },
+        {
+            "category": "SENSOR_3P3",
+            "color": "#005daa",
+            "description": "",
+            "disabled": "false",
+            "index": 27,
+            "name": "CH27_SENSOR_3P3",
+            "resistor_value": 301,
+            "type": "RCM"
+        },
+        {
+            "category": "SENSOR_1P8",
+            "color": "#00ff00",
+            "description": "",
+            "disabled": "false",
+            "index": 28,
+            "name": "CH28_SENSOR_1P8",
+            "resistor_value": 3010,
+            "type": "RCM"
+        },
+        {
+            "category": "ORNE_IPA",
+            "color": "#046262",
+            "description": "",
+            "disabled": "false",
+            "index": 29,
+            "name": "CH29_ORNE_IPA",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "VPH_PWR",
+            "color": "#002f75",
+            "description": "",
+            "disabled": "false",
+            "index": 30,
+            "name": "CH30_VPH_PWR",
+            "resistor_value": 3,
+            "type": "RCM"
+        },
+        {
+            "category": "VDD2H_P",
+            "color": "#003434",
+            "description": "",
+            "disabled": "false",
+            "index": 31,
+            "name": "CH31_VDD2H",
+            "resistor_value": 2,
+            "type": "RCM"
+        },
+        {
+            "category": "VDD2L_P",
+            "color": "#1c91e2",
+            "description": "",
+            "disabled": "false",
+            "index": 32,
+            "name": "CH32_VDD2L",
+            "resistor_value": 5,
+            "type": "RCM"
+        },
+        {
+            "category": "VDDQ_P",
+            "color": "#6ac6ff",
+            "description": "",
+            "disabled": "false",
+            "index": 33,
+            "name": "CH33_VDDQ",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "VDD1_P",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "false",
+            "index": 34,
+            "name": "CH34_VDD1",
+            "resistor_value": 50,
+            "type": "RCM"
+        },
+        {
+            "category": "NSP2_P",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "false",
+            "index": 35,
+            "name": "CH35_NSP2",
+            "resistor_value": 1,
+            "type": "RCM"
+        }
+    ],
+    "creation_date": "Fri Feb 28 21:30:34 2025",
+    "description": "Molokai power MTP V1",
+    "epm_version": "QEPM 5.4.0",
+    "label": "MTP8845",
+    "modify_date": "Tue May 6 15:51:54 2025",
+    "spm_version": 1,
+    "target": "SM8845"
+}

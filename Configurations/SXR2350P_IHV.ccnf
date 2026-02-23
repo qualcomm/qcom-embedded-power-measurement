@@ -1,0 +1,262 @@
+{
+    "author": "ruchitha",
+    "channels": [
+        {
+            "category": "VDDIO_EBI",
+            "color": "#1c91e2",
+            "description": "",
+            "disabled": "false",
+            "index": 2,
+            "name": "V_S3C_ALL_0P5_P_BB_CH1",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "DISP VDDI",
+            "color": "#6ac6ff",
+            "description": "",
+            "disabled": "false",
+            "index": 4,
+            "name": "V_L7B_DISP_VDDI_1P8_P_BB_CH2",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "WLCX",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "false",
+            "index": 5,
+            "name": "V_S5D_WLCX_0P9_P_BB_CH3",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "VPH DISP",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "false",
+            "index": 6,
+            "name": "V_VPH_DISP_LR_AVDD_AVEE_P_BB_CH4",
+            "resistor_value": 200,
+            "type": "SPM"
+        },
+        {
+            "category": "WCN PCIE RFA 1P9",
+            "color": "#3acdcb",
+            "description": "",
+            "disabled": "false",
+            "index": 7,
+            "name": "V_S1B_WCN_PCIE_RFA_1P9_P_BB_CH5",
+            "resistor_value": 499,
+            "type": "SPM"
+        },
+        {
+            "category": "VDDA EBI",
+            "color": "#2c7a79",
+            "description": "",
+            "disabled": "false",
+            "index": 8,
+            "name": "V_S2C_ALL_0P9_P_BB_CH6",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "V6C LPI CX",
+            "color": "#6a9212",
+            "description": "",
+            "disabled": "false",
+            "index": 9,
+            "name": "V_L3F_LPI_CX_0P8_P_BB_CH7",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "NSP2",
+            "color": "#004a4a",
+            "description": "",
+            "disabled": "false",
+            "index": 10,
+            "name": "V_S4C_5C_NSP2_0P7_P_BB_CH8",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "VDD MM",
+            "color": "#295800",
+            "description": "",
+            "disabled": "false",
+            "index": 11,
+            "name": "V_S3B_4B_5B_MM_0P7_P_BB_CH9",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "PX7XX",
+            "color": "#47abff",
+            "description": "",
+            "disabled": "false",
+            "index": 12,
+            "name": "V_L7B_SM_PX_1P8_P_BB_CH10",
+            "resistor_value": 499,
+            "type": "SPM"
+        },
+        {
+            "category": "WCN",
+            "color": "#9fcc3b",
+            "description": "",
+            "disabled": "false",
+            "index": 13,
+            "name": "V_S6D_WCN_0P9_P_BB_CH11",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "NRF VDD",
+            "color": "#109e9c",
+            "description": "",
+            "disabled": "false",
+            "index": 14,
+            "name": "V_L11B_MEMS_NRF_1P8_P_BB_CH12",
+            "resistor_value": 1000,
+            "type": "SPM"
+        },
+        {
+            "category": "SDE VDD1",
+            "color": "#005daa",
+            "description": "",
+            "disabled": "false",
+            "index": 15,
+            "name": "V_L5B_SDE_VDD2_1P8_P_BB_CH13",
+            "resistor_value": 50,
+            "type": "SPM"
+        },
+        {
+            "category": "V8F MX_A",
+            "color": "#002f75",
+            "description": "",
+            "disabled": "false",
+            "index": 19,
+            "name": "V_S3F_MXA_0P7_P_BB_CH31",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "DISP_CX",
+            "color": "#003434",
+            "description": "",
+            "disabled": "false",
+            "index": 21,
+            "name": "V_S6B_DISP_CX_0P7_P_BB_CH32",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "LPI MX",
+            "color": "#104100",
+            "description": "",
+            "disabled": "false",
+            "index": 23,
+            "name": "V_L2F_LPI_MX_0P8_P_BB_CH33",
+            "resistor_value": 25,
+            "type": "SPM"
+        },
+        {
+            "category": "VDD2H",
+            "color": "#d4b217",
+            "description": "",
+            "disabled": "false",
+            "index": 25,
+            "name": "V_S4F_DDR_VDD2H_1P1_P_BB_CH34",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "VDD2L",
+            "color": "#917a13",
+            "description": "",
+            "disabled": "false",
+            "index": 27,
+            "name": "V_S5F_L2C_DDR_VDD2L_0P9_P_BB_CH35",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "APC0",
+            "color": "#fed51a",
+            "description": "",
+            "disabled": "false",
+            "index": 41,
+            "name": "V_S1F_2F_APC0_0P7_P_BB_CH36",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "VDD_CX",
+            "color": "#b39715",
+            "description": "",
+            "disabled": "false",
+            "index": 42,
+            "name": "V_S6F_CX_0P7_P_BB_CH37",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "NSP1",
+            "color": "#6f9715",
+            "description": "",
+            "disabled": "false",
+            "index": 43,
+            "name": "V_S6C_1C_NSP1_0P8_P_BB_CH38",
+            "resistor_value": 50,
+            "type": "SPM"
+        },
+        {
+            "category": "APC1",
+            "color": "#f7921e",
+            "description": "",
+            "disabled": "false",
+            "index": 44,
+            "name": "V_S7F_8F_APC1_0P7_P_BB_CH39",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "MX_C",
+            "color": "#ca791d",
+            "description": "",
+            "disabled": "false",
+            "index": 45,
+            "name": "V_S4D_MX_C_0P7_P_BB_CH40",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "GFX_MX_C",
+            "color": "#a46217",
+            "description": "",
+            "disabled": "false",
+            "index": 46,
+            "name": "V_S3D_GFX_MX_C_0P7_P_BB_CH65",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "GFX",
+            "color": "#7a4910",
+            "description": "",
+            "disabled": "false",
+            "index": 47,
+            "name": "V_S1D_2D_7D_8D_GFX_0P7_P_BB_CH66",
+            "resistor_value": 2,
+            "type": "SPM"
+        }
+    ],
+    "creation_date": "Thu Nov 20 09:31:11 2025",
+    "description": "Power MTP Rework RevA",
+    "epm_version": "QEPM 5.8.0",
+    "label": "SXR2350P",
+    "modify_date": "Mon Nov 24 11:13:23 2025",
+    "spm_version": 2,
+    "target": "SXR2350P"
+}

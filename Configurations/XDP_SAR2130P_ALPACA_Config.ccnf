@@ -1,0 +1,332 @@
+{
+    "author": "schama",
+    "channels": [
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#6ac6ff",
+            "description": "RCM_MARKER_1 (GPIO 53 of SAR2130P)",
+            "disabled": "false",
+            "index": 1,
+            "name": "AR MARKER",
+            "resistor_value": -1,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#bde958",
+            "description": "RCM_MARKER_2 (GPIO 77 of XRC130)",
+            "disabled": "false",
+            "index": 2,
+            "name": "XRC130 MARKER",
+            "resistor_value": -1,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#2c7a79",
+            "description": "EXT_TRIGGER_RCM (XO_EN using VREG_L10A_1P2)",
+            "disabled": "true",
+            "index": 3,
+            "name": "XO_EN",
+            "resistor_value": -1,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#004a4a",
+            "description": "Internal USB0 disconnect signal",
+            "disabled": "true",
+            "index": 4,
+            "name": "TAC_USB0_DIS",
+            "resistor_value": -1,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#47abff",
+            "description": "Internal low current mode enable signal",
+            "disabled": "true",
+            "index": 5,
+            "name": "LOW_CURRENT_MODE_EN",
+            "resistor_value": -1,
+            "type": "MARKER"
+        },
+        {
+            "category": "",
+            "color": "#109e9c",
+            "description": "",
+            "disabled": "false",
+            "index": 2,
+            "name": "VBATT",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "AR MSM",
+            "color": "#437116",
+            "description": "",
+            "disabled": "false",
+            "index": 4,
+            "name": "SAR2130P APC0",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "AR MSM",
+            "color": "#002f75",
+            "description": "",
+            "disabled": "false",
+            "index": 5,
+            "name": "SAR2130P VDD_CX",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "AR MSM",
+            "color": "#104100",
+            "description": "",
+            "disabled": "false",
+            "index": 6,
+            "name": "SAR2130P VDD_GFX",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "AR MSM",
+            "color": "#917a13",
+            "description": "",
+            "disabled": "false",
+            "index": 7,
+            "name": "SAR2130P VDD_NSP",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "AR MSM",
+            "color": "#b39715",
+            "description": "",
+            "disabled": "false",
+            "index": 8,
+            "name": "SAR2130P VDD_PX3",
+            "resistor_value": 1000,
+            "type": "SPM"
+        },
+        {
+            "category": "AR MSM",
+            "color": "#f7921e",
+            "description": "",
+            "disabled": "false",
+            "index": 9,
+            "name": "SAR2130P VDD_MXA",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "AR MSM",
+            "color": "#a46217",
+            "description": "",
+            "disabled": "false",
+            "index": 10,
+            "name": "SAR2130P VDD_MXC",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "AR MSM",
+            "color": "#e42329",
+            "description": "",
+            "disabled": "false",
+            "index": 11,
+            "name": "SAR2130P VDD_MM",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Memory",
+            "color": "#de00de",
+            "description": "",
+            "disabled": "false",
+            "index": 12,
+            "name": "VDDA_EBI + VDD_MC +  VDDIO_EBI + LPDDDR_VDDQ + VDD_LPI_CX",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "AR MSM",
+            "color": "#502f0a",
+            "description": "",
+            "disabled": "false",
+            "index": 13,
+            "name": "SAR2130P VDD_LPI_CX",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "AR MSM",
+            "color": "#460046",
+            "description": "",
+            "disabled": "false",
+            "index": 14,
+            "name": "SAR2130P LPI MX",
+            "resistor_value": 50,
+            "type": "SPM"
+        },
+        {
+            "category": "Memory",
+            "color": "#6ac6ff",
+            "description": "",
+            "disabled": "false",
+            "index": 15,
+            "name": "VDDIO_EBI + LPDDDR_VDDQ",
+            "resistor_value": 25,
+            "type": "SPM"
+        },
+        {
+            "category": "XRC130 MSM",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "false",
+            "index": 16,
+            "name": "XRC130 VDD_CX",
+            "resistor_value": 50,
+            "type": "SPM"
+        },
+        {
+            "category": "XRC130 MSM",
+            "color": "#2c7a79",
+            "description": "",
+            "disabled": "false",
+            "index": 17,
+            "name": "XRC130 VDD_MX",
+            "resistor_value": 100,
+            "type": "SPM"
+        },
+        {
+            "category": "XRC130 MSM",
+            "color": "#004a4a",
+            "description": "",
+            "disabled": "false",
+            "index": 19,
+            "name": "XRC130 VDD_PX3",
+            "resistor_value": 200,
+            "type": "SPM"
+        },
+        {
+            "category": "EXT BUCK",
+            "color": "#47abff",
+            "description": "",
+            "disabled": "false",
+            "index": 21,
+            "name": "SUBREG EXT MV KTB 1.3 V EXTERNAL BUCK",
+            "resistor_value": 100,
+            "type": "SPM"
+        },
+        {
+            "category": "Memory",
+            "color": "#109e9c",
+            "description": "",
+            "disabled": "false",
+            "index": 23,
+            "name": "LPDDR4X_VDD2",
+            "resistor_value": 25,
+            "type": "SPM"
+        },
+        {
+            "category": "WLAN",
+            "color": "#437116",
+            "description": "",
+            "disabled": "false",
+            "index": 25,
+            "name": "WLAN FEM",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "WLAN",
+            "color": "#002f75",
+            "description": "",
+            "disabled": "false",
+            "index": 27,
+            "name": "HMT PMU_MX_RFA",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "WLAN",
+            "color": "#104100",
+            "description": "",
+            "disabled": "false",
+            "index": 41,
+            "name": "WLAN VDDIO",
+            "resistor_value": 200,
+            "type": "SPM"
+        },
+        {
+            "category": "WLAN",
+            "color": "#917a13",
+            "description": "",
+            "disabled": "false",
+            "index": 42,
+            "name": "WLAN PCIE RFA 1.8V",
+            "resistor_value": 50,
+            "type": "SPM"
+        },
+        {
+            "category": "WLAN",
+            "color": "#b39715",
+            "description": "",
+            "disabled": "false",
+            "index": 43,
+            "name": "WLAN PCIE RFA 1.3V",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "BOB",
+            "color": "#f7921e",
+            "description": "",
+            "disabled": "false",
+            "index": 44,
+            "name": "BOB input",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "EXT BUCK",
+            "color": "#a46217",
+            "description": "",
+            "disabled": "false",
+            "index": 45,
+            "name": "EXT 2.05V KTB BUCK for Cameras",
+            "resistor_value": 200,
+            "type": "SPM"
+        },
+        {
+            "category": "EXT BUCK",
+            "color": "#e42329",
+            "description": "",
+            "disabled": "false",
+            "index": 46,
+            "name": "EXT 1.3V KTB BUCK for Cameras",
+            "resistor_value": 50,
+            "type": "SPM"
+        },
+        {
+            "category": "EXT BUCK",
+            "color": "#de00de",
+            "description": "",
+            "disabled": "false",
+            "index": 47,
+            "name": "HMT PMU_CX",
+            "resistor_value": 10,
+            "type": "SPM"
+        }
+    ],
+    "creation_date": "Thu Oct 27 11:34:55 2022",
+    "description": "XDP SAR2130P",
+    "epm_version": "Alpaca 3.4.5",
+    "label": "XDP SAR2130P",
+    "modify_date": "Thu Oct 27 11:38:40 2022",
+    "spm_version": 0,
+    "target": "SAR2130P"
+}

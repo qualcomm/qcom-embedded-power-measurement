@@ -1,0 +1,152 @@
+{
+    "author": "Ruijie Zhang <ruijiez@qti.qualcomm.com>",
+    "channels": [
+        {
+            "category": "VDD_MX_APC1",
+            "color": "#6ac6ff",
+            "description": "",
+            "disabled": "false",
+            "index": 1,
+            "name": "VREG_S3J_S4J",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "FAN",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "false",
+            "index": 2,
+            "name": "VREG_FAN_VCC",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "NVME PWR/M.2NVME",
+            "color": "#2c7a79",
+            "description": "",
+            "disabled": "false",
+            "index": 3,
+            "name": "VREG_NVME_3P3",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "CRD - OLED Display BL",
+            "color": "#004a4a",
+            "description": "",
+            "disabled": "false",
+            "index": 4,
+            "name": "VREG_DISP_IN (VSYS)",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "WWAN Modem",
+            "color": "#47abff",
+            "description": "",
+            "disabled": "false",
+            "index": 5,
+            "name": "SDX_VPH_PWR",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "LEFT SIDE 2 WSA VSYS INPUT POWER",
+            "color": "#109e9c",
+            "description": "",
+            "disabled": "false",
+            "index": 6,
+            "name": "VSYS_WSA_L",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "WLAN/NVME//RF",
+            "color": "#437116",
+            "description": "",
+            "disabled": "false",
+            "index": 7,
+            "name": "VSYS_PRE_BUCK_3P3",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "mmW Module for SDX65",
+            "color": "#002f75",
+            "description": "",
+            "disabled": "false",
+            "index": 8,
+            "name": "SDX_VPH_PWR_QTM1",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "USB_0_1_2_VCONN",
+            "color": "#104100",
+            "description": "",
+            "disabled": "false",
+            "index": 9,
+            "name": "VREG_VCONN_IN",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "EDP_CONN",
+            "color": "#917a13",
+            "description": "",
+            "disabled": "false",
+            "index": 10,
+            "name": "VREG_EDP_3P3",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "USB_VBUS0_CHG0_IN",
+            "color": "#b39715",
+            "description": "",
+            "disabled": "false",
+            "index": 11,
+            "name": "USB0_VBUS",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "USB_VBUS1_CHG0_IN",
+            "color": "#f7921e",
+            "description": "",
+            "disabled": "false",
+            "index": 12,
+            "name": "USB1_VBUS",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "USB_VBUS2_DCIN_CHG2_IN",
+            "color": "#a46217",
+            "description": "",
+            "disabled": "false",
+            "index": 13,
+            "name": "USB2_VBUS",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "EC POWER",
+            "color": "#e42329",
+            "description": "",
+            "disabled": "false",
+            "index": 14,
+            "name": "VREG_MISC_3P3_R_EC",
+            "resistor_value": 10,
+            "type": "SPM"
+        }
+    ],
+    "creation_date": "Thu Feb 9 18:08:42 2023",
+    "description": "CRD8380X2 using ALPACA",
+    "epm_version": "Alpaca 3.5.1",
+    "label": "CRD8380X2",
+    "modify_date": "Thu Feb 9 18:09:13 2023",
+    "spm_version": 1,
+    "target": "CRD8380X2"
+}

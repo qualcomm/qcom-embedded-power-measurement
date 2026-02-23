@@ -1,0 +1,472 @@
+{
+    "author": "skshetty",
+    "channels": [
+        {
+            "category": "SOC INFRA",
+            "color": "#1c91e2",
+            "description": "",
+            "disabled": "true",
+            "index": 2,
+            "name": "APC0",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#6ac6ff",
+            "description": "",
+            "disabled": "true",
+            "index": 3,
+            "name": "APC1",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "true",
+            "index": 5,
+            "name": "CX",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "true",
+            "index": 7,
+            "name": "MXA",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#3acdcb",
+            "description": "",
+            "disabled": "true",
+            "index": 10,
+            "name": "WCSS_CX",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#2c7a79",
+            "description": "",
+            "disabled": "true",
+            "index": 27,
+            "name": "EBI",
+            "resistor_value": 50,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#1c91e2",
+            "description": "",
+            "disabled": "true",
+            "index": 4,
+            "name": "GFX",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#6ac6ff",
+            "description": "",
+            "disabled": "true",
+            "index": 6,
+            "name": "MODEM",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "true",
+            "index": 8,
+            "name": "LPI_CX",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "true",
+            "index": 9,
+            "name": "LPI_MX",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#3acdcb",
+            "description": "",
+            "disabled": "true",
+            "index": 11,
+            "name": "PX3",
+            "resistor_value": 499,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#2c7a79",
+            "description": "",
+            "disabled": "true",
+            "index": 12,
+            "name": "VDDA_EBI",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#6a9212",
+            "description": "",
+            "disabled": "true",
+            "index": 13,
+            "name": "PX7",
+            "resistor_value": 2000,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#004a4a",
+            "description": "",
+            "disabled": "true",
+            "index": 14,
+            "name": "VDD_IO_EBI",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#295800",
+            "description": "",
+            "disabled": "true",
+            "index": 15,
+            "name": "PX0",
+            "resistor_value": 2000,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#47abff",
+            "description": "",
+            "disabled": "true",
+            "index": 16,
+            "name": "PX5",
+            "resistor_value": 2000,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#9fcc3b",
+            "description": "",
+            "disabled": "true",
+            "index": 17,
+            "name": "PX6",
+            "resistor_value": 2000,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#109e9c",
+            "description": "",
+            "disabled": "true",
+            "index": 18,
+            "name": "DDR_VDD1",
+            "resistor_value": 100,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#005daa",
+            "description": "",
+            "disabled": "true",
+            "index": 19,
+            "name": "DDR_VDD2H",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#437116",
+            "description": "",
+            "disabled": "true",
+            "index": 21,
+            "name": "DDR_VDDQ",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#046262",
+            "description": "",
+            "disabled": "true",
+            "index": 22,
+            "name": "UFS_VCC",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#002f75",
+            "description": "",
+            "disabled": "true",
+            "index": 23,
+            "name": "UFS_VCCQ2",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#003434",
+            "description": "",
+            "disabled": "true",
+            "index": 24,
+            "name": "L3M_2P9",
+            "resistor_value": 301,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#104100",
+            "description": "",
+            "disabled": "true",
+            "index": 25,
+            "name": "PX10",
+            "resistor_value": 2000,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#1c91e2",
+            "description": "",
+            "disabled": "true",
+            "index": 26,
+            "name": "PX11",
+            "resistor_value": 2000,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#6ac6ff",
+            "description": "",
+            "disabled": "true",
+            "index": 28,
+            "name": "VIN_1P8_SYS",
+            "resistor_value": 100,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "true",
+            "index": 29,
+            "name": "TOK_ACTIVE_1P2",
+            "resistor_value": 2000,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "true",
+            "index": 30,
+            "name": "VDD_A_APC_CS_1P2",
+            "resistor_value": 2000,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#3acdcb",
+            "description": "",
+            "disabled": "true",
+            "index": 31,
+            "name": "REFGEN_1P2",
+            "resistor_value": 2000,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#2c7a79",
+            "description": "",
+            "disabled": "true",
+            "index": 32,
+            "name": "VDDA_QREFS",
+            "resistor_value": 2000,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#6a9212",
+            "description": "",
+            "disabled": "true",
+            "index": 33,
+            "name": "VDDA_WCSS_ADCDAC",
+            "resistor_value": 1000,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#004a4a",
+            "description": "",
+            "disabled": "true",
+            "index": 34,
+            "name": "VDDA_USB_HS_1P8",
+            "resistor_value": 2000,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#295800",
+            "description": "",
+            "disabled": "true",
+            "index": 35,
+            "name": "VDD_RGB",
+            "resistor_value": 2000,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#47abff",
+            "description": "",
+            "disabled": "true",
+            "index": 36,
+            "name": "VDD_QFPROM",
+            "resistor_value": 1000,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#9fcc3b",
+            "description": "",
+            "disabled": "true",
+            "index": 37,
+            "name": "VIN_L4G",
+            "resistor_value": 200,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#109e9c",
+            "description": "",
+            "disabled": "true",
+            "index": 38,
+            "name": "BOB_CAM_3P3",
+            "resistor_value": 2000,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#005daa",
+            "description": "",
+            "disabled": "true",
+            "index": 39,
+            "name": "VDDA_CSI_0P9",
+            "resistor_value": 1000,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#437116",
+            "description": "",
+            "disabled": "true",
+            "index": 40,
+            "name": "VDD_BOB",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#046262",
+            "description": "",
+            "disabled": "true",
+            "index": 41,
+            "name": "SD_CARD_3P0",
+            "resistor_value": 40,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#002f75",
+            "description": "",
+            "disabled": "true",
+            "index": 42,
+            "name": "VDDA_DSI_1P2",
+            "resistor_value": 301,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#003434",
+            "description": "",
+            "disabled": "true",
+            "index": 43,
+            "name": "USB_HS_3P1",
+            "resistor_value": 2000,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#104100",
+            "description": "",
+            "disabled": "true",
+            "index": 44,
+            "name": "USB_SS_DP_0P9",
+            "resistor_value": 100,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#d4b217",
+            "description": "",
+            "disabled": "true",
+            "index": 45,
+            "name": "VIN_L8B",
+            "resistor_value": 25,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#917a13",
+            "description": "",
+            "disabled": "true",
+            "index": 46,
+            "name": "PX2",
+            "resistor_value": 1000,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#fed51a",
+            "description": "",
+            "disabled": "true",
+            "index": 47,
+            "name": "PX1",
+            "resistor_value": 402,
+            "type": "SPM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#b39715",
+            "description": "",
+            "disabled": "true",
+            "index": 0,
+            "name": "VBATT",
+            "resistor_value": 10,
+            "type": "SPM"
+        }
+    ],
+    "creation_date": "Wed Jul 6 15:17:58 2022",
+    "description": "CPUSS Power measurement",
+    "epm_version": "Alpaca 3.2.7",
+    "label": "IDP",
+    "modify_date": "Tue Nov 22 23:30:11 2022",
+    "spm_version": 0,
+    "target": "SM6450"
+}

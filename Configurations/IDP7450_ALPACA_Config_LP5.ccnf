@@ -1,0 +1,2112 @@
+{
+    "author": "Ram Sai",
+    "channels": [
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#6ac6ff",
+            "description": "",
+            "disabled": "true",
+            "index": 1,
+            "name": "RCM MARKER 1",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "true",
+            "index": 2,
+            "name": "RCM MARKER 2 ",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "",
+            "color": "#2c7a79",
+            "description": "",
+            "disabled": "false",
+            "index": 1,
+            "name": "VBATT",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#004a4a",
+            "description": "",
+            "disabled": "false",
+            "index": 2,
+            "name": "V_S3B_APC0_0P752",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#47abff",
+            "description": "",
+            "disabled": "false",
+            "index": 3,
+            "name": "V_S4B_S5B_S6B_APC1_0P752",
+            "resistor_value": 5,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#109e9c",
+            "description": "",
+            "disabled": "false",
+            "index": 4,
+            "name": "V_S2C_S3C_S4C_GFX_0P676",
+            "resistor_value": 5,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#437116",
+            "description": "",
+            "disabled": "false",
+            "index": 5,
+            "name": "V_S8C_S9C_S10C_CX_0P676",
+            "resistor_value": 5,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#002f75",
+            "description": "",
+            "disabled": "false",
+            "index": 6,
+            "name": "V_S6C_S7C_MODEM_0P752",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#104100",
+            "description": "",
+            "disabled": "false",
+            "index": 7,
+            "name": "V_S10C_MXA",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#917a13",
+            "description": "",
+            "disabled": "false",
+            "index": 8,
+            "name": "V_L5B_VDD_LPI_CX_0P752",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#b39715",
+            "description": "",
+            "disabled": "false",
+            "index": 9,
+            "name": "V_L4B_VDD_LPI_MX_0P752",
+            "resistor_value": 20,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#f7921e",
+            "description": "",
+            "disabled": "false",
+            "index": 10,
+            "name": "V_S4C_MXC",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#a46217",
+            "description": "",
+            "disabled": "false",
+            "index": 11,
+            "name": "V_L18B_SM_PX3_1P8",
+            "resistor_value": 200,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#e42329",
+            "description": "",
+            "disabled": "false",
+            "index": 12,
+            "name": "V_S2B_VDDA_EBI_0P7",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#de00de",
+            "description": "",
+            "disabled": "false",
+            "index": 13,
+            "name": "V_S5C_MM_0P75",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#502f0a",
+            "description": "",
+            "disabled": "false",
+            "index": 14,
+            "name": "V_L3B_VDD_IO_EBI_0P504",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#460046",
+            "description": "",
+            "disabled": "false",
+            "index": 15,
+            "name": "V_L18B_SM_PX0_1P8",
+            "resistor_value": 2000,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#6ac6ff",
+            "description": "",
+            "disabled": "false",
+            "index": 16,
+            "name": "V_L4C_SM_PX5_1P8_3P0",
+            "resistor_value": 2000,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "false",
+            "index": 17,
+            "name": "V_L5C_SM_PX6_1P8_3P0",
+            "resistor_value": 2000,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#2c7a79",
+            "description": "",
+            "disabled": "false",
+            "index": 18,
+            "name": "V_L18B_LP5_VDD1_1P8",
+            "resistor_value": 200,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#004a4a",
+            "description": "",
+            "disabled": "false",
+            "index": 19,
+            "name": "V_S1K_LP5_VDD2H",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#47abff",
+            "description": "",
+            "disabled": "false",
+            "index": 20,
+            "name": "V_L8B_LP5_VDD2L_0P904",
+            "resistor_value": 25,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#109e9c",
+            "description": "",
+            "disabled": "false",
+            "index": 21,
+            "name": "V_L3B_LP5_VDDQ_0P504",
+            "resistor_value": 40,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#437116",
+            "description": "",
+            "disabled": "false",
+            "index": 22,
+            "name": "V_L7B_UFS_VCC_2P5",
+            "resistor_value": 20,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#002f75",
+            "description": "",
+            "disabled": "false",
+            "index": 23,
+            "name": "V_L9B_UFS_VCCQ_1P2",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#104100",
+            "description": "",
+            "disabled": "false",
+            "index": 24,
+            "name": "V_L3G_2P9",
+            "resistor_value": 301,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#917a13",
+            "description": "",
+            "disabled": "false",
+            "index": 25,
+            "name": "V_L9B_SM_PX10_1P2",
+            "resistor_value": 2000,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#b39715",
+            "description": "",
+            "disabled": "false",
+            "index": 26,
+            "name": "V_SM_PX11_1P2",
+            "resistor_value": 2000,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#f7921e",
+            "description": "",
+            "disabled": "false",
+            "index": 27,
+            "name": "V_CX_VDD_D_EBI_0P676",
+            "resistor_value": 50,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#a46217",
+            "description": "",
+            "disabled": "false",
+            "index": 28,
+            "name": "V_AMB_VIN_1P8_SYS",
+            "resistor_value": 100,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#e42329",
+            "description": "",
+            "disabled": "false",
+            "index": 29,
+            "name": "V_L10B_TOK_ACTIVE_1P2",
+            "resistor_value": 50,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#de00de",
+            "description": "",
+            "disabled": "false",
+            "index": 30,
+            "name": "V_L6B_VDDA_APC_CS_1P2",
+            "resistor_value": 2000,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#502f0a",
+            "description": "",
+            "disabled": "false",
+            "index": 31,
+            "name": "V_L6B_VDDA_REFGEN_1P2",
+            "resistor_value": 2000,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#460046",
+            "description": "",
+            "disabled": "false",
+            "index": 32,
+            "name": "V_L6B_VDDA_QREFS_1P2",
+            "resistor_value": 2000,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#6ac6ff",
+            "description": "",
+            "disabled": "false",
+            "index": 33,
+            "name": "V_L6B_VDDA_TURING_1P2",
+            "resistor_value": 2000,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "false",
+            "index": 34,
+            "name": "V_L1C_VDDA_USB_HS_1P8",
+            "resistor_value": 2000,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#2c7a79",
+            "description": "",
+            "disabled": "false",
+            "index": 35,
+            "name": "V_BOB_VDD_RGB",
+            "resistor_value": 1000,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#004a4a",
+            "description": "",
+            "disabled": "false",
+            "index": 36,
+            "name": "V_L1C_VDD_QFPROM",
+            "resistor_value": 499,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#47abff",
+            "description": "",
+            "disabled": "false",
+            "index": 37,
+            "name": "V_S1B_VIN_L4E_1P8",
+            "resistor_value": 200,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#109e9c",
+            "description": "",
+            "disabled": "false",
+            "index": 38,
+            "name": "V_BOB_PMIC_3P3",
+            "resistor_value": 2000,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#437116",
+            "description": "",
+            "disabled": "false",
+            "index": 39,
+            "name": "V_L10C_VDDA_CSI_0P9",
+            "resistor_value": 100,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#002f75",
+            "description": "",
+            "disabled": "false",
+            "index": 40,
+            "name": "V_VPH_VDD_BOB",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#104100",
+            "description": "",
+            "disabled": "false",
+            "index": 41,
+            "name": "V_VIN_S5C",
+            "resistor_value": 20,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#917a13",
+            "description": "",
+            "disabled": "false",
+            "index": 42,
+            "name": "V_S7B_VDD_L10C_0P952",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#b39715",
+            "description": "",
+            "disabled": "false",
+            "index": 43,
+            "name": "V_L4C_UIM1_1P8_3P0",
+            "resistor_value": 100,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#f7921e",
+            "description": "",
+            "disabled": "false",
+            "index": 44,
+            "name": "V_L3E_L10C_VDDA_QLINK1_0P9",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#a46217",
+            "description": "",
+            "disabled": "false",
+            "index": 45,
+            "name": "V_L10C_VDDA_QLINK0_0P9",
+            "resistor_value": 50,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#e42329",
+            "description": "",
+            "disabled": "false",
+            "index": 46,
+            "name": "V_VIN_S8B",
+            "resistor_value": 20,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#de00de",
+            "description": "",
+            "disabled": "false",
+            "index": 47,
+            "name": "V_L10C_VDDA_UFS_0P9",
+            "resistor_value": 50,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#502f0a",
+            "description": "",
+            "disabled": "false",
+            "index": 48,
+            "name": "V_VIN_S8C_S9C",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#460046",
+            "description": "",
+            "disabled": "false",
+            "index": 49,
+            "name": "V_VIN_S7B",
+            "resistor_value": 20,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#6ac6ff",
+            "description": "",
+            "disabled": "false",
+            "index": 50,
+            "name": "V_S7B_WCN_DIG_0P85",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "false",
+            "index": 51,
+            "name": "V_VIN_S2B",
+            "resistor_value": 50,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#2c7a79",
+            "description": "",
+            "disabled": "false",
+            "index": 52,
+            "name": "V_L6B_VDDA_QLINK_HV_CK",
+            "resistor_value": 499,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#004a4a",
+            "description": "",
+            "disabled": "false",
+            "index": 53,
+            "name": "V_VIN_S2C_S3C",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#47abff",
+            "description": "",
+            "disabled": "false",
+            "index": 54,
+            "name": "V_VIN_S6C_S7C",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#109e9c",
+            "description": "",
+            "disabled": "false",
+            "index": 55,
+            "name": "V_L10C_VDDA_DSI_0P9",
+            "resistor_value": 100,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#437116",
+            "description": "",
+            "disabled": "false",
+            "index": 56,
+            "name": "V_S1E_VDD_L1E_L2E_1P25",
+            "resistor_value": 50,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#002f75",
+            "description": "",
+            "disabled": "false",
+            "index": 57,
+            "name": "V_AMB_VPH_PWR",
+            "resistor_value": 1000,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#104100",
+            "description": "",
+            "disabled": "false",
+            "index": 58,
+            "name": "V_SECO_SYS_1P8",
+            "resistor_value": 100,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#917a13",
+            "description": "",
+            "disabled": "false",
+            "index": 59,
+            "name": "V_VIN_S3B",
+            "resistor_value": 20,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#b39715",
+            "description": "",
+            "disabled": "false",
+            "index": 60,
+            "name": "V_S1B_VDD_L11B_L17B_L18B_L19B_1P856",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#f7921e",
+            "description": "",
+            "disabled": "false",
+            "index": 61,
+            "name": "V_S1B_WCN_RFA_1P8",
+            "resistor_value": 100,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#a46217",
+            "description": "",
+            "disabled": "false",
+            "index": 62,
+            "name": "V_L7G_2P96",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#e42329",
+            "description": "",
+            "disabled": "false",
+            "index": 63,
+            "name": "V_VIN_S10C",
+            "resistor_value": 20,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#de00de",
+            "description": "",
+            "disabled": "false",
+            "index": 64,
+            "name": "V_S2B_VDD_L3B_L5B_0P7",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#502f0a",
+            "description": "",
+            "disabled": "false",
+            "index": 65,
+            "name": "V_L9C_SD_3P0",
+            "resistor_value": 40,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#460046",
+            "description": "",
+            "disabled": "false",
+            "index": 66,
+            "name": "V_L6B_VDDA_DSI_1P2",
+            "resistor_value": 301,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#6ac6ff",
+            "description": "",
+            "disabled": "false",
+            "index": 67,
+            "name": "V_L2B_VDDA_USB_HS_3P1",
+            "resistor_value": 2000,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "false",
+            "index": 68,
+            "name": "V_L1B_VDDA_USB_SS_DP_0P912",
+            "resistor_value": 100,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#2c7a79",
+            "description": "",
+            "disabled": "false",
+            "index": 69,
+            "name": "V_S7B_VDD_L8B_0P952",
+            "resistor_value": 25,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#004a4a",
+            "description": "",
+            "disabled": "false",
+            "index": 70,
+            "name": "V_L6C_SM_PX2_2P96",
+            "resistor_value": 1000,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#47abff",
+            "description": "",
+            "disabled": "false",
+            "index": 71,
+            "name": "V_S6B_SM_PX1",
+            "resistor_value": 402,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#109e9c",
+            "description": "",
+            "disabled": "false",
+            "index": 72,
+            "name": "V_VIN_S4C",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#437116",
+            "description": "",
+            "disabled": "false",
+            "index": 73,
+            "name": "V_L3C_TS_3P0",
+            "resistor_value": 1000,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#002f75",
+            "description": "",
+            "disabled": "false",
+            "index": 74,
+            "name": "V_L8C_L12C_TS_1P8",
+            "resistor_value": 1000,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#104100",
+            "description": "",
+            "disabled": "false",
+            "index": 75,
+            "name": "V_VPH_VIN_HAPTICS",
+            "resistor_value": 200,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#917a13",
+            "description": "",
+            "disabled": "false",
+            "index": 82,
+            "name": "V_L18B_NFC_IO_1P8",
+            "resistor_value": 200,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#b39715",
+            "description": "",
+            "disabled": "false",
+            "index": 83,
+            "name": "V_VPH_WLAN",
+            "resistor_value": 50,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#f7921e",
+            "description": "",
+            "disabled": "false",
+            "index": 84,
+            "name": "V_L6G_2P8",
+            "resistor_value": 200,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#a46217",
+            "description": "",
+            "disabled": "false",
+            "index": 85,
+            "name": "V_L10C_VDDA_QREF_0P9",
+            "resistor_value": 499,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#e42329",
+            "description": "",
+            "disabled": "false",
+            "index": 86,
+            "name": "V_VPH_MISC",
+            "resistor_value": 25,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#de00de",
+            "description": "",
+            "disabled": "false",
+            "index": 87,
+            "name": "V_VPH_NFC",
+            "resistor_value": 40,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#502f0a",
+            "description": "",
+            "disabled": "false",
+            "index": 88,
+            "name": "V_L4G_2P8",
+            "resistor_value": 499,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#460046",
+            "description": "",
+            "disabled": "false",
+            "index": 89,
+            "name": "V_L2G_1P05",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#6ac6ff",
+            "description": "",
+            "disabled": "false",
+            "index": 90,
+            "name": "V_VPH_QTM1",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "false",
+            "index": 91,
+            "name": "V_VPH_QTM0",
+            "resistor_value": 20,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#2c7a79",
+            "description": "",
+            "disabled": "false",
+            "index": 92,
+            "name": "V_S1B_QTM2_VDDA_1P8",
+            "resistor_value": 100,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#004a4a",
+            "description": "",
+            "disabled": "false",
+            "index": 93,
+            "name": "V_S1B_QTM1_VDDA_1P8",
+            "resistor_value": 50,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#47abff",
+            "description": "",
+            "disabled": "false",
+            "index": 94,
+            "name": "V_S1B_QTM0_VDDA_1P8",
+            "resistor_value": 100,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#109e9c",
+            "description": "",
+            "disabled": "false",
+            "index": 95,
+            "name": "V_L2E_SMR546_VDDAM_1P2",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#437116",
+            "description": "",
+            "disabled": "false",
+            "index": 96,
+            "name": "V_L5E_SMR546_VDDAL_0P8",
+            "resistor_value": 40,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#002f75",
+            "description": "",
+            "disabled": "false",
+            "index": 97,
+            "name": "V_L4E_SMR546_VDDAH_1P8",
+            "resistor_value": 499,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#104100",
+            "description": "",
+            "disabled": "false",
+            "index": 98,
+            "name": "V_L3E_SMR546_VDDA_PHY_0P912",
+            "resistor_value": 25,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#917a13",
+            "description": "",
+            "disabled": "false",
+            "index": 99,
+            "name": "V_L18B_SMR546_PX_1P8",
+            "resistor_value": 4990,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#b39715",
+            "description": "",
+            "disabled": "false",
+            "index": 100,
+            "name": "V_L3E_SMR546_MX_0P912",
+            "resistor_value": 100,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#f7921e",
+            "description": "",
+            "disabled": "false",
+            "index": 101,
+            "name": "V_L6E_SMR546_CX_0P8",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#a46217",
+            "description": "",
+            "disabled": "false",
+            "index": 102,
+            "name": "V_L10C_VDDA_PCIE0_0P9",
+            "resistor_value": 301,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#e42329",
+            "description": "",
+            "disabled": "false",
+            "index": 103,
+            "name": "V_VPH_QTM2",
+            "resistor_value": 20,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#de00de",
+            "description": "",
+            "disabled": "false",
+            "index": 104,
+            "name": "V_LCA1_2_VSYS_1P8_VPH_PWR",
+            "resistor_value": 100,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#502f0a",
+            "description": "",
+            "disabled": "false",
+            "index": 105,
+            "name": "V_L14B_QPM6679_LNA_1P2",
+            "resistor_value": 50,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#460046",
+            "description": "",
+            "disabled": "false",
+            "index": 106,
+            "name": "V_S2E_VDD_L3E_L5E_L6E_0P85",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#6ac6ff",
+            "description": "",
+            "disabled": "false",
+            "index": 107,
+            "name": "V_L1G_1P1",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "false",
+            "index": 108,
+            "name": "V_SMB_SYS_1P8",
+            "resistor_value": 100,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#2c7a79",
+            "description": "",
+            "disabled": "false",
+            "index": 109,
+            "name": "V_VPH_TOP_WSA",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#004a4a",
+            "description": "",
+            "disabled": "false",
+            "index": 110,
+            "name": "USB0_VBUS",
+            "resistor_value": 25,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#47abff",
+            "description": "",
+            "disabled": "false",
+            "index": 111,
+            "name": "V_BOB_VIN_L6H_L7H_3P3",
+            "resistor_value": 200,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#109e9c",
+            "description": "",
+            "disabled": "false",
+            "index": 112,
+            "name": "V_L6H_2P8",
+            "resistor_value": 499,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#437116",
+            "description": "",
+            "disabled": "false",
+            "index": 113,
+            "name": "V_L3H_1P8",
+            "resistor_value": 1000,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#002f75",
+            "description": "",
+            "disabled": "false",
+            "index": 114,
+            "name": "V_L10C_VDDA_USB_HS_0P9",
+            "resistor_value": 200,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#104100",
+            "description": "",
+            "disabled": "false",
+            "index": 115,
+            "name": "V_L14B_QPM5541_LNA_1P2",
+            "resistor_value": 402,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#917a13",
+            "description": "",
+            "disabled": "false",
+            "index": 116,
+            "name": "V_TIOMAN_VPH_PWR",
+            "resistor_value": 4990,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#b39715",
+            "description": "",
+            "disabled": "false",
+            "index": 117,
+            "name": "V_L1H_1P05",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#f7921e",
+            "description": "",
+            "disabled": "false",
+            "index": 118,
+            "name": "V_L10C_VDDA_QLINK2_0P9",
+            "resistor_value": 50,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#a46217",
+            "description": "",
+            "disabled": "false",
+            "index": 119,
+            "name": "V_BOB_VIN_L7G_3P3",
+            "resistor_value": 100,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#e42329",
+            "description": "",
+            "disabled": "false",
+            "index": 120,
+            "name": "V_L2B_VDD_PDPHY_3P1",
+            "resistor_value": 2000,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#de00de",
+            "description": "",
+            "disabled": "false",
+            "index": 121,
+            "name": "V_BOB_VIN_L6G_3P3",
+            "resistor_value": 499,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#502f0a",
+            "description": "",
+            "disabled": "false",
+            "index": 122,
+            "name": "V_VPH_CONN",
+            "resistor_value": 100,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#460046",
+            "description": "",
+            "disabled": "false",
+            "index": 123,
+            "name": "V_L4H_1P8",
+            "resistor_value": 301,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#6ac6ff",
+            "description": "",
+            "disabled": "false",
+            "index": 124,
+            "name": "V_L5C_UIM2_1P8_3P0",
+            "resistor_value": 100,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "false",
+            "index": 125,
+            "name": "V_S1B_VDD_L1C_L12C_1P8",
+            "resistor_value": 25,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#2c7a79",
+            "description": "",
+            "disabled": "false",
+            "index": 126,
+            "name": "V_S1B_VDD_L2C_L8C_1P8",
+            "resistor_value": 301,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#004a4a",
+            "description": "",
+            "disabled": "false",
+            "index": 127,
+            "name": "V_BOB_VDD_FLASH",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#47abff",
+            "description": "",
+            "disabled": "false",
+            "index": 128,
+            "name": "V_PAL_VPH_PWR",
+            "resistor_value": 2000,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#109e9c",
+            "description": "",
+            "disabled": "false",
+            "index": 129,
+            "name": "V_BOB_VDD_L3C_L4C_L5C_L7C_L13C_3P3",
+            "resistor_value": 100,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#437116",
+            "description": "",
+            "disabled": "false",
+            "index": 130,
+            "name": "V_VIN_S1C",
+            "resistor_value": 20,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#002f75",
+            "description": "",
+            "disabled": "false",
+            "index": 131,
+            "name": "V_L18B_FM_IO_1P8",
+            "resistor_value": 4990,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#104100",
+            "description": "",
+            "disabled": "false",
+            "index": 132,
+            "name": "V_S1C_WCN_IPA_2P2",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#917a13",
+            "description": "",
+            "disabled": "false",
+            "index": 133,
+            "name": "V_L11C_QCA_FEM_2G_2P8",
+            "resistor_value": 499,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#b39715",
+            "description": "",
+            "disabled": "false",
+            "index": 134,
+            "name": "V_S7B_WCN_MX_0P85",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#f7921e",
+            "description": "",
+            "disabled": "false",
+            "index": 135,
+            "name": "V_L7C_SENSORS_3P0",
+            "resistor_value": 50,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#a46217",
+            "description": "",
+            "disabled": "false",
+            "index": 136,
+            "name": "V_VIN_S2E",
+            "resistor_value": 20,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#e42329",
+            "description": "",
+            "disabled": "false",
+            "index": 137,
+            "name": "V_TOK_SYS_1P8",
+            "resistor_value": 100,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#de00de",
+            "description": "",
+            "disabled": "false",
+            "index": 138,
+            "name": "V_TOK_COIN_1P5",
+            "resistor_value": 2000,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#502f0a",
+            "description": "",
+            "disabled": "false",
+            "index": 139,
+            "name": "V_S8B_WCN_RFA_1P2",
+            "resistor_value": 50,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#460046",
+            "description": "",
+            "disabled": "false",
+            "index": 140,
+            "name": "V_VIN_S1K",
+            "resistor_value": 50,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#6ac6ff",
+            "description": "",
+            "disabled": "false",
+            "index": 141,
+            "name": "V_SECO_VPH_PWR",
+            "resistor_value": 2000,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "false",
+            "index": 142,
+            "name": "V_S7B_WCN_RFA_0P85",
+            "resistor_value": 50,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#2c7a79",
+            "description": "",
+            "disabled": "false",
+            "index": 143,
+            "name": "V_S8B_WCN_PCIE_1P2",
+            "resistor_value": 402,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#004a4a",
+            "description": "",
+            "disabled": "false",
+            "index": 144,
+            "name": "V_S7B_WCN_AON_0P85",
+            "resistor_value": 402,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#47abff",
+            "description": "",
+            "disabled": "false",
+            "index": 145,
+            "name": "V_S8B_VDD_L14B_L16B_1P2",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#109e9c",
+            "description": "",
+            "disabled": "false",
+            "index": 146,
+            "name": "V_S8B_VDD_L6B_L9B_L10B_1P2",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#437116",
+            "description": "",
+            "disabled": "false",
+            "index": 147,
+            "name": "V_VIN_S1E",
+            "resistor_value": 50,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#002f75",
+            "description": "",
+            "disabled": "false",
+            "index": 148,
+            "name": "V_L6B_VDDA_PCIE0_PLL_1P2",
+            "resistor_value": 1000,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#104100",
+            "description": "",
+            "disabled": "false",
+            "index": 149,
+            "name": "V_S7B_VDD_L13B_0P952",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#917a13",
+            "description": "",
+            "disabled": "false",
+            "index": 150,
+            "name": "V_BOB_VDD_L2B_L7B_3P3",
+            "resistor_value": 40,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#b39715",
+            "description": "",
+            "disabled": "false",
+            "index": 151,
+            "name": "V_S1B_WCN_PCIE_1P8",
+            "resistor_value": 1000,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#f7921e",
+            "description": "",
+            "disabled": "false",
+            "index": 152,
+            "name": "V_S7B_VDD_L1B_L4B_L12B_L15B_0P952",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#a46217",
+            "description": "",
+            "disabled": "false",
+            "index": 153,
+            "name": "V_PAL_SYS_1P8",
+            "resistor_value": 100,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#e42329",
+            "description": "",
+            "disabled": "false",
+            "index": 154,
+            "name": "V_RF_SW_WLAN_2P8",
+            "resistor_value": 2000,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#de00de",
+            "description": "",
+            "disabled": "false",
+            "index": 155,
+            "name": "V_L18B_MISC_LVL_DBG_1P8",
+            "resistor_value": 100,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#502f0a",
+            "description": "",
+            "disabled": "false",
+            "index": 156,
+            "name": "V_BOB_VDD_L6C_L9C_L11C_3P3",
+            "resistor_value": 50,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#460046",
+            "description": "",
+            "disabled": "false",
+            "index": 157,
+            "name": "V_L18B_WCN_IO_1P8",
+            "resistor_value": 1000,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#6ac6ff",
+            "description": "",
+            "disabled": "false",
+            "index": 158,
+            "name": "V_L13C_OLED_VCI_3P0",
+            "resistor_value": 2000,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "false",
+            "index": 160,
+            "name": "V_L10C_VDDA_REFGEN_0P9",
+            "resistor_value": 2000,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#2c7a79",
+            "description": "",
+            "disabled": "false",
+            "index": 161,
+            "name": "V_L11B_SDR_VDDAH_TX_TP_1P8",
+            "resistor_value": 100,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#004a4a",
+            "description": "",
+            "disabled": "false",
+            "index": 162,
+            "name": "V_L11B_SDR_VDDAH_DAC_1P8",
+            "resistor_value": 50,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#47abff",
+            "description": "",
+            "disabled": "false",
+            "index": 163,
+            "name": "V_L15B_SDR_MX_0P88",
+            "resistor_value": 50,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#109e9c",
+            "description": "",
+            "disabled": "false",
+            "index": 164,
+            "name": "V_L15B_SDR_PHY_0P88",
+            "resistor_value": 50,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#437116",
+            "description": "",
+            "disabled": "false",
+            "index": 165,
+            "name": "V_L14B_SDR_VDDAM_RX_1P2",
+            "resistor_value": 50,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#002f75",
+            "description": "",
+            "disabled": "false",
+            "index": 166,
+            "name": "V_L12B_SDR_VDDAL_RX_0P8",
+            "resistor_value": 20,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#104100",
+            "description": "",
+            "disabled": "false",
+            "index": 167,
+            "name": "V_L18B_RF_MISC_4G_1P8",
+            "resistor_value": 402,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#917a13",
+            "description": "",
+            "disabled": "false",
+            "index": 168,
+            "name": "V_L18B_SDR_PX_1P8",
+            "resistor_value": 2000,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#b39715",
+            "description": "",
+            "disabled": "false",
+            "index": 169,
+            "name": "V_SECO_JR_SYS_1P8",
+            "resistor_value": 100,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#f7921e",
+            "description": "",
+            "disabled": "false",
+            "index": 170,
+            "name": "V_L11B_RF_SW_1P8",
+            "resistor_value": 3010,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#a46217",
+            "description": "",
+            "disabled": "false",
+            "index": 171,
+            "name": "V_L18B_RF_MISC_5G_1P8",
+            "resistor_value": 402,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#e42329",
+            "description": "",
+            "disabled": "false",
+            "index": 172,
+            "name": "V_VPH_RF_CONN2",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#de00de",
+            "description": "",
+            "disabled": "false",
+            "index": 173,
+            "name": "V_VPH_RF_CONN1",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#502f0a",
+            "description": "",
+            "disabled": "false",
+            "index": 174,
+            "name": "V_L6B_VDDA_CSI_1P2",
+            "resistor_value": 301,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#460046",
+            "description": "",
+            "disabled": "false",
+            "index": 175,
+            "name": "V_L6B_VDDA_UFS0_1P2",
+            "resistor_value": 499,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#6ac6ff",
+            "description": "",
+            "disabled": "false",
+            "index": 176,
+            "name": "V_L18B_WCD_PX_1P8",
+            "resistor_value": 1000,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "false",
+            "index": 177,
+            "name": "V_L13B_SDR_VDD_CX_0P8",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#2c7a79",
+            "description": "",
+            "disabled": "false",
+            "index": 178,
+            "name": "V_L18B_WCD_TX_RX_1P8",
+            "resistor_value": 1000,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#004a4a",
+            "description": "",
+            "disabled": "false",
+            "index": 179,
+            "name": "V_L11B_SDR_VDDAH_RX_RP_1P8",
+            "resistor_value": 100,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#47abff",
+            "description": "",
+            "disabled": "false",
+            "index": 180,
+            "name": "V_L18B_MISC_1P8",
+            "resistor_value": 200,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#109e9c",
+            "description": "",
+            "disabled": "false",
+            "index": 181,
+            "name": "V_L6B_VDDA_USB_SS_DP_1P2",
+            "resistor_value": 499,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#437116",
+            "description": "",
+            "disabled": "false",
+            "index": 182,
+            "name": "V_L8C_LCD_IOVCC_L12C_OLED_IO_1P8",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#002f75",
+            "description": "",
+            "disabled": "false",
+            "index": 183,
+            "name": "V_L8C_SENSORS_1P8",
+            "resistor_value": 1000,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#104100",
+            "description": "",
+            "disabled": "false",
+            "index": 184,
+            "name": "V_VIN_S4B_S5B_S6B",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#917a13",
+            "description": "",
+            "disabled": "false",
+            "index": 186,
+            "name": "V_BOB_WCD_BIAS_FSA_3P3",
+            "resistor_value": 1000,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#b39715",
+            "description": "",
+            "disabled": "false",
+            "index": 187,
+            "name": "V_L11C_FM_RF_2P8",
+            "resistor_value": 2000,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#f7921e",
+            "description": "",
+            "disabled": "false",
+            "index": 188,
+            "name": "VPH_PWR_AMOLED_VREG",
+            "resistor_value": 50,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#a46217",
+            "description": "",
+            "disabled": "false",
+            "index": 189,
+            "name": "V_L14B_VDDA_QDM_GPS_1P2",
+            "resistor_value": 499,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#e42329",
+            "description": "",
+            "disabled": "false",
+            "index": 190,
+            "name": "V_VIN_S1B",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#de00de",
+            "description": "",
+            "disabled": "false",
+            "index": 191,
+            "name": "V_S1B_eLDO_DVDD_1P2",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#502f0a",
+            "description": "",
+            "disabled": "false",
+            "index": 193,
+            "name": "V_VPH_BOT_WSA",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#460046",
+            "description": "",
+            "disabled": "false",
+            "index": 194,
+            "name": "V_L14B_SDR_VDDAM_BBRX_1P2",
+            "resistor_value": 100,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#6ac6ff",
+            "description": "",
+            "disabled": "false",
+            "index": 195,
+            "name": "V_L18B_WSA_1P8",
+            "resistor_value": 499,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "false",
+            "index": 196,
+            "name": "V_L14B_SDR_VDDAM_TX_TP_1P2",
+            "resistor_value": 200,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#2c7a79",
+            "description": "",
+            "disabled": "false",
+            "index": 197,
+            "name": "V_L17B_WCD_BUCK_1P8",
+            "resistor_value": 40,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#004a4a",
+            "description": "",
+            "disabled": "false",
+            "index": 198,
+            "name": "V_L12B_SDR_VDDAL_TX_TP_0P8",
+            "resistor_value": 20,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#47abff",
+            "description": "",
+            "disabled": "false",
+            "index": 199,
+            "name": "V_BOB_BT_RF_3P3",
+            "resistor_value": 100,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#109e9c",
+            "description": "",
+            "disabled": "false",
+            "index": 200,
+            "name": "V_L12B_SDR_VDDAL_DIG_0P8",
+            "resistor_value": 20,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#917a13",
+            "description": "",
+            "disabled": "false",
+            "index": 201,
+            "name": "QTM0_PON",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "",
+            "color": "#b39715",
+            "description": "",
+            "disabled": "false",
+            "index": 202,
+            "name": "PS_HOLD",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "",
+            "color": "#f7921e",
+            "description": "",
+            "disabled": "false",
+            "index": 203,
+            "name": "BT_SLIMBUS_CLK_RCM",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "",
+            "color": "#a46217",
+            "description": "",
+            "disabled": "false",
+            "index": 204,
+            "name": "BT_SLIMBUS_DATA_RCM",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "",
+            "color": "#e42329",
+            "description": "",
+            "disabled": "false",
+            "index": 205,
+            "name": "QTM1_PON",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "",
+            "color": "#de00de",
+            "description": "",
+            "disabled": "false",
+            "index": 206,
+            "name": "QTM2_PON",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "",
+            "color": "#502f0a",
+            "description": "",
+            "disabled": "false",
+            "index": 207,
+            "name": "RCM_WLAN_SW_CTRL",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "",
+            "color": "#460046",
+            "description": "",
+            "disabled": "false",
+            "index": 208,
+            "name": "TSENSE_OUT_RCM",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "",
+            "color": "#6ac6ff",
+            "description": "",
+            "disabled": "false",
+            "index": 209,
+            "name": "QLINK0_WMSS_RESET_N",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "false",
+            "index": 210,
+            "name": "QLINK0_REQ",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "",
+            "color": "#2c7a79",
+            "description": "",
+            "disabled": "false",
+            "index": 211,
+            "name": "QLINK0_EN",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "",
+            "color": "#004a4a",
+            "description": "",
+            "disabled": "false",
+            "index": 212,
+            "name": "SM_RESIN_N",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "",
+            "color": "#47abff",
+            "description": "",
+            "disabled": "false",
+            "index": 213,
+            "name": "AOSS_SLEEP_INDICATOR",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "",
+            "color": "#109e9c",
+            "description": "",
+            "disabled": "false",
+            "index": 214,
+            "name": "CBL_PWR_N",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "",
+            "color": "#437116",
+            "description": "",
+            "disabled": "false",
+            "index": 601,
+            "name": "V_VIN_S3E",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#002f75",
+            "description": "",
+            "disabled": "false",
+            "index": 602,
+            "name": "SMB_VBATT",
+            "resistor_value": 0,
+            "type": "RCM"
+        },
+        {
+            "category": "",
+            "color": "#104100",
+            "description": "",
+            "disabled": "false",
+            "index": 605,
+            "name": "V_L2C_DMIC_VDD_ALT_1P8",
+            "resistor_value": 1000,
+            "type": "RCM"
+        }
+    ],
+    "creation_date": "Wed Jan 25 15:36:50 2023",
+    "description": "IDP7450 using ALPACA",
+    "epm_version": "Alpaca 3.4.9",
+    "label": "IDP7450 using ALPACA",
+    "modify_date": "Wed Jan 25 15:59:45 2023",
+    "spm_version": 0,
+    "target": "SM7450_LP5"
+}

@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>resources/DeviceCatalog.ico</file>
+        <file>resources/DeviceCatalog.png</file>
+        <file>resources/DeviceCatalog_UpdateFW.mp4</file>
+        <file>resources/DeviceCatalog_ProgDevice.mp4</file>
+    </qresource>
+</RCC>

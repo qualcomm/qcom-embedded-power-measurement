@@ -1,0 +1,551 @@
+{
+    "author": "Kurt Bischoffer <kurtb@qti.qualcomm.com>",
+    "channels": [
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#1c91e2",
+            "description": "SC_RCM_MARKER0 (SC_GPIO_30) (stuff SDX_AOSS_SLEEP_IND)",
+            "disabled": "true",
+            "index": 1,
+            "name": "SC8280X_GPIO_30",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#6ac6ff",
+            "description": "SC_RCM_MARKER1 (stuff SDX_RCM_MARKER1)",
+            "disabled": "true",
+            "index": 2,
+            "name": "SC8280X_GPIO_31",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#bde958",
+            "description": "SDX_RCM_MARKER0",
+            "disabled": "true",
+            "index": 3,
+            "name": "SDX55_GPIO_94",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#bde958",
+            "description": "Internal USB0 & USB1 disconnect signal",
+            "disabled": "true",
+            "index": 4,
+            "name": "TAC_USB0_DIS",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#3acdcb",
+            "description": "Internal low current mode enable signal",
+            "disabled": "true",
+            "index": 5,
+            "name": "LOW_CURRENT_MODE_EN",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "BATTERY",
+            "color": "#00ff00",
+            "description": "Battery power measured on the debug board",
+            "disabled": "true",
+            "index": 0,
+            "name": "BATTERY",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SDM",
+            "color": "#2c7a79",
+            "description": "",
+            "disabled": "true",
+            "index": 1,
+            "name": "S1B_S2B_S3B__SC_APC0__0P75",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SDM",
+            "color": "#6a9212",
+            "description": "",
+            "disabled": "true",
+            "index": 2,
+            "name": "PM8350C__SC_APC1__0P75",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "TEST POINT",
+            "color": "#004a4a",
+            "description": "",
+            "disabled": "true",
+            "index": 3,
+            "name": "RCM_CH3_TP146_TP147",
+            "resistor_value": 1,
+            "type": "SPM"
+        },
+        {
+            "category": "SDM",
+            "color": "#295800",
+            "description": "",
+            "disabled": "true",
+            "index": 4,
+            "name": "PMC8280_2__SC_GFX__0P75",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "TEST POINT",
+            "color": "#47abff",
+            "description": "",
+            "disabled": "true",
+            "index": 5,
+            "name": "RCM_CH5_TP148_TP149",
+            "resistor_value": 1,
+            "type": "SPM"
+        },
+        {
+            "category": "SDM",
+            "color": "#9fcc3b",
+            "description": "",
+            "disabled": "true",
+            "index": 6,
+            "name": "S6B_S7B__SC_VDD_MXC__0P75",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "SDM",
+            "color": "#109e9c",
+            "description": "",
+            "disabled": "true",
+            "index": 7,
+            "name": "S9B__SC_VDDMM__0P75",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SDM",
+            "color": "#005daa",
+            "description": "",
+            "disabled": "true",
+            "index": 8,
+            "name": "S1E_S2E_SECO__SC_VDDNSP__0P9",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MEMORY",
+            "color": "#437116",
+            "description": "",
+            "disabled": "true",
+            "index": 9,
+            "name": "S4C__SC_VDDA_EBI__0P8",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MEMORY",
+            "color": "#046262",
+            "description": "",
+            "disabled": "true",
+            "index": 10,
+            "name": "S3C__SC_VDDIO_EBI_VDDQ__0P6",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SDM",
+            "color": "#002f75",
+            "description": "",
+            "disabled": "true",
+            "index": 11,
+            "name": "S10B__SC_PX3__1P8",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SDM",
+            "color": "#003434",
+            "description": "",
+            "disabled": "true",
+            "index": 12,
+            "name": "L10B__SC_LPI_MX__0P75",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SDM",
+            "color": "#104100",
+            "description": "",
+            "disabled": "true",
+            "index": 13,
+            "name": "L8B__SC_VDDCX_SSC__0P75",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SDM",
+            "color": "#d4b217",
+            "description": "",
+            "disabled": "true",
+            "index": 14,
+            "name": "S4B_S5B__SC_CX__0P75",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "SDM",
+            "color": "#917a13",
+            "description": "",
+            "disabled": "true",
+            "index": 15,
+            "name": "S8B__SC_VDD_MXA__0P75",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "UFS",
+            "color": "#fed51a",
+            "description": "",
+            "disabled": "true",
+            "index": 16,
+            "name": "L7C__UFS_VCC__2P5",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "UFS",
+            "color": "#b39715",
+            "description": "",
+            "disabled": "true",
+            "index": 17,
+            "name": "L3D__UFS_VCCQ__1P2",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "NVME",
+            "color": "#6f9715",
+            "description": "",
+            "disabled": "true",
+            "index": 18,
+            "name": "DBU1__NVME_PWR1__3P3",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "NVME",
+            "color": "#f7921e",
+            "description": "",
+            "disabled": "true",
+            "index": 19,
+            "name": "S11D__NVME_PWR2__1P8",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "NVME",
+            "color": "#ca791d",
+            "description": "",
+            "disabled": "true",
+            "index": 20,
+            "name": "S12D__NVME_PWR3__1P2",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "WLAN",
+            "color": "#a46217",
+            "description": "",
+            "disabled": "true",
+            "index": 21,
+            "name": "EXT__WCN_FEM__3P3",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "WLAN",
+            "color": "#7a4910",
+            "description": "",
+            "disabled": "true",
+            "index": 22,
+            "name": "S12B__WCN__0P95",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "WLAN",
+            "color": "#e42329",
+            "description": "",
+            "disabled": "true",
+            "index": 23,
+            "name": "S11B__WCN__1P27",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "WLAN",
+            "color": "#ac0005",
+            "description": "",
+            "disabled": "true",
+            "index": 24,
+            "name": "S1C__WCN__1P88",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "DDR",
+            "color": "#de00de",
+            "description": "",
+            "disabled": "true",
+            "index": 25,
+            "name": "S10B__VDD1_DDR__1P8",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "DDR",
+            "color": "#830083",
+            "description": "",
+            "disabled": "true",
+            "index": 26,
+            "name": "S2C__VDD2_DDR_PX1__1P12",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SDX",
+            "color": "#502f0a",
+            "description": "",
+            "disabled": "true",
+            "index": 27,
+            "name": "S1E_S6E__SDX_MODEM__0P752",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SDX",
+            "color": "#740004",
+            "description": "",
+            "disabled": "true",
+            "index": 28,
+            "name": "S5E__SDX_CX__0P752",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SDX",
+            "color": "#460046",
+            "description": "",
+            "disabled": "true",
+            "index": 29,
+            "name": "S7E__SDX_MX__0P752",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "RF",
+            "color": "#1c91e2",
+            "description": "",
+            "disabled": "true",
+            "index": 30,
+            "name": "L8E__SDR_CX__0P8",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "STREAMER",
+            "color": "#6ac6ff",
+            "description": "",
+            "disabled": "true",
+            "index": 31,
+            "name": "L7E__SMR_CX__0P8",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "STREAMER",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "true",
+            "index": 32,
+            "name": "L4E__SMR_MX__0P875",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "BEAMER",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "true",
+            "index": 33,
+            "name": "S4E__QTM0_VDDA__1P8",
+            "resistor_value": 301,
+            "type": "SPM"
+        },
+        {
+            "category": "BEAMER",
+            "color": "#3acdcb",
+            "description": "",
+            "disabled": "true",
+            "index": 34,
+            "name": "S4E__QTM1_VDDA__1P8",
+            "resistor_value": 301,
+            "type": "SPM"
+        },
+        {
+            "category": "BEAMER",
+            "color": "#2c7a79",
+            "description": "",
+            "disabled": "true",
+            "index": 35,
+            "name": "S4E__QTM23_VDDA__1P8",
+            "resistor_value": 200,
+            "type": "SPM"
+        },
+        {
+            "category": "BEAMER",
+            "color": "#6a9212",
+            "description": "",
+            "disabled": "true",
+            "index": 36,
+            "name": "EXT_2__QTM0_VPH_PWR__3P3",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "BEAMER",
+            "color": "#004a4a",
+            "description": "",
+            "disabled": "true",
+            "index": 37,
+            "name": "EXT_2__QTM1_VPH_PWR__3P3",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "BEAMER",
+            "color": "#295800",
+            "description": "",
+            "disabled": "true",
+            "index": 38,
+            "name": "EXT_2__QTM23_VPH_PWR__3P3",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "PMK8002",
+            "color": "#47abff",
+            "description": "",
+            "disabled": "true",
+            "index": 39,
+            "name": "PMX55__VIO_PMK8002",
+            "resistor_value": 499,
+            "type": "SPM"
+        },
+        {
+            "category": "SENSORS",
+            "color": "#9fcc3b",
+            "description": "",
+            "disabled": "true",
+            "index": 40,
+            "name": "L12C__SENSORS__1P8",
+            "resistor_value": 2000,
+            "type": "SPM"
+        },
+        {
+            "category": "SENSORS",
+            "color": "#109e9c",
+            "description": "",
+            "disabled": "true",
+            "index": 41,
+            "name": "L11C__ALS_DMIC2__3P0",
+            "resistor_value": 0.5,
+            "type": "SPM"
+        },
+        {
+            "category": "RF",
+            "color": "#005daa",
+            "description": "",
+            "disabled": "true",
+            "index": 42,
+            "name": "EXT_2__VPH_WWAN__3P3",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "RF",
+            "color": "#437116",
+            "description": "",
+            "disabled": "true",
+            "index": 43,
+            "name": "EXT_2__VPH_RF__3P3",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "",
+            "color": "#046262",
+            "description": "Not connected in Makena MTP",
+            "disabled": "false",
+            "index": 44,
+            "name": "",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "",
+            "color": "#002f75",
+            "description": "Not connected in Makena MTP",
+            "disabled": "false",
+            "index": 45,
+            "name": "",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "",
+            "color": "#003434",
+            "description": "Not connected in Makena MTP",
+            "disabled": "false",
+            "index": 46,
+            "name": "",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "",
+            "color": "#104100",
+            "description": "Not connected in Makena MTP",
+            "disabled": "false",
+            "index": 47,
+            "name": "",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "BATTERY",
+            "color": "#33ff33",
+            "description": "Low current mode battery channel",
+            "disabled": "true",
+            "index": 63,
+            "name": "BATTERY_LCM",
+            "resistor_value": 100,
+            "type": "SPM"
+        }
+    ],
+    "creation_date": "Wed Aug 26 11:58:02 2020",
+    "description": "MTP8280X",
+    "label": "MTP8280X",
+    "modify_date": "Fri Apr 30 09:17:08 2021",
+    "spm_version": 1,
+    "target": "SC8280X"
+}

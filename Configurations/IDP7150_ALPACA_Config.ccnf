@@ -1,0 +1,301 @@
+{
+    "author": "",
+    "channels": [
+        {
+            "category": "GPIO Channels",
+            "color": "#1c91e2",
+            "description": "MARKER 1 (GPIO_63)",
+            "disabled": "true",
+            "index": 1,
+            "name": "MARKER 1 (GPIO_63)",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO Channels",
+            "color": "#6ac6ff",
+            "description": "MARKER 2 (GPIO_4)",
+            "disabled": "true",
+            "index": 2,
+            "name": "MARKER 2 (GPIO_4)",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "Battery",
+            "color": "#4cff4c",
+            "description": "",
+            "disabled": "true",
+            "index": 1,
+            "name": "VBATT_CONN",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#bde958",
+            "description": "CX",
+            "disabled": "true",
+            "index": 2,
+            "name": "CHANNEL:002/VREG_S2C_S3C_0P868_CX",
+            "resistor_value": 20,
+            "type": "RCM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#bde958",
+            "description": "CX",
+            "disabled": "true",
+            "index": 3,
+            "name": "CHANNEL:003/VREG_S2C_S3C_0P868_CX",
+            "resistor_value": 20,
+            "type": "RCM"
+        },
+        {
+            "category": "System",
+            "color": "#3acdcb",
+            "description": "Grafics_GPU",
+            "disabled": "true",
+            "index": 4,
+            "name": "VREG_S2A_GFX_VDD",
+            "resistor_value": 20,
+            "type": "RCM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#2c7a79",
+            "description": "APC_PERF",
+            "disabled": "true",
+            "index": 5,
+            "name": "CHANNEL:005/VREG_S5C_S6C_0P87_GOLD",
+            "resistor_value": 20,
+            "type": "RCM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#6a9212",
+            "description": "MX",
+            "disabled": "true",
+            "index": 6,
+            "name": "VREG_S3A_0P912_MX and WCSS_MX ",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "ACPU",
+            "color": "#004a4a",
+            "description": "APC_POWER",
+            "disabled": "true",
+            "index": 7,
+            "name": "VREG_S4C_0P868_SILVER",
+            "resistor_value": 20,
+            "type": "RCM"
+        },
+        {
+            "category": "SENSORS",
+            "color": "#295800",
+            "description": "SSC_LPI_CX",
+            "disabled": "true",
+            "index": 8,
+            "name": "VREG_L8A_0P8_SSC_CX",
+            "resistor_value": 25,
+            "type": "RCM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#47abff",
+            "description": "APC_PERF",
+            "disabled": "true",
+            "index": 9,
+            "name": "CHANNEL:009/VREG_S5C_S6C_0P87_GOLD",
+            "resistor_value": 20,
+            "type": "RCM"
+        },
+        {
+            "category": "CONNECTIVITY",
+            "color": "#9fcc3b",
+            "description": "WLAN_LPI",
+            "disabled": "true",
+            "index": 10,
+            "name": "VREG_L9A_0P8_WCSS_CX",
+            "resistor_value": 50,
+            "type": "RCM"
+        },
+        {
+            "category": "MODEM",
+            "color": "#109e9c",
+            "description": "MODEM DIGITAL",
+            "disabled": "true",
+            "index": 11,
+            "name": "VREG_S7C_0P864_MSS",
+            "resistor_value": 20,
+            "type": "RCM"
+        },
+        {
+            "category": "SENSORS",
+            "color": "#005daa",
+            "description": "SSC_LPI_MX",
+            "disabled": "true",
+            "index": 12,
+            "name": "VREG_L7A_0P9_SSC_MX",
+            "resistor_value": 100,
+            "type": "RCM"
+        },
+        {
+            "category": "MEMORY",
+            "color": "#437116",
+            "description": "EBI",
+            "disabled": "true",
+            "index": 13,
+            "name": "VREG_S1A_EBI_0P6",
+            "resistor_value": 20,
+            "type": "RCM"
+        },
+        {
+            "category": "RF",
+            "color": "#046262",
+            "description": "WTR",
+            "disabled": "true",
+            "index": 14,
+            "name": "VREG_L3A_SDR_MSS_1P0",
+            "resistor_value": 100,
+            "type": "RCM"
+        },
+        {
+            "category": "CONNECTIVITY",
+            "color": "#002f75",
+            "description": "WLAN",
+            "disabled": "true",
+            "index": 15,
+            "name": "VREG_L1C_1P8_WCN_XO",
+            "resistor_value": 200,
+            "type": "RCM"
+        },
+        {
+            "category": "MEMORY",
+            "color": "#003434",
+            "description": "DDR+IO",
+            "disabled": "true",
+            "index": 16,
+            "name": "VREG_S1C_1P125_VDD2_DDR",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "STORAGE",
+            "color": "#104100",
+            "description": "ADJUSTMENTS",
+            "disabled": "true",
+            "index": 17,
+            "name": "VREG_L19A_2P95_DC",
+            "resistor_value": 40,
+            "type": "RCM"
+        },
+        {
+            "category": "CONNECTIVITY",
+            "color": "#d4b217",
+            "description": "WLAN",
+            "disabled": "true",
+            "index": 18,
+            "name": "VREG_L10C_3P3_WCN_CH0",
+            "resistor_value": 100,
+            "type": "RCM"
+        },
+        {
+            "category": "RF",
+            "color": "#917a13",
+            "description": "MODEM PA",
+            "disabled": "true",
+            "index": 19,
+            "name": "CHANNEL:019/VPH_PWR_RF_JR2",
+            "resistor_value": 20,
+            "type": "RCM"
+        },
+        {
+            "category": "RF",
+            "color": "#fed51a",
+            "description": "MODEM PA",
+            "disabled": "true",
+            "index": 20,
+            "name": "CHANNEL:020/VPH_PWR_RF_JR2",
+            "resistor_value": 20,
+            "type": "RCM"
+        },
+        {
+            "category": "CONNECTIVITY",
+            "color": "#b39715",
+            "description": "WLAN",
+            "disabled": "true",
+            "index": 21,
+            "name": "VREG_L5A_WCN_2P7 - (L11C Output)",
+            "resistor_value": 100,
+            "type": "RCM"
+        },
+        {
+            "category": "RF",
+            "color": "#6f9715",
+            "description": "WTR",
+            "disabled": "true",
+            "index": 22,
+            "name": "VREG_L1A_SDR_RF_1P2",
+            "resistor_value": 100,
+            "type": "RCM"
+        },
+        {
+            "category": "PMIC",
+            "color": "#f7921e",
+            "description": "PMIC",
+            "disabled": "true",
+            "index": 23,
+            "name": "VPH_PWR_IN_BOB",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "SOC INFRA",
+            "color": "#ca791d",
+            "description": "DDR+IO",
+            "disabled": "true",
+            "index": 24,
+            "name": "VREG_L10A_1P8_PX3",
+            "resistor_value": 200,
+            "type": "RCM"
+        },
+        {
+            "category": "SENSORS",
+            "color": "#a46217",
+            "description": "ADJUSTMENTS",
+            "disabled": "true",
+            "index": 25,
+            "name": "VREG_L8C_1P8_SNRS",
+            "resistor_value": 2000,
+            "type": "RCM"
+        },
+        {
+            "category": "CONNECTIVITY",
+            "color": "#7a4910",
+            "description": "WLAN",
+            "disabled": "true",
+            "index": 26,
+            "name": "VREG_L2C_1P3_WCN_RFA",
+            "resistor_value": 50,
+            "type": "RCM"
+        },
+        {
+            "category": "RF",
+            "color": "#e42329",
+            "description": "WTR",
+            "disabled": "true",
+            "index": 27,
+            "name": "VREG_L2A_SDR_ANA_1P0",
+            "resistor_value": 50,
+            "type": "RCM"
+        }
+    ],
+    "creation_date": "Wed Feb 27 10:29:00 2019",
+    "description": "IDP7150 using ALPACA",
+    "label": "IDP7150 using ALPACA",
+    "modify_date": "Fri Apr 30 09:18:37 2021",
+    "spm_version": 0,
+    "target": "SM7150"
+}

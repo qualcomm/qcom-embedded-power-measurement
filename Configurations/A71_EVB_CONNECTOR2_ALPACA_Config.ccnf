@@ -1,0 +1,232 @@
+{
+    "author": " HAIPINGS",
+    "channels": [
+        {
+            "category": "MCU",
+            "color": "#1c91e2",
+            "description": "MCU VDD_CORE",
+            "disabled": "false",
+            "index": 0,
+            "name": "MCU_VDDCORE",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "DISPLAY",
+            "color": "#6ac6ff",
+            "description": "DISPLAY CONTROLLER VDD",
+            "disabled": "false",
+            "index": 1,
+            "name": "BOB_DISP_MUX",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "DISPLAY",
+            "color": "#bde958",
+            "description": "DISPLAY CONTROLLER VDDIO",
+            "disabled": "false",
+            "index": 2,
+            "name": "DISP_VDDIO",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "CAMERA",
+            "color": "#3acdcb",
+            "description": "WCAM DVDD",
+            "disabled": "false",
+            "index": 4,
+            "name": "L1C_WCAM_DVDD",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "CAMERA",
+            "color": "#6a9212",
+            "description": "WCAM VDDIO",
+            "disabled": "false",
+            "index": 6,
+            "name": "L3C_WCAM_VDDIO",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "CAMERA",
+            "color": "#004a4a",
+            "description": "WCAM AVDD",
+            "disabled": "false",
+            "index": 8,
+            "name": "L5C_WCAM_AVDD",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "SAR2130P",
+            "color": "#47abff",
+            "description": "S2A BUCK OUTPUT",
+            "disabled": "false",
+            "index": 10,
+            "name": "S2A_VDD_GFX",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "SAR2130P",
+            "color": "#9fcc3b",
+            "description": "SR2130P VDD_NSP",
+            "disabled": "false",
+            "index": 11,
+            "name": "S3A_VDD_NSP",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "SAR2130P",
+            "color": "#109e9c",
+            "description": "SAR2130P VDD_MM",
+            "disabled": "false",
+            "index": 12,
+            "name": "S7A_VDD_MM",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "AUDIO",
+            "color": "#005daa",
+            "description": "DMIC BIAS",
+            "disabled": "false",
+            "index": 13,
+            "name": "L12A_DMIC_VDD",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "SENSOR",
+            "color": "#00ff00",
+            "description": "TOUCH SENSOR VDDIO",
+            "disabled": "false",
+            "index": 14,
+            "name": "L13A",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "SAR2130P",
+            "color": "#002f75",
+            "description": "SAR2130P MISC L14A",
+            "disabled": "false",
+            "index": 16,
+            "name": "L14A_SOC_MISC",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "SENSOR",
+            "color": "#003434",
+            "description": "PPG VLED",
+            "disabled": "false",
+            "index": 17,
+            "name": "L17A_PPG_VDDLED",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "CAMERA",
+            "color": "#d4b217",
+            "description": "CAMERA eSMPS INPUT",
+            "disabled": "false",
+            "index": 19,
+            "name": "BUCK_WCAM_VIN_1_2",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "PMIC",
+            "color": "#fed51a",
+            "description": "PMIC VDDIO_SYS",
+            "disabled": "false",
+            "index": 21,
+            "name": "PMIC_VDDIO_SYS",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "PMIC",
+            "color": "#b39715",
+            "description": "MV eSMPS OUTPUT",
+            "disabled": "false",
+            "index": 22,
+            "name": "KTB_MV_BUCK",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "DISPLAY",
+            "color": "#6f9715",
+            "description": "RDC200 VDD",
+            "disabled": "false",
+            "index": 23,
+            "name": "RDC",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "DISPLAY",
+            "color": "#ca791d",
+            "description": "RDC200 VDD LDO INPUT",
+            "disabled": "false",
+            "index": 25,
+            "name": "BUCK_DISPLAY_LDO",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "INTERFACE",
+            "color": "#a46217",
+            "description": "STATUS LED VPH_PWR",
+            "disabled": "false",
+            "index": 27,
+            "name": "PPVAR_BYSTANDER_LED",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "INTERFACE",
+            "color": "#7a4910",
+            "description": "USER LED VPH_PWR",
+            "disabled": "false",
+            "index": 28,
+            "name": "PPVAR_USER_LED",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "",
+            "color": "#295800",
+            "description": "External trigger",
+            "disabled": "false",
+            "index": 1,
+            "name": "KIBBLE B TRIG 1",
+            "resistor_value": 10,
+            "type": "MARKER"
+        },
+        {
+            "category": "",
+            "color": "#47abff",
+            "description": "MCU GPIO PIO0_3",
+            "disabled": "false",
+            "index": 2,
+            "name": "MCU KIBBLE1",
+            "resistor_value": 10,
+            "type": "MARKER"
+        }
+    ],
+    "creation_date": "Sun Nov 10 21:03:35 2024",
+    "description": "A17 EVB ALPACA CONNECTOR#2",
+    "epm_version": "QEPM 5.0.4",
+    "label": "A17 EVB",
+    "modify_date": "Fri Nov 15 14:13:43 2024",
+    "spm_version": 1,
+    "target": "SAR2130P"
+}

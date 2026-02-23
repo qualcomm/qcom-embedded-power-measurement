@@ -1,0 +1,352 @@
+{
+    "author": "ljalluri",
+    "channels": [
+        {
+            "category": "VBATT",
+            "color": "#1c91e2",
+            "description": "Power Supply",
+            "disabled": "false",
+            "index": 1,
+            "name": "CH1_VBATT",
+            "resistor_value": 3,
+            "type": "SPM"
+        },
+        {
+            "category": "APC0",
+            "color": "#6ac6ff",
+            "description": "Core-APC0",
+            "disabled": "false",
+            "index": 2,
+            "name": "CH2_APC0",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "APC1",
+            "color": "#bde958",
+            "description": "Core-APC1",
+            "disabled": "false",
+            "index": 3,
+            "name": "CH3_APC1",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "APC2",
+            "color": "#bde958",
+            "description": "Core-APC2",
+            "disabled": "false",
+            "index": 4,
+            "name": "CH4_APC2",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "L2F",
+            "color": "#3acdcb",
+            "description": "Input power for L2F",
+            "disabled": "false",
+            "index": 5,
+            "name": "CH5_VIN_L2F_V8F",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "NSP",
+            "color": "#2c7a79",
+            "description": "Core-NSP",
+            "disabled": "false",
+            "index": 6,
+            "name": "CH6_VDD_NSP",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "D_EBI",
+            "color": "#6a9212",
+            "description": "DDR rail- Data Bus",
+            "disabled": "false",
+            "index": 7,
+            "name": "CH7_VDD_D_EBI",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MX_A",
+            "color": "#004a4a",
+            "description": "Core-MX_A",
+            "disabled": "false",
+            "index": 8,
+            "name": "CH8_MX_A",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MX_C",
+            "color": "#295800",
+            "description": "Core-MX_C",
+            "disabled": "false",
+            "index": 9,
+            "name": "CH9_MX_C",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MODEM",
+            "color": "#47abff",
+            "description": "Core-MODEM",
+            "disabled": "false",
+            "index": 10,
+            "name": "CH10_MODEM",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MM",
+            "color": "#9fcc3b",
+            "description": "Core-MM",
+            "disabled": "false",
+            "index": 11,
+            "name": "CH11_MM",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "LPI_CX",
+            "color": "#109e9c",
+            "description": "Core-CX",
+            "disabled": "false",
+            "index": 12,
+            "name": "CH12_CX",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "GFX",
+            "color": "#830083",
+            "description": "Core-GFX",
+            "disabled": "false",
+            "index": 13,
+            "name": "CH13_GFX",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "A_EBI",
+            "color": "#502f0a",
+            "description": "DDR- Address Bus",
+            "disabled": "false",
+            "index": 14,
+            "name": "CH14_VDDA_EBI",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "LPI_MX",
+            "color": "#740004",
+            "description": "Core-LPI_MX",
+            "disabled": "false",
+            "index": 15,
+            "name": "CH15_LPI_MX",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "LPI_CX",
+            "color": "#460046",
+            "description": "Core-LPI_CX",
+            "disabled": "false",
+            "index": 16,
+            "name": "CH16_LPI_CX",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "RF",
+            "color": "#1c91e2",
+            "description": "RF Connectivity Power Supply",
+            "disabled": "false",
+            "index": 17,
+            "name": "CH17_VPH_PWR_RF",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "RF",
+            "color": "#6ac6ff",
+            "description": "QTM 0 and 2 Power Supply",
+            "disabled": "false",
+            "index": 18,
+            "name": "CH18_VPH_PWR_QTM0_2",
+            "resistor_value": 3,
+            "type": "SPM"
+        },
+        {
+            "category": "RF",
+            "color": "#bde958",
+            "description": "QTM 1 Power Supply",
+            "disabled": "false",
+            "index": 19,
+            "name": "CH19_VPH_PWR_QTM1",
+            "resistor_value": 3,
+            "type": "SPM"
+        },
+        {
+            "category": "RF",
+            "color": "#bde958",
+            "description": "RF Connectivity CX-SDR Power",
+            "disabled": "false",
+            "index": 20,
+            "name": "CH20_VDD_CX_SDR",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "L3K",
+            "color": "#3acdcb",
+            "description": "Nalo L3K Output goes to RF",
+            "disabled": "false",
+            "index": 21,
+            "name": "CH21_L3K",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "L2K",
+            "color": "#2c7a79",
+            "description": "Nalo L2K Output goes to RF",
+            "disabled": "false",
+            "index": 22,
+            "name": "CH22_L2K",
+            "resistor_value": 25,
+            "type": "SPM"
+        },
+        {
+            "category": "L6K",
+            "color": "#6a9212",
+            "description": "Nalo L6K Output goes to RF",
+            "disabled": "false",
+            "index": 23,
+            "name": "CH23_L6K",
+            "resistor_value": 50,
+            "type": "SPM"
+        },
+        {
+            "category": "L9B",
+            "color": "#004a4a",
+            "description": "Bonefish L9B Output goes to RF",
+            "disabled": "false",
+            "index": 24,
+            "name": "CH24_L9B",
+            "resistor_value": 50,
+            "type": "SPM"
+        },
+        {
+            "category": "WLAN",
+            "color": "#295800",
+            "description": "WLAN Connectivity Power Supply",
+            "disabled": "false",
+            "index": 25,
+            "name": "CH25_WLAN_VPH",
+            "resistor_value": 25,
+            "type": "SPM"
+        },
+        {
+            "category": "WLAN",
+            "color": "#47abff",
+            "description": "WLAN Connectivity CX",
+            "disabled": "false",
+            "index": 26,
+            "name": "CH26_ORN_HMT_CX",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "L16B",
+            "color": "#9fcc3b",
+            "description": "Goes to Humidity Sensor",
+            "disabled": "false",
+            "index": 27,
+            "name": "CH27_L16B",
+            "resistor_value": 301,
+            "type": "SPM"
+        },
+        {
+            "category": "L11B",
+            "color": "#109e9c",
+            "description": "Sensors Power Supply",
+            "disabled": "false",
+            "index": 28,
+            "name": "CH28_L11B",
+            "resistor_value": 3010,
+            "type": "SPM"
+        },
+        {
+            "category": "WLAN",
+            "color": "#005daa",
+            "description": "WLAN Connectivity IPA",
+            "disabled": "false",
+            "index": 29,
+            "name": "CH29_ORN_IPA_MOS_CX",
+            "resistor_value": 25,
+            "type": "SPM"
+        },
+        {
+            "category": "VPH_PWR",
+            "color": "#00ff00",
+            "description": "Charger Output VPH Power",
+            "disabled": "false",
+            "index": 30,
+            "name": "CH30_VPH_PWR",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MEMORY",
+            "color": "#046262",
+            "description": "DDR-VDD2H",
+            "disabled": "false",
+            "index": 31,
+            "name": "CH31_VDD2H",
+            "resistor_value": 301,
+            "type": "SPM"
+        },
+        {
+            "category": "MEMORY",
+            "color": "#002f75",
+            "description": "DDR-VDD2L",
+            "disabled": "false",
+            "index": 32,
+            "name": "CH32_VDD2L",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MEMORY",
+            "color": "#003434",
+            "description": "DDR-VDDQ",
+            "disabled": "false",
+            "index": 33,
+            "name": "CH33_VDDQ",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MEMORY",
+            "color": "#1c91e2",
+            "description": "DDR-VDD1",
+            "disabled": "false",
+            "index": 34,
+            "name": "CH34_VDD1",
+            "resistor_value": 100,
+            "type": "SPM"
+        }
+    ],
+    "creation_date": "Fri Feb 28 21:30:34 2025",
+    "description": "Bonito_MTP_V3_Version",
+    "epm_version": "QEPM 5.4.0",
+    "label": "MTP8735",
+    "modify_date": "Wed May 7 14:19:18 2025",
+    "spm_version": 1,
+    "target": "SM8735"
+}

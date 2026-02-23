@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file>channel-add.png</file>
+        <file>channel-delete.png</file>
+        <file>compile.png</file>
+        <file>Excel-import.png</file>
+        <file>BugWriter.png</file>
+        <file>About.txt</file>
+        <file>EPM_BS.png</file>
+        <file>EPMConfigurationEditor.png</file>
+        <file>NotificationBellRing.png</file>
+        <file>NotificationBellSilent.png</file>
+    </qresource>
+</RCC>

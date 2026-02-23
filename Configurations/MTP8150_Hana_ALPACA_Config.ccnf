@@ -1,0 +1,351 @@
+{
+    "author": "",
+    "channels": [
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#1c91e2",
+            "description": "MARKER 1 (SDM855 GPIO 57)",
+            "disabled": "true",
+            "index": 1,
+            "name": "MARKER 1 (SDM855 GPIO 57)",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#6ac6ff",
+            "description": "MARKER 2 (PM855L GPIO 1)",
+            "disabled": "true",
+            "index": 2,
+            "name": "AOSS_SLEEP_INDICATOR",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#bde958",
+            "description": "XO enable signal",
+            "disabled": "true",
+            "index": 3,
+            "name": "XO_EN",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#bde958",
+            "description": "USB0 disconnect signal",
+            "disabled": "true",
+            "index": 4,
+            "name": "TAC_USB0_DIS",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#3acdcb",
+            "description": "Low current mode enable signal",
+            "disabled": "true",
+            "index": 5,
+            "name": "LOW_CURRENT_MODE_EN",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "VPH",
+            "color": "#2c7a79",
+            "description": "Battery Power",
+            "disabled": "true",
+            "index": 1,
+            "name": "RF_CARD_VPH",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "USB",
+            "color": "#6a9212",
+            "description": "",
+            "disabled": "true",
+            "index": 2,
+            "name": "VBUS",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "SDM",
+            "color": "#004a4a",
+            "description": "",
+            "disabled": "true",
+            "index": 3,
+            "name": "APC0",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "SDM",
+            "color": "#295800",
+            "description": "",
+            "disabled": "true",
+            "index": 4,
+            "name": "APC1",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "SDM",
+            "color": "#47abff",
+            "description": "",
+            "disabled": "true",
+            "index": 5,
+            "name": "SDM_CX1",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "SDM",
+            "color": "#9fcc3b",
+            "description": "",
+            "disabled": "true",
+            "index": 6,
+            "name": "SDM_MX1",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "SDM",
+            "color": "#109e9c",
+            "description": "",
+            "disabled": "true",
+            "index": 7,
+            "name": "SDM_MM",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "SDM",
+            "color": "#005daa",
+            "description": "",
+            "disabled": "true",
+            "index": 8,
+            "name": "SDM_GFX",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "SDM",
+            "color": "#437116",
+            "description": "",
+            "disabled": "true",
+            "index": 9,
+            "name": "SDM_PX3",
+            "resistor_value": 100,
+            "type": "RCM"
+        },
+        {
+            "category": "SENSORS",
+            "color": "#046262",
+            "description": "",
+            "disabled": "true",
+            "index": 10,
+            "name": "SSC_CX_VDD",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "SENSORS",
+            "color": "#002f75",
+            "description": "",
+            "disabled": "true",
+            "index": 11,
+            "name": "LPI_ MX_VDD",
+            "resistor_value": 50,
+            "type": "RCM"
+        },
+        {
+            "category": "MODEM",
+            "color": "#003434",
+            "description": "",
+            "disabled": "true",
+            "index": 12,
+            "name": "VDD_MODEM",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "MEMORY",
+            "color": "#104100",
+            "description": "",
+            "disabled": "true",
+            "index": 13,
+            "name": "LPDDR4_VDD2",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "MEMORY",
+            "color": "#d4b217",
+            "description": "",
+            "disabled": "true",
+            "index": 14,
+            "name": "LPDDR4_VDD1",
+            "resistor_value": 50,
+            "type": "RCM"
+        },
+        {
+            "category": "MEMORY",
+            "color": "#917a13",
+            "description": "",
+            "disabled": "true",
+            "index": 15,
+            "name": "LPDDR4_VDDQ_VDDIO",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "MEMORY",
+            "color": "#fed51a",
+            "description": "",
+            "disabled": "true",
+            "index": 16,
+            "name": "LPDDR4_EBIX_VDDA",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "SDR",
+            "color": "#b39715",
+            "description": "",
+            "disabled": "true",
+            "index": 17,
+            "name": "SDR_VDDAL",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "SDR",
+            "color": "#6f9715",
+            "description": "",
+            "disabled": "true",
+            "index": 18,
+            "name": "SDR_VDDAH",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "SDR",
+            "color": "#f7921e",
+            "description": "",
+            "disabled": "true",
+            "index": 19,
+            "name": "SDR_VDDAM",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "SDR",
+            "color": "#ca791d",
+            "description": "",
+            "disabled": "true",
+            "index": 20,
+            "name": "SDR_VDD_CX",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "WCSS",
+            "color": "#a46217",
+            "description": "",
+            "disabled": "true",
+            "index": 21,
+            "name": "WCSS_CX_MX",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "WCSS/WLAN",
+            "color": "#7a4910",
+            "description": "",
+            "disabled": "true",
+            "index": 22,
+            "name": "WCSS_ADCDAC_WCN_RFA",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "WLAN",
+            "color": "#e42329",
+            "description": "",
+            "disabled": "true",
+            "index": 23,
+            "name": "WCN_CHAIN1",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "WLAN",
+            "color": "#ac0005",
+            "description": "",
+            "disabled": "true",
+            "index": 24,
+            "name": "WCN_CHAIN0",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "DISPLAY",
+            "color": "#de00de",
+            "description": "",
+            "disabled": "true",
+            "index": 25,
+            "name": "DISPLAY",
+            "resistor_value": 100,
+            "type": "RCM"
+        },
+        {
+            "category": "DISPLAY",
+            "color": "#830083",
+            "description": "",
+            "disabled": "true",
+            "index": 26,
+            "name": "TOUCH_SCREEN",
+            "resistor_value": 100,
+            "type": "RCM"
+        },
+        {
+            "category": "DISPLAY",
+            "color": "#502f0a",
+            "description": "",
+            "disabled": "true",
+            "index": 27,
+            "name": "WLED_BACKLIGHT_DISPLAY_M",
+            "resistor_value": 50,
+            "type": "RCM"
+        },
+        {
+            "category": "BATTERY",
+            "color": "#33ff33",
+            "description": "Low current mode battery channel",
+            "disabled": "true",
+            "index": 52,
+            "name": "BATTERY_LCM",
+            "resistor_value": 100,
+            "type": "SPM"
+        },
+        {
+            "category": "BATTERY",
+            "color": "#00ff00",
+            "description": "Battery power measured on the debug board",
+            "disabled": "true",
+            "index": 54,
+            "name": "BATTERY",
+            "resistor_value": 10,
+            "type": "SPM"
+        }
+    ],
+    "creation_date": "",
+    "description": "MTP855 using ALPACA",
+    "label": "MTP855 using ALPACA",
+    "modify_date": "Fri Apr 30 09:20:27 2021",
+    "spm_version": 0,
+    "target": "SDM855"
+}

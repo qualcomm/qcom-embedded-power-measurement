@@ -1,0 +1,71 @@
+# code editor configurations
+.vs/
+.vscode/
+.idea/
+.DS_Store/
+
+# libraries and debug symbols
+*.dll
+*.exe
+*.exp
+*.idl
+*.pdb
+*.so
+*.a
+*.log
+
+# package binaries
+*.exe
+*.qik
+
+TelematicsExample/
+TelematicsClient/
+
+# Python build and cache directories
+Python/build
+Python/dist
+__pycache__/
+.pytest_cache/
+
+
+# Java compiled sources
+**/target/
+*.class
+*.jar
+
+# Build directories for the C# API
+EPMDevInterop/obj/
+TACDevInterop/obj/
+
+# Qt build files
+*.pro.user
+Makefile*
+build/
+moc_*
+qrc_*
+ui_*
+*.qmake.stash
+
+# Qt build directories
+__Builds/x64/Debug/
+__Builds/x64/Release/
+__Builds/Linux/Debug
+__Builds/Linux/Release
+__Builds/Linux/deploy
+__Builds/Linux/AppRun
+__Builds/x64/ExtDebug/
+__Builds/x64/ExtRelease/
+
+# Examples build directories
+Examples/C\+\+/EPMExample/x64/Debug/
+Examples/C#/TACExample/ConsoleApplication.exe.config
+Examples/C#/TACExample/obj/
+
+# documentation
+__Builds/docs/
+
+# driver packages
+*.zip
+lib/ftd2xx.lib
+
+Troubleshooter/

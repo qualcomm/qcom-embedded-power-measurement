@@ -1,0 +1,322 @@
+{
+    "author": "Ramsay khader",
+    "channels": [
+        {
+            "category": "GPIO_CHANNELS",
+            "color": "#6ac6ff",
+            "description": "RCM_MARKER_1 (SM_GPIO_10)",
+            "disabled": "true",
+            "index": 1,
+            "name": "RCM_MARKER_1 (SM_GPIO_10)",
+            "resistor_value": 10,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO_CHANNELS",
+            "color": "#bde958",
+            "description": "RCM_MARKER_2 (SM_GPIO_13)",
+            "disabled": "true",
+            "index": 2,
+            "name": "RCM_MARKER_2 (SM_GPIO_13)",
+            "resistor_value": 10,
+            "type": "MARKER"
+        },
+        {
+            "category": "BATTERY",
+            "color": "#2c7a79",
+            "description": "Battery power measured on the baseband board.",
+            "disabled": "true",
+            "index": 1,
+            "name": "BATTERY",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#004a4a",
+            "description": "",
+            "disabled": "true",
+            "index": 2,
+            "name": "VDD_APC0 (V6_C S4C_S5C)",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#47abff",
+            "description": "",
+            "disabled": "true",
+            "index": 3,
+            "name": "VDD_APC1 (V6_C S6C_S1C_S2C_S3C)",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#109e9c",
+            "description": "",
+            "disabled": "true",
+            "index": 4,
+            "name": "VDD_NSP (V8_F S1F_S2F)",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#437116",
+            "description": "",
+            "disabled": "true",
+            "index": 5,
+            "name": "VDD_MX_A (V6_E S3E)",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#002f75",
+            "description": "",
+            "disabled": "true",
+            "index": 6,
+            "name": "VDD_MX_C (V8_F S5F_S6F)",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#104100",
+            "description": "",
+            "disabled": "true",
+            "index": 7,
+            "name": "VDD_MODEM (V8_F S7F_S8F)",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#917a13",
+            "description": "",
+            "disabled": "true",
+            "index": 8,
+            "name": "VDD_MM (V6_E S1E_S2E)",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#b39715",
+            "description": "Includes VDD_D_EBI_X",
+            "disabled": "true",
+            "index": 9,
+            "name": "VDD_CX (V6_E S6E)",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#f7921e",
+            "description": "",
+            "disabled": "true",
+            "index": 10,
+            "name": "VDD_GFX (V6_D S5D_S6D_S1D_S2D_S3D)",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#a46217",
+            "description": "Includes VDD_A_EBI_X, VDDA_EBI_X_PLL ",
+            "disabled": "true",
+            "index": 11,
+            "name": "VDDA_EBI (V8_F S3F)",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Parent Rail",
+            "color": "#e42329",
+            "description": "Includes PMIC inputs, QTM545 (Blaster) and WLAN power rail - WLAN: WCN785X_VDD19_PMU_RFA_I & WCN785X_VDD19_PCIE_RFA_I",
+            "disabled": "true",
+            "index": 12,
+            "name": "VREG_S6G (V6_G S6G)",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#de00de",
+            "description": "Includes VDD_LPI_MX and VDD_LPI_MX_B",
+            "disabled": "true",
+            "index": 13,
+            "name": "VDD_LPI_MX (V6_D L2D)",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#502f0a",
+            "description": "",
+            "disabled": "true",
+            "index": 14,
+            "name": "VDD_LPI_CX (V6_D S4D)",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "RF Power",
+            "color": "#460046",
+            "description": "Total VPH_PWR going to RF card",
+            "disabled": "true",
+            "index": 15,
+            "name": "RF_CARD_VPH_PWR",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Parent Rail",
+            "color": "#6ac6ff",
+            "description": "Includes Nalo Jr VDD_L1_L2_L5 inputs and WLAN power: WCN785X_VDD095_MX_PMU)",
+            "disabled": "true",
+            "index": 16,
+            "name": "VREG_S2G (V6_G S2G)",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Caster",
+            "color": "#bde958",
+            "description": "Includes parent rail to L7L (Caster VDD_CX)",
+            "disabled": "true",
+            "index": 17,
+            "name": "VREG_S3G (V6_G S3G)",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "Caster",
+            "color": "#2c7a79",
+            "description": "Caster VDDAH",
+            "disabled": "true",
+            "index": 18,
+            "name": "Caster VDDAH_IF (Nalo JR L6L)",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "Caster",
+            "color": "#004a4a",
+            "description": "Caster VDDAM",
+            "disabled": "true",
+            "index": 19,
+            "name": "Caster VDDAM_IF (Nalo JRL4L)",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "Caster",
+            "color": "#47abff",
+            "description": "VPH_PWR for Blaster Module 0",
+            "disabled": "true",
+            "index": 20,
+            "name": "QTM0_VPH_PWR",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "RF Power",
+            "color": "#109e9c",
+            "description": "VPH_PWR for Blaster Module 1",
+            "disabled": "true",
+            "index": 21,
+            "name": "QTM1_VPH_PWR",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "RF Power",
+            "color": "#437116",
+            "description": "SDR735_1_VDD_CX",
+            "disabled": "true",
+            "index": 22,
+            "name": "VREG_L1K (Nalo JR L1K)",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "RF Power",
+            "color": "#002f75",
+            "description": "SDR735_0_VDD_CX",
+            "disabled": "true",
+            "index": 23,
+            "name": "VREG_L2K (Nalo JR L2K)",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Connectivity",
+            "color": "#104100",
+            "description": "WLAN WCN785X_VPH_XFEM",
+            "disabled": "true",
+            "index": 24,
+            "name": "WLAN_VPH_PWR",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "Connectivity",
+            "color": "#917a13",
+            "description": "WLAN WCN785X_VDD095_PMU_CX",
+            "disabled": "true",
+            "index": 25,
+            "name": "VREG_S5G (V6_G S5G)",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Parent Rail",
+            "color": "#b39715",
+            "description": "Nalo JR PMIC LDO inputs",
+            "disabled": "true",
+            "index": 26,
+            "name": "VREG_S1G (V6_G S1G)",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Parent Rail",
+            "color": "#f7921e",
+            "description": "Includes PMIC input, Camera S5K33D and WLAN: WCN785X_VDD13_PMU_PCIE_I",
+            "disabled": "true",
+            "index": 27,
+            "name": "VREG_S4G (V6_G S4G)",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Parent Rail",
+            "color": "#a46217",
+            "description": "Includes PMIC input and WLAN: WCN785X_VDD095_PMU_BT, WCN785X_VDD_PMU_AON_I, WCN785X_VDD09_PMU_RFA_I",
+            "disabled": "true",
+            "index": 28,
+            "name": "VREG_S4E (V6_E S4E)",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Sensor",
+            "color": "#e42329",
+            "description": "Sensor 1.8V supply",
+            "disabled": "true",
+            "index": 29,
+            "name": "VREG_L1B (Humu L1B)",
+            "resistor_value": 20,
+            "type": "SPM"
+        }
+    ],
+    "creation_date": "Wed Mar 23 23:46:06 2022",
+    "description": "MTP8550",
+    "epm_version": "Alpaca 3.0.9",
+    "label": "MTP8550",
+    "modify_date": "Wed Mar 23 23:46:50 2022",
+    "spm_version": 1,
+    "target": "SM8550"
+}

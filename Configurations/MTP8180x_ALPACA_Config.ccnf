@@ -1,0 +1,321 @@
+{
+    "author": "",
+    "channels": [
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#1c91e2",
+            "description": "",
+            "disabled": "true",
+            "index": 1,
+            "name": "MARKER 1",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#6ac6ff",
+            "description": "",
+            "disabled": "true",
+            "index": 2,
+            "name": "AOSS_SLEEP_INDICATOR",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "true",
+            "index": 3,
+            "name": "XO_EN",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "Battery",
+            "color": "#19ff19",
+            "description": "Battery Power",
+            "disabled": "true",
+            "index": 0,
+            "name": "VBATT",
+            "resistor_value": 0,
+            "type": "SPM"
+        },
+        {
+            "category": "USB",
+            "color": "#bde958",
+            "description": "USB",
+            "disabled": "true",
+            "index": 1,
+            "name": "RF_CARD_VPH",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SDM",
+            "color": "#3acdcb",
+            "description": "SDM",
+            "disabled": "true",
+            "index": 2,
+            "name": "USB0_VBUS",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SDM",
+            "color": "#2c7a79",
+            "description": "SDM",
+            "disabled": "true",
+            "index": 3,
+            "name": "APC0_S3A",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SDM",
+            "color": "#6a9212",
+            "description": "SDM",
+            "disabled": "true",
+            "index": 4,
+            "name": "APC1_S10E_9E_8E_7E_6E",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SDM",
+            "color": "#004a4a",
+            "description": "SDM",
+            "disabled": "true",
+            "index": 5,
+            "name": "SDM_CX_S3E_2E_1E",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SDM",
+            "color": "#295800",
+            "description": "SDM",
+            "disabled": "true",
+            "index": 6,
+            "name": "SDM_MX_S3C_4C",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SDM",
+            "color": "#47abff",
+            "description": "SDM",
+            "disabled": "true",
+            "index": 7,
+            "name": "SDM_MM_S1C",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SDM",
+            "color": "#9fcc3b",
+            "description": "SDM",
+            "disabled": "true",
+            "index": 8,
+            "name": "SDM_GFX_S10A_9A_8A_7A_6A",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SDM",
+            "color": "#109e9c",
+            "description": "SDM",
+            "disabled": "true",
+            "index": 9,
+            "name": "SDM_PX3_S4A",
+            "resistor_value": 100,
+            "type": "SPM"
+        },
+        {
+            "category": "SENSORS",
+            "color": "#005daa",
+            "description": "SENSORS",
+            "disabled": "true",
+            "index": 10,
+            "name": "SDM_PX3_S4ASDM_PX3_S4A",
+            "resistor_value": 50,
+            "type": "SPM"
+        },
+        {
+            "category": "SENSORS",
+            "color": "#437116",
+            "description": "SENSORS",
+            "disabled": "true",
+            "index": 11,
+            "name": "LPI_ MX VDD_L4E",
+            "resistor_value": 50,
+            "type": "SPM"
+        },
+        {
+            "category": "MODEM",
+            "color": "#046262",
+            "description": "MODEM",
+            "disabled": "true",
+            "index": 12,
+            "name": "VDD_MODEM_S2C",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MEMORY",
+            "color": "#002f75",
+            "description": "MEMORY",
+            "disabled": "true",
+            "index": 13,
+            "name": "LPDDR4_VDD2_S2A",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MEMORY",
+            "color": "#003434",
+            "description": "MEMORY",
+            "disabled": "true",
+            "index": 14,
+            "name": "LPDDR4_VDD1_S4A",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MEMORY",
+            "color": "#104100",
+            "description": "MEMORY",
+            "disabled": "true",
+            "index": 15,
+            "name": "LPDDR4_VDDQ_EBI_VDDIO_S1A",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MEMORY",
+            "color": "#d4b217",
+            "description": "MEMORY",
+            "disabled": "true",
+            "index": 16,
+            "name": "LPDDR4_EBIX_VDDA_S5C",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SDR",
+            "color": "#917a13",
+            "description": "SDR",
+            "disabled": "true",
+            "index": 17,
+            "name": "SDR_VDDAL_L3A",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SDR",
+            "color": "#fed51a",
+            "description": "SDR",
+            "disabled": "true",
+            "index": 18,
+            "name": "SDR_VDDAH_L15A",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SDR",
+            "color": "#b39715",
+            "description": "SDR",
+            "disabled": "true",
+            "index": 19,
+            "name": "SDR_VDDAM_L11A",
+            "resistor_value": 50,
+            "type": "SPM"
+        },
+        {
+            "category": "SDR",
+            "color": "#6f9715",
+            "description": "SDR",
+            "disabled": "true",
+            "index": 20,
+            "name": "SDR_VDD_CX_L5A",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "WCSS",
+            "color": "#f7921e",
+            "description": "WCSS",
+            "disabled": "true",
+            "index": 21,
+            "name": "WCSS_CX_MX_PLL_L1E",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "WCSS/WLAN",
+            "color": "#ca791d",
+            "description": "WCSS/WLAN",
+            "disabled": "true",
+            "index": 22,
+            "name": "WCSS_ADCDAC_WCN_RFA_L9A",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "WLAN",
+            "color": "#a46217",
+            "description": "WLAN",
+            "disabled": "true",
+            "index": 23,
+            "name": "WCN_CHAIN1_L10",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "WLAN",
+            "color": "#7a4910",
+            "description": "WLAN",
+            "disabled": "true",
+            "index": 24,
+            "name": "WCN_CHAIN0_L11C",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "DISPLAY",
+            "color": "#e42329",
+            "description": "DISPLAY",
+            "disabled": "true",
+            "index": 25,
+            "name": "DISPLAY_1P8_L1C",
+            "resistor_value": 100,
+            "type": "SPM"
+        },
+        {
+            "category": "DISPLAY",
+            "color": "#ac0005",
+            "description": "DISPLAY",
+            "disabled": "true",
+            "index": 26,
+            "name": "TOUCH_SCREEN_1P8_S4A",
+            "resistor_value": 100,
+            "type": "SPM"
+        },
+        {
+            "category": "DISPLAY",
+            "color": "#de00de",
+            "description": "DISPLAY",
+            "disabled": "true",
+            "index": 27,
+            "name": "WLED_BACKLIGHT_DISPLAY_M",
+            "resistor_value": 50,
+            "type": "SPM"
+        }
+    ],
+    "creation_date": "",
+    "description": "Kratos for MTP8180",
+    "label": "Kratos for MTP8180",
+    "modify_date": "Fri Apr 30 09:20:36 2021",
+    "spm_version": 1,
+    "target": "MTP8180"
+}

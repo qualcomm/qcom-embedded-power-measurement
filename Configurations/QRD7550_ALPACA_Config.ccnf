@@ -1,0 +1,132 @@
+{
+    "author": "Ashish Dakhole <adakhole@qti.qualcomm.com>",
+    "channels": [
+        {
+            "category": "GFX",
+            "color": "#6ac6ff",
+            "description": "",
+            "disabled": "false",
+            "index": 1,
+            "name": "S1D_S2D_GFX",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "RF POWER",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "false",
+            "index": 2,
+            "name": "VPH_PWR_RF",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Battery",
+            "color": "#2c7a79",
+            "description": "",
+            "disabled": "false",
+            "index": 3,
+            "name": "PM_VPH",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "Display",
+            "color": "#004a4a",
+            "description": "",
+            "disabled": "false",
+            "index": 5,
+            "name": "DISP_ELVDD",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "APC1",
+            "color": "#47abff",
+            "description": "",
+            "disabled": "false",
+            "index": 6,
+            "name": "S4D_S5D_APC1",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "Modem",
+            "color": "#109e9c",
+            "description": "",
+            "disabled": "false",
+            "index": 7,
+            "name": "S4C_S5C_MODEM",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#437116",
+            "description": "",
+            "disabled": "false",
+            "index": 8,
+            "name": "S6C_MXC",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#002f75",
+            "description": "",
+            "disabled": "false",
+            "index": 9,
+            "name": "S1C_S2C_S3C_CX",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "Display",
+            "color": "#104100",
+            "description": "",
+            "disabled": "false",
+            "index": 12,
+            "name": "DISP_ELVSS",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "APC0",
+            "color": "#917a13",
+            "description": "",
+            "disabled": "false",
+            "index": 13,
+            "name": "S6B_APC0",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#b39715",
+            "description": "",
+            "disabled": "false",
+            "index": 14,
+            "name": "S5B_MXA",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "DDR Memory",
+            "color": "#f7921e",
+            "description": "",
+            "disabled": "false",
+            "index": 15,
+            "name": "S6D_VDD2H_VDD2_PX1",
+            "resistor_value": 10,
+            "type": "SPM"
+        }
+    ],
+    "creation_date": "Mon Jul 10 13:21:28 2023",
+    "description": "QRD7550 using ALPACA",
+    "epm_version": "Alpaca 3.5.8",
+    "label": "QRD7550 ",
+    "modify_date": "Mon Jul 10 13:21:45 2023",
+    "spm_version": 1,
+    "target": "SM7550"
+}

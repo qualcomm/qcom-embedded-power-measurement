@@ -1,0 +1,21 @@
+{
+    "author": "",
+    "channels": [
+        {
+            "category": "Battery",
+            "color": "#4cff4c",
+            "description": "Battery Power",
+            "disabled": "true",
+            "index": 54,
+            "name": "VBATT_CONN",
+            "resistor_value": 10,
+            "type": "SPM"
+        }
+    ],
+    "creation_date": "",
+    "description": "QRD845 using ALPACA",
+    "label": "QRD845 using ALPACA",
+    "modify_date": "Fri Apr 30 09:22:00 2021",
+    "spm_version": 0,
+    "target": "SDM845"
+}

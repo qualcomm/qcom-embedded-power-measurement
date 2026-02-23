@@ -1,0 +1,272 @@
+{
+    "author": "",
+    "channels": [
+        {
+            "category": "EC",
+            "color": "#6ac6ff",
+            "description": "",
+            "disabled": "false",
+            "index": 1,
+            "name": "SW_20",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "EDP 3.3V",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "false",
+            "index": 2,
+            "name": "SW_11",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Modem",
+            "color": "#2c7a79",
+            "description": "",
+            "disabled": "false",
+            "index": 3,
+            "name": "SW_9",
+            "resistor_value": 1,
+            "type": "SPM"
+        },
+        {
+            "category": "Battery",
+            "color": "#004a4a",
+            "description": "",
+            "disabled": "false",
+            "index": 4,
+            "name": "VSYS",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "WCN",
+            "color": "#47abff",
+            "description": "",
+            "disabled": "false",
+            "index": 5,
+            "name": "SW_16",
+            "resistor_value": 1,
+            "type": "SPM"
+        },
+        {
+            "category": "PREBUCK_VIN_3P3_peripherals ",
+            "color": "#109e9c",
+            "description": "",
+            "disabled": "false",
+            "index": 6,
+            "name": "VIN_PREBUCK_VPH_3P3",
+            "resistor_value": 4,
+            "type": "SPM"
+        },
+        {
+            "category": "PREBUCK_VIN_SOC_Chipset_Core",
+            "color": "#00ff00",
+            "description": "",
+            "disabled": "false",
+            "index": 7,
+            "name": "VIN_PREBUCK_VPH_BCDEF_2",
+            "resistor_value": 1,
+            "type": "SPM"
+        },
+        {
+            "category": "NVME",
+            "color": "#002f75",
+            "description": "",
+            "disabled": "false",
+            "index": 8,
+            "name": "SW_12",
+            "resistor_value": 1,
+            "type": "SPM"
+        },
+        {
+            "category": "LPI CX",
+            "color": "#104100",
+            "description": "",
+            "disabled": "false",
+            "index": 9,
+            "name": "S10F_E0",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "CX",
+            "color": "#917a13",
+            "description": "",
+            "disabled": "false",
+            "index": 10,
+            "name": "S3:6F_E0",
+            "resistor_value": 1,
+            "type": "SPM"
+        },
+        {
+            "category": "MM",
+            "color": "#b39715",
+            "description": "",
+            "disabled": "false",
+            "index": 11,
+            "name": "S3:4F_E1",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "CRD Display OLED / ELVSS",
+            "color": "#f7921e",
+            "description": "",
+            "disabled": "false",
+            "index": 12,
+            "name": "DBU_9",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "BOB1 total output",
+            "color": "#a46217",
+            "description": "",
+            "disabled": "false",
+            "index": 13,
+            "name": "BOB1_B_E0_all",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "Leica2 VIN",
+            "color": "#e42329",
+            "description": "",
+            "disabled": "false",
+            "index": 14,
+            "name": "BOB1_B_E0 (camera only)",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "PX/DDR_VDD1",
+            "color": "#de00de",
+            "description": "",
+            "disabled": "false",
+            "index": 15,
+            "name": "S3J_E1",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "EBI/DDR_VDDQ",
+            "color": "#502f0a",
+            "description": "",
+            "disabled": "false",
+            "index": 16,
+            "name": "S4J_E1",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "DDR_VDD2L",
+            "color": "#460046",
+            "description": "",
+            "disabled": "false",
+            "index": 17,
+            "name": "S4K_E1",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "EBI",
+            "color": "#6ac6ff",
+            "description": "",
+            "disabled": "false",
+            "index": 18,
+            "name": "S3K_E1",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "DDR_VDD2H",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "false",
+            "index": 19,
+            "name": "S4I_S1:2J_E1",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "CRD Display OLED / ELVDD",
+            "color": "#2c7a79",
+            "description": "",
+            "disabled": "false",
+            "index": 20,
+            "name": "DBU_8",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SPEAKER AMP VDDIO/USB",
+            "color": "#004a4a",
+            "description": "",
+            "disabled": "false",
+            "index": 21,
+            "name": "L15B_E0",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Trackpad/PCIE5 NVME / Audio Codec/ Speaker Amp",
+            "color": "#47abff",
+            "description": "",
+            "disabled": "false",
+            "index": 22,
+            "name": "L18B_E0",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "USB Re-Timers,PS8833/PS8840_0_VDDXX",
+            "color": "#109e9c",
+            "description": "",
+            "disabled": "false",
+            "index": 23,
+            "name": "DBU_3_VIN",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "USB Re-Timers,PS8833/PS8840_0_VDD33",
+            "color": "#00ff00",
+            "description": "",
+            "disabled": "false",
+            "index": 24,
+            "name": "SW_4",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "USB Re-Timers,PS8833/PS8840_0_VDDIO",
+            "color": "#002f75",
+            "description": "",
+            "disabled": "false",
+            "index": 25,
+            "name": "SW_6",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MXA",
+            "color": "#104100",
+            "description": "",
+            "disabled": "false",
+            "index": 26,
+            "name": "S5F_E1",
+            "resistor_value": 5,
+            "type": "SPM"
+        }
+    ],
+    "creation_date": "Tue Dec 17 16:36:55 2024",
+    "description": "CRD8480XSIP1 using ALPACA",
+    "epm_version": "QEPM 4.0.5",
+    "label": "CRD8480XSIP1",
+    "modify_date": "Tue Dec 17 16:37:46 2024",
+    "spm_version": 1,
+    "target": "CRD8480XSIP1"
+}

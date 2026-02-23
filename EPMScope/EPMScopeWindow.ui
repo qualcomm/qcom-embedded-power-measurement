@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>EPMScopeWindowClass</class>
+ <widget class="QMainWindow" name="EPMScopeWindowClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>QEPM Scope</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="Resources/AlpacaScope.qrc">
+    <normaloff>:/AlpacaScope.ico</normaloff>:/AlpacaScope.ico</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="2" column="0">
+     <layout class="QHBoxLayout" name="_footer">
+      <item>
+       <widget class="QPushButton" name="_settingsBtn">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset theme="QIcon::ThemeIcon::DocumentProperties"/>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="_settingsHSpacer">
+        <property name="orientation">
+         <enum>Qt::Orientation::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Policy::Expanding</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="_recordBtn">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>Record</string>
+        </property>
+        <property name="icon">
+         <iconset theme="QIcon::ThemeIcon::MediaRecord"/>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="0" column="0">
+     <layout class="QHBoxLayout" name="_header">
+      <property name="sizeConstraint">
+       <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
+      </property>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Orientation::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Policy::Expanding</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>10</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="_scanDevices">
+        <property name="text">
+         <string>Scan Devices</string>
+        </property>
+        <property name="icon">
+         <iconset theme="QIcon::ThemeIcon::EditFind"/>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="1" column="0">
+     <layout class="QHBoxLayout" name="_workspace">
+      <item>
+       <widget class="QSplitter" name="_splitter">
+        <property name="midLineWidth">
+         <number>1</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Orientation::Horizontal</enum>
+        </property>
+        <widget class="QWidget" name="gridLayoutWidget_2">
+         <layout class="QGridLayout" name="_channelSelectionPane">
+          <item row="0" column="0">
+           <widget class="QGroupBox" name="_deviceGroupBox">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="title">
+             <string>Device Selection</string>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout"/>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <spacer name="_channelTableVSpacer">
+            <property name="orientation">
+             <enum>Qt::Orientation::Vertical</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Policy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>10</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="1" column="0">
+           <layout class="QHBoxLayout" name="_addDevicesHLayout">
+            <property name="sizeConstraint">
+             <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
+            </property>
+            <item>
+             <spacer name="_addDeviceSpacer">
+              <property name="orientation">
+               <enum>Qt::Orientation::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QPushButton" name="_addDeviceBtn">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="text">
+               <string>Add Device</string>
+              </property>
+              <property name="icon">
+               <iconset theme="QIcon::ThemeIcon::ListAdd"/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="_removeDeviceBtn">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="text">
+               <string>Remove Device</string>
+              </property>
+              <property name="icon">
+               <iconset theme="QIcon::ThemeIcon::ListRemove"/>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="2" column="0">
+           <widget class="QGroupBox" name="_channelGroupBox">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="title">
+             <string>Channel Selection</string>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_3">
+             <item>
+              <widget class="QTabWidget" name="_epmChannelTabWidget">
+               <property name="currentIndex">
+                <number>-1</number>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="gridLayoutWidget">
+         <layout class="QVBoxLayout" name="_chartVLayout">
+          <item>
+           <spacer name="_chartVSpacer">
+            <property name="orientation">
+             <enum>Qt::Orientation::Vertical</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Policy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>10</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="CurrentChartLive" name="_currentChart" native="true">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="VoltageChartLive" name="_voltageChart" native="true">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="_menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="_actionPreferences"/>
+    <addaction name="_actionQuit"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="_actionContents"/>
+    <addaction name="separator"/>
+    <addaction name="_actionAbout"/>
+    <addaction name="_actionRateMe"/>
+    <addaction name="_actionSubmitBugReport"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="_statusbar"/>
+  <action name="_actionPreferences">
+   <property name="text">
+    <string>Preferences...</string>
+   </property>
+   <property name="toolTip">
+    <string>Configure EPM Scope Settings</string>
+   </property>
+  </action>
+  <action name="_actionQuit">
+   <property name="text">
+    <string>Quit</string>
+   </property>
+   <property name="toolTip">
+    <string>Exit EPM Scope</string>
+   </property>
+  </action>
+  <action name="_actionContents">
+   <property name="text">
+    <string>Contents</string>
+   </property>
+   <property name="toolTip">
+    <string>Open documentation</string>
+   </property>
+  </action>
+  <action name="_actionAbout">
+   <property name="text">
+    <string>About...</string>
+   </property>
+   <property name="toolTip">
+    <string>About EPM Scope</string>
+   </property>
+  </action>
+  <action name="_actionRateMe">
+   <property name="text">
+    <string>Rate me...</string>
+   </property>
+   <property name="toolTip">
+    <string>Rate the application</string>
+   </property>
+  </action>
+  <action name="_actionSubmitBugReport">
+   <property name="icon">
+    <iconset resource="Resources/AlpacaScope.qrc">
+     <normaloff>:/BugWriter.png</normaloff>:/BugWriter.png</iconset>
+   </property>
+   <property name="text">
+    <string>Submit Bug Report...</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>CurrentChartLive</class>
+   <extends>QWidget</extends>
+   <header location="global">CurrentChartLive.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>VoltageChartLive</class>
+   <extends>QWidget</extends>
+   <header location="global">VoltageChartLive.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="Resources/AlpacaScope.qrc"/>
+ </resources>
+ <connections/>
+</ui>

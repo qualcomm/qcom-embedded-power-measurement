@@ -1,0 +1,102 @@
+{
+    "author": "",
+    "channels": [
+        {
+            "category": "DDR",
+            "color": "#6ac6ff",
+            "description": "",
+            "disabled": "false",
+            "index": 40,
+            "name": "S1H_SDM_DDR_VDD2",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#2c7a79",
+            "description": "",
+            "disabled": "false",
+            "index": 42,
+            "name": "S3C_SDM_MX",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#004a4a",
+            "description": "",
+            "disabled": "false",
+            "index": 43,
+            "name": "S1A_S2A_S3A_SDM_CX",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM APC",
+            "color": "#109e9c",
+            "description": "",
+            "disabled": "false",
+            "index": 45,
+            "name": "S7A_S8A_S9A_APC1",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM APC",
+            "color": "#437116",
+            "description": "",
+            "disabled": "false",
+            "index": 46,
+            "name": "S10A_APC0",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM MM",
+            "color": "#917a13",
+            "description": "",
+            "disabled": "false",
+            "index": 10,
+            "name": "S4C_S5C_SDM_MM",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM GFX",
+            "color": "#b39715",
+            "description": "",
+            "disabled": "false",
+            "index": 9,
+            "name": "S1C_S2C_SDM_GFX",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Display",
+            "color": "#f7921e",
+            "description": "",
+            "disabled": "false",
+            "index": 8,
+            "name": "L14A_OLED_1P8_IO",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "BATTERY",
+            "color": "#1c91e2",
+            "description": "",
+            "disabled": "false",
+            "index": 0,
+            "name": "BATTERY",
+            "resistor_value": 10,
+            "type": "SPM"
+        }
+    ],
+    "creation_date": "Tue Nov 22 10:20:11 2022",
+    "description": "MorpheusSKU4 using ALPACA(RCM FPC 25-PP199-P1)",
+    "epm_version": "Alpaca 3.3.8",
+    "label": "MorpheusSKU4",
+    "modify_date": "Fri Feb 24 15:13:32 2023",
+    "spm_version": 1,
+    "target": "MorpheusSKU4"
+}

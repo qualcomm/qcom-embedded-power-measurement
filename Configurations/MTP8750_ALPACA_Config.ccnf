@@ -1,0 +1,352 @@
+{
+    "author": "",
+    "channels": [
+        {
+            "category": "Battery",
+            "color": "#6ac6ff",
+            "description": "",
+            "disabled": "false",
+            "index": 1,
+            "name": "CH_1_VBATT",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "false",
+            "index": 2,
+            "name": "CH_2_APC0_CX_VREG_S5J_S6J_0P728",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#2c7a79",
+            "description": "",
+            "disabled": "false",
+            "index": 3,
+            "name": "CH_3_APC0_MX_VREG_S6F_0P752",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#004a4a",
+            "description": "",
+            "disabled": "false",
+            "index": 4,
+            "name": "CH_4_APC1_CX_S1F_S2F_S3F_S4F_0P728",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#47abff",
+            "description": "",
+            "disabled": "false",
+            "index": 5,
+            "name": "CH_5_APC1_MX_VREG_S7F_0P752",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#109e9c",
+            "description": "",
+            "disabled": "false",
+            "index": 6,
+            "name": "CH_6_NSP1_VREG_S7G_S8G_0P728",
+            "resistor_value": 3,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#00ff00",
+            "description": "",
+            "disabled": "false",
+            "index": 7,
+            "name": "CH_7_NSP2_VREG_S1I_S2I_0P728",
+            "resistor_value": 3,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#002f75",
+            "description": "",
+            "disabled": "false",
+            "index": 8,
+            "name": "CH_8_MX_A_VREG_S8F_0P752",
+            "resistor_value": 3,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#104100",
+            "description": "",
+            "disabled": "false",
+            "index": 9,
+            "name": "CH_9_MX_C_VREG_S6I_0P752",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#917a13",
+            "description": "",
+            "disabled": "false",
+            "index": 10,
+            "name": "CH_10_GFX_MXC_VREG_S2D_0P752",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#b39715",
+            "description": "",
+            "disabled": "false",
+            "index": 11,
+            "name": "CH_11_MODEM_VREG_S5G_S6G_0P728",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#f7921e",
+            "description": "",
+            "disabled": "false",
+            "index": 12,
+            "name": "CH_12_MM_VREG_S3I_S4I_0P628",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#a46217",
+            "description": "",
+            "disabled": "false",
+            "index": 13,
+            "name": "CH_13_CX_VREG_S1J_0P728",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#e42329",
+            "description": "",
+            "disabled": "false",
+            "index": 14,
+            "name": "CH_14_GFX_VREG_S5D_S6D_S7D_S8D_0P628",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#de00de",
+            "description": "",
+            "disabled": "false",
+            "index": 15,
+            "name": "CH_15_VDDA_EBI_VREG_S2G_0P768",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#502f0a",
+            "description": "",
+            "disabled": "false",
+            "index": 16,
+            "name": "CH_16_LPI_MX_VREG_L3J_0P752",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#460046",
+            "description": "",
+            "disabled": "false",
+            "index": 17,
+            "name": "CH_17_LPI_CX_VREG_S5I_0P676",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "RF Power",
+            "color": "#6ac6ff",
+            "description": "",
+            "disabled": "false",
+            "index": 18,
+            "name": "CH_18_RF_VPH_PWR",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "RF Power",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "false",
+            "index": 19,
+            "name": "CH_19_QTM0_2_VPH_PWR",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "RF Power",
+            "color": "#2c7a79",
+            "description": "",
+            "disabled": "false",
+            "index": 20,
+            "name": "CH_20_QTM1_VPH_PWR",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "RF Power",
+            "color": "#004a4a",
+            "description": "",
+            "disabled": "false",
+            "index": 21,
+            "name": "CH_21_CX_SDR_VREG_S4G_0P752",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "RF Power",
+            "color": "#47abff",
+            "description": "",
+            "disabled": "false",
+            "index": 22,
+            "name": "CH_22_RF_CARD_VREG_L4K_1P2",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "RF Power",
+            "color": "#109e9c",
+            "description": "",
+            "disabled": "false",
+            "index": 23,
+            "name": "CH_23_RF_CARD_VREG_L5K_0P952",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "RF Power",
+            "color": "#00ff00",
+            "description": "",
+            "disabled": "false",
+            "index": 24,
+            "name": "CH_24_RF_CARD_VREG_L6K_1P78",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "RF Power",
+            "color": "#002f75",
+            "description": "",
+            "disabled": "false",
+            "index": 25,
+            "name": "CH_25_RF_CARD_VREG_L7K_0P8",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "WLAN",
+            "color": "#104100",
+            "description": "",
+            "disabled": "false",
+            "index": 26,
+            "name": "CH_26_WLAN_VPH_PWR",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "WLAN",
+            "color": "#917a13",
+            "description": "",
+            "disabled": "false",
+            "index": 27,
+            "name": "CH_27_WCN_VREG_S5F_0P852",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "Sensor",
+            "color": "#b39715",
+            "description": "",
+            "disabled": "false",
+            "index": 28,
+            "name": "CH_28_SENSORS_VREG_L2B_3P0",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "Sensor",
+            "color": "#f7921e",
+            "description": "",
+            "disabled": "false",
+            "index": 29,
+            "name": "CH_29_SENSORS_VREG_L1B_1P8",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "VPH",
+            "color": "#a46217",
+            "description": "",
+            "disabled": "false",
+            "index": 30,
+            "name": "CH_30_VPH_PWR",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "DDR",
+            "color": "#e42329",
+            "description": "",
+            "disabled": "false",
+            "index": 31,
+            "name": "CH_31_VDD2H_VREG_S2J_S3J_1P08",
+            "resistor_value": 1,
+            "type": "SPM"
+        },
+        {
+            "category": "DDR",
+            "color": "#de00de",
+            "description": "",
+            "disabled": "false",
+            "index": 32,
+            "name": "CH_32_VDD2L_VREG_S8I_1P904",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "DDR",
+            "color": "#502f0a",
+            "description": "",
+            "disabled": "false",
+            "index": 33,
+            "name": "CH_33_VDDQ_VREG_S1G_1P5",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "DDR",
+            "color": "#460046",
+            "description": "",
+            "disabled": "false",
+            "index": 34,
+            "name": "CH_34_VDD_VREG_L15B_1P8",
+            "resistor_value": 2,
+            "type": "SPM"
+        }
+    ],
+    "creation_date": "Thu Jan 11 14:56:25 2024",
+    "description": "MTP8750",
+    "epm_version": "QEPM 3.7.8",
+    "label": "MTP8750",
+    "modify_date": "Thu Jan 11 14:57:20 2024",
+    "spm_version": 1,
+    "target": "SM8750"
+}

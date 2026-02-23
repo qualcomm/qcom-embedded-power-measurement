@@ -1,0 +1,321 @@
+{
+    "author": "",
+    "channels": [
+        {
+            "category": "VOLTAGE",
+            "color": "#1c91e2",
+            "description": "Required for BB_CLK Profiling",
+            "disabled": "true",
+            "index": 1,
+            "name": "VREG_L11A_1P8",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#6ac6ff",
+            "description": "GPIO 44",
+            "disabled": "true",
+            "index": 2,
+            "name": "ETM_QDSS_TRIG0_OUT_A",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#bde958",
+            "description": "Marker 1(GPIO 72)",
+            "disabled": "true",
+            "index": 3,
+            "name": "RCM_MARKER1",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#bde958",
+            "description": "Makua GPIO_1",
+            "disabled": "true",
+            "index": 4,
+            "name": "AOSS_SLEEP_INDICATOR",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "BATTERY",
+            "color": "#3acdcb",
+            "description": "Battery Power",
+            "disabled": "true",
+            "index": 1,
+            "name": "VBATT_CONN",
+            "resistor_value": 2,
+            "type": "RCM"
+        },
+        {
+            "category": "SDM",
+            "color": "#2c7a79",
+            "description": "Makua to CX Core",
+            "disabled": "true",
+            "index": 2,
+            "name": "VOUT_S2C",
+            "resistor_value": 25,
+            "type": "RCM"
+        },
+        {
+            "category": "SDM",
+            "color": "#6a9212",
+            "description": "Makua to CX Core",
+            "disabled": "true",
+            "index": 3,
+            "name": "VOUT_S3C",
+            "resistor_value": 25,
+            "type": "RCM"
+        },
+        {
+            "category": "SDM",
+            "color": "#004a4a",
+            "description": "Makua to CX Core",
+            "disabled": "true",
+            "index": 4,
+            "name": "VOUT_S1C",
+            "resistor_value": 25,
+            "type": "RCM"
+        },
+        {
+            "category": "SDM",
+            "color": "#295800",
+            "description": "MakuaL to APC1 GOLD cluster",
+            "disabled": "true",
+            "index": 5,
+            "name": "VOUT_S5C",
+            "resistor_value": 25,
+            "type": "RCM"
+        },
+        {
+            "category": "SDM",
+            "color": "#47abff",
+            "description": "Cosmo to MX Core",
+            "disabled": "true",
+            "index": 6,
+            "name": "VOUT_S3A",
+            "resistor_value": 25,
+            "type": "RCM"
+        },
+        {
+            "category": "SDM",
+            "color": "#9fcc3b",
+            "description": "Makua to APC0 Silver cluster",
+            "disabled": "true",
+            "index": 7,
+            "name": "VOUT_S4C",
+            "resistor_value": 25,
+            "type": "RCM"
+        },
+        {
+            "category": "SENSORS",
+            "color": "#109e9c",
+            "description": "Cosmo LDO to SSC Core CX",
+            "disabled": "true",
+            "index": 8,
+            "name": "VREG_L8A_0P8_SSC_CX",
+            "resistor_value": 25,
+            "type": "RCM"
+        },
+        {
+            "category": "SDM",
+            "color": "#005daa",
+            "description": "Makua to APC1 GOLD cluster",
+            "disabled": "true",
+            "index": 9,
+            "name": "VOUT_S6C",
+            "resistor_value": 25,
+            "type": "RCM"
+        },
+        {
+            "category": "WCSS",
+            "color": "#437116",
+            "description": "Cosmo LDO to WCSS CX",
+            "disabled": "true",
+            "index": 10,
+            "name": "VREG_L9A_0P8_WCSS_CX",
+            "resistor_value": 50,
+            "type": "RCM"
+        },
+        {
+            "category": "MODEM",
+            "color": "#046262",
+            "description": "Makua to SDM Modem Core",
+            "disabled": "true",
+            "index": 11,
+            "name": "VOUT_S7C",
+            "resistor_value": 25,
+            "type": "RCM"
+        },
+        {
+            "category": "SENSORS",
+            "color": "#002f75",
+            "description": "Cosmo LDO to SSC MX",
+            "disabled": "true",
+            "index": 12,
+            "name": "VREG_L7A_0P9_SSC_MX",
+            "resistor_value": 100,
+            "type": "RCM"
+        },
+        {
+            "category": "MEMORY",
+            "color": "#003434",
+            "description": "Cosmo LDO to SDM EBI power domain",
+            "disabled": "true",
+            "index": 13,
+            "name": "VREG_L6A_EBI_0P6",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "MODEM",
+            "color": "#104100",
+            "description": "Cosmo LDO to SDR675",
+            "disabled": "true",
+            "index": 14,
+            "name": "VREG_L3A_SDR_MSS_1P0",
+            "resistor_value": 50,
+            "type": "RCM"
+        },
+        {
+            "category": "CONNECTIVITY",
+            "color": "#d4b217",
+            "description": "Makua LDO to WCN XO",
+            "disabled": "true",
+            "index": 15,
+            "name": "VREG_L1C_1P8_WCN_XO",
+            "resistor_value": 301,
+            "type": "RCM"
+        },
+        {
+            "category": "MEMORY",
+            "color": "#917a13",
+            "description": "Cosmo to LPDDR4X VDD2 ",
+            "disabled": "true",
+            "index": 16,
+            "name": "VOUT_S1A",
+            "resistor_value": 25,
+            "type": "RCM"
+        },
+        {
+            "category": "MEMORY",
+            "color": "#fed51a",
+            "description": "Cosmo LDO to EMMC/UFS VCC",
+            "disabled": "true",
+            "index": 17,
+            "name": "VREG_L19A_2P95_VCC",
+            "resistor_value": 50,
+            "type": "RCM"
+        },
+        {
+            "category": "CONNECTIVITY",
+            "color": "#b39715",
+            "description": "Makua LDO to WCN3988/91 CH0",
+            "disabled": "true",
+            "index": 18,
+            "name": "VREG_L10C_3P3_WCN_CH0",
+            "resistor_value": 100,
+            "type": "RCM"
+        },
+        {
+            "category": "RF VPH PWR",
+            "color": "#6f9715",
+            "description": "VPH power to RF Card",
+            "disabled": "true",
+            "index": 19,
+            "name": "VPH_PWR_RF_JR2",
+            "resistor_value": 20,
+            "type": "RCM"
+        },
+        {
+            "category": "RF VPH PWR",
+            "color": "#f7921e",
+            "description": "VPH power to RF Card",
+            "disabled": "true",
+            "index": 20,
+            "name": "VPH_PWR_RF_JR2",
+            "resistor_value": 20,
+            "type": "RCM"
+        },
+        {
+            "category": "CONNECTIVITY",
+            "color": "#ca791d",
+            "description": "Makua LDO to WCN3988/91 CH1",
+            "disabled": "true",
+            "index": 21,
+            "name": "VREG_L11C_3P3_WCN_CH1",
+            "resistor_value": 100,
+            "type": "RCM"
+        },
+        {
+            "category": "RF",
+            "color": "#a46217",
+            "description": "Cosmo LDO to SDR675",
+            "disabled": "true",
+            "index": 22,
+            "name": "VREG_L1A_SDR_RF_1P2",
+            "resistor_value": 50,
+            "type": "RCM"
+        },
+        {
+            "category": "VPH",
+            "color": "#7a4910",
+            "description": "VPH input to Makua",
+            "disabled": "true",
+            "index": 23,
+            "name": "VPH_PWR_IN_BOB",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "SDM",
+            "color": "#e42329",
+            "description": "Cosmo to MSM IO voltage and peripherals IO voltage",
+            "disabled": "true",
+            "index": 24,
+            "name": "VDDPX_3",
+            "resistor_value": 301,
+            "type": "RCM"
+        },
+        {
+            "category": "SDM",
+            "color": "#ac0005",
+            "description": "Cosmo to GFX block of SDM",
+            "disabled": "true",
+            "index": 25,
+            "name": "VREG_S2A_GFX_VDD",
+            "resistor_value": 25,
+            "type": "RCM"
+        },
+        {
+            "category": "CONNECTIVITY",
+            "color": "#de00de",
+            "description": "Makua LDO to WCN3988/91_RFA",
+            "disabled": "true",
+            "index": 26,
+            "name": "VREG_L2C_1P3_WCN_RFA",
+            "resistor_value": 50,
+            "type": "RCM"
+        },
+        {
+            "category": "RF",
+            "color": "#830083",
+            "description": "Cosmo LDO to SDR675",
+            "disabled": "true",
+            "index": 27,
+            "name": "VREG_L2A_SDR_ANA_1P0",
+            "resistor_value": 50,
+            "type": "RCM"
+        }
+    ],
+    "creation_date": "Mon Mar 22 10:54:27 2021",
+    "description": "IDP6250 using ALPACA",
+    "label": "IDP6250 using ALPACA",
+    "modify_date": "Fri Apr 30 09:23:09 2021",
+    "spm_version": 0,
+    "target": "SM6250"
+}

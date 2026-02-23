@@ -1,0 +1,311 @@
+{
+    "author": "",
+    "channels": [
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#1c91e2",
+            "description": "RCM_MARKER_1 (SM8450 GPIO 93)",
+            "disabled": "true",
+            "index": 1,
+            "name": "SM8450_GPIO_93",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#6ac6ff",
+            "description": "RCM_MARKER_2 (SM8450 GPIO 2)",
+            "disabled": "true",
+            "index": 2,
+            "name": "SM8450_GPIO_2",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#bde958",
+            "description": "RCM_EXT_TRIGGER (XO_EN using VREG_BB from 'Tokei')",
+            "disabled": "true",
+            "index": 3,
+            "name": "XO_EN",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "BATTERY",
+            "color": "#00ff00",
+            "description": "Battery power measured on the baseband board.",
+            "disabled": "true",
+            "index": 1,
+            "name": "BATTERY",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "true",
+            "index": 2,
+            "name": "VDD_APC0 (Hapuna S1H)",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#3acdcb",
+            "description": "",
+            "disabled": "true",
+            "index": 3,
+            "name": "VDD_APC1 (Papio S1B_2B_3B_4B)",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#2c7a79",
+            "description": "",
+            "disabled": "true",
+            "index": 4,
+            "name": "VDD_GFX (S5B_6B_7B_8B)",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#6a9212",
+            "description": "",
+            "disabled": "true",
+            "index": 5,
+            "name": "VDDCX (Palani S6C_7C_8C_9C)",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#004a4a",
+            "description": "",
+            "disabled": "true",
+            "index": 6,
+            "name": "VDD_MM (Hapuna S4H_5H)",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#295800",
+            "description": "",
+            "disabled": "true",
+            "index": 7,
+            "name": "VDD_MX_A (Hapuna S6H)",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#47abff",
+            "description": "",
+            "disabled": "true",
+            "index": 8,
+            "name": "VDD_MX_C (Palani S2C_3C)",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#9fcc3b",
+            "description": "",
+            "disabled": "true",
+            "index": 9,
+            "name": "VDD_MODEM (Palani S4C_5C)",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "DDR MEMORY",
+            "color": "#109e9c",
+            "description": "Includes VDD_A_EBI_X, VDDA_PLL_EBI ",
+            "disabled": "true",
+            "index": 10,
+            "name": "VREG_S2H (Hapuna VREG_S2H)",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "IO POWER",
+            "color": "#005daa",
+            "description": "Includes LPDDR5 VDD1",
+            "disabled": "true",
+            "index": 11,
+            "name": "VDDPX_3 (Papio S10B)",
+            "resistor_value": 2000,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#437116",
+            "description": "",
+            "disabled": "true",
+            "index": 12,
+            "name": "VDD_LPI_MX (Hapuna L1H)",
+            "resistor_value": 50,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#046262",
+            "description": "",
+            "disabled": "true",
+            "index": 13,
+            "name": "VDD_LPI_CX (Papio L8B)",
+            "resistor_value": 25,
+            "type": "SPM"
+        },
+        {
+            "category": "RF POWER",
+            "color": "#002f75",
+            "description": "Total VPH_PWR going to RF card",
+            "disabled": "true",
+            "index": 14,
+            "name": "VPH_RF",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "RF POWER",
+            "color": "#003434",
+            "description": "VDD_CX for the First SDR865 (Axion)",
+            "disabled": "true",
+            "index": 15,
+            "name": "SDR_VDD_CX Axion 0 (SECO L2E)",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "RF POWER",
+            "color": "#003434",
+            "description": "VDD_CX for the Second SDR865 (Axion)",
+            "disabled": "true",
+            "index": 16,
+            "name": "SDR_VDD_CX Axion 1 (SECO L2E)",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "SENSOR",
+            "color": "#104100",
+            "description": "Sensor 3.0 V ALS supply",
+            "disabled": "true",
+            "index": 17,
+            "name": "VDD3P0_SENSOR (Palani L7C)",
+            "resistor_value": 200,
+            "type": "SPM"
+        },
+        {
+            "category": "SENSOR",
+            "color": "#d4b217",
+            "description": "Sensor 1.8 V supply",
+            "disabled": "true",
+            "index": 18,
+            "name": "VDD1P8_SENSOR (Palani L8C)",
+            "resistor_value": 2000,
+            "type": "SPM"
+        },
+        {
+            "category": "CASTER",
+            "color": "#917a13",
+            "description": "Caster VDD_CX",
+            "disabled": "true",
+            "index": 19,
+            "name": "VDDCX_SRM (Nalo L6F)",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "CASTER",
+            "color": "#fed51a",
+            "description": "Streamer VDDAH",
+            "disabled": "true",
+            "index": 20,
+            "name": "VDDAH_SRM (Nalo L4F)",
+            "resistor_value": 100,
+            "type": "SPM"
+        },
+        {
+            "category": "CASTER",
+            "color": "#b39715",
+            "description": "Streamer VDDAM",
+            "disabled": "true",
+            "index": 21,
+            "name": "VDDAM_SRM (Nalo L2F)",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "STREAMER",
+            "color": "#6f9715",
+            "description": "VDD_PX for beamer module 0",
+            "disabled": "true",
+            "index": 22,
+            "name": "VDDPX_QTM0 (Palani S1C)",
+            "resistor_value": 200,
+            "type": "SPM"
+        },
+        {
+            "category": "STREAMER",
+            "color": "#f7921e",
+            "description": "VPH_PWR for beamer module 0",
+            "disabled": "true",
+            "index": 23,
+            "name": "VPH_QTM0",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "STREAMER",
+            "color": "#ca791d",
+            "description": "VDD_PX for beamer module 1 ",
+            "disabled": "true",
+            "index": 24,
+            "name": "VDDPX_QTM1 (Palani S1C)",
+            "resistor_value": 200,
+            "type": "SPM"
+        },
+        {
+            "category": "STREAMER",
+            "color": "#a46217",
+            "description": "VPH_PWR for beamer module 1 ",
+            "disabled": "true",
+            "index": 25,
+            "name": "VPH_QTM1",
+            "resistor_value": 20,
+            "type": "SPM"
+        },
+        {
+            "category": "STREAMER",
+            "color": "#7a4910",
+            "description": "Combined VDD_PX for beamer modules 2 and 3",
+            "disabled": "true",
+            "index": 26,
+            "name": "VDDPX_QTM23 (Palani S1C)",
+            "resistor_value": 100,
+            "type": "SPM"
+        },
+        {
+            "category": "STREAMER",
+            "color": "#e42329",
+            "description": "Combined VPH_PWR for beamer modules 2 and 3",
+            "disabled": "true",
+            "index": 27,
+            "name": "VPH_QTM23",
+            "resistor_value": 10,
+            "type": "SPM"
+        }
+    ],
+    "creation_date": "Wed Mar 18 15:13:05 2020",
+    "description": "MTP8450 using ALPACA",
+    "label": "MTP8450",
+    "modify_date": "Fri Apr 30 09:23:42 2021",
+    "spm_version": 1,
+    "target": "SM8450"
+}

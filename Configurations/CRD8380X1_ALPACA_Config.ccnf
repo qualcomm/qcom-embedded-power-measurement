@@ -1,0 +1,272 @@
+{
+    "author": "Ruijie Zhang <ruijiez@qti.qualcomm.com>",
+    "channels": [
+        {
+            "category": "BOB1",
+            "color": "#6ac6ff",
+            "description": "",
+            "disabled": "false",
+            "index": 1,
+            "name": "VREG_BOB1",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "CAMERA_FFC AON4K/SDC2/UFS_VCC",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "false",
+            "index": 2,
+            "name": "VREG_BOB2",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "LPDDR5X_VDDQ/IO_EBI",
+            "color": "#2c7a79",
+            "description": "",
+            "disabled": "false",
+            "index": 3,
+            "name": "VREG_S1D",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "VBATT",
+            "color": "#004a4a",
+            "description": "",
+            "disabled": "false",
+            "index": 4,
+            "name": "BATTERY/VSYS",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "LPDDR5X_VDD2H/PX1",
+            "color": "#47abff",
+            "description": "",
+            "disabled": "false",
+            "index": 5,
+            "name": "VREG_S2I_S3I",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "PREBUCK_1A_SOC",
+            "color": "#109e9c",
+            "description": "",
+            "disabled": "false",
+            "index": 6,
+            "name": "VSYS_1A",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "PREBUCK_1B_SOC",
+            "color": "#437116",
+            "description": "",
+            "disabled": "false",
+            "index": 7,
+            "name": "VSYS_1B",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "VDD_MX_APC2",
+            "color": "#002f75",
+            "description": "",
+            "disabled": "false",
+            "index": 8,
+            "name": "VREG_S5I_S6I",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "VDD_MX_APC0",
+            "color": "#104100",
+            "description": "",
+            "disabled": "false",
+            "index": 9,
+            "name": "VREG_S7I_S8I",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "VDD_APC1",
+            "color": "#917a13",
+            "description": "",
+            "disabled": "false",
+            "index": 10,
+            "name": "VPH_PWR_1A_APC1",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "VDD_APC2",
+            "color": "#b39715",
+            "description": "",
+            "disabled": "false",
+            "index": 11,
+            "name": "VREG_S2345678D",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "VDD_APC0",
+            "color": "#f7921e",
+            "description": "",
+            "disabled": "false",
+            "index": 12,
+            "name": "VPH_PWR_1B_APC0",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "VDD_MM",
+            "color": "#a46217",
+            "description": "",
+            "disabled": "false",
+            "index": 13,
+            "name": "VREG_S6J_S7J_S8J",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "VDD_MX_A",
+            "color": "#e42329",
+            "description": "",
+            "disabled": "false",
+            "index": 14,
+            "name": "VREG_S6C",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "VDD_MX_C",
+            "color": "#de00de",
+            "description": "",
+            "disabled": "false",
+            "index": 15,
+            "name": "VREG_S3C",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "CX/EBI",
+            "color": "#502f0a",
+            "description": "",
+            "disabled": "false",
+            "index": 16,
+            "name": "VREG_S1J_S2J",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "VDD_NSP",
+            "color": "#460046",
+            "description": "",
+            "disabled": "false",
+            "index": 17,
+            "name": "VREG_S1C_S2C",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "VDD_GFX",
+            "color": "#6ac6ff",
+            "description": "",
+            "disabled": "false",
+            "index": 18,
+            "name": "VPH_PWR_1B_GFX",
+            "resistor_value": 2,
+            "type": "SPM"
+        },
+        {
+            "category": "VDD_MX_GFX",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "false",
+            "index": 19,
+            "name": "VREG_S7C_S8C",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "SENSORS",
+            "color": "#2c7a79",
+            "description": "",
+            "disabled": "false",
+            "index": 20,
+            "name": "VREG_L10B",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SMB2360_EUSB",
+            "color": "#004a4a",
+            "description": "",
+            "disabled": "false",
+            "index": 21,
+            "name": "VREG_L3D",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "SMB2360_EUSB",
+            "color": "#47abff",
+            "description": "",
+            "disabled": "false",
+            "index": 22,
+            "name": "VREG_L2J",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "USB Type-C Port1 &2",
+            "color": "#109e9c",
+            "description": "",
+            "disabled": "false",
+            "index": 23,
+            "name": "VREG_L2D",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "LPDDR5X_VDD2L",
+            "color": "#437116",
+            "description": "",
+            "disabled": "false",
+            "index": 24,
+            "name": "VREG_S1I",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "VDD_LPI_CX",
+            "color": "#002f75",
+            "description": "",
+            "disabled": "false",
+            "index": 25,
+            "name": "VREG_S5C",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "mmW Module for SDX65",
+            "color": "#104100",
+            "description": "",
+            "disabled": "false",
+            "index": 26,
+            "name": "SDX_VPH_PWR_QTM0",
+            "resistor_value": 10,
+            "type": "SPM"
+        }
+    ],
+    "creation_date": "Thu Feb 9 17:01:05 2023",
+    "description": "CRD8380X1 using ALPACA",
+    "epm_version": "Alpaca 3.5.1",
+    "label": "CRD8380X1",
+    "modify_date": "Thu Feb 9 17:02:28 2023",
+    "spm_version": 1,
+    "target": "CRD8380X1"
+}

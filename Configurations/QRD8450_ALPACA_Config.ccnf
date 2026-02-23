@@ -1,0 +1,172 @@
+{
+    "author": "yao",
+    "channels": [
+        {
+            "category": "Battery",
+            "color": "#1c91e2",
+            "description": "",
+            "disabled": "true",
+            "index": 0,
+            "name": "VBAT",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "S5B_S6B_S7B_S8B_S9B_GFX",
+            "color": "#6ac6ff",
+            "description": "",
+            "disabled": "true",
+            "index": 1,
+            "name": "S5B_S6B_S7B_S8B_S9B_GFX",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "VPH_PWR_RF_QET",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "true",
+            "index": 2,
+            "name": "VPH_PWR_RF_QET",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "VPH_PM_OLED",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "true",
+            "index": 3,
+            "name": "VPH_PM_OLED",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "S10B_SM",
+            "color": "#3acdcb",
+            "description": "",
+            "disabled": "true",
+            "index": 4,
+            "name": "S10B_SM",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "OLED_DDIC",
+            "color": "#2c7a79",
+            "description": "",
+            "disabled": "true",
+            "index": 5,
+            "name": "OLED_DDIC",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "S1H_APC0",
+            "color": "#6a9212",
+            "description": "",
+            "disabled": "true",
+            "index": 6,
+            "name": "S1H_APC0",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "S4C_S5C_VDD_MODEM",
+            "color": "#004a4a",
+            "description": "",
+            "disabled": "true",
+            "index": 7,
+            "name": "S4C_S5C_VDD_MODEM",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "S2C_S3C_VDDMX_C1",
+            "color": "#295800",
+            "description": "",
+            "disabled": "true",
+            "index": 8,
+            "name": "S2C_S3C_VDDMX_C1",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "S6C_S7C_S8C_S9C_CX",
+            "color": "#47abff",
+            "description": "",
+            "disabled": "true",
+            "index": 9,
+            "name": "S6C_S7C_S8C_S9C_CX",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "L12C_OLED_IO",
+            "color": "#9fcc3b",
+            "description": "",
+            "disabled": "true",
+            "index": 10,
+            "name": "L12C_OLED_IO",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "S10C_DDR_VDD2H",
+            "color": "#109e9c",
+            "description": "",
+            "disabled": "true",
+            "index": 11,
+            "name": "S10C_DDR_VDD2H",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "S3H_DDR_VDDQ",
+            "color": "#005daa",
+            "description": "",
+            "disabled": "true",
+            "index": 12,
+            "name": "S3H_DDR_VDDQ",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "S1B_S2B_S3B_S4B_APC1",
+            "color": "#437116",
+            "description": "",
+            "disabled": "true",
+            "index": 13,
+            "name": "S1B_S2B_S3B_S4B_APC1",
+            "resistor_value": 5,
+            "type": "SPM"
+        },
+        {
+            "category": "S6H_VDDMX_1",
+            "color": "#046262",
+            "description": "",
+            "disabled": "true",
+            "index": 14,
+            "name": "S6H_VDDMX_1",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "S4H_S5H_VDDMM",
+            "color": "#002f75",
+            "description": "",
+            "disabled": "true",
+            "index": 15,
+            "name": "S4H_S5H_VDDMM",
+            "resistor_value": 5,
+            "type": "SPM"
+        }
+    ],
+    "creation_date": "Fri Dec 17 13:24:20 2021",
+    "description": "QRD8450",
+    "epm_version": "Alpaca 2.8.7",
+    "label": "8450",
+    "modify_date": "Fri Dec 17 13:45:57 2021",
+    "spm_version": 1,
+    "target": "8450"
+}

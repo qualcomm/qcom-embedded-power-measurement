@@ -1,0 +1,351 @@
+{
+    "author": "",
+    "channels": [
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#1c91e2",
+            "description": "MARKER 1 (SDX24 GPIO 88)",
+            "disabled": "true",
+            "index": 1,
+            "name": "MARKER 1 (SDX24 GPIO 88)",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#6ac6ff",
+            "description": "MARKER 2 (PMX24 GPIO 7)",
+            "disabled": "true",
+            "index": 2,
+            "name": "AOSS_SLEEP_INDICATOR",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#bde958",
+            "description": "XO shutdown indicator (PMX24 GPIO 3)",
+            "disabled": "true",
+            "index": 3,
+            "name": "XO_SHUTDOWN_INDICATOR",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#bde958",
+            "description": "USB0 disconnect signal",
+            "disabled": "true",
+            "index": 4,
+            "name": "TAC_USB0_DIS",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO CHANNELS",
+            "color": "#3acdcb",
+            "description": "Low current mode enable signal",
+            "disabled": "true",
+            "index": 5,
+            "name": "LOW_CURRENT_MODE_EN",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "USB, QLINK",
+            "color": "#2c7a79",
+            "description": "SDX USB, QLINK; RF QLINK",
+            "disabled": "true",
+            "index": 1,
+            "name": "VREG_L1_1P2",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "MODEM",
+            "color": "#6a9212",
+            "description": "SDX VDD_MODEM",
+            "disabled": "true",
+            "index": 2,
+            "name": "VREG_S1_0P75",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "PMIC",
+            "color": "#004a4a",
+            "description": "VIN L1, L2, L4, L15",
+            "disabled": "true",
+            "index": 3,
+            "name": "VREG_S2_1P22",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "PMIC",
+            "color": "#295800",
+            "description": "VIN L3, L8, L9, L14, L16",
+            "disabled": "true",
+            "index": 4,
+            "name": "VREG_S3_0P8",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "PMIC",
+            "color": "#47abff",
+            "description": "VIN L5, L6",
+            "disabled": "true",
+            "index": 5,
+            "name": "VREG_S4_1P9",
+            "resistor_value": 20,
+            "type": "RCM"
+        },
+        {
+            "category": "SDX",
+            "color": "#9fcc3b",
+            "description": "SDX VDD_CX",
+            "disabled": "true",
+            "index": 6,
+            "name": "VREG_S5_0P75",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "PCIE",
+            "color": "#109e9c",
+            "description": "SDX PCIE",
+            "disabled": "true",
+            "index": 7,
+            "name": "VREG_L1_PCIE_1P2",
+            "resistor_value": 499,
+            "type": "RCM"
+        },
+        {
+            "category": "MEMORY",
+            "color": "#005daa",
+            "description": "SDX VDDPX_1, DDR VDD2",
+            "disabled": "true",
+            "index": 8,
+            "name": "VREG_L2_1P13",
+            "resistor_value": 20,
+            "type": "RCM"
+        },
+        {
+            "category": "RF",
+            "color": "#437116",
+            "description": "RF 0.8V",
+            "disabled": "true",
+            "index": 9,
+            "name": "VREG_L3_0P8",
+            "resistor_value": 20,
+            "type": "RCM"
+        },
+        {
+            "category": "USB, QLINK",
+            "color": "#046262",
+            "description": "SDX USB, QLINK; RF QLINK",
+            "disabled": "true",
+            "index": 10,
+            "name": "VREG_L4_0P8",
+            "resistor_value": 20,
+            "type": "RCM"
+        },
+        {
+            "category": "PCIE",
+            "color": "#002f75",
+            "description": "SDX PCIE",
+            "disabled": "true",
+            "index": 11,
+            "name": "VREG_L4_PCIE_0P8",
+            "resistor_value": 499,
+            "type": "RCM"
+        },
+        {
+            "category": "USB",
+            "color": "#003434",
+            "description": "SDX VDDPX_11",
+            "disabled": "true",
+            "index": 12,
+            "name": "VREG_L5_1P7_BB",
+            "resistor_value": 200,
+            "type": "RCM"
+        },
+        {
+            "category": "RF",
+            "color": "#104100",
+            "description": "SDR VDDAH",
+            "disabled": "true",
+            "index": 13,
+            "name": "VREG_L5_1P7_RF",
+            "resistor_value": 499,
+            "type": "RCM"
+        },
+        {
+            "category": "ALL",
+            "color": "#d4b217",
+            "description": "Generic GPIO 1.8V",
+            "disabled": "true",
+            "index": 14,
+            "name": "VREG_L6_1P8_BB",
+            "resistor_value": 100,
+            "type": "RCM"
+        },
+        {
+            "category": "RF",
+            "color": "#917a13",
+            "description": "RF GPIO 1.8V",
+            "disabled": "true",
+            "index": 15,
+            "name": "VREG_L6_1P8_RF",
+            "resistor_value": 50,
+            "type": "RCM"
+        },
+        {
+            "category": "RF",
+            "color": "#fed51a",
+            "description": "SDR VDD_PX",
+            "disabled": "true",
+            "index": 16,
+            "name": "VREG_L8_0P8",
+            "resistor_value": 100,
+            "type": "RCM"
+        },
+        {
+            "category": "SDX",
+            "color": "#b39715",
+            "description": "VDD_MX",
+            "disabled": "true",
+            "index": 17,
+            "name": "VREG_L9_0P8",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "USB",
+            "color": "#6f9715",
+            "description": "USB 3.1V",
+            "disabled": "true",
+            "index": 18,
+            "name": "VREG_L10_3P1",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "RF",
+            "color": "#f7921e",
+            "description": "RF Switch 2.7V",
+            "disabled": "true",
+            "index": 19,
+            "name": "VREG_L12_2P7",
+            "resistor_value": 2000,
+            "type": "RCM"
+        },
+        {
+            "category": "MEMORY",
+            "color": "#ca791d",
+            "description": "SDX VDDIO_EBI0, DDR VDDQ",
+            "disabled": "true",
+            "index": 20,
+            "name": "VREG_L14_0P6",
+            "resistor_value": 499,
+            "type": "RCM"
+        },
+        {
+            "category": "SDX",
+            "color": "#a46217",
+            "description": "EBI0 0.8V",
+            "disabled": "true",
+            "index": 21,
+            "name": "VREG_L16_0P8",
+            "resistor_value": 2000,
+            "type": "RCM"
+        },
+        {
+            "category": "PMIC",
+            "color": "#7a4910",
+            "description": "VIN_VPH",
+            "disabled": "true",
+            "index": 22,
+            "name": "PMX_VIN_VPH",
+            "resistor_value": 2000,
+            "type": "RCM"
+        },
+        {
+            "category": "PMIC",
+            "color": "#e42329",
+            "description": "VDD_XO_RF",
+            "disabled": "true",
+            "index": 23,
+            "name": "PMX_VDD_XO_RF",
+            "resistor_value": 2000,
+            "type": "RCM"
+        },
+        {
+            "category": "RF",
+            "color": "#ac0005",
+            "description": "VPH_PWR TO RF",
+            "disabled": "true",
+            "index": 24,
+            "name": "VPH_PWR_RF",
+            "resistor_value": 100,
+            "type": "RCM"
+        },
+        {
+            "category": "PMIC",
+            "color": "#de00de",
+            "description": "VIN_L7, L10, L11, L12, L13; LDO2P95",
+            "disabled": "true",
+            "index": 25,
+            "name": "VPH_PWR_BOOST",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "WLAN",
+            "color": "#830083",
+            "description": "VPH_PWR TO WLAN",
+            "disabled": "true",
+            "index": 26,
+            "name": "VPH_PWR_WLAN",
+            "resistor_value": 20,
+            "type": "RCM"
+        },
+        {
+            "category": "ABUG",
+            "color": "#502f0a",
+            "description": "VPH_PWR_BOOST TO ABUG",
+            "disabled": "true",
+            "index": 27,
+            "name": "VPH_BOOST_ABUG",
+            "resistor_value": 40,
+            "type": "RCM"
+        },
+        {
+            "category": "BATTERY",
+            "color": "#33ff33",
+            "description": "Low current mode battery channel",
+            "disabled": "true",
+            "index": 52,
+            "name": "BATTERY_LCM",
+            "resistor_value": 300,
+            "type": "SPM"
+        },
+        {
+            "category": "BATTERY",
+            "color": "#00ff00",
+            "description": "Battery power measured on the debug board",
+            "disabled": "true",
+            "index": 54,
+            "name": "BATTERY",
+            "resistor_value": 10,
+            "type": "SPM"
+        }
+    ],
+    "creation_date": "",
+    "description": "MTP24 NS using ALPACA",
+    "label": "MTP24 NS using ALPACA",
+    "modify_date": "Fri Apr 30 09:18:46 2021",
+    "spm_version": 0,
+    "target": "SDX24"
+}

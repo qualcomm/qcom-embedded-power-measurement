@@ -1,0 +1,321 @@
+{
+    "author": "",
+    "channels": [
+        {
+            "category": "GPIO Channels",
+            "color": "#1c91e2",
+            "description": "MARKER 1 (SDM670 GPIO 90)",
+            "disabled": "true",
+            "index": 1,
+            "name": "MARKER 1 (SDM670 GPIO 90)",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO Channels",
+            "color": "#6ac6ff",
+            "description": "MARKER 2 (SDM670 GPIO 4)",
+            "disabled": "true",
+            "index": 2,
+            "name": "MARKER 2 (SDM670 GPIO 4)",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO Channels",
+            "color": "#bde958",
+            "description": "XO enable signal",
+            "disabled": "true",
+            "index": 3,
+            "name": "XO_EN",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "GPIO Channels",
+            "color": "#bde958",
+            "description": "USB0 disconnect signal",
+            "disabled": "true",
+            "index": 4,
+            "name": "TAC_USB0_DIS",
+            "resistor_value": 0,
+            "type": "MARKER"
+        },
+        {
+            "category": "Battery",
+            "color": "#4cff4c",
+            "description": "Battery Power",
+            "disabled": "true",
+            "index": 1,
+            "name": "VBATT_CONN",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "Connectivity (WCN3990)",
+            "color": "#3acdcb",
+            "description": "Groot LDO19A to WCN3990_CH0",
+            "disabled": "true",
+            "index": 2,
+            "name": "VREG_L19A_3P3_WCN_CH0",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "Connectivity (WCN3990)",
+            "color": "#2c7a79",
+            "description": "Drax LDO8B to WCN3990_CH1",
+            "disabled": "true",
+            "index": 3,
+            "name": "VREG_L8B_3P3_WCN_CH1",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "Display Backlight",
+            "color": "#6a9212",
+            "description": "VPH_PWR to Drax WLED",
+            "disabled": "true",
+            "index": 4,
+            "name": "VPH_PWR_WLED",
+            "resistor_value": 30,
+            "type": "RCM"
+        },
+        {
+            "category": "APC1 (GOLD CLUSTER)",
+            "color": "#004a4a",
+            "description": "Groot SMPS2A + SMPS3A to MSM APC1",
+            "disabled": "true",
+            "index": 5,
+            "name": "VREG_S2A_S3A_0P752_GOLD",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "APC0 (SILVER CLUSTER)",
+            "color": "#295800",
+            "description": "Groot SMPS1A to MSM APC0",
+            "disabled": "true",
+            "index": 6,
+            "name": "VREG_S1A_0P752_SILVER",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "Cx core",
+            "color": "#47abff",
+            "description": "Drax SMPS3B + SMPS4B to MSM Cx core",
+            "disabled": "true",
+            "index": 7,
+            "name": "VREG_S3B_S4B_0P752_CX",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "Mx core (memory)",
+            "color": "#9fcc3b",
+            "description": "Drax SMPS1B to MSM Mx core",
+            "disabled": "true",
+            "index": 8,
+            "name": "VREG_S1B_0P752_MX",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "Modem sub-system",
+            "color": "#109e9c",
+            "description": "Groot SMPS5A to MSM MSS",
+            "disabled": "true",
+            "index": 9,
+            "name": "VREG_S5A_0P752_MSS",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "Sub regulation to LDOs",
+            "color": "#005daa",
+            "description": "Groot SMPS4A to LDOs for sub regulation",
+            "disabled": "true",
+            "index": 10,
+            "name": "VREG_S4A_2P04",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "Sub regulation to LDOs",
+            "color": "#437116",
+            "description": "Groot SMPS6A to LDOs for sub regulation",
+            "disabled": "true",
+            "index": 11,
+            "name": "VREG_S6A_1P35",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "GFX Core(Graphics)",
+            "color": "#046262",
+            "description": "Drax SMPS2B to MSM GFX  core",
+            "disabled": "true",
+            "index": 12,
+            "name": "VREG_S2B_0P752_GFX",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "Memory (eMMC/UFS)",
+            "color": "#002f75",
+            "description": "Drax LDO4B to eMMC/UFS VCC",
+            "disabled": "true",
+            "index": 13,
+            "name": "VREG_L4B_2P95",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "Connectivity (WCN3990)",
+            "color": "#003434",
+            "description": "Groot LDO9A to WCN3990 VDD_ XTAL",
+            "disabled": "true",
+            "index": 14,
+            "name": "VREG_L9A_1P8_WCN_XO",
+            "resistor_value": 30,
+            "type": "RCM"
+        },
+        {
+            "category": "Memory (DDR)",
+            "color": "#104100",
+            "description": "HALO BUCK-HL7503WL10 to LPDDR4x VDD2",
+            "disabled": "true",
+            "index": 15,
+            "name": "VREG_DBU2_1P225_DDR",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "Connectivity sub-system",
+            "color": "#d4b217",
+            "description": "Groot LDO5A to MSM VDD_WCSS",
+            "disabled": "true",
+            "index": 16,
+            "name": "VREG_L5A_0P8_WCSS_CX_MX",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "Snapdragon Sensor Core Cx (LPI Cx)",
+            "color": "#917a13",
+            "description": "Drax LDO9B to MSM VDD_LPI_CX",
+            "disabled": "true",
+            "index": 17,
+            "name": "VREG_L9B_0P8_SSC_CX",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "Snapdragon Sensor Core Mx (LPI Mx)",
+            "color": "#fed51a",
+            "description": "Drax LDO10B to MSM VDD_LPI_MX",
+            "disabled": "true",
+            "index": 18,
+            "name": "VREG_L10B_0P8_SSC_MX",
+            "resistor_value": 30,
+            "type": "RCM"
+        },
+        {
+            "category": "Memory (DDR)",
+            "color": "#b39715",
+            "description": "Drax SMPS5B to LPDDR4x VDDQ",
+            "disabled": "true",
+            "index": 19,
+            "name": "VREG_S5B_0P6_DDR_VDDQ",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "Sensors",
+            "color": "#6f9715",
+            "description": "Groot LDO14A to all sensors",
+            "disabled": "true",
+            "index": 20,
+            "name": "VREG_L14A_1P8_SNRS",
+            "resistor_value": 100,
+            "type": "RCM"
+        },
+        {
+            "category": "WTR6K (RF)",
+            "color": "#f7921e",
+            "description": "Groot LDO2A to WTR6K_AVDD",
+            "disabled": "true",
+            "index": 21,
+            "name": "VREG_L2A_1P0_WTR_AVDD",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "WTR6K (RF)",
+            "color": "#ca791d",
+            "description": "Groot LDO3A to WTR6K_DVDD",
+            "disabled": "true",
+            "index": 22,
+            "name": "VREG_L3A_1P0_WTR_DVDD",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "MSM IO",
+            "color": "#a46217",
+            "description": "Groot LOD13A to MSM VDDPX_3",
+            "disabled": "true",
+            "index": 23,
+            "name": "VREG_L13A_1P8_PX3",
+            "resistor_value": 30,
+            "type": "RCM"
+        },
+        {
+            "category": "BoB",
+            "color": "#7a4910",
+            "description": "VREG_BoB output to system/LDOs",
+            "disabled": "true",
+            "index": 24,
+            "name": "VREG_BOB",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "RF",
+            "color": "#e42329",
+            "description": "VPH_PWR to RF_CARD VPH",
+            "disabled": "true",
+            "index": 25,
+            "name": "VPH_PWR_RF",
+            "resistor_value": 10,
+            "type": "RCM"
+        },
+        {
+            "category": "Connectivity (WCN3990)",
+            "color": "#ac0005",
+            "description": "Groot LDO6A to WCN3990_RFA",
+            "disabled": "true",
+            "index": 26,
+            "name": "VREG_L6A_1P3_WCN_RFA",
+            "resistor_value": 20,
+            "type": "RCM"
+        },
+        {
+            "category": "WTR6K (RF)",
+            "color": "#de00de",
+            "description": "Groot LDO7A to WTR6K_CLK_PLL/TX_CH0/RX_ADC",
+            "disabled": "true",
+            "index": 27,
+            "name": "VREG_L7A_1P2_RF",
+            "resistor_value": 10,
+            "type": "RCM"
+        }
+    ],
+    "creation_date": "",
+    "description": "General MTP670 using ALPACA",
+    "label": "General MTP670 using ALPACA",
+    "modify_date": "Fri Apr 30 09:20:16 2021",
+    "spm_version": 0,
+    "target": "SDM670"
+}
