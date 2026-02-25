@@ -1,11 +1,12 @@
-#ifndef UDASBLOCKMODEL_H
-#define UDASBLOCKMODEL_H
 // Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-3-Clause
 
 /*
 	Author: Michael Simpson (msimpson@qti.qualcomm.com)
 */
+
+#ifndef UDASBLOCKMODEL_H
+#define UDASBLOCKMODEL_H
 
 // libEPM
 #include "UDASBlock.h"
