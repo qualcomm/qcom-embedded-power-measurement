@@ -1,3 +1,6 @@
+// Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+// SPDX-License-Identifier: BSD-3-Clause
+
 #ifndef POWERCHART_GLOBAL_H
 #define POWERCHART_GLOBAL_H
 
