@@ -1,33 +1,6 @@
-/*============================================================================
-  FILE:         MicroEpmComm_4.c
+// Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+// SPDX-License-Identifier: BSD-3-Clause
 
-  OVERVIEW:     MicroEPM device communication layer for EPM4.x devices
-
-  DEPENDENCIES: Depends on WinUsb.
-
-                Copyright (c) 2012-2014, 2016 Qualcomm Technologies, Inc.
-                All Rights Reserved.
-                Qualcomm Technologies Proprietary and Confidential.
-============================================================================*/
-/*============================================================================
-  EDIT HISTORY FOR MODULE
-
-  This section contains comments describing changes made to the module.
-  Notice that changes are listed in reverse chronological order.  Please
-  use ISO format for dates.
-
-  $Header: //source/qcom/qct/core/hwengines/epm/microepm/libmicroepmcomm/src/win/MicroEpmComm_4.c#2 $$DateTime: 2018/01/30 19:29:54 $$Author: joresko $
-
-  when        who  what, where, why
-  ----------  ---  -----------------------------------------------------------
-  2016-12-13  jjo  Check for device not connected for bootloader fix.
-  2014-09-18  jjo  Support for device not connected error code.
-  2014-07-01  jjo  Reset pipe on error.
-  2014-06-05  jjo  Reuse client buffer and eliminate memcpy.
-  2014-01-22  jdt  Branched from Usb_Comm_Layer.c.
-  2013-07-10  gps  Initial revision with WinUsb.
-
-============================================================================*/
 /*----------------------------------------------------------------------------
  * Include Files
  * -------------------------------------------------------------------------*/

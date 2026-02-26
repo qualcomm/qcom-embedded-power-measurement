@@ -1,29 +1,5 @@
-/*============================================================================
-FILE:         MicroEpmComm_3.c
-
-OVERVIEW:     MicroEPM device communication layer for EPMv3.x devices
-
-DEPENDENCIES: Depends on WinUsb.
-
-               Copyright (c) 2012-2014 Qualcomm Technologies, Inc.
-               All Rights Reserved.
-               Qualcomm Technologies Proprietary and Confidential.
-============================================================================*/
-
-/*============================================================================
-EDIT HISTORY FOR MODULE
-
-This section contains comments describing changes made to the module.
-Notice that changes are listed in reverse chronological order.  Please
-use ISO format for dates.
-
-$Header: //source/qcom/qct/core/hwengines/epm/microepm/libmicroepmcomm/src/win/MicroEpmComm_3.c#2 $$DateTime: 2018/01/30 19:29:54 $$Author: joresko $
-
-when        who  what, where, why
-----------  ---  -----------------------------------------------------------
-2014-01-22  jdt  Branched from Usb_Comm_Layer.c
-2013-07-10  gps  Initial revision with WinUsb.
-============================================================================*/
+// Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+// SPDX-License-Identifier: BSD-3-Clause
 
 /*----------------------------------------------------------------------------
 * Include Files

@@ -1,3 +1,6 @@
+# Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+# SPDX-License-Identifier: BSD-3-Clause
+
 # UDASDev Python Library
 # Author: Biswajit Roy <biswroy@qti.qualcomm.com>,
 # Usage: The library can be used to perform post-processing on the results produced through EPMDev.
