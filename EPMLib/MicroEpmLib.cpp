@@ -1,42 +1,5 @@
-/*============================================================================
-  FILE:         MicroEpmLib.c
-
-  OVERVIEW:     Implementation of MicroEPM device API
-
-  DEPENDENCIES: None
-
-               Copyright (c) 2012-2017 Qualcomm Technologies, Inc.
-               All Rights Reserved.
-               Qualcomm Technologies Proprietary and Confidential.
-============================================================================*/
-/*============================================================================
-  EDIT HISTORY FOR MODULE
-
-  This section contains comments describing changes made to the module.
-  Notice that changes are listed in reverse chronological order.  Please
-  use ISO format for dates.
-
-  $Header: //source/qcom/qct/core/hwengines/epm/microepm/libmicroepm/src/MicroEpmLib.c#1 $$DateTime: 2018/01/30 19:11:13 $$Author: joresko $
-
-  when        who  what, where, why
-  ----------  ---  -----------------------------------------------------------
-  2017-03-06  jjo  Fixed unpause issue for power on test failure case.
-  2017-02-16  jjo  Add GetData thread.
-  2016-07-26  jjo  Alpaca V2 support.
-  2015-03-18  weijunz Add CTI control for clock syncronization.
-  2015-03-03  weijunz Added TAC support and Get EPM ID.
-  2014-09-18  jjo  Check for device not connected error when sending to boot.
-  2014-08-13  jjo  SPMv3 clear stale buffer fix.
-  2014-07-30  avg  Added power on test.
-  2014-07-16  avg  Verify triggered mode settings.
-  2014-06-19  jjo  Clear stale packet from USB buffer, disconnect fix.
-  2014-05-29  jjo  Sorting fix.
-  2014-05-07  jjo  Memset fix.
-  2014-03-14  jjo  Add SPMv4 APIs.
-  2013-01-16  gps  Added memory read/writer bytes commands.
-  2012-11-14  gps  Added multiple PSOC support.
-  2012-08-06  jdt  Code cleanup to prepare for initial MicroEPM release.
-  2012-04-23  gps  Initial revision.
+// Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+// SPDX-License-Identifier: BSD-3-Clause
 
 ============================================================================*/
 /*----------------------------------------------------------------------------

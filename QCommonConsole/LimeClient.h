@@ -1,14 +1,6 @@
-/*===========================================================================
-FILE:
-   LimeClient.h
+// Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+// SPDX-License-Identifier: BSD-3-Clause
 
-DESCRIPTION:
-   Defines the API for the License Management Client
-
-Copyright (C) 2020 Qualcomm Technologies, Inc.
-All rights reserved.
-Confidential and Proprietary - Qualcomm Technologies, Inc.
-===========================================================================*/
 #include <string>
 #include <list>
 #include <map>
