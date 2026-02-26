@@ -1,14 +1,7 @@
 #ifndef EPMLIBPRIVATE_H
 #define EPMLIBPRIVATE_H
-/*============================================================================
-  @file MicroEpmLib_priv.h
-
-
-               Copyright (c) 2012-2014, 2016-2017 Qualcomm Technologies, Inc.
-               All Rights Reserved.
-               Qualcomm Technologies Proprietary and Confidential.
-============================================================================*/
-/* $Header: //source/qcom/qct/core/hwengines/epm/microepm/libmicroepm/src/MicroEpmLib_priv.h#2 $ */
+// Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+// SPDX-License-Identifier: BSD-3-Clause
 
 /*----------------------------------------------------------------------------
  * Include Files

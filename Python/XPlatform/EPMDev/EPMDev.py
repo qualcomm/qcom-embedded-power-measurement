@@ -1,3 +1,6 @@
+# Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+# SPDX-License-Identifier: BSD-3-Clause
+
 # EPMDev Python Library
 # 	Written by Michael Simpson (msimpson@qti.qualcomm.com) and edited by Biswajit Roy (biswroy@qti.qualcomm.com)
 # 	Special thanks to Brian Kahne (bkahne@qti.qualcomm.com) for giving me a Python education

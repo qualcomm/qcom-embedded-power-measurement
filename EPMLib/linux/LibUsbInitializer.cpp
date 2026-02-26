@@ -1,38 +1,7 @@
 #include "LibUsbInitializer.h"
 
-// Confidential and Proprietary ? Qualcomm Technologies, Inc.
-
-// NO PUBLIC DISCLOSURE PERMITTED:  Please report postings of this software on public servers or websites
-// to: DocCtrlAgent@qualcomm.com.
-
-// RESTRICTED USE AND DISCLOSURE:
-// This software contains confidential and proprietary information and is not to be used, copied, reproduced, modified
-// or distributed, in whole or in part, nor its contents revealed in any manner, without the express written permission
-// of Qualcomm Technologies, Inc.
-
-// Qualcomm is a trademark of QUALCOMM Incorporated, registered in the United States and other countries. All
-// QUALCOMM Incorporated trademarks are used with permission.
-
-// This software may be subject to U.S. and international export, re-export, or transfer laws.  Diversion contrary to U.S.
-// and international law is strictly prohibited.
-
-// Qualcomm Technologies, Inc.
-// 5775 Morehouse Drive
-// San Diego, CA 92121 U.S.A.
-// Copyright ? 2013-2016 Qualcomm Technologies, Inc.
-// All rights reserved.
-// Qualcomm Technologies Confidential and Proprietary
-
-/*
-	$Id: //depot/DM/dev/qxdm-qt/QUsb/LibUsbInitializer.cpp#10 $
-	$Header: //depot/DM/dev/qxdm-qt/QUsb/LibUsbInitializer.cpp#10 $
-	$Date: 2015/12/29 $
-	$DateTime: 2015/12/29 12:20:51 $
-	$Change: 831580 $
-	$File: //depot/DM/dev/qxdm-qt/QUsb/LibUsbInitializer.cpp $
-	$Revision: #10 $
-	%Author: msimpson %
-*/
+// Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+// SPDX-License-Identifier: BSD-3-Clause
 
 #include <usb.h>
 
