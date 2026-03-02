@@ -1,3 +1,5 @@
+// This file is copied from libftd2xx-linux-x86_64-1.4.34.tgz which can be downloaded from https://ftdichip.com/drivers/d2xx-drivers/
+
 #ifndef __WINDOWS_TYPES__
 #define __WINDOWS_TYPES__
 
