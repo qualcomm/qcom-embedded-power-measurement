@@ -1,150 +1,237 @@
 # Qualcomm Embedded Power Measurement (QEPM)
 
+[![CMake Build](https://github.com/qualcomm/qcom-embedded-power-measurement/actions/workflows/build.yml/badge.svg)](https://github.com/qualcomm/qcom-embedded-power-measurement/actions/workflows/build.yml)
+
+## Table of Contents
+- [Introduction](#introduction)
+- [What You Get](#what-you-get)
+- [Hardware Requirements](#hardware-requirements)
+- [Common Prerequisites](#common-prerequisites)
+- [Windows Guide](#windows-guide)
+- [Linux Guide](#linux-guide)
+- [Repository Structure](#repository-structure)
+- [Application Dependency Architecture](#application-dependency-architecture)
+- [Support & Contributing](#support--contributing)
+
 ## Introduction
 
-QEPM is a software suite that enables users to perform power measurement on Qualcomm devices.
-The device to be controlled must be attached to a Qualcomm approved debug board. The device to be tested is
-connected to a host using a USB cable.
+QEPM is a software suite that enables users to perform power measurement on Qualcomm devices. The device to be controlled must be attached to a Qualcomm approved debug board. The device to be tested is connected to a host using a USB cable.
 
-### Application stack overview
+## What You Get
 
-![QEPM Overview](./Docs/qepm-overview.drawio.png)
+| Application | Description |
+| :--- | :--- |
+| **Embedded Power Measurement (EPM)** | View power measurement channels, select channels for recording, save runtime configurations for automation |
+| **EPMConfigurationEditor** | Create configuration to perform power measurements on a Qualcomm platform |
+| **EPMScope** | View real-time current & voltage graphs for selected power measurement channels |
+| **EPMViewer** | View current & voltage graphs for power measurement channels from already acquired data |
+| **Command-line utilities** | EPMDump, SCLDump, EPMCLI, UDASCLI, PSOCProgrammer |
+| **BugWriter** | File bug reports with QEPM from within Qualcomm network |
 
-## Download pre-built binaries
+## Hardware Requirements
 
-Download the QEPM release from the [releases](https://github.com/qualcomm/qcom-embedded-power-measurement/releases)
+**Required Hardware**:
+- Qualcomm approved debug board (FTDI or PSoC-based)
+- Qualcomm device to be controlled
+- USB Cables: Type B Micro-USB (Board to Host) & Type-C (Device to Host)
 
-## Build from source
+**Setup**: Connect the device to the debug board (directly or via cable strip) and both to the host.
 
-Please review the following guide to build the project from source. For one-time setup instructions to build from
-source, please review [software install guide](#software-install-guide)
+![QEPM Hardware Software Setup](./docs/qepm-overview.drawio.png)
 
-### Clone repository
+## Common Prerequisites
 
-Use the below command to clone the project source:
+### Development Tools
+
+| Category | Software | Minimum Version |
+| :-- | :-- | :-- |
+| **OS** | Windows / Debian | Windows 10+ / Ubuntu 22.04+ |
+| **Compiler** | [MSVC 2022](https://aka.ms/vs/17/release/vs_community.exe) / GCC | MSVC 2022 / GCC-11, G++-11, GLIBC-2.35 |
+| **UI Framework** | [Qt Open-source](https://www.qt.io/download-qt-installer-oss) | 6.10.0+ |
+
+> [!NOTE]
+> Review license terms for [Visual Studio](https://visualstudio.microsoft.com/license-terms/) and [Qt](https://www.qt.io/development/download-open-source). 
+> Qwt dependency is fetched and compiled automatically during the CMake configuration step when building from source.
+
+### Optional Software
+
+QEPM allows you to view streaming device logs as you transition the device between different states. The debug logs are streamed over USB serial interface(s).
+
+To view these logs, you may install [Putty](https://www.putty.org/) or similar terminal software. QEPM does not depend on or use this software.
+
+### Clone Repository
 
 ```bash
 git clone https://github.com/qualcomm/qcom-embedded-power-measurement.git
 ```
 
-### Qt Creator setup
+## Windows Guide
 
-Open all project files in Qt Creator in the following manner. Project files are denoted by `*.pro`.
-![QEPM-Project-Load](./Docs/open-project-files.png)
+### Configuration
 
-Once all project files are opened, the Qt Creator should look like below:
-![QEPM-Workspace](./Docs/qt-project-setup.png)
+1. **Visual Studio**: Install **Desktop development with C++** and **.NET desktop development**.
+2. **Qt**: Install Qt 6.10+ for **MSVC 2022 64-bit** and **Qt Serial Port** component.
+   
+> [!NOTE]
+> Installation using Qt Online Installer will require users to create a Qt account.
+3. **Environment Variable**:
+   ```cmd
+   setx QTBIN C:\Qt\<version>\msvc2022_64\bin
+   ```
 
-Configure project dependencies by following [Application Dependencies](#application-dependencies) section.
+### Build & Usage
 
-### Compile QEPM for Windows
+Execute CMake to configure and build the project:
 
-Windows executables will be present at the following locations:
-- Debug build will be available at `__Builds/x64/Debug`
-- Release build will be available at `__Builds/x64/Release`
+```cmd
+cmake -B build
+cmake --build build --config Release
+```
 
-### Compile QEPM for Linux
+**Build output**:
+- Debug: `__Builds\x64\Debug`
+- Release: `__Builds\x64\Release`
 
-Linux executables will be present at the following locations:
-- Debug build will be available at `__Builds/x64/Debug`
-- Release build will be available at `__Builds/x64/Release`
+**Usage**:
+```cmd
+__Builds\x64\Release\bin\EPM.exe
+```
 
-## Software install guide
+## Linux Guide
 
-### Install tools for development
+### Configuration
 
-| Category | Software | Minimum version |
-| :-- | :-- | :-- |
-| Operating System | Windows, Linux | Windows 10 & above<br>Ubuntu 22.04 & above |
-| Software development | [Visual Studio Compiler 2022](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2022) (Windows)<br>GCC (Linux) |  MSVC 2022 (Windows)<br>GCC-11, G++-11, GLIBC-2.35 (Linux) |
-| Software development | [Qt Open-source](https://www.qt.io/download-qt-installer-oss) | 6.10.0 and above |
-| QWT | [QWT install steps](https://qwt.sourceforge.io/qwtinstall.html) | Keep install location as per documentation |
-| libusb | [libusb docs](https://libusb.info/) | Required on Linux. Unzip at /usr/local/libusb-1.0.27 |
+> [!IMPORTANT]
+> - Installation using Qt Online Installer will require users to create a Qt account.
+> - If you're frequently working with Qt on Linux, consider adding the environment variables to `.bashrc`.
 
-Please review the usage policies, license terms, and conditions of the above software before use.
+1. **Qt Installation** (choose one):
+   
+   **Option A**: Qt Online Installer
+   - Install Qt 6.10+ for **GCC 64-bit** and **Qt Serial Port** component using [Qt Online Installer](https://www.qt.io/download-qt-installer-oss)
+   
+   **Option B**: Quick Installation via apt
+   ```bash
+   sudo apt install qt6-base-dev qt6-serialport-dev
+   ```
+2. **Runtime Dependencies**:
+   ```bash
+   sudo apt install libusb-1.0-0-dev libxcb-cursor0 libpcre2-16-0 libxkbcommon-x11-0 libxcb-xkb1 libxcb-icccm4 libxcb-shape0 libxcb-keysyms1 libgl1 libegl-dev libxcb-xinerama0 libpulse-dev
+   ```
+3. **Environment Variable**:
+   ```bash
+   export QTBIN=/path/to/Qt/directory/<version>/gcc_64/bin
+   ```
 
-### Configure Qt installation
+### Build & Usage
 
-QEPM requires Qt6 and MSVC2022 64-bit. Please review the following custom install configuration in Qt
-to optimize download time.
+Execute CMake to generate executables:
 
-Required additional libraries:
+```bash
+cmake -B build
+cmake --build build --config Release
+```
 
-1. Qt Serial Port
-2. Qt Remote Objects
+**Build output**:
+- Debug: `__Builds/Linux/Debug`
+- Release: `__Builds/Linux/Release`
 
-## Application dependencies
+**Usage**:
+```bash
+./__Builds/Linux/Release/bin/EPM
+```
 
-Applications and libraries in QEPM have the following dependencies.
-Please configure dependencies from Qt Creator > Project > Dependencies for each project:
+## Repository Structure
 
-| Project | Dependencies |
+| Directory | Content |
 | :-- | :-- |
-| BugWriter | QCommon, QCommonConsole, UILib |
-| DeviceCatalog | QCommon, QCommonConsole, UILib |
-| EPM | EPMLib, QCommon, QCommonConsole, UILib |
-| EPMConfigurationEditor | QCommon, QCommonConsole, UILib |
-| EPMDev | EPMLib, QCommonConsole |
-| EPMDevDemo | EPMDev, EPMLib |
-| EPMDump | EPMDev, EPMLib, QCommonConsole |
-| EPMLib | QCommonConsole |
-| EPMScope | EPMLib, PowerChart, QCommon, QCommonConsole, UILib |
-| EPMViewer | EPMLib, PowerChart, QCommon, QCommonConsole, UILib |
-| PowerChart | QCommon, UILib |
-| QCommon | QCommonConsole |
-| SCLDump | EPMLib, QCommonConsole |
-| UDASDev | EPMLib, QCommonConsole |
-| UDASDevDemo | UDASDev |
-| UILib | QCommon, QCommonConsole |
+| `.github` | CI/CD build pipelines |
+| `configurations` | Platform-specific configurations |
+| `docs` | Documentation and guides |
+| `examples` | C++ example applications |
+| `interfaces` | APIs for C++, Python |
+| `src` | Source files (Applications & Libraries) |
+| `third-party` | External dependency scripts |
 
-**Brief description of the tools generated by QEPM**:
-1. **Embedded Power Measurement (EPM)**: View power measurement channels, select channels for recording, save runtime configurations for automation
-2. **EPMConfigurationEditor**: Create configuration to perform power measurements on a Qualcomm platform
-3. **EPMScope**: View real-time current & voltage graphs for selected power measurement channels
-4. **EPMViewer**: View current & voltage graphs for power measurement channels from already acquired data
-5. **EPMDump**: Command-Line Utility (CLI) to list connected EPM-capable devices on Qualcomm platform
-6. **SCLDump**: CLI to view summary of acquired power data, provide the `.scl` filepath as argument
-7. **BugWriter**: File bug reports with Alpaca from within Qualcomm network
-8. **EPMDevDemo**: Demonstrates EPM C++ APIs usage to write custom data-capture command-line application
-9. **UDASDevDemo**: Demonstrates EPM C++ APIs usage to write custom post-processing command-line application
+## Application Dependency Architecture
 
-## Qualcomm device control using QEPM
+Applications and libraries in QEPM have the following dependencies:
 
-### Hardware setup
+```mermaid
+graph TD
+    %% Base Libraries
+    QCommonConsole[QCommonConsole]
+    QCommon[QCommon] --> QCommonConsole
+    LibExcel[LibExcel]
+    EPMLib[EPMLib] --> QCommonConsole
+    EPMLib --> QCommon
+    EPMLib --> LibExcel
+    
+    %% Intermediate Libraries
+    UILib[UILib] --> QCommon
+    UILib --> QCommonConsole
+    UILib --> EPMLib
+    
+    PowerChart[PowerChart] --> QCommon
+    PowerChart --> QCommonConsole
+    PowerChart --> EPMLib
+    PowerChart --> UILib
+    PowerChart --> Qwt[Qwt]
+    
+    %% Interfaces
+    EPMDev[EPMDev] --> EPMLib
+    EPMDev --> QCommonConsole
+    
+    UDASDev[UDASDev] --> EPMLib
+    UDASDev --> QCommonConsole
+    
+    %% Applications
+    BugWriter[BugWriter] --> QCommon
+    BugWriter --> QCommonConsole
+    
+    EPM[EPM] --> EPMLib
+    EPM --> PowerChart
+    EPM --> QCommon
+    EPM --> QCommonConsole
+    EPM --> UILib
+    
+    EPMConfigurationEditor[EPMConfigurationEditor] --> EPMLib
+    EPMConfigurationEditor --> QCommon
+    EPMConfigurationEditor --> QCommonConsole
+    EPMConfigurationEditor --> UILib
+    
+    EPMCLI[EPMCLI] --> EPMDev
+    EPMCLI --> EPMLib
+    EPMCLI --> QCommonConsole
+    
+    EPMDump[EPMDump] --> EPMDev
+    EPMDump --> EPMLib
+    EPMDump --> QCommonConsole
+    
+    EPMScope[EPMScope] --> EPMLib
+    EPMScope --> PowerChart
+    EPMScope --> QCommon
+    EPMScope --> QCommonConsole
+    EPMScope --> UILib
+    
+    EPMViewer[EPMViewer] --> EPMLib
+    EPMViewer --> PowerChart
+    EPMViewer --> QCommon
+    EPMViewer --> QCommonConsole
+    EPMViewer --> UILib
+    
+    PSOCProgrammer[PSOCProgrammer] --> EPMLib
+    PSOCProgrammer --> QCommonConsole
+    
+    SCLDump[SCLDump] --> EPMLib
+    SCLDump --> QCommonConsole
+    
+    UDASCLI[UDASCLI] --> UDASDev
+    UDASCLI --> EPMLib
+    UDASCLI --> QCommonConsole
+```
 
-QEPM requires you to have physical access to Qualcomm approved devices and debug boards. QEPM is device-agnostic
-and supports all Qualcomm chipsets and form-factors.
+## Support & Contributing
 
-The Qualcomm device may be attached directly to the debug board or through cable strip depending on the
-form-factor or the guidelines outlined in the hardware manual.
-
-If you have questions, suggestions or issues with setup, please do reach out to us on
-[discord](https://discord.com/invite/qualcommdevelopernetwork).
-
-You will have to install the [required drivers](#install-drivers) correctly. The one-time driver installation
-step is taken care of if you install a release package.
-
-### Install drivers
-
-The one-time driver installation step is taken care of if you install a release package. If you choose
-to [build from source](#build-from-source), configure the following drivers:
-
-1. [Qualcomm USB Drivers](https://softwarecenter.qualcomm.com/catalog/item/QUD): to view device
-   status (Emergency Download Mode, USB Diagnostics Mode, etc)
-
-### Optional software
-
-QEPM allows you to view the streaming device logs as you transition the device between different
-states. The debug logs are streamed over USB serial interface(s).
-
-To view these logs, you may install [Putty](https://www.putty.org/) or a similar software. QEPM
-does not depend on or use this software.
-
-## Bug & Vulnerability reporting
-
-Please review the [SECURITY.md](./.github/SECURITY.md) before reporting vulnerabilities with the project
-
-## Contributor's License Agreement
-
-Please review the Qualcomm product [license](./LICENSE), [code of conduct](./CODE-OF-CONDUCT.md) & terms
-and conditions before contributing.
+- **Security**: Review [SECURITY.md](./SECURITY.md) for vulnerability reporting.
+- **Contributing**: Review [License](./LICENSE) and [Code of Conduct](./CODE-OF-CONDUCT.md).

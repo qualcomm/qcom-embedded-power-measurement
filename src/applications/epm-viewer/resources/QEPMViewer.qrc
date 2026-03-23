@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>About.txt</file>
+        <file>BugWriter.png</file>
+        <file>QEPMViewer.bmp</file>
+        <file>QEPMViewer.ico</file>
+        <file>QEPMViewer.png</file>
+        <file>QEPMViewer_BS.png</file>
+        <file>Export.png</file>
+        <file>folder-play.png</file>
+    </qresource>
+</RCC>

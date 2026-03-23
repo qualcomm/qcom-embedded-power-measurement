@@ -38,13 +38,12 @@ EPMDevInterop/obj/
 TACDevInterop/obj/
 
 # Qt build files
-*.pro.user
+.qtcreator/
 Makefile*
 build/
 moc_*
 qrc_*
 ui_*
-*.qmake.stash
 
 # Qt build directories
 __Builds/x64/Debug/
