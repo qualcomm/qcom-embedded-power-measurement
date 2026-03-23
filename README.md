@@ -114,7 +114,7 @@ __Builds\x64\Release\bin\EPM.exe
    ```
 2. **Runtime Dependencies**:
    ```bash
-   sudo apt install libusb-1.0-0-dev libxcb-cursor0 libpcre2-16-0 libxkbcommon-x11-0 libxcb-xkb1 libxcb-icccm4 libxcb-shape0 libxcb-keysyms1 libgl1 libegl-dev libxcb-xinerama0 libpulse-dev
+   sudo apt install libusb-dev libusb-1.0-0-dev libxcb-cursor0 libpcre2-16-0 libxkbcommon-x11-0 libxcb-xkb1 libxcb-icccm4 libxcb-shape0 libxcb-keysyms1 libgl1 libegl-dev libxcb-xinerama0 libpulse-dev
    ```
 3. **Environment Variable**:
    ```bash

@@ -30,6 +30,7 @@ jobs:
           libxcb-randr0-dev \
           libxcb-render-util0-dev \
           libusb-1.0-0-dev \
+          libusb-dev \
           uuid-dev \
           libpulse-dev \
           python3-pip
