@@ -51,7 +51,7 @@ jobs:
       run: |
         pip install aqtinstall
         aqt install-qt linux desktop ${{ matrix.qt_version }} linux_gcc_64
-        aqt install-qt linux desktop ${{ matrix.qt_version }} linux_gcc_64 -m qtmultimedia qtserialport qtsvg
+        aqt install-qt linux desktop ${{ matrix.qt_version }} linux_gcc_64 -m qtmultimedia qtserialport
 
     - name: Configure CMake (${{ matrix.build_type }})
       run: |

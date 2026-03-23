@@ -154,7 +154,7 @@ UDAS_RESULT GetEPMVersion
 {
 	UDAS_RESULT result{NO_UDAS_ERROR};
 
-	QByteArray version{TAC_VERSION};
+	QByteArray version{EPM_VERSION};
 
 	if (version.size() < bufferSize)
 	{

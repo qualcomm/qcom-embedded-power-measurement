@@ -37,8 +37,6 @@ QEPM is a software suite that enables users to perform power measurement on Qual
 
 **Setup**: Connect the device to the debug board (directly or via cable strip) and both to the host.
 
-![QEPM Hardware Software Setup](./docs/qepm-overview.drawio.png)
-
 ## Common Prerequisites
 
 ### Development Tools
