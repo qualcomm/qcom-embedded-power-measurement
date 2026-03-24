@@ -6,6 +6,7 @@ jobs:
   build-linux:
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
         os: [ubuntu-22.04, ubuntu-latest]
         qt_version: ['6.9.2', '6.10.0']
@@ -21,7 +22,6 @@ jobs:
           build-essential \
           libgl1-mesa-dev \
           mesa-common-dev \
-          libgles2-mesa-dev \
           libxkbcommon-x11-0 \
           libxcb-xinerama0-dev \
           libxcb-cursor-dev \
