@@ -50,6 +50,10 @@ if(WIN32)
     target_sources(${LIBRARY_NAME} PRIVATE
         SystemInformationWin.cpp
     )
+elseif(UNIX)
+    target_sources(${LIBRARY_NAME} PRIVATE
+        SystemInformationLinux.cpp
+    )
 endif()
 
 set_target_properties(${LIBRARY_NAME} PROPERTIES
