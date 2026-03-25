@@ -51,6 +51,9 @@ target_link_libraries(${LIBRARY_NAME} PUBLIC
     Qt6::Multimedia
     Qt6::MultimediaWidgets
     Qt6::Widgets
+    QEPM::QCommonConsole
+    QEPM::QCommon
+    QEPM::EPMLib
 )
 
 add_library(QEPM::UI ALIAS ${LIBRARY_NAME})

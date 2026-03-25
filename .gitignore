@@ -18,15 +18,11 @@
 *.exe
 *.qik
 
-TelematicsExample/
-TelematicsClient/
-
 # Python build and cache directories
 Python/build
 Python/dist
 __pycache__/
 .pytest_cache/
-
 
 # Java compiled sources
 **/target/
@@ -44,6 +40,7 @@ build/
 moc_*
 qrc_*
 ui_*
+CMakeLists.txt.user
 
 # Qt build directories
 __Builds/x64/Debug/
@@ -57,14 +54,9 @@ __Builds/x64/ExtRelease/
 
 # Examples build directories
 Examples/C\+\+/EPMExample/x64/Debug/
-Examples/C#/TACExample/ConsoleApplication.exe.config
-Examples/C#/TACExample/obj/
 
 # documentation
 __Builds/docs/
 
 # driver packages
 *.zip
-lib/ftd2xx.lib
-
-Troubleshooter/
