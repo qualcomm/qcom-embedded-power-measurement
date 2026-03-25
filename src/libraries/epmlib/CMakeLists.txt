@@ -87,6 +87,10 @@ if(WIN32)
         SetupAPI
         Winusb
     )
+elseif(UNIX)
+    find_package(PkgConfig REQUIRED)
+    pkg_check_modules(LIBUSB REQUIRED IMPORTED_TARGET libusb)
+    target_link_libraries(${LIBRARY_NAME} PUBLIC PkgConfig::LIBUSB)
 endif()
 
 add_library(QEPM::EPMLib ALIAS ${LIBRARY_NAME})
