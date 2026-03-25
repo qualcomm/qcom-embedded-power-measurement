@@ -1,0 +1,160 @@
+﻿// Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+// SPDX-License-Identifier: BSD-3-Clause
+
+#include "PlatformID.h"
+
+// QCommon
+#include "AppCore.h"
+#include "RangedContainer.h"
+
+const PlatformID MICRO_EPM_BOARD_ID_SPMV4{1};
+const PlatformID MICRO_EPM_BOARD_ID_EPMV4{2};
+const PlatformID MICRO_EPM_BOARD_ID_ALPACA{3};
+const PlatformID MICRO_EPM_BOARD_ID_MICROEPM_TAC{4};
+const PlatformID MICRO_EPM_BOARD_ID_ALPACA_V2{5};
+const PlatformID MICRO_EPM_BOARD_ID_ALPACA_V3{6};
+const PlatformID MICRO_EPM_BOARD_ID_ALPACA_V3P1{7};
+const PlatformID EPM_BOARD_ID_MTP_V3P2{8};
+const PlatformID EPM_BOARD_ID_QRD_V1P0{9};
+const PlatformID EPM_BOARD_ID_IDP_V1P0{10};
+const PlatformID EPM_BOARD_ID_DONGLE_V3P0{11};
+const PlatformID EPM_BOARD_ID_MTP_V3P3{12};
+
+PlatformIDs PlatformContainer::_platformIds;
+
+_PlatformEntry::_PlatformEntry
+(
+	PlatformID platformID,
+	DebugBoardType boardType,
+	const QString& description,
+	const QString& path,
+	const QByteArray& usbDescriptor
+) :
+	_platformID(platformID),
+	_boardtype(boardType),
+	_description(description),
+	_usbDescriptor(usbDescriptor),
+	_path(path)
+{
+}
+
+void PlatformContainer::initialize()
+{
+	if (_platformIds.isEmpty())
+	{
+		_platformIds.insert(MICRO_EPM_BOARD_ID_SPMV4, PlatformEntry(new _PlatformEntry(MICRO_EPM_BOARD_ID_SPMV4, ePSOC, "SPM V4")));
+		_platformIds.insert(MICRO_EPM_BOARD_ID_EPMV4, PlatformEntry(new _PlatformEntry(MICRO_EPM_BOARD_ID_EPMV4, ePSOC, "EPM V4")));
+		_platformIds.insert(MICRO_EPM_BOARD_ID_ALPACA, PlatformEntry(new _PlatformEntry(MICRO_EPM_BOARD_ID_ALPACA, ePSOC, "Alpaca V1")));
+		_platformIds.insert(MICRO_EPM_BOARD_ID_MICROEPM_TAC, PlatformEntry(new _PlatformEntry(MICRO_EPM_BOARD_ID_MICROEPM_TAC, ePSOC, "MicroEPM TAC")));
+		_platformIds.insert(MICRO_EPM_BOARD_ID_ALPACA_V2, PlatformEntry(new _PlatformEntry(MICRO_EPM_BOARD_ID_ALPACA_V2, ePSOC, "Alpaca V2")));
+		_platformIds.insert(MICRO_EPM_BOARD_ID_ALPACA_V3, PlatformEntry(new _PlatformEntry(MICRO_EPM_BOARD_ID_ALPACA_V3, ePSOC, "Alpaca V3.0")));
+		_platformIds.insert(MICRO_EPM_BOARD_ID_ALPACA_V3P1, PlatformEntry(new _PlatformEntry(MICRO_EPM_BOARD_ID_ALPACA_V3P1, ePSOC, "Alpaca V3.1")));
+		_platformIds.insert(EPM_BOARD_ID_MTP_V3P2, PlatformEntry(new _PlatformEntry(EPM_BOARD_ID_MTP_V3P2, ePSOC, "MTP V3.2")));
+		_platformIds.insert(EPM_BOARD_ID_QRD_V1P0, PlatformEntry(new _PlatformEntry(EPM_BOARD_ID_QRD_V1P0, ePSOC, "QRD V1.0")));
+		_platformIds.insert(EPM_BOARD_ID_IDP_V1P0, PlatformEntry(new _PlatformEntry(EPM_BOARD_ID_IDP_V1P0, ePSOC, "IDP V1.0")));
+		_platformIds.insert(EPM_BOARD_ID_DONGLE_V3P0, PlatformEntry(new _PlatformEntry(EPM_BOARD_ID_DONGLE_V3P0, ePSOC, "Dongle V3.0")));
+		_platformIds.insert(EPM_BOARD_ID_MTP_V3P3, PlatformEntry(new _PlatformEntry(EPM_BOARD_ID_MTP_V3P3, ePSOC, "MTP V3.3")));
+
+		initializeDynamic();
+	}
+}
+
+PlatformIDList PlatformContainer::getEntries()
+{
+	PlatformIDList result;
+
+	for (const auto& platformEntry: std::as_const(_platformIds))
+	{
+		result.push_back(platformEntry);
+	}
+
+	return result;
+}
+
+void PlatformContainer::initializeDynamic()
+{
+	if (AppCore::getAppCore()->appLoggingActive())
+	{
+		for (const auto& platformId: std::as_const(_platformIds))
+		{
+			AppCore::writeToApplicationLog("   " + QString::number(platformId->_platformID) + " " + platformId->_description + "\n");
+		}
+	}
+}
+
+void PlatformContainer::addEntry
+(
+	PlatformEntry platformEntry
+)
+{
+	_platformIds[platformEntry->_platformID] = platformEntry;
+}
+
+QString PlatformContainer::toString(PlatformID platformID)
+{
+	QString result{QString("Unknown Board ID: %1").arg(platformID)};
+
+	if (_platformIds.find(platformID) != _platformIds.end())
+		result = (*_platformIds[platformID])._description;
+
+	return result;
+}
+
+PlatformID PlatformContainer::fromUSBDescriptor
+(
+	const QByteArray& usbDescriptor
+)
+{
+	PlatformID result{MICRO_EPM_BOARD_ID_UNKNOWN};
+	QByteArray descriptor{usbDescriptor.toLower()};
+
+	for (const auto& platformEntry: RangedContainer(_platformIds))
+	{
+		QByteArray candidate = platformEntry.second->_usbDescriptor.toLower();
+		if (candidate == descriptor)
+		{
+			result = platformEntry.second->_platformID;
+
+			break;
+		}
+	}
+
+	return result;
+}
+
+DebugBoardType PlatformContainer::getDebugBoardType
+(
+	PlatformID platformID
+)
+{
+	DebugBoardType boardType{eUnknownDebugBoard};
+
+	if (_platformIds.find(platformID) != _platformIds.end())
+		boardType = _platformIds[platformID]->_boardtype;
+
+	return boardType;
+}
+
+PlatformIDList PlatformContainer::getDebugBoards()
+{
+	PlatformIDList result;
+
+	for (const auto& platformID: std::as_const(_platformIds))
+		result.push_back(platformID);
+
+	return result;
+}
+
+PlatformIDList PlatformContainer::getDebugBoardsOfType
+(
+	DebugBoardType debugBoardType
+)
+{
+	PlatformIDList result;
+
+	for (const auto& platformID: std::as_const(_platformIds))
+		if (platformID->_boardtype == debugBoardType)
+			result.push_back(platformID);
+
+	return result;
+}

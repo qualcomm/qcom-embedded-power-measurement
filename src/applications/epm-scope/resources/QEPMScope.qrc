@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>About.txt</file>
+        <file>BugWriter.png</file>
+        <file>QEPMScope.bmp</file>
+        <file>QEPMScope.ico</file>
+        <file>QEPMScope.png</file>
+        <file>Record.png</file>
+        <file>Stop.png</file>
+        <file>Properties.png</file>
+        <file>EPMScope_BS.png</file>
+    </qresource>
+</RCC>

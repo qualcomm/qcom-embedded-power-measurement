@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>ChartKey.png</file>
+        <file>DissatisfiedStar.png</file>
+        <file>HappyStar.png</file>
+        <file>LoveStar.png</file>
+        <file>Satisfied.png</file>
+        <file>Unhappy.png</file>
+    </qresource>
+</RCC>

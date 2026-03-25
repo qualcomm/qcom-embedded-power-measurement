@@ -100,8 +100,8 @@
             ],
             "skip-paths-matching": {
               "patterns": [
-                "ftd2xx.h",
-                "WinTypes.h",
+                "excel.h",
+                "excel.cpp",
                 "Docs*"
               ]
             },
