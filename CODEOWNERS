@@ -2,16 +2,16 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 # All changes: triage team reviews by default
-*                                   @qcom-embedded-power-measurement.triage
+*                                   @qualcomm/qcom-embedded-power-measurement.triage
 
 # Critical governance and project files: maint team required
-CODEOWNERS                          @qcom-embedded-power-measurement.maint
-CHANGELOG.md                        @qcom-embedded-power-measurement.maint
-CODE-OF-CONDUCT.md                  @qcom-embedded-power-measurement.maint
-CONTRIBUTING.md                     @qcom-embedded-power-measurement.maint
-LICENSE                             @qcom-embedded-power-measurement.maint
-SECURITY.md                         @qcom-embedded-power-measurement.maint
-.github/                            @qcom-embedded-power-measurement.maint
+CODEOWNERS                          @qualcomm/qcom-embedded-power-measurement.maint
+CHANGELOG.md                        @qualcomm/qcom-embedded-power-measurement.maint
+CODE-OF-CONDUCT.md                  @qualcomm/qcom-embedded-power-measurement.maint
+CONTRIBUTING.md                     @qualcomm/qcom-embedded-power-measurement.maint
+LICENSE                             @qualcomm/qcom-embedded-power-measurement.maint
+SECURITY.md                         @qualcomm/qcom-embedded-power-measurement.maint
+.github/                            @qualcomm/qcom-embedded-power-measurement.maint
 
 # CI/CD workflow: biswajee + maint team (overrides .github/ rule above)
-.github/workflows/build.yml         @biswajee @qcom-embedded-power-measurement.maint
+.github/workflows/build.yml         @biswajee @qualcomm/qcom-embedded-power-measurement.maint
