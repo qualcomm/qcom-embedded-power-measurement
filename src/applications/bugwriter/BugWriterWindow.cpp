@@ -16,12 +16,15 @@
 //Qt
 #include <QCoreApplication>
 #include <QDateTime>
+#include <QDesktopServices>
 #include <QDir>
 #include <QFile>
 #include <QFileDialog>
+#include <QFileInfo>
 #include <QMessageBox>
 #include <QStandardPaths>
 #include <QStorageInfo>
+#include <QUrl>
 
 BugWriterWindow::BugWriterWindow
 (
@@ -31,8 +34,14 @@ BugWriterWindow::BugWriterWindow
 {
 	setupUi(this);
 
+	_issueWriter = new IssueWriter(this);
+
+	connect(_issueWriter, &IssueWriter::deviceFlowStarted, this, &BugWriterWindow::onDeviceFlowStarted);
+	connect(_issueWriter, &IssueWriter::authenticated,     this, &BugWriterWindow::onAuthenticated);
+	connect(_issueWriter, &IssueWriter::issueSubmitted,    this, &BugWriterWindow::onIssueSubmitted);
+	connect(_issueWriter, &IssueWriter::errorOccurred,     this, &BugWriterWindow::onIssueError);
+
 	QStringList arguments = QCoreApplication::arguments();
-	_emailWriter = new EmailWriter;
 
 	for (const auto& arg: arguments)
 	{
@@ -70,14 +79,9 @@ BugWriterWindow::BugWriterWindow
 		}
 	}
 
-	QString author = _emailWriter->getAuthorName();
-
-	// If the author name is invalid, try to look up in the preferences
-	if (_emailWriter->isAuthorValid() == false)
-	{
-		author = BugWriterApplication::getPreferences()->lastAuthor();
-	}
-
+	// Pre-fill author from saved preferences; onAuthenticated() will override with
+	// the GitHub username once the stored token is validated on startup.
+	QString author = BugWriterApplication::getPreferences()->lastAuthor();
 	_authorName->setText(author);
 
 	_timer.setInterval(1000);
@@ -101,23 +105,36 @@ void BugWriterWindow::on__saveAsTextFileButton_clicked()
 {
 	if (checkFields())
 	{
-		QString body = buildBody();
+		// Plain-text body is still useful for the saved file
+		SystemInformation sysInfo;
+		QString body;
+		body += "Product: "             + _productCombo->currentText()   + "\n";
+		body += "Product Version: "     + _productVersion->text()        + "\n\n";
+		body += "Application: "         + _application->text()           + "\n";
+		body += "Application Version: " + _applicationVersion->text()    + "\n\n";
+		body += "User Name: "           + _authorName->text()            + "\n";
+		body += "Phone number: "        + _authorPhone->text()           + "\n";
+		body += "Computer Name: "       + sysInfo.computerName()         + "\n";
+		body += "OS: "                  + sysInfo.osName()               + "\n";
+		body += "OS Version: "          + sysInfo.osVersion()            + "\n";
+		body += "Driver Version: "      + _driverVersion                 + "\n";
+		body += "Physical Memory: "     + sysInfo.totalPhysicalMemory()  + " GB\n";
+		body += "Virtual Memory: "      + sysInfo.totalVirtualMemory()   + " GB\n\n";
 
-		QString saveDir = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
+		body += "\nObserved Behavior\n" + _observedBehavior->toPlainText()  + "\n";
+		body += "\nDesired Behavior\n"  + _desiredBehavior->toPlainText()   + "\n";
+		body += "\nSteps to Reproduce\n"+ _stepsToReproduce->toPlainText()  + "\n";
 
-		QString application = _application->text();
-		application = application.replace(" ", "_");
-		application = "BW_" + application;
-
-		saveDir += QDir::separator() + application;
-		saveDir += QDateTime::currentDateTime().toString("_yyyy_dd_MM_HH_mm_ss") + ".txt";
+		QString saveDir     = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
+		QString application = _application->text().replace(" ", "_");
+		saveDir += QDir::separator() + QStringLiteral("BW_") + application
+		        +  QDateTime::currentDateTime().toString("_yyyy_dd_MM_HH_mm_ss") + ".txt";
 		saveDir = QDir::cleanPath(saveDir);
 
 		QString writeFile = QFileDialog::getSaveFileName(this, "Save Bug Report File", saveDir, "Text File (*.txt *.)");
-		if (writeFile.isEmpty() == false)
+		if (!writeFile.isEmpty())
 		{
 			QFile bugReportFile(writeFile);
-
 			bugReportFile.open(QIODevice::WriteOnly);
 			bugReportFile.write(body.toLatin1());
 			bugReportFile.close();
@@ -128,17 +145,7 @@ void BugWriterWindow::on__saveAsTextFileButton_clicked()
 void BugWriterWindow::on__submitButton_clicked()
 {
 	if (checkFields())
-	{
-		if (_emailWriter->send(_title->text().toLatin1(), buildBody().toLatin1(), _attachments))
-		{
-			_attachments.clear();
-			QMessageBox::information(this, "Ticket Submitted", "Your issue is now shared with the QEPM support. You will soon receive a Jira ticket on the email id corresponding to your username");
-		}
-		else
-		{
-			QMessageBox::critical(this, "Submit Failed.", "Save your report to a text file and send that text file to QEPM.hostdev.jira.");
-		}
-	}
+		_issueWriter->submitIssue(_title->text(), buildMarkdownBody());
 }
 
 bool BugWriterWindow::checkFields()
@@ -167,7 +174,7 @@ bool BugWriterWindow::checkFields()
 	}
 	else if (_title->text().isEmpty())
 	{
-		QMessageBox::critical(this, "Data Validation", "A Title is Required.  This title is used as the Jira ticket title when submitted through email.");
+		QMessageBox::critical(this, "Data Validation", "A Title is Required.");
 		result = false;
 	}
 	else if (_observedBehavior->toPlainText().isEmpty())
@@ -188,7 +195,7 @@ bool BugWriterWindow::checkFields()
 			"We do extensive testing with our workflow.  It may work for us and not for you and the only way to figure this out is to reproduce your workflow.");
 		result = false;
 	}
-	else if (_emailWriter->isAuthorValid() == false)
+	else if (IssueWriter::isAuthorValid(_authorName->text()) == false)
 	{
 		QMessageBox::critical(this, "Data Validation", "Check if the author name is correct.");
 		result = false;
@@ -197,91 +204,105 @@ bool BugWriterWindow::checkFields()
 	return result;
 }
 
-const int kPortName(0);
-const int kDescription(1);
-const int kSerialNumber(2);
-const int kVendor(3);
-const int kProduct(4);
-
-QString BugWriterWindow::buildBody()
+QString BugWriterWindow::buildMarkdownBody()
 {
-	SystemInformation systemInformation;
-
+	SystemInformation sysInfo;
 	QString body;
 
-	body = _title->text() + "\n\n";
-
-	body += "Product: " + _productCombo->currentText() + "\n";
-	body += "Product Version: " + _productVersion->text() + "\n\n";
-	body += "Application: " + _application->text() + "\n";
-	body += "Application Version: " + _applicationVersion->text() + "\n\n";
-	body += "User Name: " + _authorName->text() + "\n";
-	body += "Phone number: " + _authorPhone->text() + "\n";
-	body += "Computer Name: " + systemInformation.computerName() + "\n";
-	body += "OS : " + systemInformation.osName() + "\n";
-	body += "OS Version: " + systemInformation.osVersion() + "\n";
-	body += "Driver Version: " + _driverVersion + "\n";
-	body += "Physical Memory: " + systemInformation.totalPhysicalMemory() + "GB \n";
-	body += "Virtual Memory: " + systemInformation.totalVirtualMemory() + "GB \n\n";
+	body += "## Environment\n\n";
+	body += "| Field | Value |\n|---|---|\n";
+	body += "| Product | "             + _productCombo->currentText()   + " |\n";
+	body += "| Product Version | "     + _productVersion->text()        + " |\n";
+	body += "| Application | "         + _application->text()           + " |\n";
+	body += "| Application Version | " + _applicationVersion->text()    + " |\n";
+	body += "| Reported by | "         + _authorName->text()            + " |\n";
+	body += "| Phone | "               + _authorPhone->text()           + " |\n";
+	body += "| Computer | "            + sysInfo.computerName()         + " |\n";
+	body += "| OS | "                  + sysInfo.osName()               + " |\n";
+	body += "| OS Version | "          + sysInfo.osVersion()            + " |\n";
+	body += "| Driver Version | "      + _driverVersion                 + " |\n";
+	body += "| Physical Memory | "     + sysInfo.totalPhysicalMemory()  + " GB |\n";
+	body += "| Virtual Memory | "      + sysInfo.totalVirtualMemory()   + " GB |\n";
 
 #ifdef Q_OS_WINDOWS
-	body += "Physical Drives:\n";
-
-	for (auto& storage: QStorageInfo::mountedVolumes())
+	body += "\n**Physical Drives**\n\n";
+	for (const auto& storage : QStorageInfo::mountedVolumes())
 	{
 		if (storage.isValid())
 		{
-			body += "    " +  storage.rootPath();
-
-			body += "         isReady:" + (storage.isReady() ? QString("true") : QString("false"));
-			body += "         isReadOnly:" + (storage.isReadOnly() ? QString("true") : QString("false"));
-			body += "         name:" + storage.name();
-			body += "         fileSystemType:" + storage.fileSystemType();
-			body += "         size:" + QString::number(storage.bytesTotal()/1000/1000) + " MB";
-			body += "         availableSize:" + QString::number(storage.bytesAvailable()/1000/1000) + " MB";
+			body += "- `" + storage.rootPath() + "`";
+			body += "  ready:" + (storage.isReady() ? QString("yes") : QString("no"));
+			body += "  name:" + storage.name();
+			body += "  fs:" + storage.fileSystemType();
+			body += "  size:" + QString::number(storage.bytesTotal() / 1000 / 1000) + " MB";
+			body += "  free:" + QString::number(storage.bytesAvailable() / 1000 / 1000) + " MB\n";
 		}
 	}
 #endif
 
 	body += _portData;
 
-	body += "\n\nObserved Behavior \n";
+	body += "\n## Observed Behavior\n\n";
 	body += _observedBehavior->toPlainText() + "\n";
 
-	body += "\nDesired Behavior \n";
+	body += "\n## Desired Behavior\n\n";
 	body += _desiredBehavior->toPlainText() + "\n";
 
-	body += "\nSteps to Reproduce \n";
+	body += "\n## Steps to Reproduce\n\n";
 	body += _stepsToReproduce->toPlainText() + "\n";
 
-	AppCore::writeToApplicationLogLine("*****************");
-	AppCore::writeToApplicationLogLine("Last ticket body:");
-	AppCore::writeToApplicationLogLine("*****************");
-	AppCore::writeToApplicationLog(body);
+	if (!_attachments.isEmpty())
+	{
+		static constexpr int kMaxFileSizeBytes = 10 * 1024;
+
+		body += "\n## Attached Files\n\n";
+		for (const QByteArray& pathBytes : _attachments)
+		{
+			const QString filePath = QString::fromLatin1(pathBytes);
+			const QString fileName = QFileInfo(filePath).fileName();
+			const QString ext      = QFileInfo(filePath).suffix().toLower();
+
+			if (ext == "png" || ext == "jpg" || ext == "xpm" || ext == "bmp")
+			{
+				body += "_Image attached (upload manually): " + fileName + "_\n\n";
+				continue;
+			}
+
+			QFile f(filePath);
+			if (f.open(QIODevice::ReadOnly))
+			{
+				const QByteArray content = f.read(kMaxFileSizeBytes);
+				const bool truncated     = (f.size() > kMaxFileSizeBytes);
+				f.close();
+
+				body += "<details><summary>" + fileName + "</summary>\n\n";
+				body += "```\n";
+				body += QString::fromLatin1(content);
+				if (truncated)
+					body += "\n... (truncated at 10 KB)";
+				body += "\n```\n\n</details>\n\n";
+			}
+		}
+	}
 
 	return body;
- }
+}
 
-void BugWriterWindow::on__authorName_textChanged(const QString &newAuthor)
+void BugWriterWindow::on__authorName_textChanged(const QString& newAuthor)
 {
-	_emailWriter->setAuthorName(newAuthor);
-	if(_emailWriter->isAuthorValid())
+	if (IssueWriter::isAuthorValid(newAuthor))
 		_authorName->setStyleSheet("border: 1px solid green");
 	else
 		_authorName->setStyleSheet("border: 1px solid red");
 
-	QString phoneNumber = BugWriterApplication::getPreferences()->getUserNamePhone(newAuthor);
+	const QString phoneNumber = BugWriterApplication::getPreferences()->getUserNamePhone(newAuthor);
 	if (!phoneNumber.isEmpty())
-	{
 		_authorPhone->setText(phoneNumber);
-	}
 }
 
 void BugWriterWindow::on__authorPhone_editingFinished()
 {
-	QString authorName = _authorName->text();
-	QString authorPhone = _authorPhone->text();
-	BugWriterApplication::getPreferences()->setUserNamePhone(authorName, authorPhone);
+	BugWriterApplication::getPreferences()->setUserNamePhone(_authorName->text(), _authorPhone->text());
 }
 
 void BugWriterWindow::on_actionAbout_triggered()
@@ -311,14 +332,12 @@ void BugWriterWindow::on_actionAbout_triggered()
 
 void BugWriterWindow::on__attachmentBtn_clicked()
 {
-	QStringList filePaths;
+	const QString defaultPath = BugWriterApplication::appCore()->loggingPath();
 
-	QString defaultPath = BugWriterApplication::appCore()->loggingPath();
-
-	filePaths = QFileDialog::getOpenFileNames(this, "Select one or more files to attach", defaultPath, "Text files (*.txt);;Log files (*.log);;Images (*.png *.xpm *.jpg)");
-	if (filePaths.isEmpty() == false)
+	const QStringList filePaths = QFileDialog::getOpenFileNames(this, "Select one or more files to attach", defaultPath, "Text files (*.txt);;Log files (*.log);;Images (*.png *.xpm *.jpg)");
+	if (!filePaths.isEmpty())
 	{
-		for (const auto &filePath: filePaths)
+		for (const auto& filePath : filePaths)
 		{
 			_attachments.append(filePath.toLatin1());
 			BugWriterApplication::appCore()->writeToApplicationLogLine("Attached file: " + filePath.toLatin1());
@@ -340,7 +359,7 @@ void BugWriterWindow::onTimerTimeout()
 	SystemInformation systemInformation;
 	_driverVersion = systemInformation.driverVersion();
 
-	if (_driverVersion.isEmpty() == false)
+	if (!_driverVersion.isEmpty())
 		_statusbar->showMessage("Driver version acquired.", 1000);
 	else
 		_statusbar->showMessage("Failed to acquire driver version.", 1000);
@@ -352,30 +371,47 @@ void BugWriterWindow::onTimerTimeout()
 		_portData += "\nSerial Ports:\n";
 
 		SerialTableModel stm;
-
 		stm.refresh();
 
-		for (auto deviceIndex: range(stm.rowCount()))
+		for (auto deviceIndex : range(stm.rowCount()))
 		{
-			_portData += "         Port:";
-			_portData += stm.portData(deviceIndex, kPortName).toString();
-
-			_portData += " Description:";
-			_portData += stm.portData(deviceIndex, kDescription).toString();
-
-			_portData += " Serial Number:";
-			_portData += stm.portData(deviceIndex, kSerialNumber).toString();
-
-			_portData += " Vendor:";
-			_portData += stm.portData(deviceIndex, kVendor).toString();
-
-			_portData += " Product:";
-			_portData += stm.portData(deviceIndex, kProduct).toString();
-
+			_portData += "         Port:"          + stm.portData(deviceIndex, 0).toString();
+			_portData += " Description:"           + stm.portData(deviceIndex, 1).toString();
+			_portData += " Serial Number:"         + stm.portData(deviceIndex, 2).toString();
+			_portData += " Vendor:"                + stm.portData(deviceIndex, 3).toString();
+			_portData += " Product:"               + stm.portData(deviceIndex, 4).toString();
 			_portData += "\n";
 		}
 
 		_statusbar->showMessage("Device port information acquired.", 1000);
 	}
+}
 
+void BugWriterWindow::onDeviceFlowStarted(const QString& userCode, const QString& verificationUri)
+{
+	QDesktopServices::openUrl(QUrl(verificationUri));
+
+	QMessageBox::information(this, tr("GitHub Authorization"),
+		tr("A browser window has been opened. Enter the following code to authorize:\n\n"
+		   "     %1\n\n"
+		   "Once you approve the request, issue submission will continue automatically.")
+		.arg(userCode));
+}
+
+void BugWriterWindow::onAuthenticated(const QString& username)
+{
+	_authorName->setText(username);
+	_statusbar->showMessage(tr("Signed in to GitHub as %1").arg(username), 3000);
+}
+
+void BugWriterWindow::onIssueSubmitted(int issueNumber, const QString& issueUrl)
+{
+	_attachments.clear();
+	QMessageBox::information(this, tr("Issue Submitted"),
+		tr("Issue #%1 has been filed successfully.\n\n%2").arg(issueNumber).arg(issueUrl));
+}
+
+void BugWriterWindow::onIssueError(const QString& message)
+{
+	QMessageBox::critical(this, tr("Submission Failed"), message);
 }

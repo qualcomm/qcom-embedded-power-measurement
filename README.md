@@ -31,7 +31,7 @@ QEPM is a software suite that enables users to perform power measurement on Qual
 ## Hardware Requirements
 
 **Required Hardware**:
-- Qualcomm approved debug board (FTDI or PSoC-based)
+- Qualcomm approved debug board (PSoC-based)
 - Qualcomm device to be controlled
 - USB Cables: Type B Micro-USB (Board to Host) & Type-C (Device to Host)
 

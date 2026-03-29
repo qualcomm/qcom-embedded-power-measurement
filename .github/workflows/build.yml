@@ -13,7 +13,7 @@ jobs:
         build_type: [Debug, Release]
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
 
     - name: Install dependencies
       run: |
@@ -43,7 +43,7 @@ jobs:
 
     - name: Cache Qt ${{ matrix.qt_version }}
       id: cache-qt
-      uses: actions/cache@v4
+      uses: actions/cache@v5
       with:
         path: ${{ env.QT_ROOT_DIR }}
         key: ${{ runner.os }}-qt-${{ matrix.qt_version }}
@@ -73,7 +73,7 @@ jobs:
         build_type: [Debug, Release]
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
 
     - name: Set Qt install path
       shell: pwsh
@@ -84,7 +84,7 @@ jobs:
 
     - name: Cache Qt ${{ matrix.qt_version }}
       id: cache-qt
-      uses: actions/cache@v4
+      uses: actions/cache@v5
       with:
         path: ${{ env.QT_ROOT_DIR }}
         key: ${{ runner.os }}-qt-${{ matrix.qt_version }}

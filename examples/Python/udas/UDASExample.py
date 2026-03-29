@@ -33,15 +33,15 @@ def visualize(dataIdx, seriesName, currentDataList, voltageDataList, powerDataLi
 
 
 def main() -> None:
-    # get the alpaca version
+    # get the qepm version
     alpacaVersion = UDASDev.AlpacaVersion()
-    print(f"Alpaca Version: {alpacaVersion}")
+    print(f"QEPM Version: {alpacaVersion}")
 
     # get the EPM version
     epmVersion = UDASDev.EPMVersion()
     print(f"EPM Version: {epmVersion}")
 
-    epmResultsDirectory = "C:\\Users\\anmojais\\Documents\\Alpaca\\Results\\CRD8380X2_2024_23_12_12_36_02\\CRD8380X2_2024_23_12_12_36_02.prn"
+    epmResultsDirectory = "path/to/the/results/directory"
     udasDev = UDASDev.UDASDevice()
     udasDev.OpenResults(epmResultsDirectory)
     
@@ -103,7 +103,7 @@ def main() -> None:
         print(f"        Minimum current is: {udasDev.GetWaveformMin(channelIdx, WaveFormType.eWaveFormCurrent)}")
 
     # Set a temporary export folder location for UDAS data in CSV format
-    udasDev.SetExportPath("C:\\Alpaca\\Examples\\data")
+    udasDev.SetExportPath("C:\\QEPM\\Examples\\data")
 
     udasDev.ExportAsCSV()
     # Get export result folder location of UDAS data in CSV format

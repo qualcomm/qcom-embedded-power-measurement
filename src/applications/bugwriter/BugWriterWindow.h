@@ -1,10 +1,11 @@
-#ifndef BUGWRITERWINDOW_H
-#define BUGWRITERWINDOW_H
 // Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-3-Clause
 
+#ifndef BUGWRITERWINDOW_H
+#define BUGWRITERWINDOW_H
+
 #include "ui_BugWriterWindow.h"
-#include "EmailWriter.h"
+#include "IssueWriter.h"
 
 // Qt
 #include <QMainWindow>
@@ -36,20 +37,24 @@ private slots:
 
 	void onTimerTimeout();
 
+	void onDeviceFlowStarted(const QString& userCode, const QString& verificationUri);
+	void onAuthenticated(const QString& username);
+	void onIssueSubmitted(int issueNumber, const QString& issueUrl);
+	void onIssueError(const QString& message);
+
 private:
 	bool checkFields();
-	QString buildBody();
+	QString buildMarkdownBody();
 
-	bool						_listPorts{false};
+	bool					_listPorts{false};
 
-	QString						_driverVersion;
-	QString						_portData;
-	QByteArrayList              _attachments;
+	QString					_driverVersion;
+	QString					_portData;
+	QByteArrayList          _attachments;
 
-	EmailWriter*                _emailWriter{Q_NULLPTR};
+	IssueWriter*            _issueWriter{Q_NULLPTR};
 
-	QTimer						_timer;
+	QTimer					_timer;
 };
 
 #endif // BUGWRITERWINDOW_H
-

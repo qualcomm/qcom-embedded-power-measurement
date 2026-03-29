@@ -22,6 +22,7 @@ qt_add_executable(EPMScope
 
 set_target_properties(EPMScope PROPERTIES
     VERSION ${EPM_SCOPE_VERSION}
+    WIN32_EXECUTABLE TRUE
 )
 
 qepm_add_version_info(EPMScope

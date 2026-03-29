@@ -21,6 +21,7 @@ qt_add_executable(EPMConfigurationEditor
 
 set_target_properties(EPMConfigurationEditor PROPERTIES
     VERSION ${EPM_EDITOR_VERSION}
+    WIN32_EXECUTABLE TRUE
 )
 
 qepm_add_version_info(EPMConfigurationEditor

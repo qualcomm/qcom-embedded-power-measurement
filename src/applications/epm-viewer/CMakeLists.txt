@@ -19,6 +19,7 @@ qt_add_executable(EPMViewer
 
 set_target_properties(EPMViewer PROPERTIES
     VERSION ${EPM_VIEWER_VERSION}
+    WIN32_EXECUTABLE TRUE
 )
 
 qepm_add_version_info(EPMViewer
