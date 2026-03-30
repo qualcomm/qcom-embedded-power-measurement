@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 # All changes: triage team reviews by default
-*                                   @qualcomm/qcom-embedded-power-measurement-traige
+*                                   @qualcomm/qcom-embedded-power-measurement-triage
 
 # Critical governance and project files: maint team required
 CODEOWNERS                          @qualcomm/qcom-embedded-power-measurement-maint
