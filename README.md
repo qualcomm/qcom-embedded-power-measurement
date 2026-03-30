@@ -68,8 +68,8 @@ git clone https://github.com/qualcomm/qcom-embedded-power-measurement.git
 ### Configuration
 
 1. **Visual Studio**: Install **Desktop development with C++** and **.NET desktop development**.
-2. **Qt**: Install Qt 6.10+ for **MSVC 2022 64-bit** and **Qt Serial Port** component.
-   
+2. **Qt**: Install Qt 6.10+ for **MSVC 2022 64-bit**, **Qt Serial Port** and **Qt Multimedia** component.
+
 > [!NOTE]
 > Installation using Qt Online Installer will require users to create a Qt account.
 3. **Environment Variable**:
