@@ -7,7 +7,7 @@ qt_add_resources(EPM_RESOURCES
     resources/EPM.qrc
 )
 
-qt_add_executable(EPM
+qt_add_executable(EPM WIN32
     EPMApplication.cpp EPMApplication.h
     EPMWindow.cpp EPMWindow.h EPMWindow.ui
     PreferencesDialog.cpp PreferencesDialog.h PreferencesDialog.ui
