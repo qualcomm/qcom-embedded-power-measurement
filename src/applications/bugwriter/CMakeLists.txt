@@ -7,7 +7,7 @@ qt_add_resources(BUGWRITER_RESOURCES
     Resources/BugWriter.qrc
 )
 
-qt_add_executable(BugWriter
+qt_add_executable(BugWriter WIN32
     BugWriterApplication.cpp BugWriterApplication.h
     BugWriterPreferences.cpp BugWriterPreferences.h
     BugWriterWindow.cpp BugWriterWindow.h BugWriterWindow.ui
@@ -40,3 +40,4 @@ target_link_libraries(BugWriter PRIVATE
 )
 
 qepm_deploy_qt(BugWriter)
+
