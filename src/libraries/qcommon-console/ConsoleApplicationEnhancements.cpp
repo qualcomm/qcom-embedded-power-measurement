@@ -55,11 +55,11 @@ QString applicationDataPath()
 	QString result;
 
 #ifdef Q_OS_WIN
-	result = "C:/ProgramData/Qualcomm/Alpaca/";
+	result = "C:/ProgramData/Qualcomm/QEPM/";
 #endif
 
 #ifdef Q_OS_LINUX
-	result = "/var/lib/qcom/data/Alpaca/";
+	result = "/var/lib/qcom/data/QEPM/";
 #endif
 
 	result = QDir::cleanPath(result);
