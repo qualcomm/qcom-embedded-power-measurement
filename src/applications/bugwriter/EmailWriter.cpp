@@ -55,24 +55,13 @@ bool EmailWriter::isEmailAddress(const QString& text)
 
 bool EmailWriter::send(const QByteArray& title, const QByteArray& body, const QByteArrayList mimeFiles)
 {
-	bool result{false};
-
-	QByteArrayList cc;
-	QByteArray to;
-
-	QByteArray from = _author.toLatin1() + "@qti.qualcomm.com";
-	if (isEmailAddress(_author))
-	from = _author.toLatin1();
-
-	try
-	{
-		// TODO: Define what happens when ticket is submitted
-		result = true;
-	}
-	catch (...)
-	{
-		AppCore::writeToApplicationLogLine(_lastError);
-	}
-
-	return result;
+	// This open-source build has no configured ticket-submission backend
+	// (e.g. mail relay or issue-tracker REST API). Rather than silently
+	// report success without actually filing a ticket, fail explicitly so
+	// the caller can direct the user to save the report to a text file
+	// instead.
+	_lastError = "No ticket-submission backend is configured in this build. "
+	             "Use 'Save as Text File' and send the file to your support contact.";
+	AppCore::writeToApplicationLogLine(_lastError);
+	return false;
 }

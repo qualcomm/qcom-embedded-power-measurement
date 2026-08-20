@@ -132,11 +132,11 @@ void BugWriterWindow::on__submitButton_clicked()
 		if (_emailWriter->send(_title->text().toLatin1(), buildBody().toLatin1(), _attachments))
 		{
 			_attachments.clear();
-			QMessageBox::information(this, "Ticket Submitted", "Your issue is now shared with the QEPM support. You will soon receive a Jira ticket on the email id corresponding to your username");
+			QMessageBox::information(this, "Ticket Submitted", "Your issue is now shared with support. You will soon receive a ticket confirmation on the email id corresponding to your username");
 		}
 		else
 		{
-			QMessageBox::critical(this, "Submit Failed.", "Save your report to a text file and send that text file to QEPM.hostdev.jira.");
+			QMessageBox::critical(this, "Submit Failed.", _emailWriter->lastError());
 		}
 	}
 }
