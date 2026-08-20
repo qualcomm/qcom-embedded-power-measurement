@@ -43,12 +43,20 @@
             <property name="toolTip">
              <string>The name of the application for which the ticket is being created.</string>
             </property>
+            <property name="editable">
+             <bool>true</bool>
+            </property>
             <property name="placeholderText">
              <string>Not Set</string>
             </property>
             <item>
              <property name="text">
               <string>QEPM</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>QTAC</string>
              </property>
             </item>
            </widget>
