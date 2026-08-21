@@ -30,12 +30,14 @@
 #include <QColorDialog>
 #include <QFileDialog>
 #include <QFileInfo>
+#include <QGuiApplication>
 #include <QMenu>
 #include <QMenuBar>
 #include <QMessageBox>
 #include <QMetaMethod>
 #include <QProcess>
 #include <QResizeEvent>
+#include <QScreen>
 #include <QSet>
 #include <QStatusBar>
 #include <QTimer>
@@ -132,9 +134,31 @@ EPMViewerWindow::EPMViewerWindow
 	settings.beginGroup("EPMViewerWindow");
 
 	QPoint pos = settings.value("pos", QPoint(40, 40)).toPoint();
-	move(pos);
-
 	QSize size = settings.value("size", QSize(1200, 800)).toSize();
+
+	// Validate the saved position against currently connected screens before
+	// restoring it. A position saved from a monitor configuration that no
+	// longer exists (e.g. a since-disconnected second monitor, or a
+	// different machine's screen layout carried over via a settings file)
+	// can be far outside all current screens' bounds. QWidget::move() does
+	// no such validation, so the window would end up entirely off-screen:
+	// it still runs (visible in the taskbar / Alt-Tab), but nothing is
+	// visible on any monitor and the taskbar thumbnail preview is blank.
+	QRect windowRect(pos, size);
+	bool visibleOnAnyScreen = false;
+	for (const auto& screen: QGuiApplication::screens())
+	{
+		if (screen->geometry().intersects(windowRect))
+		{
+			visibleOnAnyScreen = true;
+			break;
+		}
+	}
+
+	if (visibleOnAnyScreen == false)
+		pos = QPoint(40, 40);
+
+	move(pos);
 	resize(size);
 
 	settings.endGroup();
