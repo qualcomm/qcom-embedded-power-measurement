@@ -8,6 +8,7 @@
 #include <QByteArray>
 #include <QDir>
 #include <QList>
+#include <QStandardPaths>
 
 // C++
 #include <iostream>
@@ -42,7 +43,7 @@ int main(int argc, char* argv[])
 	std::cout << "Attempting to open the results path..." << std::endl;
 
 	UDAS_FILE_HANDLE handle{UDAS_BAD_UDAS_HANDLE};
-	QFileInfo prnFile("\%userprofile\%\\Documents\\QEPM\\Results\\CRD8380X2_2025_25_04_00_55_40\\CRD8380X2_2025_25_04_00_55_40.prn");
+	QFileInfo prnFile(QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/QEPM/Results/CRD8380X2_2025_25_04_00_55_40/CRD8380X2_2025_25_04_00_55_40.prn");
 
 	if (prnFile.exists())
 	{
@@ -163,7 +164,7 @@ int main(int argc, char* argv[])
 
 	if (udasResult == NO_UDAS_ERROR)
 	{
-		QString configFilePath = "\%userprofile\%/Documents/QEPM/Export Configurations/CRD8380X2_XXXX.ecnf";
+		QString configFilePath = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/QEPM/Export Configurations/CRD8380X2_XXXX.ecnf";
 
 		QFile file(configFilePath);
 		if (file.exists())

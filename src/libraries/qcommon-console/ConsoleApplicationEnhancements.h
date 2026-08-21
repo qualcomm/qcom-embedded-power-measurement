@@ -13,7 +13,6 @@
 
 
 QString QCOMMONCONSOLE_EXPORT applicationBinPath();
-QString QCOMMONCONSOLE_EXPORT applicationDataPath();
 QString QCOMMONCONSOLE_EXPORT documentsDataPath(const QString& append);
 QString QCOMMONCONSOLE_EXPORT defaultGlobalLoggingPath();
 QString QCOMMONCONSOLE_EXPORT defaultLoggingPath(const QString& appName);
@@ -28,7 +27,6 @@ void QCOMMONCONSOLE_EXPORT renewInstallRegistry(QSettings& settings, const QStri
 QString QCOMMONCONSOLE_EXPORT getModuleFilePath(const QString& moduleFileName);
 QString QCOMMONCONSOLE_EXPORT expandPath(const QString& filePath);
 
-QString QCOMMONCONSOLE_EXPORT tacConfigRoot(bool expandPath = true);
 QString QCOMMONCONSOLE_EXPORT epmConfigRoot();
 
 void kickIt();

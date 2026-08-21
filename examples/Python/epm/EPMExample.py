@@ -6,7 +6,7 @@
 from EPMDev import *
 
 def main() :
-	print("Alpaca Version: ", AlpacaVersion())
+	print("QEPM Version: ", AlpacaVersion())
 	print("EPM Version: ",  EPMVersion())
 
 	deviceCount  = GetDeviceCount()
@@ -39,7 +39,7 @@ def main() :
 						print("   Platform:", platformAttributes[0], " Path: " , platformAttributes[1])
 
 					epmDevice.SetPlatform("MTP8450")
-					epmDevice.SetRuntimeConfig(r"C:\Alpaca\Examples\data\SM8450_Battery.rcnf")
+					epmDevice.SetRuntimeConfig(r"C:\QEPM\Examples\data\SM8450_Battery.rcnf")
 
 					channelIndex = 0
 					channelCount = epmDevice.GetChannelCount()

@@ -12,7 +12,7 @@ qt_add_executable(BugWriter
     BugWriterPreferences.cpp BugWriterPreferences.h
     BugWriterWindow.cpp BugWriterWindow.h BugWriterWindow.ui
     BugWriterDefines.h
-    EmailWriter.cpp EmailWriter.h
+    IssueWriter.cpp IssueWriter.h
     main.cpp
 
     ${BUGWRITER_RESOURCES}
@@ -20,6 +20,7 @@ qt_add_executable(BugWriter
 
 set_target_properties(BugWriter PROPERTIES
     VERSION ${BUG_WRITER_VERSION}
+    WIN32_EXECUTABLE TRUE
 )
 
 qepm_add_version_info(BugWriter
@@ -33,10 +34,15 @@ QCommonConsoleSettings(BugWriter)
 target_link_libraries(BugWriter PRIVATE
     Qt6::Core
     Qt6::Gui
+    Qt6::Network
     Qt6::SerialPort
     Qt6::Widgets
     QEPM::QCommon
     QEPM::QCommonConsole
 )
+
+if(WIN32)
+    target_link_libraries(BugWriter PRIVATE Advapi32)
+endif()
 
 qepm_deploy_qt(BugWriter)

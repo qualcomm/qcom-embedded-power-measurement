@@ -10,10 +10,11 @@ jobs:
       matrix:
         os: [ubuntu-22.04, ubuntu-latest]
         qt_version: ['6.9.2', '6.10.0']
-        build_type: [Debug, Release]
 
     steps:
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      with:
+        persist-credentials: false
 
     - name: Install dependencies
       run: |
@@ -34,16 +35,18 @@ jobs:
           libusb-dev \
           uuid-dev \
           libpulse-dev \
+          patchelf \
           python3-pip
 
     - name: Set Qt install path
       run: |
         echo "QT_ROOT_DIR=${{ github.workspace }}/${{ matrix.qt_version }}/gcc_64" >> $GITHUB_ENV
+        echo "QTBIN=${{ github.workspace }}/${{ matrix.qt_version }}/gcc_64/bin" >> $GITHUB_ENV
         echo "${{ github.workspace }}/${{ matrix.qt_version }}/gcc_64/bin" >> $GITHUB_PATH
 
     - name: Cache Qt ${{ matrix.qt_version }}
       id: cache-qt
-      uses: actions/cache@v5
+      uses: actions/cache@caa296126883cff596d87d8935842f9db880ef25 # v5
       with:
         path: ${{ env.QT_ROOT_DIR }}
         key: ${{ runner.os }}-qt-${{ matrix.qt_version }}
@@ -55,56 +58,214 @@ jobs:
         aqt install-qt linux desktop ${{ matrix.qt_version }} linux_gcc_64
         aqt install-qt linux desktop ${{ matrix.qt_version }} linux_gcc_64 -m qtmultimedia qtserialport
 
-    - name: Configure CMake (${{ matrix.build_type }})
+    - name: Build
       run: |
-        cmake -B build \
-          -G Ninja \
-          -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} \
-          -DCMAKE_PREFIX_PATH="${{ env.QT_ROOT_DIR }}/lib/cmake"
+        chmod +x build.sh
+        ./build.sh
 
-    - name: Build (${{ matrix.build_type }})
-      run: cmake --build build --config ${{ matrix.build_type }}
+    - name: Package QEPM
+      run: |
+        chmod +x packaging/linux/package_QEPM.sh
+        ./packaging/linux/package_QEPM.sh
+
+    - name: Upload installer artifact
+      uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+      with:
+        name: QEPM-${{ matrix.os }}-qt${{ matrix.qt_version }}.deb
+        path: packaging/linux/build/*.deb
+        if-no-files-found: error
 
   build-windows:
     runs-on: windows-2022
     strategy:
       matrix:
         qt_version: ['6.9.2', '6.10.0']
-        build_type: [Debug, Release]
 
     steps:
-    - uses: actions/checkout@v6
-
-    - name: Set Qt install path
-      shell: pwsh
-      run: |
-        $qtRoot = "C:\Qt\${{ matrix.qt_version }}\msvc2022_64"
-        echo "QT_ROOT_DIR=$qtRoot" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-        echo "$qtRoot\bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
-
-    - name: Cache Qt ${{ matrix.qt_version }}
-      id: cache-qt
-      uses: actions/cache@v5
+    - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
       with:
-        path: ${{ env.QT_ROOT_DIR }}
+        persist-credentials: false
+
+    - name: Cache Qt installation on Windows
+      id: cache-qt
+      uses: actions/cache@caa296126883cff596d87d8935842f9db880ef25 # v5
+      with:
+        path: C:\Qt\${{ matrix.qt_version }}\msvc2022_64
         key: ${{ runner.os }}-qt-${{ matrix.qt_version }}
 
-    - name: Install Qt ${{ matrix.qt_version }}
+    - name: Install Qt ${{ matrix.qt_version }} for MSVC
       if: steps.cache-qt.outputs.cache-hit != 'true'
       shell: pwsh
       run: |
         pip install aqtinstall
-        aqt install-qt windows desktop ${{ matrix.qt_version }} win64_msvc2022_64 `
-          --outputdir "C:\Qt" `
-          -m qtserialport qtmultimedia qtactiveqt
+        aqt install-qt windows desktop ${{ matrix.qt_version }} win64_msvc2022_64 --outputdir "C:\Qt" -m qtserialport qtmultimedia qtactiveqt
 
-    - name: Configure CMake (${{ matrix.build_type }})
+    - name: Set QTBIN
       shell: pwsh
       run: |
-        cmake -B build `
-          -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} `
-          -DCMAKE_PREFIX_PATH="$env:QT_ROOT_DIR\lib\cmake"
+        echo "QTBIN=C:\Qt\${{ matrix.qt_version }}\msvc2022_64\bin" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
 
-    - name: Build (${{ matrix.build_type }})
+    - name: Install .NET Framework 4.8 Developer Pack
       shell: pwsh
-      run: cmake --build build --config ${{ matrix.build_type }} --parallel
+      run: choco install netfx-4.8-devpack -y
+
+    - name: Build
+      shell: pwsh
+      run: |
+        cmd /c build.bat
+
+    - name: Build installer (QEPM-windows-x64.exe)
+      shell: pwsh
+      run: .\packaging\windows\build-installer.ps1
+
+    - name: Upload installer artifact
+      uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+      with:
+        name: QEPM-windows-installer-x64-qt${{ matrix.qt_version }}
+        path: __Builds\installer\QEPM-windows-x64.exe
+        if-no-files-found: error
+
+  publish-release-linux:
+    name: Publish release (Linux)
+    if: github.ref_type == 'tag'
+    needs: build-linux
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      with:
+        persist-credentials: false
+        fetch-depth: 0
+
+    - name: Verify tag is on main branch
+      id: verify_main
+      run: |
+        set -euo pipefail
+        git fetch origin main --quiet
+        if git merge-base --is-ancestor "$GITHUB_SHA" origin/main; then
+          echo "Tagged commit $GITHUB_SHA is on main; proceeding with release."
+          echo "on_main=true" >> "$GITHUB_OUTPUT"
+        else
+          echo "Tagged commit $GITHUB_SHA is NOT on main; skipping release publish."
+          echo "on_main=false" >> "$GITHUB_OUTPUT"
+        fi
+
+    - name: Download Linux build artifacts
+      if: steps.verify_main.outputs.on_main == 'true'
+      uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+      with:
+        pattern: QEPM-*.deb
+        path: release-artifacts
+
+    - name: Flatten Linux artifacts into a single directory
+      if: steps.verify_main.outputs.on_main == 'true'
+      run: |
+        set -euo pipefail
+        mkdir -p release-assets
+        find release-artifacts -mindepth 2 -type f -print0 | while IFS= read -r -d '' f; do
+          artifact_name="$(basename "$(dirname "$f")")"
+          ext="${f##*.}"
+          if [[ "$artifact_name" == *.$ext ]]; then
+            target="$artifact_name"
+          else
+            target="${artifact_name}.${ext}"
+          fi
+          cp "$f" "release-assets/$target"
+        done
+        echo "Linux release assets to upload:"
+        ls -la release-assets
+
+    - name: Ensure GitHub Release exists and upload Linux assets
+      if: steps.verify_main.outputs.on_main == 'true'
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        TAG: ${{ github.ref_name }}
+      run: |
+        set -euo pipefail
+        if ! gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+          gh release create "$TAG" \
+            --repo "$GITHUB_REPOSITORY" \
+            --title "$TAG" \
+            --generate-notes || \
+          gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1
+        fi
+        gh release upload "$TAG" release-assets/* \
+          --repo "$GITHUB_REPOSITORY" \
+          --clobber
+
+  publish-release-windows:
+    name: Publish release (Windows)
+    if: github.ref_type == 'tag'
+    needs: build-windows
+    runs-on: windows-2022
+    permissions:
+      contents: write
+    steps:
+    - name: Checkout repository (full history)
+      uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      with:
+        persist-credentials: false
+        fetch-depth: 0
+
+    - name: Verify tag is on main branch
+      id: verify_main
+      shell: pwsh
+      run: |
+        $ErrorActionPreference = 'Stop'
+        git fetch origin main --quiet
+        git merge-base --is-ancestor "$env:GITHUB_SHA" origin/main
+        if ($LASTEXITCODE -eq 0) {
+          Write-Host "Tagged commit $env:GITHUB_SHA is on main; proceeding with release."
+          "on_main=true" | Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf8 -Append
+        } else {
+          Write-Host "Tagged commit $env:GITHUB_SHA is NOT on main; skipping release publish."
+          "on_main=false" | Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf8 -Append
+        }
+
+    - name: Download Windows build artifacts
+      if: steps.verify_main.outputs.on_main == 'true'
+      uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+      with:
+        pattern: QEPM-windows-installer-*
+        path: release-artifacts
+
+    - name: Flatten Windows artifacts into a single directory
+      if: steps.verify_main.outputs.on_main == 'true'
+      shell: pwsh
+      run: |
+        New-Item -ItemType Directory -Force -Path release-assets | Out-Null
+        Get-ChildItem release-artifacts -Directory | ForEach-Object {
+          $artifactName = $_.Name
+          Get-ChildItem $_.FullName -File -Recurse | ForEach-Object {
+            $target = Join-Path 'release-assets' ("$artifactName$($_.Extension)")
+            Copy-Item $_.FullName $target -Force
+          }
+        }
+        Write-Host "Windows release assets to upload:"
+        Get-ChildItem release-assets | Format-Table -AutoSize
+
+    - name: Ensure GitHub Release exists and upload Windows assets
+      if: steps.verify_main.outputs.on_main == 'true'
+      shell: pwsh
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        TAG: ${{ github.ref_name }}
+      run: |
+        $ErrorActionPreference = 'Stop'
+        gh release view "$env:TAG" --repo "$env:GITHUB_REPOSITORY" 2>$null
+        if ($LASTEXITCODE -ne 0) {
+          gh release create "$env:TAG" `
+            --repo "$env:GITHUB_REPOSITORY" `
+            --title "$env:TAG" `
+            --generate-notes
+          if ($LASTEXITCODE -ne 0) {
+            # Another job likely created it first; verify it now exists.
+            gh release view "$env:TAG" --repo "$env:GITHUB_REPOSITORY"
+          }
+        }
+        $assets = Get-ChildItem release-assets -File | ForEach-Object { $_.FullName }
+        gh release upload "$env:TAG" $assets `
+          --repo "$env:GITHUB_REPOSITORY" `
+          --clobber

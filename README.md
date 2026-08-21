@@ -31,7 +31,7 @@ QEPM is a software suite that enables users to perform power measurement on Qual
 ## Hardware Requirements
 
 **Required Hardware**:
-- Qualcomm approved debug board (FTDI or PSoC-based)
+- Qualcomm approved debug board (PSoC-based)
 - Qualcomm device to be controlled
 - USB Cables: Type B Micro-USB (Board to Host) & Type-C (Device to Host)
 
@@ -68,8 +68,8 @@ git clone https://github.com/qualcomm/qcom-embedded-power-measurement.git
 ### Configuration
 
 1. **Visual Studio**: Install **Desktop development with C++** and **.NET desktop development**.
-2. **Qt**: Install Qt 6.10+ for **MSVC 2022 64-bit** and **Qt Serial Port** component.
-   
+2. **Qt**: Install Qt 6.10+ for **MSVC 2022 64-bit**, **Qt Serial Port** and **Qt Multimedia** component.
+
 > [!NOTE]
 > Installation using Qt Online Installer will require users to create a Qt account.
 3. **Environment Variable**:

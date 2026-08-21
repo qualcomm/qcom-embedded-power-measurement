@@ -21,6 +21,7 @@ qt_add_executable(EPM
 
 set_target_properties(EPM PROPERTIES
     VERSION ${EPM_VERSION}
+    WIN32_EXECUTABLE TRUE
 )
 
 qepm_add_version_info(EPM

@@ -8,11 +8,26 @@ include(FetchContent)
 
 set(CMAKE_AUTOMOC_RELAXED_MODE ON)
 
-FetchContent_Declare(
-    qwt_source
-    URL https://sourceforge.net/projects/qwt/files/qwt/6.3.0/qwt-6.3.0.zip
-    DOWNLOAD_EXTRACT_TIMESTAMP TRUE
-)
+# ---------------------------------------------------------------------------
+# Qwt 6.3.0
+# ---------------------------------------------------------------------------
+set(QWT_LOCAL_ARCHIVE "${CMAKE_CURRENT_SOURCE_DIR}/qwt-6.3.0.zip")
+
+if(EXISTS "${QWT_LOCAL_ARCHIVE}")
+    message(STATUS "Qwt: using local archive at ${QWT_LOCAL_ARCHIVE}")
+    FetchContent_Declare(
+        qwt_source
+        URL "file://${QWT_LOCAL_ARCHIVE}"
+        DOWNLOAD_EXTRACT_TIMESTAMP TRUE
+    )
+else()
+    FetchContent_Declare(
+        qwt_source
+        URL https://sourceforge.net/projects/qwt/files/qwt/6.3.0/qwt-6.3.0.zip
+        DOWNLOAD_EXTRACT_TIMESTAMP TRUE
+        TLS_VERIFY FALSE
+    )
+endif()
 
 FetchContent_GetProperties(qwt_source)
 if(NOT qwt_source_POPULATED)

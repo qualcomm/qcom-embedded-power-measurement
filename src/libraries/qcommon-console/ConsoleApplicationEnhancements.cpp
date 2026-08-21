@@ -50,26 +50,6 @@ QString applicationBinPath()
 	return result;
 }
 
-QString applicationDataPath()
-{
-	QString result;
-
-#ifdef Q_OS_WIN
-	result = "C:/ProgramData/Qualcomm/Alpaca/";
-#endif
-
-#ifdef Q_OS_LINUX
-	result = "/var/lib/qcom/data/Alpaca/";
-#endif
-
-	result = QDir::cleanPath(result);
-
-	if (QDir(result).exists() == false)
-		QDir().mkpath(result);
-
-	return result;
-}
-
 QString documentsDataPath
 (
 	const QString& append
@@ -314,37 +294,18 @@ QString expandPath(const QString &filePath)
 	return result;
 }
 
-QString tacConfigRoot(bool expandThePath)
-{
-	Q_UNUSED(expandThePath);
-
-	QString result;
-
-	AlpacaSettings settings("QEPM");
-	settings.beginGroup(kPreferences);
-	bool allowConfigUpdates = settings.value("allowConfigUpdates", false).toBool();
-	settings.endGroup();
-
-	QString appName{"QEPM"};
-
-	if (allowConfigUpdates)
-	{
-		#ifdef Q_OS_WIN
-			result = "C:/Program Files (x86)/Qualcomm/Shared/"+ appName + "/";
-		#endif
-		#ifdef Q_OS_LINUX
-			result = "/opt/qcom/Shared/"+ appName + "/";
-		#endif
-	}
-	else
-		result = applicationDataPath() + "/tac_configs/";
-
-	return result;
-}
-
 QString epmConfigRoot()
 {
-	QString result = applicationDataPath() + "/epm_configs/";
+	QDir dir(QCoreApplication::applicationDirPath());
 
-	return result;
+	for (int i = 0; i < 5; ++i)
+	{
+		const QString candidate = dir.absolutePath() + "/configurations";
+		if (QDir(candidate).exists())
+			return QDir::cleanPath(candidate);
+
+		dir.cdUp();
+	}
+
+	return QDir::cleanPath(QCoreApplication::applicationDirPath() + "/configurations");
 }
