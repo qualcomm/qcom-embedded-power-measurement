@@ -54,12 +54,28 @@ QString applicationDataPath()
 {
 	QString result;
 
+	// Derive the actual install folder name ("Alpaca", "QEPM", "QTAC", ...)
+	// from where this binary is running, i.e. .../Qualcomm/<X>/<exe> -> "<X>".
+	// A hardcoded "QEPM" only matches the QEPM standalone package; other
+	// packages (e.g. Alpaca) install under a different folder name and
+	// would otherwise resolve to a ProgramData path that never exists for
+	// them, silently breaking epm_configs (and everything derived from it:
+	// platform combo, channel table, category list all end up empty).
+	QString appName = "QEPM";
+	QDir binDir(QCoreApplication::applicationDirPath());
+	if (binDir.exists())
+	{
+		const QString folderName = binDir.dirName();
+		if (folderName.isEmpty() == false)
+			appName = folderName;
+	}
+
 #ifdef Q_OS_WIN
-	result = "C:/ProgramData/Qualcomm/QEPM/";
+	result = "C:/ProgramData/Qualcomm/" + appName + "/";
 #endif
 
 #ifdef Q_OS_LINUX
-	result = "/var/lib/qcom/data/QEPM/";
+	result = "/var/lib/qcom/data/" + appName + "/";
 #endif
 
 	result = QDir::cleanPath(result);
