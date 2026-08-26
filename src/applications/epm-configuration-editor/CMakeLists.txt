@@ -7,7 +7,7 @@ qt_add_resources(EPMEDITOR_RESOURCES
     resources/EPMConfigurationEditor.qrc
 )
 
-qt_add_executable(EPMConfigurationEditor
+qt_add_executable(EPMConfigurationEditor WIN32
     CompileFileDialog.cpp CompileFileDialog.h
     EPMConfigurationApplication.cpp EPMConfigurationApplication.h
     EPMConfigurationWindow.cpp EPMConfigurationWindow.h EPMConfigurationWindow.ui

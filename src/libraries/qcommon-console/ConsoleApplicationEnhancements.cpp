@@ -307,5 +307,37 @@ QString epmConfigRoot()
 		dir.cdUp();
 	}
 
+	// Packaged installers (e.g. Alpaca QIK) may stage EPM configuration files
+	// under a shared ProgramData location instead of a bin-relative
+	// "configurations" folder. Check known packaged locations before
+	// falling back to the bin-relative default so installed packages don't
+	// end up with an empty platform/config list.
+#ifdef Q_OS_WIN
+	{
+		const QStringList programDataCandidates = {
+			"C:/ProgramData/Qualcomm/Alpaca/epm_configs",
+			"C:/ProgramData/Qualcomm/QEPM/epm_configs"
+		};
+		for (const QString& candidate : programDataCandidates)
+		{
+			if (QDir(candidate).exists())
+				return QDir::cleanPath(candidate);
+		}
+	}
+#endif
+#ifdef Q_OS_LINUX
+	{
+		const QStringList programDataCandidates = {
+			"/var/lib/qcom/data/Alpaca/epm_configs",
+			"/var/lib/qcom/data/QEPM/epm_configs"
+		};
+		for (const QString& candidate : programDataCandidates)
+		{
+			if (QDir(candidate).exists())
+				return QDir::cleanPath(candidate);
+		}
+	}
+#endif
+
 	return QDir::cleanPath(QCoreApplication::applicationDirPath() + "/configurations");
 }
