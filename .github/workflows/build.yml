@@ -46,7 +46,7 @@ jobs:
 
     - name: Cache Qt ${{ matrix.qt_version }}
       id: cache-qt
-      uses: actions/cache@caa296126883cff596d87d8935842f9db880ef25 # v5
+      uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
       with:
         path: ${{ env.QT_ROOT_DIR }}
         key: ${{ runner.os }}-qt-${{ matrix.qt_version }}
@@ -88,7 +88,7 @@ jobs:
 
     - name: Cache Qt installation on Windows
       id: cache-qt
-      uses: actions/cache@caa296126883cff596d87d8935842f9db880ef25 # v5
+      uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
       with:
         path: C:\Qt\${{ matrix.qt_version }}\msvc2022_64
         key: ${{ runner.os }}-qt-${{ matrix.qt_version }}
