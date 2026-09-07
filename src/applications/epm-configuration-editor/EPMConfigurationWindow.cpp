@@ -400,7 +400,7 @@ void EPMConfigurationWindow::on_actionAbout_triggered()
 void EPMConfigurationWindow::on_actionSubmit_Bug_Report_triggered()
 {
 #ifdef Q_OS_LINUX
-	QString program = "/opt/qcom/QEPM/bin/BugWriter"; // Linux Sucks
+	QString program = "/opt/qcom/Alpaca/bin/BugWriter"; // Linux Sucks
 #else
 	QString program = "BugWriter";
 #endif
