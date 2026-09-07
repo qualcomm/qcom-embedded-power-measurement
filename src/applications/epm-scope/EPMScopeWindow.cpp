@@ -250,7 +250,7 @@ void EPMScopeWindow::on__actionRateMe_triggered()
 void EPMScopeWindow::on__actionSubmitBugReport_triggered()
 {
 #ifdef Q_OS_LINUX
-	QString program = "/opt/qcom/QEPM/bin/BugWriter"; // Linux Sucks
+	QString program = "/opt/qcom/Alpaca/bin/BugWriter"; // Linux Sucks
 #else
 	QString program = "BugWriter";
 #endif

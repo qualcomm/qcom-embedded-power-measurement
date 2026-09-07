@@ -147,7 +147,7 @@ QString docsRoot()
 
 	appName = QCoreApplication::applicationName();
 	if (appName.isEmpty())
-		appName = "QEPM";
+		appName = "Alpaca";
 
 #ifdef Q_OS_WINDOWS
 	result = "C:\\Program Files (x86)\\Qualcomm\\" + appName + "\\docs\\";

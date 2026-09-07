@@ -32,7 +32,7 @@
 QString applicationBinPath()
 {
 	QString result;
-	QString appName{"QEPM"};
+	QString appName{"Alpaca"};
 
 #ifdef Q_OS_WIN
 	result = "C:/Program Files (x86)/Qualcomm/" + appName + "/";
@@ -60,7 +60,7 @@ QString documentsDataPath
 
 	appName = QCoreApplication::applicationName();
 	if (appName.isEmpty())
-		appName = "QEPM";
+		appName = "Alpaca";
 
 #ifdef Q_OS_WIN
 	// QStandardPaths would return the "One Drive" location. Excel documents don't like living here

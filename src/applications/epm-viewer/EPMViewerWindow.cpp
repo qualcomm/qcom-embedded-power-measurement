@@ -360,7 +360,7 @@ void EPMViewerWindow::onAboutTriggered()
 void EPMViewerWindow::onSubmitBugReportTriggered()
 {
 #ifdef Q_OS_LINUX
-	QString program = "/opt/qcom/QEPM/bin/BugWriter"; // Linux Sucks
+	QString program = "/opt/qcom/Alpaca/bin/BugWriter"; // Linux Sucks
 #else
 	QString program = "BugWriter";
 #endif
