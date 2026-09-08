@@ -296,16 +296,9 @@ QString expandPath(const QString &filePath)
 
 QString epmConfigRoot()
 {
-	QDir dir(QCoreApplication::applicationDirPath());
 
-	for (int i = 0; i < 5; ++i)
-	{
-		const QString candidate = dir.absolutePath() + "/configurations";
-		if (QDir(candidate).exists())
-			return QDir::cleanPath(candidate);
+	
+	QString result = "/var/lib/qcom/data/Alpaca/epm_configs/";
 
-		dir.cdUp();
-	}
-
-	return QDir::cleanPath(QCoreApplication::applicationDirPath() + "/configurations");
+	return result;
 }

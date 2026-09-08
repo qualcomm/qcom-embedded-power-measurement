@@ -9,7 +9,7 @@
 
 #include <QString>
 
-const QString kProductName(QStringLiteral("QEPM"));
+const QString kProductName(QStringLiteral("Alpaca"));
 
 const QString kOrganizationName(QStringLiteral("Qualcomm, Inc."));
 const QString kProductVersion(QStringLiteral(QEPM_VERSION));
