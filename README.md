@@ -160,10 +160,8 @@ graph TD
     %% Base Libraries
     QCommonConsole[QCommonConsole]
     QCommon[QCommon] --> QCommonConsole
-    LibExcel[LibExcel]
     EPMLib[EPMLib] --> QCommonConsole
     EPMLib --> QCommon
-    EPMLib --> LibExcel
     
     %% Intermediate Libraries
     UILib[UILib] --> QCommon
