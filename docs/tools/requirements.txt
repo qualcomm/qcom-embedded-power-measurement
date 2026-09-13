@@ -1,0 +1,11 @@
+doc8==0.11.2
+readme-renderer==37.3
+releases==2.1.1
+Sphinx<7.0.0
+docutils<0.19
+sphinx-click==4.4.0
+pallets-sphinx-themes==2.1.0
+markdown==3.4.3
+myst-parser==1.0.0
+sphinx-markdown-tables==0.0.17
+semantic-version==2.6.0
