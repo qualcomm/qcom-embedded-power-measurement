@@ -16,8 +16,6 @@
 const QString kLogAppendEnabled(QStringLiteral("logAppend"));
 const QString kExportSelectedItemsOnly(QStringLiteral("exportSelectedItems"));
 const QString kLastExportDir(QStringLiteral("lastExportDir"));
-const QString kQuitExcel(QStringLiteral("quitExcelOnExportEnd"));
-const QString kUseCSV(QStringLiteral("useCSV"));
 const QString kUseTimeSpan(QStringLiteral("useTimeSpan"));
 
 void UDASPreferences::setAppName
@@ -34,8 +32,6 @@ void UDASPreferences::setAppName
 
 	_exportSelectedItems = settings.value(kExportSelectedItemsOnly, defaultExportSelectedItems()).toBool();
 	_exportLocation = settings.value(kLastExportDir, defaultExportLocation()).toString();
-	_quitExcelOnFinish = settings.value(kQuitExcel, defaultQuitExcelOnFinish()).toBool();
-	_useCSV = settings.value(kUseCSV, defaultUseCSV()).toBool();
 
 	settings.endGroup();
 }
@@ -103,63 +99,6 @@ void UDASPreferences::saveExportLocation
 
 	settings.beginGroup(kPreferences);
 	settings.setValue(kLastExportDir, _exportLocation);
-	settings.endGroup();
-}
-
-bool UDASPreferences::defaultQuitExcelOnFinish()
-{
-	return false;
-}
-
-bool UDASPreferences::quitExcelOnFinish()
-{
-	return _quitExcelOnFinish;
-}
-
-void UDASPreferences::setQuitExcelOnFinish(bool quitState)
-{
-	_quitExcelOnFinish = quitState;
-}
-
-void UDASPreferences::saveQuitExcelOnFinish
-(
-	bool quitState
-)
-{
-	setQuitExcelOnFinish(quitState);
-
-	QByteArray applicationName = EPMPreferences::appName();
-	AlpacaSettings settings(applicationName);
-
-	settings.beginGroup(kPreferences);
-	settings.setValue(kQuitExcel, quitState);
-	settings.endGroup();
-}
-
-bool UDASPreferences::defaultUseCSV()
-{
-	return false;
-}
-
-bool UDASPreferences::useCSV()
-{
-	return _useCSV;
-}
-
-void UDASPreferences::setUseCSV(bool saveCSVState)
-{
-	_useCSV = saveCSVState;
-}
-
-void UDASPreferences::saveUseCSV(bool saveCSVState)
-{
-	setUseCSV(saveCSVState);
-
-	QByteArray applicationName = EPMPreferences::appName();
-	AlpacaSettings settings(applicationName);
-
-	settings.beginGroup(kPreferences);
-	settings.setValue(kUseCSV, _useCSV);
 	settings.endGroup();
 }
 

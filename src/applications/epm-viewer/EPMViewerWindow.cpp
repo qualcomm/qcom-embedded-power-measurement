@@ -16,11 +16,6 @@
 #include "ApplicationEnhancements.h"
 #include "Range.h"
 
-// LibExcel
-#ifdef Q_OS_WINDOWS
-	#include "QTExcel.h"
-#endif
-
 // libEPM
 #include "ColorConversion.h"
 #include "SeriesDataWindow.h"
@@ -55,15 +50,7 @@ EPMViewerWindow::EPMViewerWindow
 {
 	setupUi(this);
 
-	setWindowTitle("EPM Viewer");
-
-#ifdef Q_OS_WINDOWS
-	_excelAvailable = QTExcel::excelAvailable();
-#endif
-
-#ifdef Q_OS_LINUX
-	_excelAvailable = false;
-#endif
+	setWindowTitle("QEPM Viewer");
 
 	_channelTable->setColumns(EPMChannelTable::CurrentColumnVisible | EPMChannelTable::VoltageColumnVisible | EPMChannelTable::DataColumnVisible);
 
@@ -111,7 +98,6 @@ EPMViewerWindow::EPMViewerWindow
 	helpMenu->addAction("Contents", [&]{ startLocalBrowser(docsRoot() + "/getting-started/04-EPM-Viewer.html");});
 	helpMenu->addSeparator();
 	helpMenu->addAction("About...", this, &EPMViewerWindow::onAboutTriggered);
-	helpMenu->addAction("Rate Me...", [&]{ EPMViewerApplication::appInstance()->showRateDialog();});
 	helpMenu->addAction(QIcon(":/BugWriter.png"), "Submit Bug Report", this, &EPMViewerWindow::onSubmitBugReportTriggered);
 
 	_menuBar->addMenu(helpMenu);
@@ -483,7 +469,7 @@ void EPMViewerWindow::onPowerCheckChanged
 
 void EPMViewerWindow::onErrorEvent(const QString &errorMessage)
 {
-	QMessageBox::critical(this, "EPM Viewer error", QString("Error: %1").arg(errorMessage));
+	QMessageBox::critical(this, "QEPM Viewer error", QString("Error: %1").arg(errorMessage));
 	_channelTable->clear();
 	_powerChannelTable->clear();
 }
@@ -1167,7 +1153,6 @@ void EPMViewerWindow::on__exportButton_clicked()
 	QString exportDirectory = _preferences->exportLocation();
 	bool exportOnlyActiveItems{_preferences->exportSelectedItems()};
 	bool exportByTimespan{_preferences->useTimespan()};
-	bool exportAsCSV{_preferences->useCSV()};
 
 	HashTuples hashTuples;
 
@@ -1220,10 +1205,7 @@ void EPMViewerWindow::on__exportButton_clicked()
 			_udasFile.setExportTimeSpan(start, end);
 		}
 
-		if (_excelAvailable && exportAsCSV == false)
-			result = _udasFile.exportAsExcel(exportDirectory, hashTuples, _preferences->quitExcelOnFinish());
-		else
-			result = _udasFile.exportAsCVS(exportDirectory, hashTuples);
+		result = _udasFile.exportAsCVS(exportDirectory, hashTuples);
 
 		if (result == false)
 			errorMessage = _udasFile.lastErrorMessage();

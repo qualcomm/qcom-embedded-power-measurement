@@ -29,16 +29,6 @@ public:
 	QString exportLocation();
 	void setExportLocation(const QString& exportLocation);
 	void saveExportLocation(const QString& exportLocation);
-	
-	bool defaultQuitExcelOnFinish();
-	bool quitExcelOnFinish();
-	void setQuitExcelOnFinish(bool quitState);
-	void saveQuitExcelOnFinish(bool quitState);
-
-	bool defaultUseCSV();
-	bool useCSV();
-	void setUseCSV(bool saveCSVState);
-	void saveUseCSV(bool saveCSVState);
 
 	bool defaultUseTimespan();
 	bool useTimespan();
@@ -48,8 +38,6 @@ public:
 private:
 	bool						_exportSelectedItems;
 	QString						_exportLocation;
-	bool						_quitExcelOnFinish;
-	bool						_useCSV{false};
 	bool						_timespan{false};
 };
 
