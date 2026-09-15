@@ -286,7 +286,6 @@
     <addaction name="_actionContents"/>
     <addaction name="separator"/>
     <addaction name="_actionAbout"/>
-    <addaction name="_actionRateMe"/>
     <addaction name="_actionSubmitBugReport"/>
    </widget>
    <addaction name="menuFile"/>
@@ -323,14 +322,6 @@
    </property>
    <property name="toolTip">
     <string>About EPM Scope</string>
-   </property>
-  </action>
-  <action name="_actionRateMe">
-   <property name="text">
-    <string>Rate me...</string>
-   </property>
-   <property name="toolTip">
-    <string>Rate the application</string>
    </property>
   </action>
   <action name="_actionSubmitBugReport">

@@ -5,17 +5,13 @@ include(${CMAKE_SOURCE_DIR}/src/libraries/qcommon-console/Common.cmake)
 
 qepm_set_library_name(QCommon)
 
-qt_add_resources(QCOMMON_RESOURCES
-    resources/QCResource.qrc
-)
-
 qt_add_library(${LIBRARY_NAME} STATIC
     AboutDialog.cpp AboutDialog.h AboutDialog.ui
     QEPMApplication.cpp QEPMApplication.h
     ApplicationEnhancements.cpp ApplicationEnhancements.h
     ColorSwatch.cpp ColorSwatch.h
     CustomComboBox.h
-    HappinessDialog.cpp HappinessDialog.h HappinessDialog.ui
+
     IntFilteredEditor.cpp IntFilteredEditor.h
     PainterEffects.cpp PainterEffects.h
     ProgressDialog.cpp ProgressDialog.h ProgressDialog.ui
@@ -24,8 +20,6 @@ qt_add_library(${LIBRARY_NAME} STATIC
     StyledLabel.cpp StyledLabel.h
     TableCheckBox.cpp TableCheckBox.h
     TableComboBox.cpp TableComboBox.h
-
-    ${QCOMMON_RESOURCES}
 )
 
 set_target_properties(${LIBRARY_NAME} PROPERTIES

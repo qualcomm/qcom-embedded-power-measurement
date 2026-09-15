@@ -45,7 +45,6 @@ private slots:
 	void on__actionAbout_triggered();
 	void on__actionContents_triggered();
 	void on__actionQuit_triggered();
-	void on__actionRateMe_triggered();
 	void on__actionSubmitBugReport_triggered();
 
 	void on__scanDevices_clicked();
