@@ -1,29 +1,5 @@
-// Confidential and Proprietary Qualcomm Technologies, Inc.
-
-// NO PUBLIC DISCLOSURE PERMITTED:  Please report postings of this software on public servers or websites
-// to: DocCtrlAgent@qualcomm.com.
-
-// RESTRICTED USE AND DISCLOSURE:
-// This software contains confidential and proprietary information and is not to be used, copied, reproduced, modified
-// or distributed, in whole or in part, nor its contents revealed in any manner, without the express written permission
-// of Qualcomm Technologies, Inc.
-
-// Qualcomm is a trademark of QUALCOMM Incorporated, registered in the United States and other countries. All
-// QUALCOMM Incorporated trademarks are used with permission.
-
-// This software may be subject to U.S. and international export, re-export, or transfer laws.  Diversion contrary to U.S.
-// and international law is strictly prohibited.
-
-// Qualcomm Technologies, Inc.
-// 5775 Morehouse Drive
-// San Diego, CA 92121 U.S.A.
-// Copyright 2025 Qualcomm Technologies, Inc.
-// All rights reserved.
-// Qualcomm Technologies Confidential and Proprietary
-
-/*
-	Author: Biswajit Roy (biswroy@qti.qualcomm.com)
-*/
+// Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+// SPDX-License-Identifier: BSD-3-Clause
 
 #include "EPMDeviceModel.h"
 
@@ -33,7 +9,7 @@
 #include "Range.h"
 
 // PowerChart
-#include "AlpacaChartLive.h"
+#include "QEPMChartLive.h"
 
 // Qt
 #include <QComboBox>
@@ -42,13 +18,11 @@
 #include <QMessageBox>
 #include <QPushButton>
 
-
 const QByteArray kDefaultPropsTip(QByteArrayLiteral("Scan & select device to view properties"));
 const QByteArray kDefaultDeviceSelection(QByteArrayLiteral("<scan to update list>"));
 const QByteArray kDefaultPlatformSelection(QByteArrayLiteral("<choose configuration>"));
 const QByteArray kModelId(QByteArrayLiteral("Id"));
 const int kDefaultDeviceIndex(0);
-
 
 EPMDeviceModel::EPMDeviceModel(EPMScopePreferences *preferences)
 {
@@ -435,16 +409,16 @@ void EPMDeviceModel::record(MicroEpmChannelData* channelData, quint32 sampleCoun
 				if (pSample->_channelType == MICRO_EPM_CHANNEL_TYPE_CURRENT ||
 					pSample->_channelType == MICRO_EPM_CHANNEL_TYPE_VOLTAGE)
 				{
-					AlpacaChartLive* alpacaChartLive{Q_NULLPTR};
+					QEPMChartLive* QEPMChartLive{Q_NULLPTR};
 
 					switch (pSample->_channelType)
 					{
 					case MICRO_EPM_CHANNEL_TYPE_CURRENT:
-						alpacaChartLive = _currentChart;
+						QEPMChartLive = _currentChart;
 						break;
 
 					case MICRO_EPM_CHANNEL_TYPE_VOLTAGE:
-						alpacaChartLive = _voltageChart;
+						QEPMChartLive = _voltageChart;
 						value /= 1000.0;
 						break;
 
@@ -452,12 +426,12 @@ void EPMDeviceModel::record(MicroEpmChannelData* channelData, quint32 sampleCoun
 						break;
 					}
 
-					if (alpacaChartLive != Q_NULLPTR)
+					if (QEPMChartLive != Q_NULLPTR)
 					{
 						quint32 channel = pSample->_channel;
 
 						if (channel < MAX_NUM_ADC_CHANNELS)
-							alpacaChartLive->logSample(channel, value, pSample->_timeStamp);
+							QEPMChartLive->logSample(channel, value, pSample->_timeStamp);
 					}
 				}
 			}
@@ -487,7 +461,6 @@ void EPMDeviceModel::startRecord()
 		int wgtId = wgt->property(kModelId).toInt();
 		EPMProject epmProject = _tableMap.value(wgt);
 		EPMChannelTable* cht = wgt->findChild<EPMChannelTable*>();
-
 
 		AppCore::writeToApplicationLog(QString("Starting Acquisition: %1\n").arg(epmProject->target()));
 		AppCore::writeToApplicationLog(QString("   ") + QDateTime::currentDateTime().toString() + "\n");
