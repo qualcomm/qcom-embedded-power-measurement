@@ -44,7 +44,3 @@ CONFIG(debug, debug|release) {
 } else {
 	LIBS += -L$$STATIC_LIBPATH -lEPMLib -lQCommonConsole
 }
-
-win32 {
-	LIBS += -lLibExcel
-}

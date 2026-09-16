@@ -12,7 +12,6 @@ qt_standard_project_setup()
 
 add_subdirectory(qcommon-console)
 add_subdirectory(qcommon)
-add_subdirectory(libexcel)
 add_subdirectory(epmlib)
 add_subdirectory(ui-common)
 add_subdirectory(powerchart)
