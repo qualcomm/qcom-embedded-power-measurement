@@ -7,7 +7,6 @@
 
 // QCommonConsole
 #include "KratosMapping.h"
-#include "MathFunctions.h"
 #include "Range.h"
 #include "TickCount.h"
 
