@@ -14,8 +14,8 @@
    <string>QEPM Scope</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="Resources/QEPMScope.qrc">
-    <normaloff>:/QEPMScope.ico</normaloff>:/QEPMScope.ico</iconset>
+   <iconset resource="Resources/AlpacaScope.qrc">
+    <normaloff>:/AlpacaScope.ico</normaloff>:/AlpacaScope.ico</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
@@ -67,6 +67,16 @@
       <property name="sizeConstraint">
        <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
       </property>
+      <item>
+       <widget class="QCheckBox" name="_markerCheckBox">
+        <property name="toolTip">
+         <string>Gate acquisition on a hardware pulse. When enabled, data and timer start on a marker pulse.</string>
+        </property>
+        <property name="text">
+         <string>Marker measurements</string>
+        </property>
+       </widget>
+      </item>
       <item>
        <spacer name="horizontalSpacer">
         <property name="orientation">
@@ -325,7 +335,7 @@
   </action>
   <action name="_actionSubmitBugReport">
    <property name="icon">
-    <iconset resource="Resources/QEPMScope.qrc">
+    <iconset resource="Resources/AlpacaScope.qrc">
      <normaloff>:/BugWriter.png</normaloff>:/BugWriter.png</iconset>
    </property>
    <property name="text">
@@ -348,7 +358,7 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="Resources/QEPMScope.qrc"/>
+  <include location="Resources/AlpacaScope.qrc"/>
  </resources>
  <connections/>
 </ui>

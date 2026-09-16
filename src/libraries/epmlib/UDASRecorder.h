@@ -29,7 +29,7 @@ public:
 
 	void logRaw(UDASChannelRecording& channelRecording, const MicroEpmChannelData& channelData);
 
-	virtual void startRecording();
+	virtual bool startRecording();
 	virtual void stopRecording();
 	virtual void recordData(MicroEpmChannelData* channelData, quint32 sampleCount);
 
@@ -38,8 +38,6 @@ private:
 	QString						_resultsFolder;
 	UDASChannelRecording		_chanRecordings[MICRO_EPM_MAX_NUMBER_CHANNELS];
 	UDASFile					_udasFile;
-	uint64_t					u64TimestampStart;
-	uint64_t					u64TimestampStop;
 
 	bool						_record = false;
 };

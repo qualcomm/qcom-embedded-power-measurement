@@ -1066,8 +1066,8 @@ void UDASFile::writeDataSetHeader()
 	CountingStream countingStream;
 
 	countingStream << kUDASHeaderVersionStrLen;
-	countingStream << static_cast<quint8>('6');
 	countingStream << static_cast<quint8>('v');
+	countingStream << static_cast<quint8>('6');
 	countingStream << kUDASHeaderLen;
 
 	countingStream.writeRawData(Q_NULLPTR, kDateFieldLength);

@@ -227,6 +227,12 @@ bool _EPMProject::getCurrentChannelState
 	return result;
 }
 
+bool _EPMProject::setHardwareTrigger(bool enabled)
+{
+    _epmRun.setDevice(_epmDevice);
+    return _epmRun.setMarkerTrigger(enabled);
+}
+
 bool _EPMProject::setCurrentChannelState
 (
 	HashType channelHash,

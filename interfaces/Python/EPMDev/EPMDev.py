@@ -390,6 +390,15 @@ class EPMDevice:
         if result != NO_EPM_ERROR:
             raise RuntimeError(f"Error: SetVoltageChannelState returned: {GetErrorString(result)}. Error code: {result}.")
 
+    def SetHardwareTrigger(self, enabled: bool) -> None:
+        """
+        Enables or disables the hardware pulse trigger.
+        :param enabled: True to enable the trigger, False to disable.
+        """
+        result = self.__setHardwareTriggerFunc(self.__epmHandle, enabled)
+        if result != NO_EPM_ERROR:
+            raise RuntimeError(f"Error: SetHardwareTrigger returned: {GetErrorString(result)}. Error code: {result}.")
+
     def SetRuntimeConfig(self, runtimeFileConfigPath) -> None:
         """
         Sets the file path for the runtime config file (.rcnf)
@@ -470,6 +479,7 @@ class EPMDevice:
             self.__setCurrentChannelStateFunc = epmLibrary.SetCurrentChannelState
             self.__getVoltageChannelStateFunc = epmLibrary.GetVoltageChannelState
             self.__setVoltageChannelStateFunc = epmLibrary.SetVoltageChannelState
+            self.__setHardwareTriggerFunc = epmLibrary.SetHardwareTrigger
 
             self.__uuidFunc = epmLibrary.GetUUID
             self.__acquireFunc = epmLibrary.Acquire

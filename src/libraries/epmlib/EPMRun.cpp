@@ -6,6 +6,9 @@
 #include "EPMPreferences.h"
 
 // QCommonConsole
+#include "KratosMapping.h"
+#include "MathFunctions.h"
+#include "Range.h"
 #include "TickCount.h"
 
 //Qt
@@ -93,6 +96,19 @@ void EPMRun::removeChannel
 	{
 		log(QString("getEPMDevice %1 == null\n").arg(removeMe->index()));
 	}
+}
+
+bool EPMRun::setMarkerTrigger(bool state)
+{
+    bool result{false};
+
+    if (_epmDevice.isNull() == false)
+    {
+        _epmDevice->setMarkerTrigger(state);
+        result = true;
+    }
+
+    return result;
 }
 
 void EPMRun::acquire()
@@ -230,4 +246,3 @@ EPMDevice EPMRun::getEPMDevice
 	
 	return epmDevice;
 }
-

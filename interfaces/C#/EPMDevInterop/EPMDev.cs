@@ -431,6 +431,16 @@ namespace EPMDevInterop
 		}
 
 		[DllImport("EPMDev.dll")]
+		private static extern uint SetHardwareTrigger(uint epmHandle, bool enabled);
+
+		public void SetHardwareTrigger(bool enabled)
+		{
+			uint epmResult = SetHardwareTrigger(_epmHandle, enabled);
+			if (epmResult == EPM_BAD_EPM_HANDLE)
+				throw new EPMException("Bad EPM Handle");
+		}
+
+		[DllImport("EPMDev.dll")]
 		private static extern uint SetTemporaryResultsFolder(uint epmHandle, String resultsFolder);
 
 		public void SetTemporaryResultsFolder(String resultsFolder)
