@@ -116,18 +116,6 @@ function(qepm_add_version_info target_name description version)
     target_sources(${target_name} PRIVATE "${_rc_out}")
 endfunction()
 
-function(qepm_deploy_qt target_name)
-    if(WIN32 AND WINDEPLOYQT_EXECUTABLE)
-        add_custom_command(TARGET ${target_name} POST_BUILD
-            COMMAND "${WINDEPLOYQT_EXECUTABLE}"
-                    --$<IF:$<CONFIG:Debug>,debug,release>
-                    --no-translations
-                    "$<TARGET_FILE:${target_name}>"
-            VERBATIM
-        )
-    endif()
-endfunction()
-
 function(QCommonConsoleSettings target_name)
     target_compile_definitions(${target_name} PRIVATE ${QCOMMONCONSOLE_DEFINITIONS})
     if(UNIX AND QCOMMONCONSOLE_CXX_FLAGS)
