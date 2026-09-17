@@ -515,19 +515,19 @@ namespace EPMDevInterop
 					break;
 
 				case EPM_BAD_EPM_HANDLE:
-					throw new EPMException("Bad EPM Handle");
+					throw new EPMException("Bad QEPM Handle");
 
 				case EPM_BUFFER_TOO_SMALL:
-					throw new EPMException("EPM Buffer Too Small");
+					throw new EPMException("QEPM Buffer Too Small");
 
 				case EPM_CMD_NOT_FOUND:
-					throw new EPMException("EPM Command Not Found");
+					throw new EPMException("QEPM Command Not Found");
 
 				case EPM_BAD_INDEX:
-					throw new EPMException("EPM Bad Index");
+					throw new EPMException("QEPM Bad Index");
 
 				default:
-					throw new EPMException("EPM Error: " + epmResult);
+					throw new EPMException("QEPM Error: " + epmResult);
 			}
 		}
 

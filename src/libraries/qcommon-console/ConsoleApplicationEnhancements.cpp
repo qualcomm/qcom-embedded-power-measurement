@@ -63,7 +63,7 @@ QString documentsDataPath
 		appName = "QEPM";
 
 #ifdef Q_OS_WIN
-	// QStandardPaths would return the "One Drive" location. Excel documents don't like living here
+	// QStandardPaths would return the "One Drive" location. CSV documents don't like living here
 	result = QDir::homePath() + QDir::separator() + "Documents";
 #else
 	result = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
