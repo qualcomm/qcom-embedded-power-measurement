@@ -112,6 +112,19 @@ if (Test-Path (Join-Path $SourceRoot 'examples')) {
 
 $interfacesDest = Join-Path $data 'interfaces'
 New-Item -ItemType Directory -Force -Path $interfacesDest | Out-Null
+# C++ integrator headers (no compiled library -- consumers build against these
+# directly). Matches PROD parity: PROD ships interfaces\C++\{EPMDev,UDASDev}\ headers.
+foreach ($cppMod in @('EPMDev', 'UDASDev')) {
+    $cppHeaderSrc = Join-Path $SourceRoot "interfaces\C++\$cppMod"
+    if (Test-Path $cppHeaderSrc) {
+        $cppHeaderDest = Join-Path $interfacesDest "C++\$cppMod"
+        New-Item -ItemType Directory -Force -Path $cppHeaderDest | Out-Null
+        Copy-Item (Join-Path $cppHeaderSrc '*.h') $cppHeaderDest -Force
+    } else {
+        Write-Warning "No interfaces\C++\$cppMod directory found; C++ headers will be absent from the installer."
+    }
+}
+
 foreach ($lang in @('Python', 'C#')) {
     $srcLang = Join-Path $SourceRoot "interfaces\$lang"
     if (Test-Path $srcLang) {
