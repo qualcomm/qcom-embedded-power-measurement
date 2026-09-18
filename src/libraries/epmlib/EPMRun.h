@@ -51,6 +51,8 @@ public:
 	void addChannel(EPMChannel addMe);
 	void removeChannel(EPMChannel removeMe);
 
+    bool setMarkerTrigger(bool state);
+
 	// snapshot
     void acquire();
 

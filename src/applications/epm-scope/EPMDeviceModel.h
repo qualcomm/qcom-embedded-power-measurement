@@ -59,6 +59,8 @@ public:
 	void startRecord();
 	void stopRecord();
 
+	void setHardwareTrigger(bool enabled);
+
 signals:
 	void scanDevices();
 	void recordState(bool state);
@@ -87,6 +89,8 @@ private:
 
 	QMap<QHBoxLayout*, EPMDevice>				_layoutMap;
 	QMap<QWidget*, EPMProject>					_tableMap;
+
+	bool										_hwTrigEnabled{false};
 
 	QIcon										_propsIcon;
 

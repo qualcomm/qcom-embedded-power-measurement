@@ -5,7 +5,6 @@
 #include "AlpacaDefines.h"
 #include "ApplicationEnhancements.h"
 #include "ConsoleApplicationEnhancements.h"
-#include "HappinessDialog.h"
 #include "QuitAppEvent.h"
 
 // Qt
@@ -60,67 +59,6 @@ bool QEPMApplication::initialize(PreferencesBase *preferencesBase)
 QEPMApplication* QEPMApplication::QEPMAppinstance()
 {
 	return qobject_cast<QEPMApplication*>(QCoreApplication::instance());
-}
-
-bool QEPMApplication::readyToRate()
-{
-	bool result{false};
-
-	QSettings AlpacaSettings;
-
-	bool rated = AlpacaSettings.value("rated", false).toBool();
-	if (rated)
-	{
-		QDate lastRate = AlpacaSettings.value("lastRating", QDate()).toDate();
-		if (lastRate.isValid())
-		{
-			lastRate = lastRate.addDays(30);
-
-			if (lastRate <= QDate::currentDate())
-				result = true;
-		}
-		else
-		{
-			AlpacaSettings.setValue("lastRating", QDate::currentDate());
-		}
-	}
-	else
-	{
-		AlpacaSettings.setValue("rated", true);
-		AlpacaSettings.setValue("lastRating", QDate::currentDate());
-	}
-
-	return result;
-}
-
-void QEPMApplication::showRateDialog()
-{
-	HappinessDialog happinessDialog(Q_NULLPTR);
-
-	if (happinessDialog.exec() == QDialog::Accepted)
-	{
-		HappinessRating rating = happinessDialog.getRating();
-
-		QByteArray ratingString = "Rating";
-
-		double value{.0};
-
-		switch (rating)
-		{
-		case eNotSet: break;
-		case eDissatisfied: value = 1.0; break;
-		case eUnhappy: value = 2.0; break;
-		case eSatisfied: value = 3.0; break;
-		case eHappy: value = 4.0; break;
-		case eLove: value = 5.0; break;
-		}
-
-		_appCore->postMetric(ratingString, value);
-	}
-
-	QSettings AlpacaSettings;
-
-	AlpacaSettings.setValue("lastRating", QDate::currentDate());
 }
 
 void QEPMApplication::cleanupLogs()

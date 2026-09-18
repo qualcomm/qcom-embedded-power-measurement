@@ -7,7 +7,7 @@ qt_add_resources(EPM_RESOURCES
     resources/EPM.qrc
 )
 
-qt_add_executable(EPM
+qt_add_executable(EPM WIN32
     EPMApplication.cpp EPMApplication.h
     EPMWindow.cpp EPMWindow.h EPMWindow.ui
     PreferencesDialog.cpp PreferencesDialog.h PreferencesDialog.ui
@@ -52,4 +52,11 @@ target_link_libraries(EPM PRIVATE
     QEPM::UI
 )
 
-qepm_deploy_qt(EPM)
+if(WIN32 AND WINDEPLOYQT_EXECUTABLE)
+    add_custom_command(TARGET EPM POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E echo "Deploying Qt libraries..."
+        COMMAND ${WINDEPLOYQT_EXECUTABLE} --no-translations --compiler-runtime --dir $<TARGET_FILE_DIR:EPM> $<TARGET_FILE:EPM>
+        COMMENT "Running windeployqt..."
+    )
+endif()
+

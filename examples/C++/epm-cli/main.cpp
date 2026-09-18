@@ -12,6 +12,7 @@ wchar_t	gDeviceName[1024];
 #include "Range.h"
 
 // Qt
+#include <QCoreApplication>
 #include <QList>
 #include <QString>
 #include <QStringList>
@@ -31,8 +32,7 @@ typedef QList<EPMDeviceDesc> EPMDeviceDescriptors;
 
 int main(int argc, char* argv[])
 {
-	(void) argc;
-	(void) argv;
+	QCoreApplication a(argc, argv);
 
 	char temp[1024];
 
@@ -51,7 +51,7 @@ int main(int argc, char* argv[])
 
 	result = GetEPMVersion(temp, sizeof(temp));
 	if (result == NO_EPM_ERROR)
-		std::cout << "EPM Version: " << temp << std::endl;
+		std::cout << "QEPM Version: " << temp << std::endl;
 
 	int deviceCount;
 	result = GetDeviceCount(&deviceCount);

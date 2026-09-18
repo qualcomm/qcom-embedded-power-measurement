@@ -51,7 +51,7 @@ CompileFileDialog::CompileFileDialog
 	if (lastPath.isEmpty() == false)
 		setDirectory(lastPath);
 	setFileMode(QFileDialog::AnyFile);
-	setNameFilter("EPM Configuration File (*.conf)");
+	setNameFilter("QEPM Configuration File (*.conf)");
 	setAcceptMode(QFileDialog::AcceptSave);
 
 	QGridLayout* dialogLayout = qobject_cast<QGridLayout*>(layout());

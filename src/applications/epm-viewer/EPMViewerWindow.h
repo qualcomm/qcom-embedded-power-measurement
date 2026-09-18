@@ -129,7 +129,6 @@ private:
 	QMenu*						_recentFilesMenu{Q_NULLPTR};
 	QStatusBar*					_statusBar{Q_NULLPTR};
 
-	bool						_excelAvailable{false};
 	qreal						_totalAverageCurrent{0.0};
 };
 

@@ -14,7 +14,6 @@
 // Qt
 #include <QDir>
 
-const QString kDefaultPlatformPath(epmConfigRoot());
 const QString kDefaultRuntimeConfigPath(QStringLiteral("/Runtime Configurations"));
 const QString kDefaultOutputPath(QStringLiteral("/Results"));
 const QString kDefaultLogPath(QStringLiteral("/EPM/Logs"));
@@ -45,7 +44,7 @@ void EPMPreferences::setAppName
 
 QString EPMPreferences::defaultPlatformPath()
 {
-	return QDir::cleanPath(kDefaultPlatformPath);
+	return QDir::cleanPath(epmConfigRoot());
 }
 
 QString EPMPreferences::platformPath()

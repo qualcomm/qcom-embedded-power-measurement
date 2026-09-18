@@ -68,6 +68,16 @@
        <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
       </property>
       <item>
+       <widget class="QCheckBox" name="_markerCheckBox">
+        <property name="toolTip">
+         <string>Gate acquisition on a hardware pulse. When enabled, data and timer start on a marker pulse.</string>
+        </property>
+        <property name="text">
+         <string>Marker measurements</string>
+        </property>
+       </widget>
+      </item>
+      <item>
        <spacer name="horizontalSpacer">
         <property name="orientation">
          <enum>Qt::Orientation::Horizontal</enum>
@@ -276,7 +286,6 @@
     <addaction name="_actionContents"/>
     <addaction name="separator"/>
     <addaction name="_actionAbout"/>
-    <addaction name="_actionRateMe"/>
     <addaction name="_actionSubmitBugReport"/>
    </widget>
    <addaction name="menuFile"/>
@@ -313,14 +322,6 @@
    </property>
    <property name="toolTip">
     <string>About EPM Scope</string>
-   </property>
-  </action>
-  <action name="_actionRateMe">
-   <property name="text">
-    <string>Rate me...</string>
-   </property>
-   <property name="toolTip">
-    <string>Rate the application</string>
    </property>
   </action>
   <action name="_actionSubmitBugReport">

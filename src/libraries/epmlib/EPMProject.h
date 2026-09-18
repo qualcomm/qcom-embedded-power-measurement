@@ -50,6 +50,7 @@ public:
 
 	bool getCurrentChannelState(HashType channelHash, bool& active, bool& saveRaw);
 	bool setCurrentChannelState(HashType channelHash, bool active, bool saveRaw = false);
+	bool setHardwareTrigger(bool enabled);
 
 	bool getVoltageChannelState(HashType channelHash, bool& active, bool& saveRaw);
 	bool setVoltageChannelState(HashType channelHash, bool active, bool saveRaw = false);

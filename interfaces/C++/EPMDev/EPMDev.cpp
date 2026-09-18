@@ -410,6 +410,32 @@ EPM_RESULT SetCurrentChannelState
 	return result;
 }
 
+EPM_RESULT SetHardwareTrigger
+(
+	EPM_HANDLE epmHandle,
+	bool enabled
+)
+{
+	EPM_RESULT result{NO_EPM_ERROR};
+
+    EPMDevice epmDevice = gDevEPMCore.getEPMDevice(epmHandle);
+    if (epmDevice.isNull() == false)
+    {
+        EPMProject epmProject =gDevEPMCore.getEPMProject(epmHandle);
+        if (epmProject.isNull() == false)
+        {
+            epmProject->setEPMDevice(epmDevice);
+            epmProject->setHardwareTrigger(enabled);
+        }
+	}
+	else
+	{
+		result = EPM_BAD_EPM_HANDLE;
+	}
+
+	return result;
+}
+
 EPM_RESULT GetVoltageChannelState
 (
 	EPM_HANDLE epmHandle,
@@ -609,4 +635,3 @@ EPM_RESULT WriteToAppLog(const char *logText)
 
 	return NO_EPM_ERROR;
 }
-

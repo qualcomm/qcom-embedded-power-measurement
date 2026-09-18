@@ -118,8 +118,6 @@ void UDASChannelRecording::logSample
 		{
 			_max = physical;
 		}
-
-		u64TimestampStop = uRawTimestamp;
 	}
 
 	uNumSamples++;

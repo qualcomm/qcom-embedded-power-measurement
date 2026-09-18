@@ -7,7 +7,7 @@ qt_add_resources(EPMVIEWER_RESOURCES
     resources/QEPMViewer.qrc
 )
 
-qt_add_executable(EPMViewer
+qt_add_executable(EPMViewer WIN32
     EPMViewerApplication.cpp EPMViewerApplication.h
     EPMViewerDefines.h
     EPMViewerWindow.cpp EPMViewerWindow.h EPMViewerWindow.ui
@@ -51,5 +51,3 @@ target_link_libraries(EPMViewer PRIVATE
     QEPM::PowerChart
     QEPM::UI
 )
-
-qepm_deploy_qt(EPMViewer)

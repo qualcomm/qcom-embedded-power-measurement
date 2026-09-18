@@ -43,7 +43,6 @@ protected slots:
 	void onActionRecentMenuTriggered();
 	void on_actionSave_triggered();
 	void on_actionSave_As_triggered();
-	void on_actionImport_Excel_Template_triggered();
 	void on_actionExit_triggered();
 	void on_actionAdd_Channel_triggered();
 	void on_actionDelete_Channel_triggered();
@@ -79,7 +78,6 @@ private:
 
 	bool open();
 
-	bool importExcel();
 	bool save();
 	bool saveAs();
 

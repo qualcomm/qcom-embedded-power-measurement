@@ -48,7 +48,6 @@ qt_add_library(${LIBRARY_NAME} STATIC
     EpmVersionInfo.h
     KratosMapping.cpp KratosMapping.h
     PRNFile.cpp PRNFile.h
-    QTExcel.h
     RecordingInferface.h
     SPMVersion.h
     TargetInfo.h
@@ -79,7 +78,6 @@ target_link_libraries(${LIBRARY_NAME} PUBLIC
     Qt6::Core
     QEPM::QCommon
     QEPM::QCommonConsole
-    QEPM::LibExcel
 )
 
 if(WIN32)

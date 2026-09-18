@@ -63,7 +63,7 @@ QString documentsDataPath
 		appName = "QEPM";
 
 #ifdef Q_OS_WIN
-	// QStandardPaths would return the "One Drive" location. Excel documents don't like living here
+	// QStandardPaths would return the "One Drive" location. CSV documents don't like living here
 	result = QDir::homePath() + QDir::separator() + "Documents";
 #else
 	result = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
@@ -306,6 +306,18 @@ QString epmConfigRoot()
 
 		dir.cdUp();
 	}
+
+	QString result;
+
+#ifdef Q_OS_WIN
+	result = "C:/ProgramData/Qualcomm/QEPM/configurations";
+#endif
+#ifdef Q_OS_LINUX
+	result = "/var/lib/qcom/data/QEPM/configurations";
+#endif
+
+	if (!result.isEmpty() && QDir(result).exists())
+		return QDir::cleanPath(result);
 
 	return QDir::cleanPath(QCoreApplication::applicationDirPath() + "/configurations");
 }

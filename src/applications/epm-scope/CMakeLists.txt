@@ -7,7 +7,7 @@ qt_add_resources(EPMSCOPE_RESOURCES
     resources/QEPMScope.qrc
 )
 
-qt_add_executable(EPMScope
+qt_add_executable(EPMScope WIN32
     DevicePropertiesDialog.cpp DevicePropertiesDialog.h DevicePropertiesDialog.ui
     EPMDeviceModel.cpp EPMDeviceModel.h
     EPMScopeApplication.cpp EPMScopeApplication.h
@@ -55,5 +55,3 @@ target_link_libraries(EPMScope PRIVATE
     QEPM::PowerChart
     QEPM::UI
 )
-
-qepm_deploy_qt(EPMScope)
