@@ -38,8 +38,8 @@ def main() :
 						platformAttributes = platformDesc.split(";")
 						print("   Platform:", platformAttributes[0], " Path: " , platformAttributes[1])
 
-					epmDevice.SetPlatform("MTP8450")
-					epmDevice.SetRuntimeConfig(r"C:\QEPM\Examples\data\SM8450_Battery.rcnf")
+					epmDevice.SetPlatform("MTP8975_Offset-PoP_DEFAULT_2")
+					epmDevice.SetRuntimeConfig(r"C:\QEPM\Examples\data\SM8975_Battery.rcnf")
 
 					channelIndex = 0
 					channelCount = epmDevice.GetChannelCount()
@@ -51,7 +51,9 @@ def main() :
 							"voltage: ", epmDevice.GetVoltageChannelState(hash))
 						channelIndex += 1
 
-					epmDevice.Acquire(4.0)
+					epmDevice.SetHardwareTrigger(True)
+					epmDevice.Acquire(10.0)
+					epmDevice.SetHardwareTrigger(False)
 
 					epmDevice.Close()
 				except RuntimeError as error :

@@ -24,6 +24,7 @@
 
 const QByteArray kDefaultDeviceItem("<scan devices to update list>");
 
+
 EPMScopeWindow:: EPMScopeWindow(EPMScopePreferences* preferences, QWidget* parent) :
 	QMainWindow(parent),
 	_preferences(preferences),
@@ -31,7 +32,7 @@ EPMScopeWindow:: EPMScopeWindow(EPMScopePreferences* preferences, QWidget* paren
 {
 	setupUi(this);
 
-	setWindowTitle("EPM Scope");
+	setWindowTitle(kAppName);
 
 	_currentChart->setYTitle("Current (mA)");
 	_currentChart->setYRange(-5, 5);
@@ -100,9 +101,9 @@ void  EPMScopeWindow::shutDown()
 	EPMScopeApplication::removeScopeWindow(this);
 }
 
-void  EPMScopeWindow::startRecording()
+bool  EPMScopeWindow::startRecording()
 {
-
+	return true;
 }
 
 void  EPMScopeWindow::stopRecording()
@@ -145,6 +146,8 @@ void  EPMScopeWindow::setupRecordState(bool status)
 {
 	_recording = status;
 
+	_markerCheckBox->setEnabled(!status);
+
 	if (status)
 	{
 		_recordBtn->setIcon(_stopIcon);
@@ -163,6 +166,13 @@ void  EPMScopeWindow::setupRecordState(bool status)
 
 		_epmChannelTabWidget->setEnabled(true);
 	}
+}
+
+void  EPMScopeWindow::on__markerCheckBox_toggled(bool checked)
+{
+	_model.setHardwareTrigger(checked);
+
+	AppCore::writeToApplicationLog(QString("Marker measurements %1\n").arg(checked ? "enabled (pins 38/39)" : "disabled"));
 }
 
 void  EPMScopeWindow::on__recordBtn_clicked()
@@ -242,21 +252,16 @@ void EPMScopeWindow::on__actionQuit_triggered()
 	QCoreApplication::instance()->exit();
 }
 
-void EPMScopeWindow::on__actionRateMe_triggered()
-{
-	EPMScopeApplication::appInstance()->showRateDialog();
-}
-
 void EPMScopeWindow::on__actionSubmitBugReport_triggered()
 {
 #ifdef Q_OS_LINUX
-	QString program = "/opt/qcom/QEPM/bin/BugWriter"; // Linux Sucks
+	QString program = "/opt/qcom/Alpaca/bin/BugWriter"; // Linux Sucks
 #else
 	QString program = "BugWriter";
 #endif
 
 	QStringList arguments;
-	arguments << "product:QEPM";
+	arguments << "product:Alpaca";
 	arguments << "prodversion:" + kProductVersion;
 	arguments << "application:" + windowTitle();
 	arguments << "appversion:" + kAppVersion;

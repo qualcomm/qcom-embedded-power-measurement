@@ -23,10 +23,8 @@ The preferences window for EPM viewer lets you customize logging and export pref
 
 **Q. The legends for the graphs are black. I cannot see the graphs properly.**
 
-A. Please re-record the sample and try viewing again on the same version of EPM used for
-recording the data.
+A. Update the debug board firmware to the latest and update the version of QEPM to latest. And, re-record the sample. 
 
 **Q. Nothing is exported when I try to export power, voltage or current data. Why?**
 
-A. EPM Viewer defaults to excel format for exports. If you do not have excel installed on the
-machine, you may export to `csv` format by setting the export to `csv` in the preferences window.
+A. Make sure channels to be exported are selected. Then, retry exporting. EPM Viewer should generate a CSV output for selected channels.

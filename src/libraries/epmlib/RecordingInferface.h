@@ -19,7 +19,7 @@ public:
 		_epmDevice = epmDevice;
 	}
 
-	virtual void startRecording() = 0;
+	virtual bool startRecording() = 0;
 	virtual void stopRecording() = 0;
 	virtual void recordData(MicroEpmChannelData* channelData, quint32 uNumSamples) = 0;
 

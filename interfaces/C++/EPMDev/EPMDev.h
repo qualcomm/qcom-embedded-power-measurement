@@ -68,6 +68,7 @@ extern "C" {
 
 	EPMDEV_EXPORT EPM_RESULT GetCurrentChannelState(EPM_HANDLE epmHandle, unsigned long long channelHash, bool* active, bool* saveRaw);
 	EPMDEV_EXPORT EPM_RESULT SetCurrentChannelState(EPM_HANDLE epmHandle, unsigned long long channelHash, bool active, bool saveRaw);
+	EPMDEV_EXPORT EPM_RESULT SetHardwareTrigger(EPM_HANDLE epmHandle, bool enabled);
 
 	EPMDEV_EXPORT EPM_RESULT GetVoltageChannelState(EPM_HANDLE epmHandle, unsigned long long channelHash, bool* active, bool* saveRaw);
 	EPMDEV_EXPORT EPM_RESULT SetVoltageChannelState(EPM_HANDLE epmHandle, unsigned long long channelHash, bool active, bool saveRaw);

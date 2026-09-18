@@ -51,5 +51,3 @@ target_link_libraries(EPMViewer PRIVATE
     QEPM::PowerChart
     QEPM::UI
 )
-
-qepm_deploy_qt(EPMViewer)

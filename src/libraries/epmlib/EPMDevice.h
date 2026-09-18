@@ -78,7 +78,6 @@ public:
 	static EPMDevice deviceByName(const QString& name, const EPMDevices& epmDevices);
 	static void addDevice(EPMDevice& epmDevice);
 	static bool initializeDevice(EPMDevice& epmDevice);
-	void getNumBusesAndAdcMasks();
 
 	QString connectionStatus()
 	{
@@ -94,7 +93,6 @@ public:
 	void enterSecureMode();
 	void verifyTriggeredModeInput();
 
-	static quint32 countNumberOfSpmBoards();
 
 	void sendHelloCommand();
 
@@ -104,13 +102,14 @@ public:
 	// Channel Commands
 	void sendEnableDisable();
 
+	void setMarkerTrigger(bool enabled);
+
 	// Buffered Data
 	void clearBuffer();
 	void pauseAdcConversions(bool throwsException = true);
 	void unpauseAdcConversions(bool throwsException = true);
 
 	// GPIO
-	void setGpioDrive_3(GpioPin gpioChannel, GpioDrive drive);
 	MicroEpmGpioValue getGpioValue(GpioPin gpioChannel);
 
 	// Eeprom
@@ -139,7 +138,8 @@ public:
 	//MicroEpmError MakeSetChannelSwitchDelayCommand(quint8* pBuffer, quint8 length, quint8 device, quint32 uDelay);
 
 	// Channel Config - SPMv4
-	quint32 getPlatformID();
+	PlatformID getPlatformID();
+
 
 	/**
 	  Used to signal the firmware to enter the bootloader. This function may not
@@ -154,6 +154,7 @@ public:
 	void sendConvTime();
 	void sendDataRateGovernor();
 	void sendGpioEnable();
+	void sendMarkerTrigger();
 	void sendApplySettings();
 
 	bool						_initialized{false};
@@ -197,6 +198,9 @@ public:
 	quint8						_gpioEnMask{0};										// SPMv4 only
 	bool						_acquiring{false};									// SPMv4 only
 	bool						_errorStatus{false};
+
+	bool						_markerTrigEnabled{false};
+	bool						_markerTriggerConfigured{false};
 
 protected:
 
@@ -249,6 +253,7 @@ protected:
 	void setRcmChannel(uint32_t uChannel, uint32_t uRcmChannel);
 	void setChannelType(uint32_t uChannel, MicroEpmChannelType channelType);
 
+
 protected: // QThread
 	virtual void run();
 
@@ -271,7 +276,6 @@ protected: // QThread
 	void MakeIna231RegisterWriteCommand(quint8 uBus, quint8 uAddress, quint8 uRegister, quint16 uData);
 	void MakePowerOnTestCommand(quint8 uNumIterations, quint8 uNumBuses, const quint16* pauAdcPopulatedMask);
 	void MakeGetEpmIDCommand();
-	void MakeCtiControlCommand(quint8 controlbit);
 	
 	// Buffered Data
 	void MakeGetBufferedDataCommand();
@@ -284,7 +288,6 @@ protected: // QThread
 	void MakeSetChannelTypesCommand(quint8 device, quint32 uChannelBitmask);
 	
 	// Channel Config - SPMv3
-	void MakeSetChannelSwitchDelayCommand(quint8 device, quint32 uDelay);
 	
 	// Channel Config - SPMv4
 	void MakeSetAveragingCommand(quint8 uBus, const AveragingMode* paeAveragingMode);
@@ -301,11 +304,8 @@ protected: // QThread
 	// GPIO
 	void MakeGetGpioValueCommand(GpioPin pin);
 	void MakeSetGpioValueCommand(GpioPin pin, MicroEpmGpioValue value);
-	void MakeSetGpioDriveCommand(GpioPin pin, GpioDrive drive);
-	void MakeGetGpioDriveCommand(GpioPin pin);
-	void MakeSetGpioDirectionCommand(GpioPin pin, MicroEpmGpioDirection direction);
 	void MakeSetGpioBufferStatusCommand(quint8 uGpios);
-	void MakeGetGpioBufferCommand();
+	void MakeSetMarkerTriggerCommand(quint8 uEnMask, quint8 uLevelMask);
 
 	// TAC command
 	quint32 MakeTacCommand(const QByteArray& commandString);
@@ -353,6 +353,7 @@ protected: // QThread
 	void ParseSetGpioDriveResponse(GpioPin* pin, GpioDrive* drive);
 	void ParseGetGpioDriveResponse(GpioPin* pin, GpioDrive* drive);
 	void ParseSetGpioBufferStatusResponse(quint8* pStatus);
+	void ParseSetMarkerTriggerResponse(quint8* pStatus);
 	void ParseGetGpioBufferResponse(quint8* pStatus, quint8* pGpioData, quint32* puTimestamp);
 	
 	// Memory
@@ -369,7 +370,7 @@ protected: // QThread
 	void ParseIna231RegisterReadResponse(quint8* pStatus, quint16* puData);
 	void ParseIna231RegisterWriteResponse(quint8* pStatus);
 	void ParsePowerOnTestResponse(quint8* pStatus, quint16* pauAdcFailedMask);
-	void ParseGetEpmIDResponse(quint32* pPlatformID);
+	void ParseGetEpmIDResponse(PlatformID* pPlatformID);
 	void ParseCtiControlResponse();
 	
 	// TAC Command

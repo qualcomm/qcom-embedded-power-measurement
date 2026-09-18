@@ -90,7 +90,6 @@ HEADERS += \
 	EpmVersionInfo.h \
 	KratosMapping.h \
 	PRNFile.h \
-	QTExcel.h \
 	RecordingInferface.h \
 	SPMVersion.h \
 	TargetInfo.h \

@@ -10,7 +10,7 @@
     <height>300</height>
    </rect>
   </property>
-  <property name="EPM Channel Table" stdset="0">
+  <property name="QEPM Channel Table" stdset="0">
    <string>Channel Table</string>
   </property>
   <attribute name="horizontalHeaderStretchLastSection">

@@ -100,8 +100,6 @@
             ],
             "skip-paths-matching": {
               "patterns": [
-                "excel.h",
-                "excel.cpp",
                 "Docs*"
               ]
             },

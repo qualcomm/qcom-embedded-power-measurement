@@ -50,5 +50,3 @@ target_link_libraries(EPMConfigurationEditor PRIVATE
     QEPM::EPMLib
     QEPM::UI
 )
-
-qepm_deploy_qt(EPMConfigurationEditor)

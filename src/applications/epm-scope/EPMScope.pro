@@ -28,8 +28,6 @@ DEPENDPATH += $$LIBEPM
 DEPENDPATH += $$QWTINC
 
 win32 {
-	QT += axcontainer # for Excel operations
-
 	CONFIG(debug, debug|release) {
 		PRE_TARGETDEPS += $$STATIC_LIBPATH/QCommond.lib
 		PRE_TARGETDEPS += $$STATIC_LIBPATH/QCommonConsoled.lib
@@ -101,9 +99,9 @@ linux {
 
 win32 {
 	CONFIG(debug, debug|release) {
-		LIBS += -lLibExcel -L$$QWTLIB -lQwtd
+		LIBS += -L$$QWTLIB -lQwtd
 	} else {
-		LIBS += -lLibExcel -L$$QWTLIB -lQwt
+		LIBS += -L$$QWTLIB -lQwt
 	}
 	LIBS += -lSetupAPI -lWinusb -lAdvapi32 -lOle32
 }

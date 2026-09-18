@@ -21,9 +21,6 @@ DEPENDPATH += $$QCOMMONCONSOLE
 DEPENDPATH += $$LIBEPM
 
 win32 {
-
-	QT += axcontainer # for Excel operations
-
 	CONFIG(debug, debug|release) {
 		PRE_TARGETDEPS += $$STATIC_LIBPATH/QCommonConsoled.lib
 		PRE_TARGETDEPS += $$STATIC_LIBPATH/EPMLibd.lib

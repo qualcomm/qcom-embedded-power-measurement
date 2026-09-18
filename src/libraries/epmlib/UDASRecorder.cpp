@@ -36,16 +36,18 @@ static int UdasSortCompareFunction
 	}
 }
 
-void UDASRecorder::startRecording()
+bool UDASRecorder::startRecording()
 {
 	quint32 uNumChanEn = 0;
 	quint32 uChanIdx;
+	bool result = false;
 
 	QString paramsFile = _resultsFolder + QDir::separator() + "Params.scl";
 
 	// Open summary file
 	if (_udasFile.create(paramsFile) == true)
 	{
+		result = true;
 		// For each enabled channel, open a data file and initialize
 		for (auto uBus: range(MAX_BUSES))
 		{
@@ -66,7 +68,8 @@ void UDASRecorder::startRecording()
 
 					QString dataFile = _resultsFolder + QDir::separator() + QString("Data_%1.scl").arg(channelRecord.uFileIdx);
 
-					channelRecord.open(dataFile, &_udasFile);
+					if (channelRecord.open(dataFile, &_udasFile) == false)
+						result = false;
 				}
 			}
 		}
@@ -87,12 +90,15 @@ void UDASRecorder::startRecording()
 
 				QString dataFile = _resultsFolder + QDir::separator() + QString("Data_%1.scl").arg(channelRecord.uFileIdx);
 
-				channelRecord.open(dataFile, &_udasFile);
+				if (channelRecord.open(dataFile, &_udasFile) == false)
+					result = false;
 			}
 		}
 
 		_record = true;
 	}
+
+	return result;
 }
 
 void UDASRecorder::stopRecording()

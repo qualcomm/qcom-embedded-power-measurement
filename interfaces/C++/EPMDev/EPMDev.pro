@@ -60,7 +60,7 @@ CONFIG(debug, debug|release) {
 }
 
 win32 {
-	LIBS += -lLibExcel -lSetupAPI -lWinusb -lOle32
+	LIBS += -lSetupAPI -lWinusb -lOle32
 }
 
 linux {

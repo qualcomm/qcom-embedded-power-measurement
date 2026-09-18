@@ -7,7 +7,6 @@
 #include "EPMDevice3.h"
 #include "EPMDevice4.h"
 #include "EpmLibPrivate.h"
-#include "PlatformID.h"
 #include "RecordingInferface.h"
 
 #ifdef Q_OS_LINUX
@@ -29,18 +28,9 @@
 #define MICRO_EPM_DEFAULT_SET_PERIOD       (140)
 #define MICRO_EPM_DEFAULT_DATA_RATE        (0xffffffff)
 
-#define MAX_ADC_CHANNELS 128
-#define MAX_GPIO_CHANNELS 1
-#define MAX_CHANNELS (MAX_ADC_CHANNELS + MAX_GPIO_CHANNELS)
-#define GPIO_CHANNEL_INDEX MAX_ADC_CHANNELS
-#define CHANNELS_PER_BUS 32
-#define CHANNELS_PER_DEVICE 2
-#define ADC_PER_BUS 16
 #define TYPE_GPIO 0
 #define TYPE_VOLTAGE 1
 #define TYPE_CURRENT 2
-#define MAX_BUSES 4
-#define MAX_SPM_CHAN 63
 
 class EPMPauseMemory
 {
@@ -175,49 +165,6 @@ bool _EPMDevice::initializeDevice
 	return result;
 }
 
-static uint32_t GetBusOfChannel(uint32_t uChannel)
-{
-   return uChannel / CHANNELS_PER_BUS;
-}
-
-static uint32_t GetDeviceOfChannel(uint32_t uChannel)
-{
-   if (uChannel % 2)
-   {
-	  return ((uChannel % CHANNELS_PER_BUS) - 1) / CHANNELS_PER_DEVICE;
-   }
-   else
-   {
-	  return (uChannel % CHANNELS_PER_BUS) / CHANNELS_PER_DEVICE;
-   }
-}
-
-void _EPMDevice::getNumBusesAndAdcMasks()
-{
-   uint32_t uChannel;
-   uint32_t uBus;
-   uint32_t uAdc;
-   uint8_t uBusesEnabled = 0;
-
-   for (uChannel = 0; uChannel < MAX_CHANNELS; uChannel++)
-   {
-	  if (uChannel >= MAX_ADC_CHANNELS)
-	  {
-		 continue;
-	  }
-	  
-	  uBus = GetBusOfChannel(uChannel);
-	  uAdc = GetDeviceOfChannel(uChannel);
-	  if (!(uBusesEnabled & (1 << uBus)))
-	  {
-		 _numBuses = _numBuses + 1;
-		 uBusesEnabled |= (1 << uBus);
-	  }
-
-	  _adcPopulatedMask[uBus] |= (1 << uAdc);
-   }
-}
-
 void _EPMDevice::open()
 {
 	if (!_initialized)
@@ -348,38 +295,6 @@ void _EPMDevice::setupRunChannelBitmap()
 	{
 		setChannelEnable(runChannel->channel(), MICRO_EPM_CHANNEL_ENABLE);
 	}
-}
-
-quint32 _EPMDevice::countNumberOfSpmBoards()
-{
-	quint32 result{0};
-
-	for (const auto& device : std::as_const(_activeDevices))
-	{
-		if (device->_isSpmV4 == true || device->_isSPM)
-			continue;
-
-		try
-		{
-			MicroEpmGpioValue gpioVal;
-
-			device->enterSecureMode();
-			device->setGpioDrive_3(MICRO_EPM_GPIO_PIN_GPIO_5, MICRO_EPM_GPIO_DRIVE_RESISTIVE_PULL_DOWN);
-			gpioVal = device->getGpioValue(MICRO_EPM_GPIO_PIN_GPIO_5);
-
-			if (gpioVal == MICRO_EPM_GPIO_VALUE_HIGH)
-			{
-				device->_isSPM = true;
-				result++;
-			}
-		}
-		catch (EPMException& epmError)
-		{
-			Q_UNUSED(epmError)
-		}
-	}
-
-	return result;
 }
 
 EPMDevice _EPMDevice::device
@@ -593,6 +508,7 @@ MicroEpmGpioValue _EPMDevice::getGpioValue
 {
 	MicroEpmGpioValue result;
 	GpioPin receivedPin;
+
 
 	if (_connected != true)
 		throw MICRO_EPM_NOT_CONNECTED;
@@ -813,6 +729,10 @@ void _EPMDevice::applySettings()
 	sendConvTime();
 	sendDataRateGovernor();
 	sendGpioEnable();
+
+	if (_markerTriggerConfigured)
+		sendMarkerTrigger();
+
 	sendApplySettings();
 
 	setRawTimestamp(0);
@@ -867,6 +787,7 @@ void _EPMDevice::ina231RegisterRead
 		throw status;
 	}
 }
+
 
 //  Writes an INA231 register.
 
@@ -943,7 +864,7 @@ void _EPMDevice::parseEepromData
 		}
 
 		_targetInfo._targetIdentifier = static_cast<TargetIdentityInfo>(pEeprom->uTargetIdentifier);
-		_targetInfo._platformIdentifier = static_cast<quint32>(pEeprom->uBoardTypeIdentifier);
+		_targetInfo._platformIdentifier = static_cast<PlatformID>(pEeprom->uBoardTypeIdentifier);
 		_targetInfo._boardOptionIdentifier = static_cast<MicroEpmBoardInfo>(pEeprom->uBoardOptionIdentifier);
 		_targetInfo._eepromWriteCount = pEeprom->uEepromFailWriteCount;
 
@@ -1100,9 +1021,9 @@ void _EPMDevice::logSample
 	stats.dbAverage += (physical - stats.dbAverage) / stats.uNumSamples;
 }
 
-quint32 _EPMDevice::getPlatformID()
+PlatformID _EPMDevice::getPlatformID()
 {
-	quint32 result(MICRO_EPM_BOARD_ID_UNKNOWN);
+	PlatformID result(MICRO_EPM_BOARD_ID_UNKNOWN);
 
 	try
 	{
@@ -1237,6 +1158,57 @@ void _EPMDevice::sendGpioEnable()
 	{
 		throw error;
 	}
+}
+
+void _EPMDevice::sendMarkerTrigger()
+{
+	quint8 returnCode;
+
+	try
+	{
+		MakeSetMarkerTriggerCommand(_markerTrigEnabled ? MARKER_TRIGGER_ENABLE_BOTH : MARKER_TRIGGER_DISABLE, MARKER_TRIGGER_ACTIVE_HIGH);
+
+		send(SET_MARKER_TRIGGER_CMD_LENGTH);
+		receive(SET_MARKER_TRIGGER_RSP_LENGTH, SET_MARKER_TRIGGER_RSP);
+
+		ParseSetMarkerTriggerResponse(&returnCode);
+
+		if (EPM_PROTOCOL_STATUS_SUCCESS != returnCode)
+			throw MICRO_EPM_COMM_ERROR;
+	}
+	catch (EPMException& error)
+	{
+		throw error;
+	}
+}
+
+void _EPMDevice::MakeSetMarkerTriggerCommand
+(
+	quint8 uEnMask,
+	quint8 uLevelMask
+)
+{
+	clearOutputBuffer();
+
+	_outputBuffer[0] = SET_MARKER_TRIGGER_CMD;
+	_outputBuffer[1] = uEnMask;
+	_outputBuffer[2] = uLevelMask;
+}
+
+void _EPMDevice::ParseSetMarkerTriggerResponse
+(
+	quint8* pStatus
+)
+{
+	Q_ASSERT(pStatus != Q_NULLPTR);
+
+	*pStatus = _inputBuffer[1];
+}
+
+void _EPMDevice::setMarkerTrigger(bool enabled)
+{
+	_markerTrigEnabled       = enabled;
+	_markerTriggerConfigured = true;
 }
 
 void _EPMDevice::sendEnableDisable()
@@ -1397,32 +1369,6 @@ void _EPMDevice::sendSetPeriod()
 	}
 }
 
-void _EPMDevice::setGpioDrive_3
-(
-		GpioPin gpioChannel,
-		GpioDrive drive
-		)
-{
-	if (_connected == true)
-	{
-		GpioPin receivedPin;
-		GpioDrive receivedDrive;
-
-		MakeSetGpioDriveCommand(gpioChannel, drive);
-
-		send(SET_GPIO_DRIVE_CMD_LENGTH);
-		receive(SET_GPIO_DRIVE_RSP_LENGTH, SET_GPIO_DRIVE_RSP);
-
-		ParseSetGpioDriveResponse(&receivedPin, &receivedDrive);
-
-		if (receivedPin != gpioChannel || receivedDrive != drive)
-			throw MICRO_EPM_COMM_ERROR;
-	}
-	else
-	{
-		throw MICRO_EPM_NOT_CONNECTED;
-	}
-}
 
 void _EPMDevice::setRawTimestamp
 (
@@ -1668,7 +1614,7 @@ void _EPMDevice::setChannelEnable
 	if (uChannel >= MAX_NUM_ADC_CHANNELS)
 	{
 		/* GPIO channel */
-		uint32_t uGpio = uChannel - _channelCount;
+		uint32_t uGpio = uChannel - MAX_NUM_ADC_CHANNELS;
 
 		if (eEnable == MICRO_EPM_CHANNEL_ENABLE)
 		{
@@ -1834,13 +1780,15 @@ void _EPMDevice::run()
 			if (_udasRecorder)
 			{
 				_udasRecorder->setEPMDevice(this);
-				_udasRecorder->startRecording();
+				if (_udasRecorder->startRecording() == false)
+					log("UDAS recording failed to fully arm");
 			}
 
 			if (_liveRecorder)
 			{
 				_liveRecorder->setEPMDevice(this);
-				_liveRecorder->startRecording();
+				if (_liveRecorder->startRecording() == false)
+					log("Live recording failed to fully arm");
 			}
 		}
 
@@ -2089,16 +2037,6 @@ void _EPMDevice::MakeGetEpmIDCommand()
 	_outputBuffer[0] = GET_EPM_ID_CMD;
 }
 
-void _EPMDevice::MakeCtiControlCommand
-(
-	quint8 controlbit
-)
-{	
-	clearOutputBuffer();
-	
-	_outputBuffer[0] = CTI_CONTROL_CMD;
-	_outputBuffer[1] = controlbit;
-}
 
 void _EPMDevice::MakeGetBufferedDataCommand()
 {
@@ -2213,42 +2151,6 @@ void _EPMDevice::MakeSetGpioValueCommand
 	_outputBuffer[2] = (quint8) value;
 }
 
-void _EPMDevice::MakeSetGpioDriveCommand
-(
-	GpioPin pin,
-	GpioDrive drive
-)
-{
-	clearOutputBuffer();
-
-	_outputBuffer[0] = SET_GPIO_DRIVE_CMD;
-	_outputBuffer[1] = (quint8) pin;
-	_outputBuffer[2] = (quint8) drive;
-}
-
-void _EPMDevice::MakeGetGpioDriveCommand
-(
-	GpioPin pin
-)
-{
-	clearOutputBuffer();
-
-	_outputBuffer[0] = GET_GPIO_DRIVE_CMD;
-	_outputBuffer[1] = (quint8) pin;
-}
-
-void _EPMDevice::MakeSetGpioDirectionCommand
-(
-	GpioPin pin,
-	MicroEpmGpioDirection direction
-)
-{
-	clearOutputBuffer();
-
-	_outputBuffer[0] = SET_GPIO_DIRECTION_CMD;
-	_outputBuffer[1] = (quint8) pin;
-	_outputBuffer[2] = (quint8) direction;
-}
 
 void _EPMDevice::MakeSetGpioBufferStatusCommand
 (
@@ -2261,28 +2163,6 @@ void _EPMDevice::MakeSetGpioBufferStatusCommand
 	_outputBuffer[1] = uGpios;
 }
 
-void _EPMDevice::MakeGetGpioBufferCommand()
-{
-	clearOutputBuffer();
-
-	_outputBuffer[0] = GET_GPIO_BUFFER_CMD;
-}
-
-void _EPMDevice::MakeSetChannelSwitchDelayCommand
-(
-	quint8 device, 
-	quint32 uDelay
-)
-{
-	clearOutputBuffer();
-	
-	_outputBuffer[0] = SET_CHANNEL_SWITCH_DELAY_CMD;
-	_outputBuffer[1] = device;
-	_outputBuffer[2] = (uDelay >> 24) & 0xFF;
-	_outputBuffer[3] = (uDelay >> 16) & 0xFF;
-	_outputBuffer[4] = (uDelay >>  8) & 0xFF;
-	_outputBuffer[5] = (uDelay >>  0) & 0xFF;
-}
 
 void _EPMDevice::MakeSetAveragingCommand
 (
@@ -2827,7 +2707,7 @@ void _EPMDevice::ParsePowerOnTestResponse
 
 void _EPMDevice::ParseGetEpmIDResponse
 (
-	quint32* pPlatformID
+	PlatformID* pPlatformID
 )
 {	
 	if (_inputBuffer[1] != 0 )
@@ -2924,4 +2804,3 @@ void _EPMDevice::ParseMemoryReadBytesResponse
 	for (auto i: range(*pSize)) 
 		puData[i] = _inputBuffer[6 + i];
 }
-

@@ -28,9 +28,6 @@ public:
 		return QEPMApplication::QEPMAppinstance()->_appCore;
 	}
 
-	bool readyToRate();
-	void showRateDialog();
-
 protected:
 	void cleanupLogs();
 
