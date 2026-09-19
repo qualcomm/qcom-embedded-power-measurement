@@ -89,6 +89,25 @@ class _SetupUDAS:
             if not self.__udasLibraryPath.exists():
                 self.__udasLibraryPath = externalWindowsLibraryPath
 
+            # if neither hardcoded QEPM path resolves, this may be a different
+            # packaged distribution that bundles UDAS under its own product
+            # name (e.g. Alpaca) rather than QEPM. Any such distribution's
+            # installer adds its own install directory to PATH, so search
+            # there rather than assuming a specific product name/location.
+            if not self.__udasLibraryPath.exists():
+                pathLibrary = self._findInstalledLibraryOnPath("UDASDev.dll")
+                if pathLibrary is not None:
+                    self.__udasLibraryPath = pathLibrary
+
+    def _findInstalledLibraryOnPath(self, libraryName: str) -> Path:
+        for directory in os.environ.get("PATH", "").split(os.pathsep):
+            if not directory:
+                continue
+            candidate = Path(directory) / libraryName
+            if candidate.is_file():
+                return candidate
+        return None
+
     def getUDASLibraryPath(self) -> str:
         """
         Returns the appropriate UDAS library path as string.
