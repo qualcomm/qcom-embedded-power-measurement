@@ -296,15 +296,29 @@ QString expandPath(const QString &filePath)
 
 QString epmConfigRoot()
 {
-	QDir dir(QCoreApplication::applicationDirPath());
+	// QCoreApplication::applicationDirPath() prints "Please instantiate the
+	// QApplication object first" (and returns an empty path) when called
+	// before a QCoreApplication/QApplication instance exists - which is the
+	// normal case for callers using EPMDev.dll directly via Python ctypes
+	// (no Qt application object is ever created there). Resolve the binary
+	// directory exactly once, only when an application instance actually
+	// exists (i.e. real GUI/console apps that link Qt and construct one),
+	// so pure-ctypes callers never trigger that warning at all.
+	const bool hasAppInstance = (QCoreApplication::instance() != Q_NULLPTR);
+	const QString binDirPath = hasAppInstance ? QCoreApplication::applicationDirPath() : QString();
 
-	for (int i = 0; i < 5; ++i)
+	if (hasAppInstance)
 	{
-		const QString candidate = dir.absolutePath() + "/configurations";
-		if (QDir(candidate).exists())
-			return QDir::cleanPath(candidate);
+		QDir dir(binDirPath);
 
-		dir.cdUp();
+		for (int i = 0; i < 5; ++i)
+		{
+			const QString candidate = dir.absolutePath() + "/configurations";
+			if (QDir(candidate).exists())
+				return QDir::cleanPath(candidate);
+
+			dir.cdUp();
+		}
 	}
 
 	// Packaged installs stage EPM's .ccnf files under a shared ProgramData
@@ -319,12 +333,15 @@ QString epmConfigRoot()
 	// hardcoding a single product name, and check both known subfolder
 	// naming conventions under it.
 	QString appName = "QEPM";
-	QDir binDir(QCoreApplication::applicationDirPath());
-	if (binDir.exists())
+	if (hasAppInstance)
 	{
-		const QString folderName = binDir.dirName();
-		if (folderName.isEmpty() == false)
-			appName = folderName;
+		QDir binDir(binDirPath);
+		if (binDir.exists())
+		{
+			const QString folderName = binDir.dirName();
+			if (folderName.isEmpty() == false)
+				appName = folderName;
+		}
 	}
 
 	QString programDataRoot;
@@ -353,5 +370,12 @@ QString epmConfigRoot()
 		}
 	}
 
-	return QDir::cleanPath(QCoreApplication::applicationDirPath() + "/configurations");
+	if (hasAppInstance)
+		return QDir::cleanPath(binDirPath + "/configurations");
+
+	// No application instance and no ProgramData match found: there is no
+	// safe way to resolve applicationDirPath() here without triggering the
+	// Qt warning, so fall back to the well-known packaged-install location
+	// directly rather than calling it anyway.
+	return QDir::cleanPath(programDataRoot + "/configurations");
 }
