@@ -307,17 +307,51 @@ QString epmConfigRoot()
 		dir.cdUp();
 	}
 
-	QString result;
+	// Packaged installs stage EPM's .ccnf files under a shared ProgramData
+	// location rather than a bin-relative "configurations" folder, but the
+	// exact install folder name and subfolder name vary by install method:
+	//   - standalone EPM installer (install.ps1 / package_QEPM.sh):
+	//     .../<AppFolder>/configurations
+	//   - Alpaca QIK bundle (build-installer.ps1 / QIKproj):
+	//     .../<AppFolder>/epm_configs
+	// Derive the actual installed folder name ("Alpaca", "QEPM", ...) from
+	// where this binary is running (same approach as docsRoot()) rather than
+	// hardcoding a single product name, and check both known subfolder
+	// naming conventions under it.
+	QString appName = "QEPM";
+	QDir binDir(QCoreApplication::applicationDirPath());
+	if (binDir.exists())
+	{
+		const QString folderName = binDir.dirName();
+		if (folderName.isEmpty() == false)
+			appName = folderName;
+	}
 
+	QString programDataRoot;
 #ifdef Q_OS_WIN
-	result = "C:/ProgramData/Qualcomm/QEPM/configurations";
+	programDataRoot = "C:/ProgramData/Qualcomm/" + appName;
 #endif
 #ifdef Q_OS_LINUX
-	result = "/var/lib/qcom/data/QEPM/configurations";
+	programDataRoot = "/var/lib/qcom/data/" + appName;
 #endif
 
-	if (!result.isEmpty() && QDir(result).exists())
-		return QDir::cleanPath(result);
+	if (!programDataRoot.isEmpty())
+	{
+		// Check for actual .ccnf content, not just directory existence:
+		// "configurations" is a shared folder that may also exist for other
+		// products (e.g. TAC's .tcnf files, devicelist.json) without
+		// containing any EPM .ccnf files, which would otherwise cause this
+		// to return the wrong, EPM-config-less folder.
+		const QStringList subfolderCandidates = { "configurations", "epm_configs" };
+		for (const QString& subfolder : subfolderCandidates)
+		{
+			const QString candidate = programDataRoot + "/" + subfolder;
+			QDir candidateDir(candidate);
+			if (candidateDir.exists() &&
+				candidateDir.entryList(QStringList() << "*.ccnf", QDir::Files).isEmpty() == false)
+				return QDir::cleanPath(candidate);
+		}
+	}
 
 	return QDir::cleanPath(QCoreApplication::applicationDirPath() + "/configurations");
 }
