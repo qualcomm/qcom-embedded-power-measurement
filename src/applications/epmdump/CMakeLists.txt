@@ -8,7 +8,7 @@ qt_add_executable(EPMDump
 )
 
 qepm_add_version_info(EPMDump
-    "EPM Dump Utility"
+    "QEPM Dump Utility"
     "${QEPM_VERSION}"
 )
 

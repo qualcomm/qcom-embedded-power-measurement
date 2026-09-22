@@ -8,7 +8,7 @@ qt_add_executable(EPMCLI
 )
 
 qepm_add_version_info(EPMCLI
-    "EPM Command Line Interface"
+    "QEPM Command Line Interface"
     "${QEPM_VERSION}"
 )
 

@@ -51,7 +51,7 @@ int main(int argc, char* argv[])
 
 	result = GetEPMVersion(temp, sizeof(temp));
 	if (result == NO_EPM_ERROR)
-		std::cout << "EPM Version: " << temp << std::endl;
+		std::cout << "QEPM Version: " << temp << std::endl;
 
 	int deviceCount;
 	result = GetDeviceCount(&deviceCount);

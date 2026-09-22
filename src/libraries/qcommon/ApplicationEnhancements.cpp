@@ -144,7 +144,7 @@ QString docsRoot()
 {
 	QString result;
 
-	// Derive the actual install folder name ("Alpaca", "QEPM", "QTAC", ...)
+	// Derive the actual install folder name ("Alpaca", "QEPM", ...)
 	// from where this binary is running, i.e. .../Qualcomm/<X>/<exe> -> "<X>".
 	// This is more reliable than QCoreApplication::applicationName(), which
 	// is rarely set explicitly and silently falls back to a hardcoded
@@ -162,7 +162,7 @@ QString docsRoot()
 	result = "C:/Program Files/Qualcomm/" + appName + "/docs/";
 #endif
 #ifdef Q_OS_LINUX
-    result = "/opt/qcom/" + appName + "/docs";
+    result = "/opt/qcom/" + appName + "/docs/";
 #endif
 	return result;
 }

@@ -1,4 +1,4 @@
-## Contributing to Qualcomm Test Automation Controller (QTAC)
+## Contributing to Qualcomm Embedded Power Measurement (QEPM)
 
 Hi there!
 
@@ -33,7 +33,7 @@ In general, contributors should develop on branches based off of `develop` and p
 
 7. After committing your changes on the topic branch, sync it with the upstream branch:
     ```bash
-    git pull --rebase upstream main
+    git pull --rebase upstream develop
     ```
 
 8. Push to your fork.

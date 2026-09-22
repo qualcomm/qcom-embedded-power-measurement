@@ -169,4 +169,3 @@ quint32 _KratosMapping::spmChannelToRcmChannel
 
 	return 	result;
 }
-

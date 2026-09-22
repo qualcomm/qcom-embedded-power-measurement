@@ -9,7 +9,7 @@
 // Qt
 #include <QString>
 
-const QString kAppName("EPMScope");
+const QString kAppName("QEPM Scope");
 const QString kAppVersion(EPM_SCOPE_VERSION);
 const QString kInitialString(kAppName + ", version " + kAppVersion);
 

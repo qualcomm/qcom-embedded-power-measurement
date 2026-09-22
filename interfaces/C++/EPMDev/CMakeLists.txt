@@ -28,7 +28,7 @@ target_link_libraries(${LIBRARY_NAME} PUBLIC
 )
 
 qepm_add_version_info(${LIBRARY_NAME}
-    "EPM Device Interface Library"
+    "QEPM Device Interface Library"
     "${QEPM_VERSION}"
 )
 

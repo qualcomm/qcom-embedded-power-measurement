@@ -65,7 +65,6 @@ public:
 
 	void setExportTimeSpan(qreal start, qreal end);
 	bool exportAsCVS(const QString& destinationFolder, HashTuples& exportedSeries);
-	bool exportAsExcel(const QString& destinationFolder, HashTuples& exportedSeries, bool quitOnFinish);
 
 	qreal timeIncrement(ExportEntries& exportEntries);
 	qreal timeIncrement();

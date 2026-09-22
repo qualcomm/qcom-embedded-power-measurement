@@ -128,7 +128,6 @@ EPMWindow::EPMWindow
 	helpMenu->addAction("Contents", [&]{ startLocalBrowser(docsRoot() + "/getting-started/05-Embedded-Power-Measurement.html");});
 	helpMenu->addSeparator();
 	helpMenu->addAction("About...", this, &EPMWindow::onAboutTriggered);
-	helpMenu->addAction("Rate Me...", [&]{ EPMApplication::epmAppInstance()->showRateDialog();});
 	helpMenu->addAction(QIcon(":/BugWriter.png"), "Submit Bug Report", this, &EPMWindow::onSubmitBugReportTriggered);
 
 	_menuBar->addMenu(helpMenu);
@@ -335,7 +334,7 @@ void EPMWindow::onSaveAsRunConfigurationTriggered()
 
 	defPath = QDir::cleanPath(defPath + QDir::separator() + _epmProject->target() + "_XXXX");
 
-	QString saveFileName = QFileDialog::getSaveFileName(this, "Save Runtime Configuration As...", defPath, tr("EPM Runtime Config (*.rcnf)"));
+	QString saveFileName = QFileDialog::getSaveFileName(this, "Save Runtime Configuration As...", defPath, tr("QEPM Runtime Config (*.rcnf)"));
 	if (saveFileName.isEmpty() == false)
 	{
 		bool result = _epmProject->setRuntimeConfigurationFile(saveFileName);
@@ -358,7 +357,7 @@ void EPMWindow::onSaveAsExportConfigurationTriggered()
 
 	defPath = QDir::cleanPath(defPath + QDir::separator() + _epmProject->target() + "_XXXX");
 
-	QString saveFileName = QFileDialog::getSaveFileName(this, "Save Export Configuration As...", defPath, tr("EPM Export Config (*.ecnf)"));
+	QString saveFileName = QFileDialog::getSaveFileName(this, "Save Export Configuration As...", defPath, tr("QEPM Export Config (*.ecnf)"));
 	if (saveFileName.isEmpty() == false)
 	{
 		bool result = _epmProject->setExportConfigurationFile(saveFileName);
@@ -1030,7 +1029,7 @@ void EPMWindow::loadRuntimeConfig()
 	EPMPreferences* preference = EPMApplication::epmAppInstance()->getPreferences();
 	QString defPath = preference->runtimeConfigurationsPath();
 
-	QString openFileName = QFileDialog::getOpenFileName(this, "Load Runtime Configuration...", defPath, tr("EPM Runtime Config (*.rcnf)"));
+	QString openFileName = QFileDialog::getOpenFileName(this, "Load Runtime Configuration...", defPath, tr("QEPM Runtime Config (*.rcnf)"));
 	if (openFileName.isEmpty() == false)
 	{
 		if (openRuntimeConfig(openFileName) == true)
@@ -1065,7 +1064,7 @@ void EPMWindow::loadExportConfig()
 {
 	QString defPath = EPMApplication::getPreferences()->defaultExportConfigurationsPath();
 
-	QString openFileName = QFileDialog::getOpenFileName(this, "Load Export Configuration...", defPath, tr("EPM Export Config (*.ecnf)"));
+	QString openFileName = QFileDialog::getOpenFileName(this, "Load Export Configuration...", defPath, tr("QEPM Export Config (*.ecnf)"));
 	if (openFileName.isEmpty() == false)
 	{
 		if (openExportConfig(openFileName) == false)
@@ -1123,7 +1122,7 @@ void EPMWindow::on_deviceScanStarted()
 void EPMWindow::on_deviceCountChanged(uint deviceCount)
 {
 	if (_nwgt != Q_NULLPTR && deviceCount == 0)
-		_nwgt->insertNotification("EPM supports PSOC and SPMv4 debug boards. Please connect a PSOC/SPMv4 debug board to continue.", eInfoNotification);
+		_nwgt->insertNotification("QEPM supports PSOC and SPMv4 debug boards. Please connect a PSOC/SPMv4 debug board to continue.", eInfoNotification);
 
 	emit progress(kProgressMax);
 }

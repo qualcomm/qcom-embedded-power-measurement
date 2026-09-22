@@ -45,5 +45,3 @@ if(WIN32)
     target_link_libraries(BugWriter PRIVATE Advapi32)
 endif()
 
-qepm_deploy_qt(BugWriter)
-

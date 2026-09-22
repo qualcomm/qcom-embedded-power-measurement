@@ -14,8 +14,8 @@
 #include <QList>
 #include <QString>
 
-const QByteArray kEPMRuntimeConfigPath(QByteArrayLiteral("lastEPMRuntimePath"));
-const QByteArray kEPMRuntimeSettingsGroup(QByteArrayLiteral("EPM Runtime Config"));
+const QByteArray kEPMRuntimeConfigPath(QByteArrayLiteral("lastQEPMRuntimePath"));
+const QByteArray kEPMRuntimeSettingsGroup(QByteArrayLiteral("QEPM Runtime Config"));
 
 class EPMLIB_EXPORT EPMRuntimeConfigFile
 {

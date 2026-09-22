@@ -29,7 +29,7 @@ public:
 	void shutDown();
 
 	// Recording Interface
-	void startRecording();
+	bool startRecording();
 	void stopRecording();
 	void recordData(MicroEpmChannelData* channelData, quint32 sampleCount);
 
@@ -39,12 +39,12 @@ protected:
 
 private slots:
 	void on__recordBtn_clicked();
+	void on__markerCheckBox_toggled(bool checked);
 	void on_plotTimerTimeout();
 
 	void on__actionAbout_triggered();
 	void on__actionContents_triggered();
 	void on__actionQuit_triggered();
-	void on__actionRateMe_triggered();
 	void on__actionSubmitBugReport_triggered();
 
 	void on__scanDevices_clicked();

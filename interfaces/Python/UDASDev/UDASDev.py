@@ -1,6 +1,5 @@
 # Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
 # SPDX-License-Identifier: BSD-3-Clause
-
 # UDASDev Python Library
 # Author: Biswajit Roy <biswroy@qti.qualcomm.com>,
 # Usage: The library can be used to perform post-processing on the results produced through EPMDev.
@@ -11,7 +10,6 @@ import os
 from ctypes import *
 from pathlib import Path
 from sys import exit, platform
-
 from enum import IntFlag
 
 # Configure logging
@@ -32,10 +30,22 @@ class _SetupUDAS:
     # Whether the current execution for debugging
     __isDebugExecution: bool = False
 
+    # Installation directories searched for the UDASDev shared library, in order.
+    __windowsInstallDirs: list = [
+        Path("C:/Program Files/Qualcomm/Alpaca"),
+        Path("C:/Program Files (x86)/Qualcomm/QEPM"),
+    ]
+    __linuxInstallDirs: list = [
+        Path("/opt/qcom/Alpaca/lib"),
+        Path("/opt/qcom/QEPM/lib"),
+    ]
+
+    __windowsLibraryName: str = "UDASDev.dll"
+    __linuxLibraryName: str = "libUDASDev.so"
+
     def __init__(self) -> None:
         self.setupSharedLibraryPath()
         logger.debug(f"Configured the UDAS library path to be: {self.__udasLibraryPath.as_posix()}")
-
         if self.__isDebugExecution:
             logger.info(f"Process ID: {os.getpid()}")
 
@@ -49,7 +59,6 @@ class _SetupUDAS:
                 __isPythonDebuggingFunc = __pythonDebugLib.IsPythonDebugging
                 self.__isDebugExecution = __isPythonDebuggingFunc()
                 return self.__isDebugExecution
-
             except Exception as error:
                 logger.error(f"Could not load the 'IsPythonDebugging()' from PythonDebug shared library. {error}")
                 exit(1)
@@ -57,37 +66,37 @@ class _SetupUDAS:
 
     def setupSharedLibraryPath(self) -> None:
         """
-        Configures the shared library path for UDAS based on OS and QEPM installation
+        Configures the shared library path for UDAS based on OS and QEPM/Alpaca installation
         """
-        debugLinuxLibraryPath: Path = Path("/local/mnt/workspace/github/QEPMRepos/__Builds/Linux/Debug/lib/libUDASDevd.so")
-        debugWindowsLibraryPath: Path = Path("C:/github/QEPMRepos/__Builds/x64/Debug/bin/UDASDevd.dll")
-        internalLinuxLibraryPath: Path = Path("/opt/qcom/QEPM/lib/libUDASDev.so")
-        internalWindowsLibraryPath: Path = Path("C:/Program Files (x86)/Qualcomm/QEPM/UDASDev.dll")
-        externalLinuxLibraryPath: Path = Path("/opt/qcom/QEPM/lib/libUDASDev.so")
-        externalWindowsLibraryPath: Path = Path("C:/Program Files (x86)/Qualcomm/QEPM/UDASDev.dll")
+        debugLinuxLibraryPath: Path = Path("__Builds/Linux/Release/lib/libUDASDev.so")
+        debugWindowsLibraryPath: Path = Path("__Builds/Linux/Release/bin/UDASDev.dll")
 
         pythonIsDebugging = self.PythonIsDebugging()
         currentPlatform = platform
 
         if currentPlatform.startswith("linux") and pythonIsDebugging:
             self.__udasLibraryPath = debugLinuxLibraryPath
-
-        elif platform.startswith("win32") and pythonIsDebugging:
+        elif currentPlatform.startswith("win32") and pythonIsDebugging:
             self.__udasLibraryPath = debugWindowsLibraryPath
-
         elif currentPlatform.startswith("linux") and not pythonIsDebugging:
-            self.__udasLibraryPath = internalLinuxLibraryPath
-
-            # if the internal path does not resolve, it must be an external release
-            if not self.__udasLibraryPath.exists():
-                self.__udasLibraryPath = externalLinuxLibraryPath
-
+            self.__udasLibraryPath = self.__findInstalledLibrary(self.__linuxInstallDirs, self.__linuxLibraryName)
         elif currentPlatform.startswith("win32") and not pythonIsDebugging:
-            self.__udasLibraryPath = internalWindowsLibraryPath
+            self.__udasLibraryPath = self.__findInstalledLibrary(self.__windowsInstallDirs, self.__windowsLibraryName)
 
-            # if the internal path does not resolve, it must be an external release
-            if not self.__udasLibraryPath.exists():
-                self.__udasLibraryPath = externalWindowsLibraryPath
+    def __findInstalledLibrary(self, installDirs: list, libraryName: str) -> Path:
+        """
+        Returns the first existing shared library from the installation directories.
+        If none of the paths resolve, the first candidate is returned so that the
+        load failure is reported with a valid path.
+        :param installDirs: The list of installation directories to search.
+        :param libraryName: The file name of the shared library.
+        """
+        candidates = [installDir / libraryName for installDir in installDirs]
+        for candidate in candidates:
+            if candidate.exists():
+                return candidate
+        logger.debug("UDASDev library was not found in: " + ", ".join(c.as_posix() for c in candidates))
+        return candidates[0]
 
     def getUDASLibraryPath(self) -> str:
         """
@@ -254,7 +263,7 @@ class ChannelData:
 
     def __PopulateChannelData(self, waveFormType, dataPoints):
         """
-        Populate the channel data variable as per enum WaveFormType and buffer data 'dataPoints' 
+        Populate the channel data variable as per enum WaveFormType and buffer data 'dataPoints'
         :param waveFormType: Enum of WaveFormType
         :param dataPoints: Char buffer data which contains time series values
         """
@@ -266,7 +275,6 @@ class ChannelData:
             if waveFormType & WaveFormType.eWaveFormCurrent:
                 self.__SetCurrentChannel(seriesDataList[index])
                 index = index + 1
-
             if waveFormType & WaveFormType.eWaveFormVoltage:
                 self.__SetVoltageChannel(seriesDataList[index])
                 index = index + 1
@@ -344,7 +352,7 @@ class UDASDevice:
         Returns the current value for a given `channelIndex` and `dataIndex`
         :param channelIndex:  The integer representing the index of the channel
         :param dataIndex:  The integer representing the index of the data-point (also known as `series`) in a choosen current channel
-        :returns:  A floating point current value for the channel at the `dataIndex` 
+        :returns:  A floating point current value for the channel at the `dataIndex`
         """
         result = c_double(0)
         retcode = self.__getCurrentChannelData(self.__fileHandle, channelIndex, dataIndex, byref(result))
@@ -369,7 +377,7 @@ class UDASDevice:
         Returns the voltage value for a given `channelIndex` and `dataIndex`
         :param channelIndex:  The index of the channel in the EPM data
         :param dataIndex:  The integer representing the index of the data-point (also known as `series`) in a choosen voltage channel
-        :returns:  A floating point voltage value for the channel at the `dataIndex` 
+        :returns:  A floating point voltage value for the channel at the `dataIndex`
         """
         result = c_double(0)
         retcode = self.__getVoltageChannelData(self.__fileHandle, channelIndex, dataIndex, byref(result))
@@ -429,7 +437,7 @@ class UDASDevice:
         :param channelIndex:  The integer representing the index of the channel
         :param waveFormType:  The values defined in the WaveFormType enum (i.e. eWaveFormCurrent, eWaveFormVoltage, eWaveFormPower)
         :param startTime:  Optional start time
-        :param endTime:  Optional end time 
+        :param endTime:  Optional end time
         :returns:  A floating point of average value
         """
         result = c_double(0)
@@ -448,7 +456,7 @@ class UDASDevice:
         :param channelIndex: The integer representing the index of the channel
         :param waveFormType:  The values defined in the WaveFormType enum (i.e. eWaveFormCurrent, eWaveFormVoltage, eWaveFormPower)
         :param startTime:  Optional start time
-        :param endTime:  Optional end time 
+        :param endTime:  Optional end time
         :returns:  A floating point of duration value of the measured channel
         """
         result = c_double(0)
@@ -506,7 +514,7 @@ class UDASDevice:
         :param waveFormType:  The values defined in the WaveFormType enum (i.e. eWaveFormCurrent, eWaveFormVoltage, eWaveFormPower)
         :param startTime:  Optional start time
         :param endTime:  Optional end time
-        :returns: A floating point of maxima data-point value 
+        :returns: A floating point of maxima data-point value
         """
         result = c_double(0)
         if(startTime is not None and endTime is not None):
@@ -544,7 +552,7 @@ class UDASDevice:
         :param waveFormType:  The values defined in the WaveFormType enum (i.e. eWaveFormCurrent, eWaveFormVoltage, eWaveFormPower)
         :param startTime:  Optional start time
         :param endTime:  Optional end time
-        :returns: A floating point of minima data-point value 
+        :returns: A floating point of minima data-point value
         """
         result = c_double(0)
         if(startTime is not None and endTime is not None):

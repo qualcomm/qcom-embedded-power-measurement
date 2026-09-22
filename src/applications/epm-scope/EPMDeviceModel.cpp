@@ -439,6 +439,11 @@ void EPMDeviceModel::record(MicroEpmChannelData* channelData, quint32 sampleCoun
 	}
 }
 
+void EPMDeviceModel::setHardwareTrigger(bool enabled)
+{
+	_hwTrigEnabled = enabled;
+}
+
 void EPMDeviceModel::startRecord()
 {
 	/*
@@ -511,6 +516,7 @@ void EPMDeviceModel::startRecord()
 							if (_tableMap.count() > 0)
 							{
 								epmProject->setEPMDevice(device);
+								epmProject->setHardwareTrigger(_hwTrigEnabled);
 								epmProject->startAcquire();
 							}
 							else

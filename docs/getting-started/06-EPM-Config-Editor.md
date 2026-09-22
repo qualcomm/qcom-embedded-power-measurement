@@ -38,9 +38,6 @@ and click the **Delete channel** (second button on the toolbar).
 When you're working on a configuration, the `Compile to configurations` button is activated. Use this button if you wish to generate a legacy EPM
 configuration (.conf) for legacy automation use-cases. This is generally not required.
 
-The last button on the toolbar (`Import Excel template`) imports a legacy Excel template and generates an EPM configuration from it. This
-is a legacy option and not frequently used.
-
 ## Save the configuration
 
 ![EPM Editor populated table](../resources/epm-config-editor-complete.png)
