@@ -281,7 +281,14 @@ class EPMDevice:
     def GetPlatformCount(self) -> int:
         """
         Returns the number of available platforms in the platform path as integer.
+        Note: Open() must be called successfully before calling this method.
         """
+        if self.__epmHandle == BAD_EPM_HANDLE:
+            raise RuntimeError(
+                "Error: GetPlatformCount called on a device that has not been opened. "
+                "Call Open() on this EPMDevice and check that it returns True before "
+                "calling GetPlatformCount()."
+            )
         platformCount = c_int(0)
         rc = self.__getPlatformCountFunc(self.__epmHandle, byref(platformCount))
         if rc != NO_EPM_ERROR:
@@ -476,6 +483,7 @@ class EPMDevice:
         try:
             self.__openByNameFunc = epmLibrary.OpenHandleByDescription
             self.__openByNameFunc.argtypes = [c_char_p]
+            self.__openByNameFunc.restype = c_ulong
 
             self.__closeFunc = epmLibrary.CloseEPMHandle
             self.__getPlatformPathFunc = epmLibrary.GetPlatformPath
