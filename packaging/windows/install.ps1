@@ -91,6 +91,7 @@ Write-Host "Installing $appDisplay $version"
 Write-Host "  Program files : $InstallRoot"
 Write-Host "  Shared data   : $DataRoot"
 Write-Host "  Examples      : $ExamplesRoot"
+Write-Host "  Documentation : $(Join-Path $DataRoot 'docs')"
 
 # 1. Application binaries + Qt runtime
 Copy-Tree (Join-Path $src 'app') $InstallRoot
@@ -105,6 +106,10 @@ Log "interfaces copied to $(Join-Path $DataRoot 'interfaces')"
 # 2b. Examples -> fixed top-level
 Copy-Tree (Join-Path $src 'examples') $ExamplesRoot
 Log "examples copied to $ExamplesRoot"
+
+# 2c. Offline documentation
+Copy-Tree (Join-Path $src 'docs') (Join-Path $DataRoot 'docs')
+Log "docs copied to $(Join-Path $DataRoot 'docs')"
 
 # 3. Bundle the uninstaller alongside the app
 Copy-Item (Join-Path $root 'uninstall.ps1') $InstallRoot -Force
