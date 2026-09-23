@@ -14,42 +14,22 @@ jobs:
       uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c # v6.0.0
       with:
         python-version: '3.11'
-
     - name: Build documentation
       run: |
         set -euo pipefail
         cd docs/tools
         pip install -r requirements.txt
         python generate-docs.py
-
-    - name: Stage generated documentation into __Builds/docs
-      run: |
-        set -euo pipefail
-        src="docs/tools/_build/html"
-        if [ ! -f "$src/index.html" ]; then
-          echo "::error::No generated index.html found in $src."
-          find docs/tools -maxdepth 3 -name index.html || true
+        if [ ! -f "_build/html/index.html" ]; then
+          echo "::error::Documentation build produced no _build/html/index.html."
+          find . -maxdepth 3 -name index.html || true
           exit 1
         fi
-        echo "Staging documentation from $src"
-        mkdir -p __Builds/docs
-        cp -R "$src/." __Builds/docs/
-
-    - name: Verify generated documentation
-      run: |
-        set -euo pipefail
-        if [ ! -f "__Builds/docs/index.html" ]; then
-          echo "::error::Documentation staging produced no index.html under __Builds/docs."
-          ls -laR __Builds/docs || true
-          exit 1
-        fi
-        echo "Generated documentation tree:"
-        find __Builds/docs -maxdepth 2 -type f | head -n 50
     - name: Upload docs artifact
       uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
       with:
         name: qepm-docs
-        path: __Builds/docs
+        path: docs/tools/_build/html
         if-no-files-found: error
 
   build-linux:
@@ -126,12 +106,10 @@ jobs:
       run: |
         set -euo pipefail
         if [ ! -f "__Builds/docs/index.html" ]; then
-          echo "::error::__Builds/docs/index.html missing after artifact download; installer would ship without documentation."
+          echo "::error::__Builds/docs/index.html missing; .deb would ship without documentation."
           ls -laR __Builds/docs || true
           exit 1
         fi
-        echo "Docs staged at __Builds/docs:"
-        find __Builds/docs -maxdepth 2 -type f | head -n 50
     - name: Package QEPM
       run: |
         chmod +x packaging/linux/package_QEPM.sh
@@ -193,18 +171,6 @@ jobs:
       with:
         name: qepm-docs
         path: __Builds/docs
-    - name: Verify docs artifact is staged for packaging
-      shell: pwsh
-      run: |
-        $ErrorActionPreference = 'Stop'
-        $docsDir = Join-Path $env:GITHUB_WORKSPACE '__Builds\docs'
-        if (-not (Test-Path (Join-Path $docsDir 'index.html'))) {
-          Write-Host "::error::$docsDir\index.html missing after artifact download; installer would ship without documentation."
-          if (Test-Path $docsDir) { Get-ChildItem $docsDir -Recurse | Select-Object -First 50 | Format-Table -AutoSize }
-          exit 1
-        }
-        Write-Host "Docs staged at $docsDir"
-        Get-ChildItem $docsDir -File | Select-Object -First 50 | Format-Table -AutoSize
     - name: Build installer (QEPM-windows-x64.exe)
       shell: pwsh
       run: .\packaging\windows\build-installer.ps1 -DocsDir "$env:GITHUB_WORKSPACE\__Builds\docs"
