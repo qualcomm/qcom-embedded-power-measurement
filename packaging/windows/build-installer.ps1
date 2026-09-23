@@ -103,8 +103,22 @@ if ($MockPayload) {
     Copy-Item (Join-Path $BinDir '*') (Join-Path $data 'app') -Recurse -Force
 }
 
-if (Test-Path (Join-Path $SourceRoot 'docs')) {
-    Copy-Item (Join-Path $SourceRoot 'docs') (Join-Path $data 'docs') -Recurse -Force
+#documentation
+$docsBuilt = Join-Path $SourceRoot '__Builds\docs'
+if (-not (Test-Path (Join-Path $docsBuilt 'index.html'))) {
+    $genDocs = Join-Path $SourceRoot 'docs\tools\generate-docs.py'
+    $python  = Find-Tool @('python.exe', 'python3.exe', 'py.exe') @()
+    if ($python -and (Test-Path $genDocs)) {
+        Write-Host "  docs     : generating HTML via $genDocs"
+        & $python $genDocs --output $docsBuilt --version $Version
+        if ($LASTEXITCODE -ne 0) { throw "Documentation generation failed (generate-docs.py exit $LASTEXITCODE)." }
+    } else {
+        Write-Warning "Cannot render docs (python or generate-docs.py missing); offline documentation will be absent from the installer."
+    }
+}
+if (Test-Path (Join-Path $docsBuilt 'index.html')) {
+    Copy-Item $docsBuilt (Join-Path $data 'docs') -Recurse -Force
+    Write-Host "  docs     : $docsBuilt (rendered HTML)"
 }
 Copy-Item (Join-Path $SourceRoot 'configurations') (Join-Path $data 'configurations') -Recurse -Force
 
