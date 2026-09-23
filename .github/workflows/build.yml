@@ -16,17 +16,30 @@ jobs:
         python-version: '3.11'
 
     - name: Build documentation
-      env:
-        DOC_VERSION: ${{ github.ref_type == 'tag' && github.ref_name || '' }}
       run: |
+        set -euo pipefail
         cd docs/tools
         pip install -r requirements.txt
-        python generate-docs.py --output ../../__Builds/docs --version "$DOC_VERSION"
+        python generate-docs.py
+
+    - name: Stage generated documentation into __Builds/docs
+      run: |
+        set -euo pipefail
+        src="docs/tools/_build/html"
+        if [ ! -f "$src/index.html" ]; then
+          echo "::error::No generated index.html found in $src."
+          find docs/tools -maxdepth 3 -name index.html || true
+          exit 1
+        fi
+        echo "Staging documentation from $src"
+        mkdir -p __Builds/docs
+        cp -R "$src/." __Builds/docs/
+
     - name: Verify generated documentation
       run: |
         set -euo pipefail
         if [ ! -f "__Builds/docs/index.html" ]; then
-          echo "::error::Documentation build produced no index.html under __Builds/docs."
+          echo "::error::Documentation staging produced no index.html under __Builds/docs."
           ls -laR __Builds/docs || true
           exit 1
         fi
