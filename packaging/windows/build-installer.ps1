@@ -95,6 +95,7 @@ if ($MockPayload) {
     Set-Content (Join-Path $data 'app\EPM.exe') 'placeholder'
     Set-Content (Join-Path $data 'app\EPMScope.exe') 'placeholder'
     Set-Content (Join-Path $data 'app\Qt6Core.dll') 'placeholder'
+    Set-Content (Join-Path $data 'app\EPMDevInterop.dll') 'placeholder'
 } else {
     if (-not (Test-Path $BinDir)) {
         throw "Build output not found: $BinDir. Run build.bat first (see README > Build & Usage)."
@@ -102,6 +103,9 @@ if ($MockPayload) {
     Copy-Item (Join-Path $BinDir '*') (Join-Path $data 'app') -Recurse -Force
 }
 
+if (Test-Path (Join-Path $SourceRoot 'docs')) {
+    Copy-Item (Join-Path $SourceRoot 'docs') (Join-Path $data 'docs') -Recurse -Force
+}
 Copy-Item (Join-Path $SourceRoot 'configurations') (Join-Path $data 'configurations') -Recurse -Force
 
 if (Test-Path (Join-Path $SourceRoot 'examples')) {
@@ -110,13 +114,13 @@ if (Test-Path (Join-Path $SourceRoot 'examples')) {
     Write-Warning "No examples\ directory found at $SourceRoot\examples; examples will be absent from the installer."
 }
 
-# Offline documentation:
-$docsSrc = Join-Path $SourceRoot 'docs'
-if (Test-Path $docsSrc) {
-    Copy-Item $docsSrc (Join-Path $data 'docs') -Recurse -Force
-    Write-Host "  docs     : $docsSrc"
-} else {
-    Write-Warning "No docs\ directory found at $docsSrc; offline documentation will be absent from the installer."
+if (-not $MockPayload) {
+    $interopDll = Join-Path $data 'app\EPMDevInterop.dll'
+    if (Test-Path $interopDll) {
+        Write-Host "  EPMDevInterop.dll : $interopDll"
+    } else {
+        Write-Warning "EPMDevInterop.dll not found in $BinDir; the C# integrator SDK will be absent from the installer. Build it with build.bat (.NET Framework 4.8 + MSBuild required)."
+    }
 }
 
 $interfacesDest = Join-Path $data 'interfaces'
@@ -134,7 +138,7 @@ foreach ($cppMod in @('EPMDev', 'UDASDev')) {
     }
 }
 
-foreach ($lang in @('Python', 'C#')) {
+foreach ($lang in @('Python')) {
     $srcLang = Join-Path $SourceRoot "interfaces\$lang"
     if (Test-Path $srcLang) {
         Copy-Item $srcLang (Join-Path $interfacesDest $lang) -Recurse -Force
