@@ -95,6 +95,7 @@ if ($MockPayload) {
     Set-Content (Join-Path $data 'app\EPM.exe') 'placeholder'
     Set-Content (Join-Path $data 'app\EPMScope.exe') 'placeholder'
     Set-Content (Join-Path $data 'app\Qt6Core.dll') 'placeholder'
+    Set-Content (Join-Path $data 'app\EPMDevInterop.dll') 'placeholder'
 } else {
     if (-not (Test-Path $BinDir)) {
         throw "Build output not found: $BinDir. Run build.bat first (see README > Build & Usage)."
@@ -102,6 +103,23 @@ if ($MockPayload) {
     Copy-Item (Join-Path $BinDir '*') (Join-Path $data 'app') -Recurse -Force
 }
 
+#documentation
+$docsBuilt = Join-Path $SourceRoot '__Builds\docs'
+if (-not (Test-Path (Join-Path $docsBuilt 'index.html'))) {
+    $genDocs = Join-Path $SourceRoot 'docs\tools\generate-docs.py'
+    $python  = Find-Tool @('python.exe', 'python3.exe', 'py.exe') @()
+    if ($python -and (Test-Path $genDocs)) {
+        Write-Host "  docs     : generating HTML via $genDocs"
+        & $python $genDocs --output $docsBuilt --version $Version
+        if ($LASTEXITCODE -ne 0) { throw "Documentation generation failed (generate-docs.py exit $LASTEXITCODE)." }
+    } else {
+        Write-Warning "Cannot render docs (python or generate-docs.py missing); offline documentation will be absent from the installer."
+    }
+}
+if (Test-Path (Join-Path $docsBuilt 'index.html')) {
+    Copy-Item $docsBuilt (Join-Path $data 'docs') -Recurse -Force
+    Write-Host "  docs     : $docsBuilt (rendered HTML)"
+}
 Copy-Item (Join-Path $SourceRoot 'configurations') (Join-Path $data 'configurations') -Recurse -Force
 
 if (Test-Path (Join-Path $SourceRoot 'examples')) {
@@ -110,10 +128,13 @@ if (Test-Path (Join-Path $SourceRoot 'examples')) {
     Write-Warning "No examples\ directory found at $SourceRoot\examples; examples will be absent from the installer."
 }
 
-if (Test-Path (Join-Path $SourceRoot '__Builds\docs')) {
-    Copy-Item (Join-Path $SourceRoot '__Builds\docs') (Join-Path $data 'docs') -Recurse -Force
-} else {
-    Write-Warning "No __Builds\docs directory found at $SourceRoot\__Builds\docs; offline documentation will be absent from the installer."
+if (-not $MockPayload) {
+    $interopDll = Join-Path $data 'app\EPMDevInterop.dll'
+    if (Test-Path $interopDll) {
+        Write-Host "  EPMDevInterop.dll : $interopDll"
+    } else {
+        Write-Warning "EPMDevInterop.dll not found in $BinDir; the C# integrator SDK will be absent from the installer. Build it with build.bat (.NET Framework 4.8 + MSBuild required)."
+    }
 }
 
 $interfacesDest = Join-Path $data 'interfaces'
@@ -131,7 +152,7 @@ foreach ($cppMod in @('EPMDev', 'UDASDev')) {
     }
 }
 
-foreach ($lang in @('Python', 'C#')) {
+foreach ($lang in @('Python')) {
     $srcLang = Join-Path $SourceRoot "interfaces\$lang"
     if (Test-Path $srcLang) {
         Copy-Item $srcLang (Join-Path $interfacesDest $lang) -Recurse -Force

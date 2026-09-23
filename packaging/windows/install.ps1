@@ -92,8 +92,9 @@ Write-Host "  Program files : $InstallRoot"
 Write-Host "  Shared data   : $DataRoot"
 Write-Host "  Examples      : $ExamplesRoot"
 
-# 1. Application binaries + Qt runtime
-Copy-Tree (Join-Path $src 'app') $InstallRoot
+# 1. Application binaries + Qt runtime + docs
+Copy-Tree (Join-Path $src 'app')  $InstallRoot
+Copy-Tree (Join-Path $src 'docs') (Join-Path $InstallRoot 'docs')
 
 # 2. Shared, machine-wide data
 Copy-Tree (Join-Path $src 'configurations') (Join-Path $DataRoot 'configurations')
