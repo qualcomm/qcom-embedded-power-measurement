@@ -11,22 +11,23 @@ jobs:
         persist-credentials: false
 
     - name: Set up Python
-      uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+      uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c # v6.0.0
       with:
-        python-version: '3.x'
+        python-version: '3.11'
 
-    - name: Install doc build dependencies
-      run: pip install -r docs/tools/requirements.txt
-
-    - name: Build HTML documentation
-      working-directory: docs/tools
-      run: python generate-docs.py
+    - name: Build documentation
+      env:
+        DOC_VERSION: ${{ github.ref_type == 'tag' && github.ref_name || '' }}
+      run: |
+        cd docs/tools
+        pip install -r requirements.txt
+        python generate-docs.py --output ../../__Builds/docs --version "$DOC_VERSION"
 
     - name: Upload docs artifact
       uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
       with:
-        name: qepm-docs-html
-        path: docs/tools/_build/html
+        name: qepm-docs
+        path: __Builds/docs
         if-no-files-found: error
 
   build-linux:
@@ -66,10 +67,13 @@ jobs:
           python3-pip
 
     - name: Set Qt install path
+      env:
+        WORKSPACE: ${{ github.workspace }}
+        QT_VERSION: ${{ matrix.qt_version }}
       run: |
-        echo "QT_ROOT_DIR=${{ github.workspace }}/${{ matrix.qt_version }}/gcc_64" >> $GITHUB_ENV
-        echo "QTBIN=${{ github.workspace }}/${{ matrix.qt_version }}/gcc_64/bin" >> $GITHUB_ENV
-        echo "${{ github.workspace }}/${{ matrix.qt_version }}/gcc_64/bin" >> $GITHUB_PATH
+        echo "QT_ROOT_DIR=$WORKSPACE/$QT_VERSION/gcc_64" >> $GITHUB_ENV
+        echo "QTBIN=$WORKSPACE/$QT_VERSION/gcc_64/bin" >> $GITHUB_ENV
+        echo "$WORKSPACE/$QT_VERSION/gcc_64/bin" >> $GITHUB_PATH
 
     - name: Cache Qt ${{ matrix.qt_version }}
       id: cache-qt
@@ -80,26 +84,22 @@ jobs:
 
     - name: Install Qt ${{ matrix.qt_version }}
       if: steps.cache-qt.outputs.cache-hit != 'true'
+      env:
+        QT_VERSION: ${{ matrix.qt_version }}
       run: |
         pip install aqtinstall
-        aqt install-qt linux desktop ${{ matrix.qt_version }} linux_gcc_64
-        aqt install-qt linux desktop ${{ matrix.qt_version }} linux_gcc_64 -m qtmultimedia qtserialport
-
+        aqt install-qt linux desktop "$QT_VERSION" linux_gcc_64
+        aqt install-qt linux desktop "$QT_VERSION" linux_gcc_64 -m qtmultimedia qtserialport
     - name: Build
       run: |
         chmod +x build.sh
         ./build.sh
 
-    - name: Download built docs artifact
+    - name: Download docs artifact
       uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
       with:
-        name: qepm-docs-html
-        path: docs-html
-
-    - name: Replace docs source with built HTML
-      run: |
-        rm -rf docs
-        mv docs-html docs
+        name: qepm-docs
+        path: __Builds/docs
 
     - name: Package QEPM
       run: |
@@ -135,14 +135,18 @@ jobs:
     - name: Install Qt ${{ matrix.qt_version }} for MSVC
       if: steps.cache-qt.outputs.cache-hit != 'true'
       shell: pwsh
+      env:
+        QT_VERSION: ${{ matrix.qt_version }}
       run: |
         pip install aqtinstall
-        aqt install-qt windows desktop ${{ matrix.qt_version }} win64_msvc2022_64 --outputdir "C:\Qt" -m qtserialport qtmultimedia
+        aqt install-qt windows desktop "$env:QT_VERSION" win64_msvc2022_64 --outputdir "C:\Qt" -m qtserialport qtmultimedia
 
     - name: Set QTBIN
       shell: pwsh
+      env:
+        QT_VERSION: ${{ matrix.qt_version }}
       run: |
-        echo "QTBIN=C:\Qt\${{ matrix.qt_version }}\msvc2022_64\bin" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+        echo "QTBIN=C:\Qt\$env:QT_VERSION\msvc2022_64\bin" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
 
     - name: Install .NET Framework 4.8 Developer Pack
       shell: pwsh
@@ -153,17 +157,11 @@ jobs:
       run: |
         cmd /c build.bat
 
-    - name: Download built docs artifact
+    - name: Download docs artifact
       uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
       with:
-        name: qepm-docs-html
-        path: docs-html
-
-    - name: Replace docs source with built HTML
-      shell: pwsh
-      run: |
-        Remove-Item -Recurse -Force docs
-        Move-Item docs-html docs
+        name: qepm-docs
+        path: __Builds\docs
 
     - name: Build installer (QEPM-windows-x64.exe)
       shell: pwsh

@@ -40,6 +40,7 @@ CONFIG_SRC_DIR="$(realpath "$BASE_DIR/../../configurations")"
 EXAMPLES_SRC_DIR="$(realpath "$BASE_DIR/../../examples")"
 PYTHON_SRC_DIR="$(realpath "$BASE_DIR/../../interfaces/Python")"
 PLUGINS_SRC_DIR="$SRC_DIR/plugins"
+DOCS_SRC_DIR="$(realpath "$BASE_DIR/../../__Builds/docs" 2>/dev/null || echo "$BASE_DIR/../../__Builds/docs")"
 
 OUTPUT_DIR="${OUTPUT_DIR:-$BASE_DIR/build}"
 
@@ -114,6 +115,7 @@ mkdir -p "$BUILDROOT$INSTALL_PREFIX/lib"
 mkdir -p "$BUILDROOT$INSTALL_PREFIX/examples"
 mkdir -p "$BUILDROOT$INSTALL_PREFIX/python"
 mkdir -p "$BUILDROOT$INSTALL_PREFIX/plugins"
+mkdir -p "$BUILDROOT$INSTALL_PREFIX/docs"
 mkdir -p "$BUILDROOT$CONFIG_INSTALL_DIR/configurations"
 mkdir -p "$OUTPUT_DIR"
 
@@ -141,12 +143,21 @@ echo "Copying plugins..."
 cp -a "$PLUGINS_SRC_DIR/." \
       "$BUILDROOT$INSTALL_PREFIX/plugins/"
 
+if [ -d "$DOCS_SRC_DIR" ]; then
+    echo "Copying docs..."
+    cp -a "$DOCS_SRC_DIR/." \
+          "$BUILDROOT$INSTALL_PREFIX/docs/"
+else
+    echo "WARNING: No __Builds/docs directory found at $DOCS_SRC_DIR; offline documentation will be absent from the package." >&2
+fi
+
 find "$BUILDROOT$INSTALL_PREFIX/bin" -type f -exec chmod 755 {} \;
 find "$BUILDROOT$INSTALL_PREFIX/lib" -type f -exec chmod 755 {} \;
 
 find "$BUILDROOT$INSTALL_PREFIX/examples" -type f -exec chmod 644 {} \; || true
 find "$BUILDROOT$INSTALL_PREFIX/plugins" -type f -exec chmod 644 {} \; || true
 find "$BUILDROOT$INSTALL_PREFIX/python" -type f -exec chmod 644 {} \; || true
+find "$BUILDROOT$INSTALL_PREFIX/docs" -type f -exec chmod 644 {} \; || true
 
 find "$BUILDROOT$CONFIG_INSTALL_DIR/configurations" -type f -exec chmod 644 {} \; || true
 

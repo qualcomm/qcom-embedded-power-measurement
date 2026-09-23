@@ -1,0 +1,112 @@
+{
+    "author": "sabarigi",
+    "channels": [
+        {
+            "category": "APC0",
+            "color": "#6ac6ff",
+            "description": "",
+            "disabled": "false",
+            "index": 2,
+            "name": "VDD_APC0_SAR0",
+            "resistor_value": 3,
+            "type": "SPM"
+        },
+        {
+            "category": "GFX",
+            "color": "#2c7a79",
+            "description": "",
+            "disabled": "false",
+            "index": 3,
+            "name": "VDD_GFX_SAR0",
+            "resistor_value": 3,
+            "type": "SPM"
+        },
+        {
+            "category": "NSP",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "false",
+            "index": 4,
+            "name": "VDD_NSP_SAR0",
+            "resistor_value": 3,
+            "type": "SPM"
+        },
+        {
+            "category": "MM",
+            "color": "#004a4a",
+            "description": "",
+            "disabled": "false",
+            "index": 5,
+            "name": "VDD_MM_SAR0",
+            "resistor_value": 3,
+            "type": "SPM"
+        },
+        {
+            "category": "MX",
+            "color": "#47abff",
+            "description": "",
+            "disabled": "false",
+            "index": 6,
+            "name": "VDD_MX_SAR0",
+            "resistor_value": 3,
+            "type": "SPM"
+        },
+        {
+            "category": "CX",
+            "color": "#109e9c",
+            "description": "",
+            "disabled": "false",
+            "index": 7,
+            "name": "VDD_CX_SAR0",
+            "resistor_value": 3,
+            "type": "SPM"
+        },
+        {
+            "category": "LPI_CX",
+            "color": "#002f75",
+            "description": "",
+            "disabled": "false",
+            "index": 8,
+            "name": "VDD_LPI_CX_SAR0",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "BOB",
+            "color": "#00ff00",
+            "description": "",
+            "disabled": "false",
+            "index": 9,
+            "name": "VREG_BOB_A",
+            "resistor_value": 3,
+            "type": "SPM"
+        },
+        {
+            "category": "Q2_FEM_PWR1",
+            "color": "#104100",
+            "description": "",
+            "disabled": "false",
+            "index": 11,
+            "name": "Q2_FEM_PWR1",
+            "resistor_value": 10,
+            "type": "SPM"
+        },
+        {
+            "category": "Q2_FEM_PWR2",
+            "color": "#917a13",
+            "description": "",
+            "disabled": "false",
+            "index": 24,
+            "name": "Q2_FEM_PWR2",
+            "resistor_value": 10,
+            "type": "SPM"
+        }
+    ],
+    "creation_date": "Wed Apr 1 22:55:50 2026",
+    "description": "XRV9209 GDP EPM CONFIG",
+    "epm_version": "QEPM 4.0.5",
+    "label": "GDP",
+    "modify_date": "Wed Apr 1 22:57:55 2026",
+    "spm_version": 1,
+    "target": "XRV9209"
+}
