@@ -16,7 +16,7 @@ To test if the installation is working properly, please refer to the
 
 An example script to demonstrate the use of UDASDev API to enumerate EPM data in Python is provided here:
 `C:\QEPM\Examples\Python\AutomationTestUDAS`. To try out the example script, first
-capture EPM data using the [EPM](../getting-started/04-Embedded-Power-Measurement.md) tool or [EPM API](./02-EPM-Python-API.md), then update the results path in the
+capture EPM data using the [EPM](../getting-started/05-Embedded-Power-Measurement.md) tool or [EPM API](./02-EPM-Python-API.md), then update the results path in the
 example script to your EPM data path, typically `C:\Users\<USERNAME>\Documents\EPM\Results`.
 
 ## Class reference

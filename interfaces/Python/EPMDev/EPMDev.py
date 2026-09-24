@@ -29,6 +29,19 @@ class _SetupEPM:
     __debugPythonPath: Path = Path("C:/github/QEPMRepos/__Builds/x64/Debug/bin/PythonDebug.dll")
     __isDebugExecution: bool = False
 
+    # Installation directories searched for the EPMDev shared library, in order.
+    __windowsInstallDirs: list = [
+        Path("C:/Program Files/Qualcomm/Alpaca"),
+        Path("C:/Program Files/Qualcomm/QEPM"),
+    ]
+    __linuxInstallDirs: list = [
+        Path("/opt/qcom/QEPM/lib"),
+        Path("/opt/qcom/Alpaca/lib"),
+    ]
+
+    __windowsLibraryName: str = "EPMDev.dll"
+    __linuxLibraryName: str = "libEPMDev.so"
+
     def __init__(self) -> None:
         self.setupSharedLibraryPath()
         logger.debug(f"Configured the EPM library path to be: {self.__epmLibraryPath.as_posix()}")
@@ -54,37 +67,37 @@ class _SetupEPM:
 
     def setupSharedLibraryPath(self):
         """
-        Configures the shared library path for EPM based on OS and QEPM installation
+        Configures the shared library path for EPM based on OS and QEPM/Alpaca installation
         """
-        debugLinuxLibraryPath: Path = Path("/local/mnt/workspace/github/QEPMRepos/__Builds/Linux/Debug/lib/libEPMDev.so")
-        debugWindowsLibraryPath: Path = Path("C:/github/QEPMRepos/__Builds/x64/Debug/bin/EPMDevd.dll")
-        internalLinuxLibraryPath: Path = Path("/opt/qcom/QEPM/lib/libEPMDev.so")
-        internalWindowsLibraryPath: Path = Path("C:/Program Files (x86)/Qualcomm/QEPM/EPMDev.dll")
-        externalLinuxLibraryPath: Path = Path("/opt/qcom/QEPM/lib/libEPMDev.so")
-        externalWindowsLibraryPath: Path = Path("C:/Program Files (x86)/Qualcomm/QEPM/EPMDev.dll")
+        debugLinuxLibraryPath: Path = Path("__Builds/Linux/Release/lib/libEPMDev.so")
+        debugWindowsLibraryPath: Path = Path("__Builds/x64/Release/bin/EPMDev.dll")
 
         pythonIsDebugging = self.PythonIsDebugging()
         currentPlatform = platform
 
         if currentPlatform.startswith("linux") and pythonIsDebugging:
             self.__epmLibraryPath = debugLinuxLibraryPath
-
-        elif platform.startswith("win32") and pythonIsDebugging:
+        elif currentPlatform.startswith("win32") and pythonIsDebugging:
             self.__epmLibraryPath = debugWindowsLibraryPath
-
         elif currentPlatform.startswith("linux") and not pythonIsDebugging:
-            self.__epmLibraryPath = internalLinuxLibraryPath
-
-            # if the internal path does not resolve, it must be an external release
-            if not self.__epmLibraryPath.exists():
-                self.__epmLibraryPath = externalLinuxLibraryPath
-
+            self.__epmLibraryPath = self.__findInstalledLibrary(self.__linuxInstallDirs, self.__linuxLibraryName)
         elif currentPlatform.startswith("win32") and not pythonIsDebugging:
-            self.__epmLibraryPath = internalWindowsLibraryPath
+            self.__epmLibraryPath = self.__findInstalledLibrary(self.__windowsInstallDirs, self.__windowsLibraryName)
 
-            # if the internal path does not resolve, it must be an external release
-            if not self.__epmLibraryPath.exists():
-                self.__epmLibraryPath = externalWindowsLibraryPath
+    def __findInstalledLibrary(self, installDirs: list, libraryName: str) -> Path:
+        """
+        Returns the first existing shared library from the installation directories.
+        If none of the paths resolve, the first candidate is returned so that the
+        load failure is reported with a valid path.
+        :param installDirs: The list of installation directories to search.
+        :param libraryName: The file name of the shared library.
+        """
+        candidates = [installDir / libraryName for installDir in installDirs]
+        for candidate in candidates:
+            if candidate.exists():
+                return candidate
+        logger.debug("EPMDev library was not found in: " + ", ".join(c.as_posix() for c in candidates))
+        return candidates[0]
 
     def getEPMLibraryPath(self):
         """
@@ -268,7 +281,14 @@ class EPMDevice:
     def GetPlatformCount(self) -> int:
         """
         Returns the number of available platforms in the platform path as integer.
+        Note: Open() must be called successfully before calling this method.
         """
+        if self.__epmHandle == BAD_EPM_HANDLE:
+            raise RuntimeError(
+                "Error: GetPlatformCount called on a device that has not been opened. "
+                "Call Open() on this EPMDevice and check that it returns True before "
+                "calling GetPlatformCount()."
+            )
         platformCount = c_int(0)
         rc = self.__getPlatformCountFunc(self.__epmHandle, byref(platformCount))
         if rc != NO_EPM_ERROR:
@@ -463,6 +483,7 @@ class EPMDevice:
         try:
             self.__openByNameFunc = epmLibrary.OpenHandleByDescription
             self.__openByNameFunc.argtypes = [c_char_p]
+            self.__openByNameFunc.restype = c_ulong
 
             self.__closeFunc = epmLibrary.CloseEPMHandle
             self.__getPlatformPathFunc = epmLibrary.GetPlatformPath

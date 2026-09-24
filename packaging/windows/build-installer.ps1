@@ -5,10 +5,12 @@
 param(
     [string] $SourceRoot,
     [string] $BinDir,
+    [string] $DocsDir,
     [string] $SevenZipDir,
     [string] $OutDir,
     [string] $Version,
-    [switch] $MockPayload
+    [switch] $MockPayload,
+    [switch] $AllowMissingDocs
 )
 
 $ErrorActionPreference = 'Stop'
@@ -30,6 +32,27 @@ function Find-Tool($fileNames, $extraDirs) {
         foreach ($n in $fileNames) {
             $p = Join-Path $d $n
             if (Test-Path $p) { return $p }
+        }
+    }
+    return $null
+}
+
+function Resolve-DocsDir {
+    param(
+        [string] $Explicit,
+        [Parameter(Mandatory)] [string] $Root
+    )
+    $candidates = @()
+    if ($Explicit) { $candidates += $Explicit }
+    $candidates += @(
+        (Join-Path $Root '__Builds\docs'),
+        (Join-Path $Root 'docs\tools\_build\html')
+    )
+    foreach ($c in $candidates) {
+        if (Test-Path $c) {
+            $files = Get-ChildItem $c -Recurse -File -ErrorAction SilentlyContinue
+            if ($files -and $files.Count -gt 0) { return (Resolve-Path $c).Path }
+            Write-Warning "Documentation directory '$c' exists but is empty; ignoring."
         }
     }
     return $null
@@ -82,9 +105,12 @@ if (-not $Version) {
     if ($vh -match 'QEPM_VERSION\s+"([^"]+)"') { $Version = $Matches[1] } else { $Version = '0.0.0' }
 }
 
+$resolvedDocs = Resolve-DocsDir -Explicit $DocsDir -Root $SourceRoot
+
 Write-Host "Building QEPM installer: arch=$Arch version=$Version"
 Write-Host "  7-Zip    : $sevenZip"
 Write-Host "  IExpress : $iexpress"
+Write-Host "  Docs     : $(if ($resolvedDocs) { $resolvedDocs } else { '<none found>' })"
 
 $pkg  = Join-Path $OutDir "pkg-$Arch"
 $data = Join-Path $pkg '_data'
@@ -108,6 +134,26 @@ if (Test-Path (Join-Path $SourceRoot 'examples')) {
     Copy-Item (Join-Path $SourceRoot 'examples') (Join-Path $data 'examples') -Recurse -Force
 } else {
     Write-Warning "No examples\ directory found at $SourceRoot\examples; examples will be absent from the installer."
+}
+
+# Offline documentation. The generated HTML tree is copied by CONTENT into
+# _data\docs so the payload layout never gains an extra nesting level.
+if ($resolvedDocs) {
+    $docsDest = Join-Path $data 'docs'
+    New-Item -ItemType Directory -Force -Path $docsDest | Out-Null
+    Copy-Item (Join-Path $resolvedDocs '*') $docsDest -Recurse -Force
+    Remove-Item (Join-Path $docsDest 'plans') -Recurse -Force -ErrorAction SilentlyContinue
+    $docFileCount = (Get-ChildItem $docsDest -Recurse -File).Count
+    if ($docFileCount -eq 0) {
+        throw "Documentation staging produced no files in $docsDest."
+    }
+    Write-Host "  docs staged : $docFileCount file(s) from $resolvedDocs"
+} elseif ($MockPayload -or $AllowMissingDocs) {
+    Write-Warning "No documentation directory found; offline documentation will be absent from the installer."
+} else {
+    throw ("Documentation not found. Looked for -DocsDir, '$SourceRoot\__Builds\docs' and " +
+           "'$SourceRoot\docs\tools\_build\html'. Download the docs artifact before building the " +
+           "installer, or pass -AllowMissingDocs to package without documentation.")
 }
 
 $interfacesDest = Join-Path $data 'interfaces'
