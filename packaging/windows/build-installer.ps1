@@ -110,6 +110,12 @@ if (Test-Path (Join-Path $SourceRoot 'examples')) {
     Write-Warning "No examples\ directory found at $SourceRoot\examples; examples will be absent from the installer."
 }
 
+if (Test-Path (Join-Path $SourceRoot '__Builds\docs')) {
+    Copy-Item (Join-Path $SourceRoot '__Builds\docs') (Join-Path $data 'docs') -Recurse -Force
+} else {
+    Write-Warning "No __Builds\docs directory found at $SourceRoot\__Builds\docs; offline documentation will be absent from the installer."
+}
+
 $interfacesDest = Join-Path $data 'interfaces'
 New-Item -ItemType Directory -Force -Path $interfacesDest | Out-Null
 # C++ integrator headers (no compiled library -- consumers build against these
