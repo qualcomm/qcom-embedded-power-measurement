@@ -137,7 +137,7 @@ jobs:
       shell: pwsh
       run: |
         pip install aqtinstall
-        aqt install-qt windows desktop ${{ matrix.qt_version }} win64_msvc2022_64 --outputdir "C:\Qt" -m qtserialport qtmultimedia qtactiveqt
+        aqt install-qt windows desktop ${{ matrix.qt_version }} win64_msvc2022_64 --outputdir "C:\Qt" -m qtserialport qtmultimedia
 
     - name: Set QTBIN
       shell: pwsh

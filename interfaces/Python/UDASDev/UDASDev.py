@@ -66,7 +66,7 @@ class _SetupUDAS:
 
     def setupSharedLibraryPath(self) -> None:
         """
-        Configures the shared library path for UDAS based on OS and QEPM/QTAC/Alpaca installation
+        Configures the shared library path for UDAS based on OS and QEPM/Alpaca installation
         """
         debugLinuxLibraryPath: Path = Path("__Builds/Linux/Release/lib/libUDASDev.so")
         debugWindowsLibraryPath: Path = Path("__Builds/Linux/Release/bin/UDASDev.dll")
