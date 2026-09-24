@@ -159,10 +159,10 @@ QString docsRoot()
 	}
 
 #ifdef Q_OS_WINDOWS
-	result = "C:/Program Files/Qualcomm/" + appName + "/docs/external/";
+	result = "C:/Program Files/Qualcomm/" + appName + "/docs/";
 #endif
 #ifdef Q_OS_LINUX
-    result = "/opt/qcom/" + appName + "/docs/external";
+    result = "/opt/qcom/" + appName + "/docs/";
 #endif
 	return result;
 }
