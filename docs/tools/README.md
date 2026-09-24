@@ -1,27 +1,18 @@
-# Documentation build tools
+# QEPM documentation build
 
-This directory contains the tooling used to build the QEPM documentation
-(everything under `docs/bootcamp` and `docs/getting-started`) into a static
-HTML site with [Sphinx](https://www.sphinx-doc.org/).
+This directory builds the QEPM HTML documentation from the markdown sources in
+`docs/bootcamp`, `docs/getting-started`, and `docs/resources`.
 
-The Sphinx configuration lives at `docs/conf.py` and the top-level toctree at
-`docs/index.rst`. `generate-docs.py` in this directory drives the build.
+`generate-docs.py` copies those sources plus `conf.py`/`index.rst` into a
+temporary directory and runs Sphinx against them, producing HTML under
+`_build/html`. The QEPM version shown in the built docs is read from
+`src/libraries/qcommon-console/version.h`.
 
-## Usage
+## Running the build
 
-From this directory:
-
-```
+```sh
 pip install -r requirements.txt
 python generate-docs.py
 ```
 
-The built site is written to `__Builds/docs/` by default. At install time it
-is placed at `docs/` alongside the installed application binaries — this is
-the path the shipped Qt applications' offline Help menu expects. Pass
-`--output` to write elsewhere, and `--version` to stamp a version string into
-the docs (used by CI to pass the release tag):
-
-```
-python generate-docs.py --output /path/to/output --version v6.4.0
-```
+The built HTML is written to `docs/tools/_build/html`.
