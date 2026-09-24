@@ -87,11 +87,13 @@ if (Test-Path $zip) {
     [System.IO.Compression.ZipFile]::ExtractToDirectory($zip, $src)
 }
 
+$DocsRoot = Join-Path $DataRoot 'docs'
+
 Write-Host "Installing $appDisplay $version"
 Write-Host "  Program files : $InstallRoot"
 Write-Host "  Shared data   : $DataRoot"
 Write-Host "  Examples      : $ExamplesRoot"
-Write-Host "  Documentation : $(Join-Path $DataRoot 'docs')"
+Write-Host "  Documentation : $DocsRoot"
 
 # 1. Application binaries + Qt runtime
 Copy-Tree (Join-Path $src 'app') $InstallRoot
@@ -108,8 +110,15 @@ Copy-Tree (Join-Path $src 'examples') $ExamplesRoot
 Log "examples copied to $ExamplesRoot"
 
 # 2c. Offline documentation
-Copy-Tree (Join-Path $src 'docs') (Join-Path $DataRoot 'docs')
-Log "docs copied to $(Join-Path $DataRoot 'docs')"
+Copy-Tree (Join-Path $src 'docs') $DocsRoot
+$docsIndex = Join-Path $DocsRoot 'index.html'
+if (Test-Path $docsIndex) {
+    $docsFileCount = (Get-ChildItem $DocsRoot -Recurse -File -ErrorAction SilentlyContinue).Count
+    Log "docs copied to $DocsRoot ($docsFileCount file(s)); entry point $docsIndex"
+} else {
+    Write-Warning "Offline documentation was not found in the installer payload; the Documentation shortcut will not be created."
+    Log "WARNING: no index.html under $DocsRoot - documentation shortcut skipped"
+}
 
 # 3. Bundle the uninstaller alongside the app
 Copy-Item (Join-Path $root 'uninstall.ps1') $InstallRoot -Force
@@ -144,6 +153,19 @@ foreach ($s in $shortcuts) {
     } else {
         Log "skipped shortcut (not found): $exePath"
     }
+}
+
+# 4a. Documentation shortcut -> offline HTML entry point (opens in default browser)
+if (Test-Path $docsIndex) {
+    $docsLnk = Join-Path $startMenuFolder 'QEPM Documentation.lnk'
+    $sc = $wsh.CreateShortcut($docsLnk)
+    $sc.TargetPath       = $docsIndex
+    $sc.WorkingDirectory = $DocsRoot
+    $sc.Description      = 'Qualcomm Embedded Power Measurement offline documentation'
+    $epmExeForIcon = Join-Path $InstallRoot 'EPM.exe'
+    if (Test-Path $epmExeForIcon) { $sc.IconLocation = "$epmExeForIcon,0" }
+    $sc.Save()
+    Log "documentation shortcut created: $docsLnk -> $docsIndex"
 }
 
 # 5. Register .ccnf file association (EPM configuration files)
@@ -196,4 +218,7 @@ Set-ItemProperty $key NoModify 1 -Type DWord
 Set-ItemProperty $key NoRepair 1 -Type DWord
 
 Write-Host "$appDisplay $version installed."
+if (Test-Path $docsIndex) {
+    Write-Host "  Documentation shortcut: Start Menu > $appDisplay > QEPM Documentation"
+}
 Log "done"
