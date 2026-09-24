@@ -296,28 +296,118 @@ QString expandPath(const QString &filePath)
 
 QString epmConfigRoot()
 {
-	QDir dir(QCoreApplication::applicationDirPath());
+	// QCoreApplication::applicationDirPath() prints "Please instantiate the
+	// QApplication object first" (and returns an empty path) when called
+	// before a QCoreApplication/QApplication instance exists - which is the
+	// normal case for callers using EPMDev.dll directly via Python ctypes
+	// (no Qt application object is ever created there). Resolve the binary
+	// directory exactly once, only when an application instance actually
+	// exists (i.e. real GUI/console apps that link Qt and construct one),
+	// so pure-ctypes callers never trigger that warning at all.
+	const bool hasAppInstance = (QCoreApplication::instance() != Q_NULLPTR);
+	const QString binDirPath = hasAppInstance ? QCoreApplication::applicationDirPath() : QString();
 
-	for (int i = 0; i < 5; ++i)
+	if (hasAppInstance)
 	{
-		const QString candidate = dir.absolutePath() + "/configurations";
-		if (QDir(candidate).exists())
-			return QDir::cleanPath(candidate);
+		QDir dir(binDirPath);
 
-		dir.cdUp();
+		for (int i = 0; i < 5; ++i)
+		{
+			const QString candidate = dir.absolutePath() + "/configurations";
+			if (QDir(candidate).exists())
+				return QDir::cleanPath(candidate);
+
+			dir.cdUp();
+		}
 	}
 
-	QString result;
+	// Packaged installs stage EPM's .ccnf files under a shared ProgramData
+	// location rather than a bin-relative "configurations" folder, but the
+	// exact install folder name and subfolder name vary by install method:
+	//   - standalone EPM installer (install.ps1 / package_QEPM.sh):
+	//     .../<AppFolder>/configurations
+	//   - Alpaca QIK bundle (build-installer.ps1 / QIKproj):
+	//     .../<AppFolder>/epm_configs
+	// Derive the actual installed folder name ("Alpaca", "QEPM", ...) from
+	// where this binary is running (same approach as docsRoot()) rather than
+	// hardcoding a single product name, and check both known subfolder
+	// naming conventions under it.
+	QString appName;
+	if (hasAppInstance)
+	{
+		QDir binDir(binDirPath);
+		if (binDir.exists())
+		{
+			const QString folderName = binDir.dirName();
+			if (folderName.isEmpty() == false)
+				appName = folderName;
+		}
+	}
 
+	QString programDataParentRoot;
 #ifdef Q_OS_WIN
-	result = "C:/ProgramData/Qualcomm/QEPM/configurations";
+	programDataParentRoot = "C:/ProgramData/Qualcomm";
 #endif
 #ifdef Q_OS_LINUX
-	result = "/var/lib/qcom/data/QEPM/configurations";
+	programDataParentRoot = "/var/lib/qcom/data";
 #endif
 
-	if (!result.isEmpty() && QDir(result).exists())
-		return QDir::cleanPath(result);
+	const QStringList subfolderCandidates = { "configurations", "epm_configs" };
 
-	return QDir::cleanPath(QCoreApplication::applicationDirPath() + "/configurations");
+	if (appName.isEmpty() == false)
+	{
+		const QString programDataRoot = programDataParentRoot + "/" + appName;
+
+		// Check for actual .ccnf content, not just directory existence:
+		// "configurations" is a shared folder that may also exist for other
+		// products (e.g. TAC's .tcnf files, devicelist.json) without
+		// containing any EPM .ccnf files, which would otherwise cause this
+		// to return the wrong, EPM-config-less folder.
+		for (const QString& subfolder : subfolderCandidates)
+		{
+			const QString candidate = programDataRoot + "/" + subfolder;
+			QDir candidateDir(candidate);
+			if (candidateDir.exists() &&
+				candidateDir.entryList(QStringList() << "*.ccnf", QDir::Files).isEmpty() == false)
+				return QDir::cleanPath(candidate);
+		}
+	}
+
+	// Either there's no application instance to derive the install folder
+	// name from (the plain ctypes/Python case, where applicationDirPath()
+	// is unusable), or that folder name didn't actually contain any EPM
+	// configs (e.g. a stale/partial install). Rather than guessing a single
+	// hardcoded product name (which is wrong whenever the real install uses
+	// a different folder name, such as "Alpaca" instead of "QEPM"),
+	// generically scan every sibling folder under the shared Qualcomm
+	// ProgramData root for the one that actually contains EPM .ccnf files.
+	if (!programDataParentRoot.isEmpty())
+	{
+		QDir parentRoot(programDataParentRoot);
+		const QStringList subdirs = parentRoot.entryList(QDir::Dirs | QDir::NoDotAndDotDot);
+		for (const QString& subdir : subdirs)
+		{
+			if (subdir.compare(appName, Qt::CaseInsensitive) == 0)
+				continue; // already checked above
+
+			for (const QString& subfolder : subfolderCandidates)
+			{
+				const QString candidate = programDataParentRoot + "/" + subdir + "/" + subfolder;
+				QDir candidateDir(candidate);
+				if (candidateDir.exists() &&
+					candidateDir.entryList(QStringList() << "*.ccnf", QDir::Files).isEmpty() == false)
+					return QDir::cleanPath(candidate);
+			}
+		}
+	}
+
+	if (hasAppInstance)
+		return QDir::cleanPath(binDirPath + "/configurations");
+
+	// No application instance and no ProgramData match found anywhere: fall
+	// back to the historical default location. This preserves prior
+	// behavior for the case where nothing was found at all (e.g. first run
+	// before ProgramData is populated) rather than returning an empty path.
+	const QString fallbackAppName = appName.isEmpty() ? QString("QEPM") : appName;
+	return QDir::cleanPath(programDataParentRoot + "/" + fallbackAppName + "/configurations");
 }

@@ -40,6 +40,16 @@ bool EPMTarget::setPlatformPath
 				fileName.remove("_config", Qt::CaseInsensitive);
 				fileName.remove("_QEPM", Qt::CaseInsensitive);
 
+				// The actual shared .ccnf data files (sourced from/shared
+				// with PROD) still use the original "_alpaca" suffix in
+				// their filenames (e.g. QRD845_ALPACA_Config.ccnf) - only
+				// the code-side suffix that gets stripped was renamed to
+				// "_QEPM" as part of this repo's own "Alpaca" -> "QEPM"
+				// rebrand. Strip both suffixes so the displayed platform
+				// name is clean regardless of which naming convention the
+				// underlying config file actually uses.
+				fileName.remove("_alpaca", Qt::CaseInsensitive);
+
 				EPMTargetEntry epmTargetEntry;
 
 				epmTargetEntry._name = fileName;
@@ -80,4 +90,3 @@ bool EPMTarget::getPlatform
 
 	return result;
 }
-
