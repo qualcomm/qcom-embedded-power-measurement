@@ -83,7 +83,7 @@ EPMConfigurationWindow::EPMConfigurationWindow
 	rebuildRecents();
 
 	// lambda
-	connect(_actionContents, &QAction::triggered, [=]{ startLocalBrowser(docsRoot() + "/getting-started/06-EPM-Config-Editor.html");});
+	connect(_actionContents, &QAction::triggered, [=]{ startLocalBrowser(docPage("getting-started", "EPM-Config-Editor"));});
 
 	setupColumnProperties();
 

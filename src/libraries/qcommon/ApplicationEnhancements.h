@@ -27,5 +27,12 @@ void launchFolder(const QString &folderName);
 
 QString QCOMMON_EXPORT docsRoot();
 
-#endif
+// Resolve a documentation page by its descriptive stem, e.g.
+// docPage("getting-started", "EPM-Scope"). The "NN-" ordering prefix and the
+// file extension are both ignored, because each product (standalone QEPM,
+// standalone QTAC, bundled Alpaca) numbers its documentation set
+// independently and may ship either built .html or the .md sources. Prefer
+// this over concatenating a hardcoded filename onto docsRoot().
+QString QCOMMON_EXPORT docPage(const QString& section, const QString& stem);
 
+#endif

@@ -244,7 +244,7 @@ void EPMScopeWindow::on__actionAbout_triggered()
 
 void EPMScopeWindow::on__actionContents_triggered()
 {
-	startLocalBrowser(docsRoot() + "/getting-started/02-EPM-Scope.html");
+	startLocalBrowser(docPage("getting-started", "EPM-Scope"));
 }
 
 void EPMScopeWindow::on__actionQuit_triggered()

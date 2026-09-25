@@ -95,7 +95,7 @@ EPMViewerWindow::EPMViewerWindow
 
 	QMenu* helpMenu = new QMenu("Help");
 	// lambda
-	helpMenu->addAction("Contents", [&]{ startLocalBrowser(docsRoot() + "/getting-started/04-EPM-Viewer.html");});
+	helpMenu->addAction("Contents", [&]{ startLocalBrowser(docPage("getting-started", "EPM-Viewer"));});
 	helpMenu->addSeparator();
 	helpMenu->addAction("About...", this, &EPMViewerWindow::onAboutTriggered);
 	helpMenu->addAction(QIcon(":/BugWriter.png"), "Submit Bug Report", this, &EPMViewerWindow::onSubmitBugReportTriggered);

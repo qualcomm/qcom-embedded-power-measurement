@@ -1,4 +1,4 @@
-﻿// Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+// Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-3-Clause
 
 #include "EPMWindow.h"
@@ -125,7 +125,7 @@ EPMWindow::EPMWindow
 
 	QMenu* helpMenu = new QMenu("Help");
 	// lambda
-	helpMenu->addAction("Contents", [&]{ startLocalBrowser(docsRoot() + "/getting-started/05-Embedded-Power-Measurement.html");});
+	helpMenu->addAction("Contents", [&]{ startLocalBrowser(docPage("getting-started", "Embedded-Power-Measurement"));});
 	helpMenu->addSeparator();
 	helpMenu->addAction("About...", this, &EPMWindow::onAboutTriggered);
 	helpMenu->addAction(QIcon(":/BugWriter.png"), "Submit Bug Report", this, &EPMWindow::onSubmitBugReportTriggered);
