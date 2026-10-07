@@ -31,7 +31,7 @@ qepm_add_version_info(EPMConfigurationEditor
 )
 
 if(WIN32)
-    target_link_libraries(EPMConfigurationEditor PRIVATE Qt6::AxContainer)
+    target_link_libraries(EPMConfigurationEditor PRIVATE)
 endif()
 
 if(UNIX AND NOT APPLE)
