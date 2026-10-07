@@ -158,11 +158,11 @@ QString docsRoot()
 			appName = folderName;
 	}
 
-#ifdef Q_OS_WINDOWS
-	result = "C:/Program Files/Qualcomm/" + appName + "/docs/";
+#ifdef Q_OS_WIN
+	result = "C:/Program Files/Qualcomm/" + appName + "/docs/" + appName + "/";
 #endif
 #ifdef Q_OS_LINUX
-    result = "/opt/qcom/" + appName + "/docs/";
+    result = "/opt/qcom/" + appName + "/docs/" + appName + "/";
 #endif
 	return result;
 }

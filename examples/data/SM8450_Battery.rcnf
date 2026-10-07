@@ -288,5 +288,5 @@
     ],
     "creation_date": "Wed Jul 13 10:25:49 2022",
     "modify_date": "Wed Jul 13 10:25:49 2022",
-    "platformFile": "MTP8450_ALPACA_Config.ccnf"
+    "platformFile": "MTP8450.ccnf"
 }

@@ -87,7 +87,7 @@ if (Test-Path $zip) {
     [System.IO.Compression.ZipFile]::ExtractToDirectory($zip, $src)
 }
 
-$DocsRoot = Join-Path $InstallRoot 'docs'
+$DocsRoot = Join-Path $InstallRoot (Join-Path 'docs' $appName)
 
 Write-Host "Installing $appDisplay $version"
 Write-Host "  Program files : $InstallRoot"

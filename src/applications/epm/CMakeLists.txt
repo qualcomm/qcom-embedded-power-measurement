@@ -31,7 +31,7 @@ qepm_add_version_info(EPM
 )
 
 if(WIN32)
-    target_link_libraries(EPM PRIVATE Qt6::AxContainer)
+    target_link_libraries(EPM PRIVATE)
 endif()
 
 if(UNIX AND NOT APPLE)
