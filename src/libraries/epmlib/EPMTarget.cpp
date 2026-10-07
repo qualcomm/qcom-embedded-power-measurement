@@ -37,8 +37,6 @@ bool EPMTarget::setPlatformPath
 				QString fileName(entryInfo->fileName());
 
 				fileName.remove(".ccnf", Qt::CaseInsensitive);
-				fileName.remove("_config", Qt::CaseInsensitive);
-				fileName.remove("_QEPM", Qt::CaseInsensitive);
 
 				EPMTargetEntry epmTargetEntry;
 

@@ -12,6 +12,7 @@ MAINTAINER="${MAINTAINER:-Maintainer <maintainer@example.com>}"
 DESCRIPTION="${DESCRIPTION:-Qualcomm Embedded Power Measurement tool package}"
 INSTALL_PREFIX="${INSTALL_PREFIX:-/opt/qcom/QEPM}"
 CONFIG_INSTALL_DIR="/var/lib/qcom/data/QEPM"
+APP_NAME="$(basename "$INSTALL_PREFIX")"
 
 case "${1:-}" in
   -v|--version|version)
@@ -115,7 +116,7 @@ mkdir -p "$BUILDROOT$INSTALL_PREFIX/lib"
 mkdir -p "$BUILDROOT$INSTALL_PREFIX/examples"
 mkdir -p "$BUILDROOT$INSTALL_PREFIX/python"
 mkdir -p "$BUILDROOT$INSTALL_PREFIX/plugins"
-mkdir -p "$BUILDROOT$INSTALL_PREFIX/docs"
+mkdir -p "$BUILDROOT$INSTALL_PREFIX/docs/$APP_NAME"
 mkdir -p "$BUILDROOT$CONFIG_INSTALL_DIR/configurations"
 mkdir -p "$OUTPUT_DIR"
 
@@ -146,7 +147,7 @@ cp -a "$PLUGINS_SRC_DIR/." \
 if [ -d "$DOCS_SRC_DIR" ]; then
     echo "Copying docs..."
     cp -a "$DOCS_SRC_DIR/." \
-          "$BUILDROOT$INSTALL_PREFIX/docs/"
+          "$BUILDROOT$INSTALL_PREFIX/docs/$APP_NAME/"
 else
     echo "WARNING: No __Builds/docs directory found at $DOCS_SRC_DIR; offline documentation will be absent from the package." >&2
 fi
