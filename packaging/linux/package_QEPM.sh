@@ -39,6 +39,7 @@ fi
 SRC_DIR="$(realpath "$BASE_DIR/../../__Builds/Linux/Release")"
 CONFIG_SRC_DIR="$(realpath "$BASE_DIR/../../configurations")"
 EXAMPLES_SRC_DIR="$(realpath "$BASE_DIR/../../examples")"
+INTERFACES_SRC_DIR="$(realpath "$BASE_DIR/../../interfaces")"
 PYTHON_SRC_DIR="$(realpath "$BASE_DIR/../../interfaces/Python")"
 PLUGINS_SRC_DIR="$SRC_DIR/plugins"
 DOCS_SRC_DIR="$(realpath "$BASE_DIR/../../__Builds/docs" 2>/dev/null || echo "$BASE_DIR/../../__Builds/docs")"
@@ -91,6 +92,11 @@ if [ ! -d "$EXAMPLES_SRC_DIR" ]; then
     missing=1
 fi
 
+if [ ! -d "$INTERFACES_SRC_DIR" ]; then
+    echo "ERROR: Missing interfaces directory: $INTERFACES_SRC_DIR" >&2
+    missing=1
+fi
+
 if [ ! -d "$PYTHON_SRC_DIR" ]; then
     echo "ERROR: Missing python directory: $PYTHON_SRC_DIR" >&2
     missing=1
@@ -118,6 +124,7 @@ mkdir -p "$BUILDROOT$INSTALL_PREFIX/python"
 mkdir -p "$BUILDROOT$INSTALL_PREFIX/plugins"
 mkdir -p "$BUILDROOT$INSTALL_PREFIX/docs/$APP_NAME"
 mkdir -p "$BUILDROOT$CONFIG_INSTALL_DIR/configurations"
+mkdir -p "$BUILDROOT$CONFIG_INSTALL_DIR/interfaces"
 mkdir -p "$OUTPUT_DIR"
 
 chmod 0755 "$BUILDROOT/DEBIAN"
@@ -135,6 +142,33 @@ cp -a "$CONFIG_SRC_DIR/." \
 echo "Copying examples..."
 cp -a "$EXAMPLES_SRC_DIR/." \
       "$BUILDROOT$INSTALL_PREFIX/examples/"
+
+echo "Copying interfaces..."
+
+for cppMod in EPMDev UDASDev; do
+    CPP_HEADER_SRC="$INTERFACES_SRC_DIR/C++/$cppMod"
+
+    if [ -d "$CPP_HEADER_SRC" ]; then
+        CPP_HEADER_DEST="$BUILDROOT$CONFIG_INSTALL_DIR/interfaces/C++/$cppMod"
+        mkdir -p "$CPP_HEADER_DEST"
+        find "$CPP_HEADER_SRC" -maxdepth 1 -type f -name '*.h' \
+            -exec cp -a {} "$CPP_HEADER_DEST/" \;
+    else
+        echo "WARNING: No interfaces/C++/$cppMod directory found; C++ headers will be absent from the package." >&2
+    fi
+done
+
+for lang in Python "C#"; do
+    LANG_SRC="$INTERFACES_SRC_DIR/$lang"
+
+    if [ -d "$LANG_SRC" ]; then
+        LANG_DEST="$BUILDROOT$CONFIG_INSTALL_DIR/interfaces/$lang"
+        mkdir -p "$LANG_DEST"
+        cp -a "$LANG_SRC/." "$LANG_DEST/"
+    else
+        echo "WARNING: No interfaces/$lang directory found; $lang interface will be absent from the package." >&2
+    fi
+done
 
 echo "Copying Python..."
 cp -a "$PYTHON_SRC_DIR/." \
@@ -161,6 +195,10 @@ find "$BUILDROOT$INSTALL_PREFIX/python" -type f -exec chmod 644 {} \; || true
 find "$BUILDROOT$INSTALL_PREFIX/docs" -type f -exec chmod 644 {} \; || true
 
 find "$BUILDROOT$CONFIG_INSTALL_DIR/configurations" -type f -exec chmod 644 {} \; || true
+
+find "$BUILDROOT$CONFIG_INSTALL_DIR/interfaces" -type f -exec chmod 644 {} \; || true
+find "$BUILDROOT$CONFIG_INSTALL_DIR/interfaces" -type d -exec chmod 755 {} \; || true
+find "$BUILDROOT$CONFIG_INSTALL_DIR/interfaces" -type f -name '*.sh' -exec chmod 755 {} \; || true
 
 ###############################################################################
 # Validate Qt Plugin Dependencies
@@ -268,6 +306,7 @@ set -e
 
 INSTALL_PREFIX="$INSTALL_PREFIX"
 CONFIG_DIR="$CONFIG_INSTALL_DIR/configurations"
+INTERFACES_DIR="$CONFIG_INSTALL_DIR/interfaces"
 LOG_FILE="\$INSTALL_PREFIX/qepm_install.log"
 
 export LD_LIBRARY_PATH="\$INSTALL_PREFIX/lib:\${LD_LIBRARY_PATH:-}"
@@ -281,6 +320,9 @@ echo "" >> "\$LOG_FILE"
 echo "==============================================================" >> "\$LOG_FILE"
 echo "[QEPM] Installation started: \$(date)" >> "\$LOG_FILE"
 echo "==============================================================" >> "\$LOG_FILE"
+echo "[QEPM] Install prefix   : \$INSTALL_PREFIX" >> "\$LOG_FILE"
+echo "[QEPM] Configurations   : \$CONFIG_DIR" >> "\$LOG_FILE"
+echo "[QEPM] Interfaces       : \$INTERFACES_DIR" >> "\$LOG_FILE"
 
 chmod -R 0755 "\$INSTALL_PREFIX" || true
 chmod -R 0755 "$CONFIG_INSTALL_DIR" || true
@@ -363,8 +405,8 @@ rm -f "$LOG_FILE"
 
 # Remove QEPM install directory if empty
 rmdir /opt/qcom/QEPM 2>/dev/null || true
-
-# Remove configuration directory if empty
+rmdir /var/lib/qcom/data/QEPM/interfaces 2>/dev/null || true
+rmdir /var/lib/qcom/data/QEPM/configurations 2>/dev/null || true
 rmdir /var/lib/qcom/data/QEPM 2>/dev/null || true
 
 # Remove parent directory if empty

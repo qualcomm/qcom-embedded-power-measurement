@@ -48,6 +48,16 @@ Once installed, the application binaries are present at **/opt/qcom/QEPM/bin**. 
 present at /opt/qcom/QEPM/docs. The python APIs are present at **/opt/qcom/QEPM/python** and
 example programs are in **/opt/qcom/QEPM/examples**.
 
+Configurations and interfaces folder is installed under **/var/lib/qcom/data/QEPM**:
+
+| Path | Contents |
+| ---- | ---- |
+| /var/lib/qcom/data/QEPM/configurations | Platform configuration (`.ccnf`) files |
+| /var/lib/qcom/data/QEPM/interfaces/C++/EPMDev | EPMDev C++ integrator headers |
+| /var/lib/qcom/data/QEPM/interfaces/C++/UDASDev | UDASDev C++ integrator headers |
+| /var/lib/qcom/data/QEPM/interfaces/Python | EPMDev / UDASDev Python packages and `setup.py` |
+| /var/lib/qcom/data/QEPM/interfaces/C# | EPMDevInterop C# interop project |
+
 ## Examples
 
 Refer to the documentation for example tutorials on:
