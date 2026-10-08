@@ -145,6 +145,7 @@ cp -a "$EXAMPLES_SRC_DIR/." \
 
 echo "Copying interfaces..."
 
+for cppMod in EPMDev UDASDev; do
     CPP_HEADER_SRC="$INTERFACES_SRC_DIR/C++/$cppMod"
 
     if [ -d "$CPP_HEADER_SRC" ]; then
