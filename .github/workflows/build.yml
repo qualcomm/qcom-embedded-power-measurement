@@ -98,7 +98,7 @@ jobs:
         ./build.sh
 
     - name: Download docs artifact
-      uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+      uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
       with:
         name: qepm-docs
         path: __Builds/docs
@@ -167,7 +167,7 @@ jobs:
         cmd /c build.bat
 
     - name: Download docs artifact
-      uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+      uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
       with:
         name: qepm-docs
         path: __Builds/docs
@@ -210,7 +210,7 @@ jobs:
 
     - name: Download Linux build artifacts
       if: steps.verify_main.outputs.on_main == 'true'
-      uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+      uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
       with:
         pattern: QEPM-*.deb
         path: release-artifacts
@@ -282,7 +282,7 @@ jobs:
 
     - name: Download Windows build artifacts
       if: steps.verify_main.outputs.on_main == 'true'
-      uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+      uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
       with:
         pattern: QEPM-windows-installer-*
         path: release-artifacts
