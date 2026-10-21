@@ -26,7 +26,7 @@ jobs:
           exit 1
         fi
     - name: Upload docs artifact
-      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+      uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
       with:
         name: qepm-docs
         path: docs/tools/_build/html
@@ -116,7 +116,7 @@ jobs:
         ./packaging/linux/package_QEPM.sh
 
     - name: Upload installer artifact
-      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+      uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
       with:
         name: QEPM-${{ matrix.os }}-qt${{ matrix.qt_version }}.deb
         path: packaging/linux/build/*.deb
@@ -175,7 +175,7 @@ jobs:
       shell: pwsh
       run: .\packaging\windows\build-installer.ps1
     - name: Upload installer artifact
-      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+      uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
       with:
         name: QEPM-windows-installer-x64-qt${{ matrix.qt_version }}
         path: __Builds\installer\QEPM-windows-x64.exe
