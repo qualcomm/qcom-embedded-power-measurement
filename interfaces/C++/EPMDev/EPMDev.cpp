@@ -525,8 +525,20 @@ EPM_RESULT StartAcquisition
 		{
 			epmProject->setEPMDevice(epmDevice);
 			if (epmProject->startAcquire() == false)
-				result = EPM_ACQUIRE_FAILED;
+			{
+				// Carry the reason out to the caller. Returning only the result
+				// code left GetLastEPMError() empty, so callers had no way to
+				// discover why acquisition did not start.
+				QString lastError = epmProject->lastError();
+				if (lastError.isEmpty())
+				{
+					lastError = "Acquisition could not be started and no reason was reported.";
+				}
 
+				gDevEPMCore.setLastError(lastError.toLatin1());
+
+				result = EPM_ACQUIRE_FAILED;
+			}
 		}
 		else
 		{
