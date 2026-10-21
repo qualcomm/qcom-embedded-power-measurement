@@ -138,7 +138,12 @@ void renewInstallRegistry
 	}
 
 	settings.setValue("Install UUID", newInstallGuid);
-	settings.setValue("Install Path", QCoreApplication::applicationDirPath().toLatin1());
+	// applicationDirPath() needs a QCoreApplication; without one (EPMDev loaded from
+	// Python or another non-Qt host) it only prints a Qt warning and returns nothing.
+	if (QCoreApplication::instance() != Q_NULLPTR)
+	{
+		settings.setValue("Install Path", QCoreApplication::applicationDirPath().toLatin1());
+	}
 }
 
 bool isNewInstall
@@ -296,15 +301,26 @@ QString expandPath(const QString &filePath)
 
 QString epmConfigRoot()
 {
-	QDir dir(QCoreApplication::applicationDirPath());
+	// applicationDirPath() needs a QCoreApplication. EPMDev is also loaded by hosts that
+	// have none (Python, C#, plain C++), where calling it prints "Please instantiate the
+	// QApplication object first". In that case skip the search next to the executable
+	// and use the installed configuration folder.
+	const bool haveApplication = QCoreApplication::instance() != Q_NULLPTR;
 
-	for (int i = 0; i < 5; ++i)
+	if (haveApplication)
 	{
-		const QString candidate = dir.absolutePath() + "/configurations";
-		if (QDir(candidate).exists())
-			return QDir::cleanPath(candidate);
+		QDir dir(QCoreApplication::applicationDirPath());
 
-		dir.cdUp();
+		for (int i = 0; i < 5; ++i)
+		{
+			const QString candidate = dir.absolutePath() + "/configurations";
+			if (QDir(candidate).exists())
+			{
+				return QDir::cleanPath(candidate);
+			}
+
+			dir.cdUp();
+		}
 	}
 
 	QString result;
@@ -318,6 +334,11 @@ QString epmConfigRoot()
 
 	if (!result.isEmpty() && QDir(result).exists())
 		return QDir::cleanPath(result);
+
+	if (haveApplication == false)
+	{
+		return QDir::cleanPath(result);
+	}
 
 	return QDir::cleanPath(QCoreApplication::applicationDirPath() + "/configurations");
 }
