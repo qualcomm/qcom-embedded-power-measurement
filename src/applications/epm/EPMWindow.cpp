@@ -24,10 +24,12 @@
 #include <QElapsedTimer>
 #include <QFile>
 #include <QFileDialog>
+#include <QFileInfo>
 #include <QMenu>
 #include <QMenuBar>
 #include <QMessageBox>
 #include <QProcess>
+#include <QRegularExpression>
 #include <QSet>
 #include <QStandardPaths>
 #include <QTextStream>
@@ -758,6 +760,9 @@ void EPMWindow::setupPlatformCombo()
 	_platformComboBox->clear();
 	_platformComboBox->addItem("<select a config file>");
 
+	QStringList platformNames;
+	QStringList platformPaths;
+
 	quint32 platformCount =	_epmProject->getPlatformCount();
 	for (const auto& platformIndex: range(platformCount))
 	{
@@ -767,19 +772,80 @@ void EPMWindow::setupPlatformCombo()
 		if (_epmProject->getPlatform(platformIndex, platformName, platformPath))
 		{
 			_platformComboBox->addItem(platformName, platformPath);
+			platformNames.append(platformName);
+			platformPaths.append(platformPath);
+		}
+	}
 
-			if (platformPath == lastPlatform)
+	int selected = findPreferredPlatform(lastPlatform, platformNames, platformPaths);
+	if (selected >= 0)
+	{
+		// Combo index 0 is the "<select a config file>" placeholder.
+		_platformComboBox->blockSignals(true);
+		_platformComboBox->setCurrentIndex(selected + 1);
+		_platformComboBox->blockSignals(false);
+		loadPlatformConfigFile(platformPaths.at(selected));
+		setPlatformLabel(platformNames.at(selected));
+	}
+
+	_currentIndex = -2;
+}
+
+// Picks the platform to show at startup. The saved path is preferred, but it
+// can be stale (for example after the configuration directory moved or files
+// were renamed), so fall back to a file name match, then to the legacy
+// "<NAME>_ALPACA_Config" naming, and finally to the first platform so the
+// window never opens with an empty channel table when platforms exist.
+int EPMWindow::findPreferredPlatform
+(
+	const QString& lastPlatform,
+	const QStringList& platformNames,
+	const QStringList& platformPaths
+)
+{
+	if (platformPaths.isEmpty())
+	{
+		return -1;
+	}
+
+	if (lastPlatform.isEmpty() == false)
+	{
+		int index = platformPaths.indexOf(lastPlatform);
+		if (index >= 0)
+		{
+			return index;
+		}
+
+		const QFileInfo lastInfo(lastPlatform);
+		const QString lastFileName = lastInfo.fileName();
+		QString lastBaseName = lastInfo.completeBaseName();
+		lastBaseName.remove(QRegularExpression("_ALPACA_Config$", QRegularExpression::CaseInsensitiveOption));
+
+		for (int i = 0; i < platformPaths.size(); i++)
+		{
+			if (QFileInfo(platformPaths.at(i)).fileName().compare(lastFileName, Qt::CaseInsensitive) == 0)
 			{
-				_platformComboBox->blockSignals(true);
-				_platformComboBox->setCurrentText(platformName);
-				_platformComboBox->blockSignals(false);
-				loadPlatformConfigFile(platformPath);
-				setPlatformLabel(platformName);
+				return i;
+			}
+		}
+
+		if (lastBaseName.isEmpty() == false)
+		{
+			for (int i = 0; i < platformPaths.size(); i++)
+			{
+				if (QFileInfo(platformPaths.at(i)).completeBaseName().compare(lastBaseName, Qt::CaseInsensitive) == 0)
+				{
+					return i;
+				}
+				if (platformNames.at(i).compare(lastBaseName, Qt::CaseInsensitive) == 0)
+				{
+					return i;
+				}
 			}
 		}
 	}
 
-	_currentIndex = -2;
+	return 0;
 }
 
 bool EPMWindow::setupPlatform()
