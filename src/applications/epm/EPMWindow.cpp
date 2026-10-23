@@ -20,6 +20,7 @@
 //Qt
 #include <QCoreApplication>
 #include <QCloseEvent>
+#include <QDebug>
 #include <QDir>
 #include <QElapsedTimer>
 #include <QFile>
@@ -407,11 +408,9 @@ void EPMWindow::onAboutTriggered()
 
 void EPMWindow::onSubmitBugReportTriggered()
 {
-#ifdef Q_OS_LINUX
-	QString program = "/opt/qcom/QEPM/bin/BugWriter"; // Linux Sucks
-#else
-	QString program = "BugWriter";
-#endif
+	// BugWriter is installed next to this executable in every product layout,
+	// so resolve it from there instead of a fixed install folder.
+	const QString program = QDir(QCoreApplication::applicationDirPath()).filePath("BugWriter");
 
 	QStringList arguments;
 	arguments << "product:QEPM";
@@ -419,11 +418,11 @@ void EPMWindow::onSubmitBugReportTriggered()
 	arguments << "application:Embedded_Power_Measurement";
 	arguments << "appversion:" + kAppVersion;
 
-	QProcess* process = new QProcess(Q_NULLPTR);
-
-	process->setProgram(program);
-	process->setArguments(arguments);
-	process->startDetached();
+	if (QProcess::startDetached(program, arguments) == false)
+	{
+		qWarning() << "Unable to start BugWriter:" << program;
+		AppCore::writeToApplicationLogLine("Unable to start BugWriter: " + program);
+	}
 }
 
 void EPMWindow::on__deviceList_currentRowChanged(int currentRow)
