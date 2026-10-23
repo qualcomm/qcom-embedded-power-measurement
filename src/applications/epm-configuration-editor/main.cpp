@@ -4,10 +4,13 @@
 // EPM Editor
 #include "EPMConfigurationApplication.h"
 #include "EPMConfigurationWindow.h"
+#include "QCommon.h"
 
 int main(int argc, char *argv[])
 {
 	EPMConfigurationApplication a(argc, argv);
+
+	InitializeQCommon();
 
 	EPMConfigurationWindow* w = EPMConfigurationApplication::createEPMEditWindow();
 	QStringList arguments = QApplication::arguments();

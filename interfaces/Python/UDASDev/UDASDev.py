@@ -33,7 +33,7 @@ class _SetupUDAS:
     # Installation directories searched for the UDASDev shared library, in order.
     __windowsInstallDirs: list = [
         Path("C:/Program Files/Qualcomm/Alpaca"),
-        Path("C:/Program Files (x86)/Qualcomm/QEPM"),
+        Path("C:/Program Files/Qualcomm/QEPM"),
     ]
     __linuxInstallDirs: list = [
         Path("/opt/qcom/Alpaca/lib"),

@@ -34,6 +34,9 @@
 // Qt
 #include <QCloseEvent>
 #include <QColorDialog>
+#include <QCoreApplication>
+#include <QDebug>
+#include <QDir>
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QProcess>
@@ -382,11 +385,9 @@ void EPMConfigurationWindow::on_actionAbout_triggered()
 
 void EPMConfigurationWindow::on_actionSubmit_Bug_Report_triggered()
 {
-#ifdef Q_OS_LINUX
-	QString program = "/opt/qcom/QEPM/bin/BugWriter"; // Linux Sucks
-#else
-	QString program = "BugWriter";
-#endif
+	// BugWriter is installed next to this executable in every product layout,
+	// so resolve it from there instead of a fixed install folder.
+	const QString program = QDir(QCoreApplication::applicationDirPath()).filePath("BugWriter");
 
 	QStringList arguments;
 	arguments << "product:QEPM";
@@ -394,11 +395,12 @@ void EPMConfigurationWindow::on_actionSubmit_Bug_Report_triggered()
 	arguments << "application:EPM_Configuration_Editor";
 	arguments << "appversion:" + kAppVersion;
 	arguments << "listports:true";
-	QProcess* process = new QProcess(Q_NULLPTR);
 
-	process->setProgram(program);
-	process->setArguments(arguments);
-	process->startDetached();
+	if (QProcess::startDetached(program, arguments) == false)
+	{
+		qWarning() << "Unable to start BugWriter:" << program;
+		AppCore::writeToApplicationLogLine("Unable to start BugWriter: " + program);
+	}
 }
 
 void EPMConfigurationWindow::on__channelSettings_itemClicked

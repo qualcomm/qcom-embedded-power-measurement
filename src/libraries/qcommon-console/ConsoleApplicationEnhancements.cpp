@@ -11,6 +11,7 @@
 // Qt
 #include <QCoreApplication>
 #include <QDateTime>
+#include <QDebug>
 #include <QDir>
 #include <QFileInfo>
 #include <QLibrary>
@@ -25,29 +26,29 @@
 	#pragma comment(lib, "shell32")
 #endif
 #ifdef Q_OS_LINUX
+	#include <pwd.h>
 	#include <unistd.h>
 #endif
 
 
+// Returns the folder holding the running executable, with a trailing
+// separator so callers can append a program name.
+//
+// The binaries are installed in a different folder for each product layout,
+// so a fixed location is always wrong for one of them. The executable folder
+// is right for all of them. The old version also created the fixed folder,
+// which a normal user cannot do under Program Files or /opt.
 QString applicationBinPath()
 {
-	QString result;
-	QString appName{"QEPM"};
+	// applicationDirPath() needs a QCoreApplication. EPMDev can be loaded by
+	// hosts that have none.
+	if (QCoreApplication::instance() == Q_NULLPTR)
+	{
+		qWarning() << "applicationBinPath: no application object, executable folder unknown";
+		return QString();
+	}
 
-#ifdef Q_OS_WIN
-	result = "C:/Program Files (x86)/Qualcomm/" + appName + "/";
-#endif
-
-#ifdef Q_OS_LINUX
-	result = "/opt/qcom/" + appName + "/bin/";
-#endif
-
-	result = QDir::cleanPath(result);
-
-	if (QDir(result).exists() == false)
-		QDir().mkpath(result);
-
-	return result;
+	return QDir::cleanPath(QCoreApplication::applicationDirPath()) + QDir::separator();
 }
 
 QString documentsDataPath
@@ -289,10 +290,19 @@ QString expandPath(const QString &filePath)
 	if (result.startsWith("~"))
 	{
 		QString homePath = QDir::homePath();
-		if (homePath.compare(QDir::separator()) != 0)
-			result.replace("~", homePath);
-		else
-			result.replace("~", "/root");
+		if (homePath.compare(QDir::separator()) == 0)
+		{
+			// HOME is not set. Ask the password database for the real home of
+			// the current user instead of assuming /root, which is wrong for
+			// every non-root user.
+			const struct passwd* pw = getpwuid(getuid());
+			if (pw != Q_NULLPTR && pw->pw_dir != Q_NULLPTR && pw->pw_dir[0] != '\0')
+			{
+				homePath = QString::fromLocal8Bit(pw->pw_dir);
+			}
+			qWarning() << "expandPath: HOME is not set, using" << homePath << "for ~";
+		}
+		result.replace(0, 1, homePath);
 	}
 #endif
 
@@ -335,10 +345,31 @@ QString epmConfigRoot()
 	if (!result.isEmpty() && QDir(result).exists())
 		return QDir::cleanPath(result);
 
+	static bool reportedMissing{false};
+	if (reportedMissing == false)
+	{
+		reportedMissing = true;
+		qWarning() << "epmConfigRoot: no configurations folder found above the executable or in"
+			<< result << "- configurations will not load";
+	}
+
 	if (haveApplication == false)
 	{
 		return QDir::cleanPath(result);
 	}
 
 	return QDir::cleanPath(QCoreApplication::applicationDirPath() + "/configurations");
+}
+
+// Writes the resolved install and data locations to the debug output once at
+// startup, so a wrong path in the field can be diagnosed from the log alone.
+void logInstallLayout()
+{
+	const QString exeDir = QCoreApplication::instance() != Q_NULLPTR
+		? QDir::cleanPath(QCoreApplication::applicationDirPath())
+		: QStringLiteral("<no application>");
+
+	qInfo().noquote() << "Install layout: executable folder =" << exeDir;
+	qInfo().noquote() << "Install layout: configurations    =" << epmConfigRoot();
+	qInfo().noquote() << "Install layout: documents folder  =" << documentsDataPath(QString());
 }

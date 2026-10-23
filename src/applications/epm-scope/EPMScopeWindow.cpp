@@ -17,7 +17,10 @@
 
 // Qt
 #include <QCloseEvent>
+#include <QCoreApplication>
 #include <QDateTime>
+#include <QDebug>
+#include <QDir>
 #include <QLabel>
 #include <QMessageBox>
 #include <QProcess>
@@ -254,11 +257,9 @@ void EPMScopeWindow::on__actionQuit_triggered()
 
 void EPMScopeWindow::on__actionSubmitBugReport_triggered()
 {
-#ifdef Q_OS_LINUX
-	QString program = "/opt/qcom/Alpaca/bin/BugWriter"; // Linux Sucks
-#else
-	QString program = "BugWriter";
-#endif
+	// BugWriter is installed next to this executable in every product layout,
+	// so resolve it from there instead of a fixed install folder.
+	const QString program = QDir(QCoreApplication::applicationDirPath()).filePath("BugWriter");
 
 	QStringList arguments;
 	arguments << "product:Alpaca";
@@ -266,14 +267,11 @@ void EPMScopeWindow::on__actionSubmitBugReport_triggered()
 	arguments << "application:" + windowTitle();
 	arguments << "appversion:" + kAppVersion;
 
-	QProcess* process = new QProcess(Q_NULLPTR);
-
-	process->setProgram(program);
-	process->setArguments(arguments);
-	bool started = process->startDetached();
-
-	if (started == false)
-		AppCore::writeToApplicationLog("Bug Writer failed to start.");
+	if (QProcess::startDetached(program, arguments) == false)
+	{
+		qWarning() << "Unable to start BugWriter:" << program;
+		AppCore::writeToApplicationLogLine("Unable to start BugWriter: " + program);
+	}
 }
 
 void EPMScopeWindow::on__scanDevices_clicked()
