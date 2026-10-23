@@ -23,6 +23,7 @@
 #include <QWidget>
 #include <QDesktopServices>
 #include <QUrl>
+#include <QDebug>
 
 #ifdef Q_OS_WIN
 #include <windows.h>
@@ -140,29 +141,54 @@ void startLocalBrowser(const QString &filePath)
 	QDesktopServices::openUrl(QUrl::fromLocalFile(filePath));
 }
 
+// Returns the folder that holds this product's documentation (the folder that
+// contains "getting-started/"), with a trailing '/'.
+//
+// The docs are located relative to the executable, not derived from the name of
+// the folder the executable lives in. That name is "Alpaca" for the bundled
+// Windows install and "bin" for the Linux install (/opt/qcom/Alpaca/bin), so it
+// cannot be used as a product name. Layouts handled:
+//   Windows install:  <install>/<exe>          docs in <install>/docs/QEPM/
+//   Linux install:    <install>/bin/<exe>      docs in <install>/docs/QEPM/ or <install>/docs/QEPM/QEPM/
+//   Developer build:  <repo>/__Builds/.../bin  docs in <repo>/docs/
 QString docsRoot()
 {
-	QString result;
+	const QString kProduct = "QEPM";
+	const QString kMarker = "/getting-started";
 
-	// Derive the actual install folder name ("Alpaca", "QEPM", ...)
-	// from where this binary is running, i.e. .../Qualcomm/<X>/<exe> -> "<X>".
-	// This is more reliable than QCoreApplication::applicationName(), which
-	// is rarely set explicitly and silently falls back to a hardcoded
-	// default otherwise.
-	QString appName = "QEPM";
-	QDir binDir(QCoreApplication::applicationDirPath());
-	if (binDir.exists())
+	QStringList candidates;
+	const QString exeDir = QCoreApplication::applicationDirPath();
+	if (exeDir.isEmpty() == false)
 	{
-		const QString folderName = binDir.dirName();
-		if (folderName.isEmpty() == false)
-			appName = folderName;
+		for (const QString& base : {exeDir, exeDir + "/.."})
+		{
+			candidates << base + "/docs/" + kProduct;
+			candidates << base + "/docs/" + kProduct + "/" + kProduct;
+		}
+
+		// Developer build tree: walk up from the executable looking for the repo's docs/.
+		QDir dir(exeDir);
+		for (int level = 0; level < 6 && dir.cdUp(); ++level)
+			candidates << dir.absolutePath() + "/docs";
 	}
 
+	for (const QString& candidate : candidates)
+	{
+		const QString root = QDir::cleanPath(candidate);
+		if (QDir(root + kMarker).exists())
+			return root + "/";
+	}
+
+	// Legacy fixed install locations, kept as the last resort.
+	QString result;
 #ifdef Q_OS_WIN
-	result = "C:/Program Files/Qualcomm/" + appName + "/docs/" + appName + "/";
+	result = "C:/Program Files/Qualcomm/" + kProduct + "/docs/" + kProduct + "/";
 #endif
 #ifdef Q_OS_LINUX
-    result = "/opt/qcom/" + appName + "/docs/" + appName + "/";
+	result = "/opt/qcom/" + kProduct + "/docs/" + kProduct + "/";
 #endif
+	if (QDir(result + kMarker).exists() == false)
+		qWarning().noquote() << "docsRoot: no documentation folder found; searched" << candidates.join(", ")
+							 << "and" << result;
 	return result;
 }
