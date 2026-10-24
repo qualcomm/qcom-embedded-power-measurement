@@ -276,7 +276,7 @@ class EPMDevice:
         """
         newPathStr = newPath.encode("utf-8")
         result = self.__setPlatformPathFunc(self.__epmHandle, newPathStr)
-        return result
+        return result == NO_EPM_ERROR
 
     def GetPlatformCount(self) -> int:
         """
@@ -313,7 +313,7 @@ class EPMDevice:
         """
         newPlatform = platform.encode("utf-8")
         result = self.__setPlatformFunc(self.__epmHandle, newPlatform)
-        return result
+        return result == NO_EPM_ERROR
 
     def GetChannelCount(self) -> int:
         """
