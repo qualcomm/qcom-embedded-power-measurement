@@ -17,12 +17,53 @@
 #include <QDir>
 #include <QMessageBox>
 #include <QPushButton>
+#include <QRegularExpression>
+#include <QSet>
 
 const QByteArray kDefaultPropsTip(QByteArrayLiteral("Scan & select device to view properties"));
 const QByteArray kDefaultDeviceSelection(QByteArrayLiteral("<scan to update list>"));
 const QByteArray kDefaultPlatformSelection(QByteArrayLiteral("<choose configuration>"));
 const QByteArray kModelId(QByteArrayLiteral("Id"));
 const int kDefaultDeviceIndex(0);
+
+namespace
+{
+	// Results folder for one device. createFilenameTimeStamp() has one-second
+	// resolution and every device is started in the same pass, so two boards
+	// on the same platform configuration used to get the same folder. The
+	// serial number keeps the folders apart, and a numeric suffix resolves
+	// any remaining clash (folder already used in this pass or on disk).
+	QString uniqueResultsFolder
+	(
+		const QString& outputPath,
+		const QString& target,
+		const QString& serialNumber,
+		const QString& timeStamp,
+		QSet<QString>& usedFolders
+	)
+	{
+		static const QRegularExpression kUnsafeChars(QStringLiteral("[^A-Za-z0-9_-]"));
+
+		QString safeSerial = serialNumber;
+		safeSerial.replace(kUnsafeChars, QStringLiteral("_"));
+
+		QString folderName = target;
+		if (safeSerial.isEmpty() == false)
+			folderName += QStringLiteral("_") + safeSerial;
+		folderName += timeStamp;
+
+		const QString base = QDir::cleanPath(outputPath + QDir::separator() + folderName);
+		QString candidate = base;
+		int suffix{2};
+
+		while (usedFolders.contains(candidate) || QDir(candidate).exists())
+			candidate = base + QString("_%1").arg(suffix++);
+
+		usedFolders.insert(candidate);
+
+		return candidate;
+	}
+}
 
 EPMDeviceModel::EPMDeviceModel(EPMScopePreferences *preferences)
 {
@@ -456,6 +497,9 @@ void EPMDeviceModel::startRecord()
 
 	_recording = !_recording;
 
+	const QString timeStamp = createFilenameTimeStamp();
+	QSet<QString> usedFolders;
+
 	for (auto& wgt : _tableMap.keys())
 	{
 		int wgtId = wgt->property(kModelId).toInt();
@@ -467,10 +511,6 @@ void EPMDeviceModel::startRecord()
 		AppCore::writeToApplicationLog(QString("                       Label: %1\n").arg(epmProject->label()));
 		AppCore::writeToApplicationLog(QString("                 Description: %1\n").arg(epmProject->description()));
 		AppCore::writeToApplicationLog(QString("   Config File Channel Count: %1\n").arg(epmProject->channelCount()));
-
-		QString targetFile = epmProject->target() + createFilenameTimeStamp();
-
-		epmProject->setTemporaryResultsDirectory(_preferences->defaultOutputPath() + QDir::separator() + targetFile);
 
 		if (_recording)
 		{
@@ -490,24 +530,27 @@ void EPMDeviceModel::startRecord()
 					EPMDevice device = _layoutMap.value(hbl);
 					if (device.isNull() == false)
 					{
-						for (auto& wgt : _tableMap.keys())
+						const QString resultsFolder = uniqueResultsFolder(_preferences->defaultOutputPath(),
+							epmProject->target(), device->getSerialNumber(), timeStamp, usedFolders);
+
+						epmProject->setTemporaryResultsDirectory(resultsFolder);
+						AppCore::writeToApplicationLog(QString("               Results Folder: %1\n").arg(resultsFolder));
+
+						// Only this device's project: each tab owns its own channels.
+						if (epmProject.isNull() == false)
 						{
-							EPMProject epmProject = _tableMap.value(wgt);
-							if (epmProject.isNull() == false)
+							quint32 channelCount = epmProject->channelCount();
+							for (auto channelIndex : range(channelCount))
 							{
-								quint32 channelCount = epmProject->channelCount();
-								for (auto channelIndex : range(channelCount))
-								{
-									EPMChannel currentChannel;
-									EPMChannel voltageChannel;
-									epmProject->getChannelPair(channelIndex, currentChannel, voltageChannel);
+								EPMChannel currentChannel;
+								EPMChannel voltageChannel;
+								epmProject->getChannelPair(channelIndex, currentChannel, voltageChannel);
 
-									if (currentChannel.isNull() == false && currentChannel->active())
-										_currentChart->addLineSeries(currentChannel);
+								if (currentChannel.isNull() == false && currentChannel->active())
+									_currentChart->addLineSeries(currentChannel);
 
-									if (voltageChannel.isNull() == false && voltageChannel->active())
-										_voltageChart->addLineSeries(voltageChannel);
-								}
+								if (voltageChannel.isNull() == false && voltageChannel->active())
+									_voltageChart->addLineSeries(voltageChannel);
 							}
 						}
 
@@ -745,4 +788,3 @@ bool  EPMDeviceModel::loadPlatformFile(EPMProject epmProject, const QString& pla
 
 	return result;
 }
-

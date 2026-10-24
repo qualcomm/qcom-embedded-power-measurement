@@ -214,8 +214,6 @@ void EPMDeviceList::setupDeviceList()
 
 			logMessage = QString("   EPMDeviceList::setupDeviceList: Device added");
 			addToLog(logMessage);
-
-			break;
 		}
 	}
 
