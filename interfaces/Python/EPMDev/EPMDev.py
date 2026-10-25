@@ -286,7 +286,7 @@ class EPMDevice:
         """
         newPathStr = newPath.encode("utf-8")
         result = self.__setPlatformPathFunc(self.__epmHandle, newPathStr)
-        return result
+        return result == NO_EPM_ERROR
 
     def GetPlatformCount(self) -> int:
         """
@@ -323,7 +323,7 @@ class EPMDevice:
         """
         newPlatform = platform.encode("utf-8")
         result = self.__setPlatformFunc(self.__epmHandle, newPlatform)
-        return result
+        return result == NO_EPM_ERROR
 
     def GetChannelCount(self) -> int:
         """
@@ -590,7 +590,7 @@ def GetDeviceCount() -> int:
     deviceCount = c_int(0)
     rc = __getDeviceCountFunc(byref(deviceCount))
     if rc != NO_EPM_ERROR:
-        raise RuntimeError(f"Error: GetChannelCount returned: {GetErrorString(rc)}. Error code: {rc}.")
+        raise RuntimeError(f"Error: GetDeviceCount returned: {GetErrorString(rc)}. Error code: {rc}.")
     return deviceCount.value
 
 
