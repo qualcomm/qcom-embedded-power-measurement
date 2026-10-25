@@ -580,7 +580,7 @@ def GetDeviceCount() -> int:
     deviceCount = c_int(0)
     rc = __getDeviceCountFunc(byref(deviceCount))
     if rc != NO_EPM_ERROR:
-        raise RuntimeError(f"Error: GetChannelCount returned: {GetErrorString(rc)}. Error code: {rc}.")
+        raise RuntimeError(f"Error: GetDeviceCount returned: {GetErrorString(rc)}. Error code: {rc}.")
     return deviceCount.value
 
 
