@@ -511,9 +511,23 @@ bool _EPMProject::acquire(qreal duration)
 	return result;
 }
 
+QString _EPMProject::lastError() const
+{
+	return _lastError;
+}
+
+void _EPMProject::setLastError(const QString& lastError)
+{
+	_lastError = lastError;
+}
+
 bool _EPMProject::startAcquire()
 {
 	bool result{false};
+
+	// Clear any reason recorded by an earlier attempt so a stale message is
+	// never reported against this one.
+	setLastError(QString());
 
 	if (_epmConfigFile != Q_NULLPTR)
 	{
@@ -555,11 +569,16 @@ bool _EPMProject::startAcquire()
 		}
 		catch (EPMException& epmException)
 		{
+			// The exception carries the only description of what the hardware
+			// refused. Record it as well as logging it, otherwise a caller
+			// using the API has no way to find out why acquisition failed.
+			setLastError(QString("Acquisition could not be started: %1").arg(epmException.what()));
 			AppCore::writeToApplicationLog(QString("EPMException epmException: %1\n").arg(epmException.what()));
 		}
 	}
 	else
 	{
+		setLastError("No configuration has been selected, so acquisition cannot be started.");
 		AppCore::writeToApplicationLogLine("Please select a configuration to start data acquisition");
 	}
 
@@ -824,4 +843,3 @@ bool _EPMProject::saveExportConfigurationFile()
 
 	return result;
 }
-

@@ -109,13 +109,27 @@ EPM_HANDLE DevEPMCore::OpenHandleByDescription(const char *targetName)
 {
 	EPM_HANDLE result{kBadHandle};
 
+	// Reuse an already open handle only on an exact identifier match. A
+	// substring test here would hand back the handle of a different board
+	// whenever one identifier is a prefix of another.
+	const QString requestedName{QString::fromLatin1(targetName).trimmed()};
+
 	for (auto [epmHandle, openDevice]: RangedContainer(_openDevices))
 	{
-		if (openDevice->getTargetName() == targetName)
-			return epmHandle;
+		if (openDevice.isNull() || requestedName.isEmpty())
+		{
+			continue;
+		}
 
-		if (openDevice->getSerialNumber().contains(targetName))
+		if (openDevice->getTargetName().trimmed().compare(requestedName, Qt::CaseInsensitive) == 0)
+		{
 			return epmHandle;
+		}
+
+		if (openDevice->getSerialNumber().trimmed().compare(requestedName, Qt::CaseInsensitive) == 0)
+		{
+			return epmHandle;
+		}
 	}
 
 	EPMDevice epmDevice;
@@ -124,8 +138,15 @@ EPM_HANDLE DevEPMCore::OpenHandleByDescription(const char *targetName)
 	if (epmDevice.isNull() == false)
 	{
 		result = epmDevice->hash();
-		_openDevices[result] = epmDevice;
-		_EPMProjects[result] = EPMProject(new _EPMProject(&_preferences));
+
+		// A unique partial identifier can resolve to a board that is already
+		// open. Hand back the existing handle in that case; replacing the
+		// project would discard its state, including any running acquisition.
+		if (_openDevices.contains(result) == false)
+		{
+			_openDevices[result] = epmDevice;
+			_EPMProjects[result] = EPMProject(new _EPMProject(&_preferences));
+		}
 	}
 	else
 	{
@@ -201,4 +222,3 @@ Platforms DevEPMCore::GetPlatforms()
 	}
 	return result;
 }
-

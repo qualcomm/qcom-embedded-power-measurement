@@ -10,10 +10,20 @@ from ctypes import *
 from pathlib import Path
 from sys import exit, platform
 
-# Configure logging
+# Configure logging.
+# Do not call logging.basicConfig() here: it configures the root logger of the
+# host application at import time. Give this module's logger its own handler
+# instead, so messages are still shown when the host has not set up logging.
+# Hosts can adjust or replace it via logging.getLogger(<this module name>).
 logger = logging.getLogger(__name__)
 log_fmt: str = logging.BASIC_FORMAT
-logging.basicConfig(format=log_fmt, level=logging.INFO)
+if logger.level == logging.NOTSET:
+    logger.setLevel(logging.INFO)
+if not logger.handlers:
+    _log_handler = logging.StreamHandler()
+    _log_handler.setFormatter(logging.Formatter(log_fmt))
+    logger.addHandler(_log_handler)
+    logger.propagate = False
 
 
 class _SetupEPM:
@@ -148,7 +158,7 @@ if epmLibraryPath is not None:
             f"""Could not locate the EPMDev.dll. Please update QEPM.
         Error: {error}"""
         )
-        logger.info("EPM library path:", epmLibraryPath)
+        logger.info("EPM library path: %s", epmLibraryPath)
         exit()
 
     try:
@@ -276,7 +286,7 @@ class EPMDevice:
         """
         newPathStr = newPath.encode("utf-8")
         result = self.__setPlatformPathFunc(self.__epmHandle, newPathStr)
-        return result
+        return result == NO_EPM_ERROR
 
     def GetPlatformCount(self) -> int:
         """
@@ -313,7 +323,7 @@ class EPMDevice:
         """
         newPlatform = platform.encode("utf-8")
         result = self.__setPlatformFunc(self.__epmHandle, newPlatform)
-        return result
+        return result == NO_EPM_ERROR
 
     def GetChannelCount(self) -> int:
         """
@@ -580,7 +590,7 @@ def GetDeviceCount() -> int:
     deviceCount = c_int(0)
     rc = __getDeviceCountFunc(byref(deviceCount))
     if rc != NO_EPM_ERROR:
-        raise RuntimeError(f"Error: GetChannelCount returned: {GetErrorString(rc)}. Error code: {rc}.")
+        raise RuntimeError(f"Error: GetDeviceCount returned: {GetErrorString(rc)}. Error code: {rc}.")
     return deviceCount.value
 
 

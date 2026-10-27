@@ -45,6 +45,8 @@ QEPM is a software suite that enables users to perform power measurement on Qual
 | :-- | :-- | :-- |
 | **OS** | Windows / Debian | Windows 10+ / Ubuntu 22.04+ |
 | **Compiler** | [MSVC 2022](https://aka.ms/vs/17/release/vs_community.exe) / GCC | MSVC 2022 / GCC-11, G++-11, GLIBC-2.35 |
+| **Build System** | [CMake](https://cmake.org/download/) | 3.24+ |
+| **Build Tool** | [Ninja](https://ninja-build.org/) (via Qt installer, system package manager, or direct download) | 1.10+ |
 | **UI Framework** | [Qt Open-source](https://www.qt.io/download-qt-installer-oss) | 6.10.0+ |
 
 > [!NOTE]
@@ -79,11 +81,10 @@ git clone https://github.com/qualcomm/qcom-embedded-power-measurement.git
 
 ### Build & Usage
 
-Execute CMake to configure and build the project:
+Execute `build.bat` to generate executables:
 
 ```cmd
-cmake -B build
-cmake --build build --config Release
+build.bat
 ```
 
 **Build output**:
@@ -112,22 +113,31 @@ __Builds\x64\Release\bin\EPM.exe
    ```bash
    sudo apt install qt6-base-dev qt6-serialport-dev
    ```
-2. **Runtime Dependencies**:
+2. **Build Dependencies**:
+   ```bash
+   sudo apt install build-essential ninja-build uuid-dev libgl1-mesa-dev libfontconfig1 libfreetype6
+   ```
+   `uuid-dev` is required to link EPM and the configuration editor; `libfontconfig1` and `libfreetype6` are required by Qt GUI (preinstalled on Ubuntu desktop).
+
+   CMake 3.24 or later is required. Ubuntu 22.04's `apt` package is CMake 3.22, which is too old; install a newer one, for example:
+   ```bash
+   pip install --user "cmake>=3.24,<4"
+   ```
+3. **Runtime Dependencies**:
    ```bash
    sudo apt install libusb-dev libusb-1.0-0-dev libxcb-cursor0 libpcre2-16-0 libxkbcommon-x11-0 libxcb-xkb1 libxcb-icccm4 libxcb-shape0 libxcb-keysyms1 libgl1 libegl-dev libxcb-xinerama0 libpulse-dev
    ```
-3. **Environment Variable**:
+4. **Environment Variable**:
    ```bash
    export QTBIN=/path/to/Qt/directory/<version>/gcc_64/bin
    ```
 
 ### Build & Usage
 
-Execute CMake to generate executables:
+Execute `build.sh` to generate executables:
 
 ```bash
-cmake -B build
-cmake --build build --config Release
+./build.sh
 ```
 
 **Build output**:

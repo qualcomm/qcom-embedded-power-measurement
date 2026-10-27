@@ -29,6 +29,10 @@ QString QCOMMONCONSOLE_EXPORT expandPath(const QString& filePath);
 
 QString QCOMMONCONSOLE_EXPORT epmConfigRoot();
 
+// Logs the executable, configuration and documents folders once, so path
+// problems in a given install layout can be diagnosed from the log.
+void QCOMMONCONSOLE_EXPORT logInstallLayout();
+
 void kickIt();
 void cleanIt(const QString& pathToClean);
 
@@ -36,4 +40,3 @@ bool QCOMMONCONSOLE_EXPORT isUserPrivileged();
 bool QCOMMONCONSOLE_EXPORT executeBinaryAsAdministrator(const QString &binary, const QString &cmdArgs);
 
 #endif
-
