@@ -35,6 +35,9 @@ EPMScopeWindow:: EPMScopeWindow(EPMScopePreferences* preferences, QWidget* paren
 {
 	setupUi(this);
 
+	// Only distributions that ship BugWriter offer bug reporting.
+	_actionSubmitBugReport->setVisible(bugWriterAvailable());
+
 	setWindowTitle(kAppName);
 
 	_currentChart->setYTitle("Current (mA)");
@@ -257,21 +260,13 @@ void EPMScopeWindow::on__actionQuit_triggered()
 
 void EPMScopeWindow::on__actionSubmitBugReport_triggered()
 {
-	// BugWriter is installed next to this executable in every product layout,
-	// so resolve it from there instead of a fixed install folder.
-	const QString program = QDir(QCoreApplication::applicationDirPath()).filePath("BugWriter");
-
 	QStringList arguments;
 	arguments << "product:Alpaca";
 	arguments << "prodversion:" + kProductVersion;
 	arguments << "application:" + windowTitle();
 	arguments << "appversion:" + kAppVersion;
 
-	if (QProcess::startDetached(program, arguments) == false)
-	{
-		qWarning() << "Unable to start BugWriter:" << program;
-		AppCore::writeToApplicationLogLine("Unable to start BugWriter: " + program);
-	}
+	startBugWriter(arguments, this);
 }
 
 void EPMScopeWindow::on__scanDevices_clicked()
