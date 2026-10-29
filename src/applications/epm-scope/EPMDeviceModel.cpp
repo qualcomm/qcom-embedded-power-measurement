@@ -355,7 +355,7 @@ int EPMDeviceModel::count()
 	int tsize = _tableMap.size();
 
 	if (lsize != tsize)
-		AppCore::writeToApplicationLogLine("Layout and table counts are out of sync. Please file bug report using the Bug Writer");
+		AppCore::writeToApplicationLogLine("Layout and table counts are out of sync. Please report this through GitHub Issues.");
 
 	return _layoutMap.size();
 }

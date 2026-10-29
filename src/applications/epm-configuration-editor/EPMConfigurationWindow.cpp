@@ -63,6 +63,9 @@ EPMConfigurationWindow::EPMConfigurationWindow
 
 	setupUi(this);
 
+	// Only distributions that ship BugWriter offer bug reporting.
+	actionSubmit_Bug_Report->setVisible(bugWriterAvailable());
+
 	QSize windowSize = settings.value("size", this->size()).toSize();
 	QPoint windowPosition = settings.value("pos", _nextWindowPos).toPoint();
 
@@ -385,10 +388,6 @@ void EPMConfigurationWindow::on_actionAbout_triggered()
 
 void EPMConfigurationWindow::on_actionSubmit_Bug_Report_triggered()
 {
-	// BugWriter is installed next to this executable in every product layout,
-	// so resolve it from there instead of a fixed install folder.
-	const QString program = QDir(QCoreApplication::applicationDirPath()).filePath("BugWriter");
-
 	QStringList arguments;
 	arguments << "product:QEPM";
 	arguments << "prodversion:" + kProductVersion;
@@ -396,11 +395,7 @@ void EPMConfigurationWindow::on_actionSubmit_Bug_Report_triggered()
 	arguments << "appversion:" + kAppVersion;
 	arguments << "listports:true";
 
-	if (QProcess::startDetached(program, arguments) == false)
-	{
-		qWarning() << "Unable to start BugWriter:" << program;
-		AppCore::writeToApplicationLogLine("Unable to start BugWriter: " + program);
-	}
+	startBugWriter(arguments, this);
 }
 
 void EPMConfigurationWindow::on__channelSettings_itemClicked

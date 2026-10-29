@@ -131,7 +131,9 @@ EPMWindow::EPMWindow
 	helpMenu->addAction("Contents", [&]{ startLocalBrowser(docsRoot() + "/getting-started/05-Embedded-Power-Measurement.html");});
 	helpMenu->addSeparator();
 	helpMenu->addAction("About...", this, &EPMWindow::onAboutTriggered);
-	helpMenu->addAction(QIcon(":/BugWriter.png"), "Submit Bug Report", this, &EPMWindow::onSubmitBugReportTriggered);
+	QAction* bugAction = helpMenu->addAction(QIcon(":/BugWriter.png"), "Submit Bug Report", this, &EPMWindow::onSubmitBugReportTriggered);
+	// Only distributions that ship BugWriter offer bug reporting.
+	bugAction->setVisible(bugWriterAvailable());
 
 	_menuBar->addMenu(helpMenu);
 	_topLayout->setMenuBar(_menuBar);
@@ -408,21 +410,13 @@ void EPMWindow::onAboutTriggered()
 
 void EPMWindow::onSubmitBugReportTriggered()
 {
-	// BugWriter is installed next to this executable in every product layout,
-	// so resolve it from there instead of a fixed install folder.
-	const QString program = QDir(QCoreApplication::applicationDirPath()).filePath("BugWriter");
-
 	QStringList arguments;
 	arguments << "product:QEPM";
 	arguments << "prodversion:" + kProductVersion;
 	arguments << "application:Embedded_Power_Measurement";
 	arguments << "appversion:" + kAppVersion;
 
-	if (QProcess::startDetached(program, arguments) == false)
-	{
-		qWarning() << "Unable to start BugWriter:" << program;
-		AppCore::writeToApplicationLogLine("Unable to start BugWriter: " + program);
-	}
+	startBugWriter(arguments, this);
 }
 
 void EPMWindow::on__deviceList_currentRowChanged(int currentRow)
