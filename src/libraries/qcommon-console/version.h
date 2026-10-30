@@ -5,11 +5,10 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 // major.minor.patch
-#define QEPM_VERSION			"6.9.0"
+#define QEPM_VERSION			"6.9.3"
 
 #define EPM_SCOPE_VERSION		"3.0.0"
 #define EPM_VIEWER_VERSION		"3.0.0"
-#define BUG_WRITER_VERSION		"3.0.0"
 #define EPM_VERSION				"3.0.0"
 #define EPM_EDITOR_VERSION		"2.0.0"
 #define QCOMMON_VERSION			"2.0.0"

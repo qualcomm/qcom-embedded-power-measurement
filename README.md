@@ -26,7 +26,8 @@ QEPM is a software suite that enables users to perform power measurement on Qual
 | **EPMScope** | View real-time current & voltage graphs for selected power measurement channels |
 | **EPMViewer** | View current & voltage graphs for power measurement channels from already acquired data |
 | **Command-line utilities** | EPMDump, SCLDump, EPMCLI, UDASCLI, PSOCProgrammer |
-| **BugWriter** | File bug reports with QEPM from within Qualcomm network |
+
+Report issues and feature requests through [GitHub Issues](https://github.com/qualcomm/qcom-embedded-power-measurement/issues).
 
 ## Hardware Requirements
 
@@ -192,9 +193,6 @@ graph TD
     UDASDev --> QCommonConsole
     
     %% Applications
-    BugWriter[BugWriter] --> QCommon
-    BugWriter --> QCommonConsole
-    
     EPM[EPM] --> EPMLib
     EPM --> PowerChart
     EPM --> QCommon

@@ -101,7 +101,9 @@ EPMViewerWindow::EPMViewerWindow
 	helpMenu->addAction("Contents", [&]{ startLocalBrowser(docsRoot() + "/getting-started/04-EPM-Viewer.html");});
 	helpMenu->addSeparator();
 	helpMenu->addAction("About...", this, &EPMViewerWindow::onAboutTriggered);
-	helpMenu->addAction(QIcon(":/BugWriter.png"), "Submit Bug Report", this, &EPMViewerWindow::onSubmitBugReportTriggered);
+	QAction* bugAction = helpMenu->addAction(QIcon(":/BugWriter.png"), "Submit Bug Report", this, &EPMViewerWindow::onSubmitBugReportTriggered);
+	// Only distributions that ship BugWriter offer bug reporting.
+	bugAction->setVisible(bugWriterAvailable());
 
 	_menuBar->addMenu(helpMenu);
 
@@ -372,21 +374,13 @@ void EPMViewerWindow::onAboutTriggered()
 
 void EPMViewerWindow::onSubmitBugReportTriggered()
 {
-	// BugWriter is installed next to this executable in every product layout,
-	// so resolve it from there instead of a fixed install folder.
-	const QString program = QDir(QCoreApplication::applicationDirPath()).filePath("BugWriter");
-
 	QStringList arguments;
 	arguments << "product:QEPM";
 	arguments << "prodversion:" + kProductVersion;
 	arguments << "application:QEPM_Viewer";
 	arguments << "appversion:" + kAppVersion;
 
-	if (QProcess::startDetached(program, arguments) == false)
-	{
-		qWarning() << "Unable to start BugWriter:" << program;
-		AppCore::writeToApplicationLogLine("Unable to start BugWriter: " + program);
-	}
+	startBugWriter(arguments, this);
 }
 
 void EPMViewerWindow::on__tabWidget_currentChanged

@@ -10,7 +10,6 @@ find_package(QT NAMES Qt6 REQUIRED COMPONENTS Core)
 
 qt_standard_project_setup()
 
-add_subdirectory(bugwriter)
 add_subdirectory(epm)
 add_subdirectory(epm-configuration-editor)
 add_subdirectory(epm-scope)
