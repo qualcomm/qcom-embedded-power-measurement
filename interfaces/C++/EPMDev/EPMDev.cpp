@@ -47,6 +47,16 @@ EPM_RESULT GetQEPMVersion
 	return result;
 }
 
+// Deprecated alias retained for ABI compatibility (see EPMDev.h).
+EPM_RESULT GetAlpacaVersion
+(
+	char* version,
+	int bufferSize
+)
+{
+	return GetQEPMVersion(version, bufferSize);
+}
+
 EPM_RESULT GetEPMVersion(char* epmVersion, int bufferSize)
 {
 	EPM_RESULT result{NO_EPM_ERROR};
