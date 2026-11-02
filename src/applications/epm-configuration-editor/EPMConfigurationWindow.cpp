@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 #include "EPMConfigurationWindow.h"
+#include "ConfigDialogPaths.h"
 
 // EPMConfigurationEditor
 #include "AboutDialog.h"
@@ -545,7 +546,10 @@ bool EPMConfigurationWindow::open()
 
 	AlpacaSettings settings(kAppName);
 
-	QString initialDir = settings.value(kEPMConfigPath, documentsDataPath(kAppName)).toString();
+	// Start in the last folder used. On first use, open the installed configurations folder
+	// rather than the per-application documents folder.
+	QString initialDir = pickDialogFolder(settings.value(kEPMConfigPath).toString(),
+		QStringList() << epmConfigRoot() << documentsDataPath(kAppName), QStringLiteral("*.ccnf"));
 
 	QString filters = "QEPM Channel Configuration (*.ccnf)";
 
@@ -620,7 +624,10 @@ bool EPMConfigurationWindow::saveAs()
 		AlpacaSettings settings(kAppName);
 		QString lastPath;
 
-		lastPath = settings.value(kEPMConfigPath, documentsDataPath(kAppName)).toString();
+		lastPath = pickDialogFolder(settings.value(kEPMConfigPath).toString(),
+			QStringList() << documentsDataPath(kAppName), QStringLiteral("*.ccnf"));
+		if (_epmFilePath.isEmpty() == false)
+			lastPath = QDir(lastPath).filePath(QFileInfo(_epmFilePath).fileName());
 
 		QString path = QFileDialog::getSaveFileName(Q_NULLPTR, "Save EPM Channel Configuration File",
 			lastPath, tr("EPM Channel Configuration File (*.ccnf)"));
@@ -628,7 +635,7 @@ bool EPMConfigurationWindow::saveAs()
 		{
 			if (lastPath != path)
 			{
-				settings.setValue(kEPMConfigPath, path);
+				settings.setValue(kEPMConfigPath, QFileInfo(path).absolutePath());
 			}
 
 			_epmFilePath = path;
