@@ -51,6 +51,10 @@ public:
 	void addChannel(EPMChannel addMe);
 	void removeChannel(EPMChannel removeMe);
 
+	// Forget the channels of the previous recording. They are disabled on the
+	// device at the next acquisition, before the new selection is added.
+	void resetChannels();
+
     bool setMarkerTrigger(bool state);
 
 	// snapshot

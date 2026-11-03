@@ -57,6 +57,12 @@ void EPMRun::addChannel
 {
 	if (addMe->valid())
 	{
+		for (const auto& runChannel: std::as_const(_activeChannels))
+		{
+			if (runChannel->channel() == addMe->channel() && runChannel->waveForm() == addMe->waveForm())
+				return;
+		}
+
 		_activeChannels.append(addMe);
 
 		log(QString("EPM Run Channel %1 added\n").arg(addMe->seriesName()));
@@ -97,6 +103,16 @@ void EPMRun::removeChannel
 	}
 }
 
+void EPMRun::resetChannels()
+{
+	for (const auto& runChannel: std::as_const(_activeChannels))
+	{
+		_removedChannels.append(runChannel);
+	}
+
+	_activeChannels.clear();
+}
+
 bool EPMRun::setMarkerTrigger(bool state)
 {
     bool result{false};
@@ -127,6 +143,7 @@ void EPMRun::acquire()
 	{
 		_epmDevice->removeChannel(runChannel);
 	}
+	_removedChannels.clear();
 
 	if (_activeChannels.count() > 0)
 	{
@@ -195,6 +212,7 @@ void EPMRun::startAcquire()
 	{
 		_epmDevice->removeChannel(runChannel);
 	}
+	_removedChannels.clear();
 
 	for (const auto& runChannel: std::as_const(_activeChannels))
 	{
