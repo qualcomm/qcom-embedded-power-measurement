@@ -241,10 +241,16 @@
           <property name="text">
            <string>Current Enabled</string>
           </property>
+          <property name="toolTip">
+           <string>Click to switch current measurement On/Off for this channel (Ctrl+click: Raw).&#10;Off marks the channel disabled for the next recording. The recorded file may still contain a reading for it; check the channel list in EPM Viewer.</string>
+          </property>
          </column>
          <column>
           <property name="text">
            <string>Voltage Enabled</string>
+          </property>
+          <property name="toolTip">
+           <string>Click to switch voltage measurement On/Off for this channel (Ctrl+click: Raw).&#10;Off marks the channel disabled for the next recording. The recorded file may still contain a reading for it; check the channel list in EPM Viewer.</string>
           </property>
          </column>
          <column>
