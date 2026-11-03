@@ -309,6 +309,19 @@ QString expandPath(const QString &filePath)
 	return result;
 }
 
+// True when the folder holds at least one platform configuration file. A folder
+// that merely exists is not enough: an unrelated or empty "configurations"
+// folder above the executable (for example C:\configurations) must not hide
+// the installed one.
+static bool containsPlatformConfigurations(const QString& folder)
+{
+	const QDir dir(folder);
+	if (dir.exists() == false)
+		return false;
+
+	return dir.entryList(QStringList() << QStringLiteral("*.ccnf"), QDir::Files).isEmpty() == false;
+}
+
 QString epmConfigRoot()
 {
 	// applicationDirPath() needs a QCoreApplication. EPMDev is also loaded by hosts that
@@ -319,17 +332,26 @@ QString epmConfigRoot()
 
 	if (haveApplication)
 	{
+		static bool reportedSkipped{false};
 		QDir dir(QCoreApplication::applicationDirPath());
 
 		for (int i = 0; i < 5; ++i)
 		{
 			const QString candidate = dir.absolutePath() + "/configurations";
-			if (QDir(candidate).exists())
+			if (containsPlatformConfigurations(candidate))
 			{
 				return QDir::cleanPath(candidate);
 			}
 
-			dir.cdUp();
+			if (QDir(candidate).exists() && reportedSkipped == false)
+			{
+				reportedSkipped = true;
+				qWarning() << "epmConfigRoot: ignoring" << QDir::cleanPath(candidate)
+					<< "- it contains no .ccnf files";
+			}
+
+			if (dir.cdUp() == false)
+				break;
 		}
 	}
 
