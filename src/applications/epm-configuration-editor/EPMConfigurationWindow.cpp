@@ -599,8 +599,24 @@ bool EPMConfigurationWindow::save()
 
 	if (_epmConfigFile != Q_NULLPTR)
 	{
+		// Installed configurations are shared and replaced on reinstall, so never
+		// overwrite one: save the user's copy elsewhere instead.
+#ifdef Q_OS_WIN
+		const Qt::CaseSensitivity kPathCase{Qt::CaseInsensitive};
+#else
+		const Qt::CaseSensitivity kPathCase{Qt::CaseSensitive};
+#endif
+		const QString installedRoot = QDir::cleanPath(epmConfigRoot()) + "/";
+		const bool installedFile = _epmFilePath.isEmpty() == false && epmConfigRoot().isEmpty() == false
+			&& QDir::cleanPath(QFileInfo(_epmFilePath).absoluteFilePath()).startsWith(installedRoot, kPathCase);
+
 		if (_epmFilePath.isEmpty() == true)
 		{
+			result = saveAs();
+		}
+		else if (installedFile)
+		{
+			_statusBar->showMessage(tr("Installed configurations are not changed. Choose where to save your copy."), 10000);
 			result = saveAs();
 		}
 		else
@@ -624,10 +640,10 @@ bool EPMConfigurationWindow::saveAs()
 		AlpacaSettings settings(kAppName);
 		QString lastPath;
 
-		lastPath = pickDialogFolder(settings.value(kEPMConfigPath).toString(),
+		const QString lastFolder = pickDialogFolder(settings.value(kEPMConfigPath).toString(),
 			QStringList() << documentsDataPath(kAppName), QStringLiteral("*.ccnf"));
-		if (_epmFilePath.isEmpty() == false)
-			lastPath = QDir(lastPath).filePath(QFileInfo(_epmFilePath).fileName());
+		lastPath = _epmFilePath.isEmpty() ? lastFolder
+			: QDir(lastFolder).filePath(QFileInfo(_epmFilePath).fileName());
 
 		QString path = QFileDialog::getSaveFileName(Q_NULLPTR, "Save EPM Channel Configuration File",
 			lastPath, tr("EPM Channel Configuration File (*.ccnf)"));
