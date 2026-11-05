@@ -15,6 +15,9 @@
 #include "ApplicationEnhancements.h"
 #include "Range.h"
 
+// EPMLib
+#include "EPMDevice.h"
+
 // Qt
 #include <QCloseEvent>
 #include <QCoreApplication>
@@ -275,6 +278,22 @@ void EPMScopeWindow::on__scanDevices_clicked()
 		on__removeDeviceBtn_clicked();
 
 	_model.updateDeviceModel();
+
+	// A board that is open in another application (EPM, another EPM Scope,
+	// a script) is seen on USB but cannot be opened, so it is left out of the list. Say so.
+	const QStringList unavailable = _EPMDevice::unavailableDevices();
+	if (unavailable.isEmpty() == false)
+	{
+		const QString message = QString(
+			"%1 EPM device(s) were found but could not be opened.\n\n"
+			"They may be in use by another application (for example EPM or EPM Scope). "
+			"Close that application and scan again.\n\n%2")
+			.arg(unavailable.count())
+			.arg(unavailable.join("\n"));
+
+		AppCore::writeToApplicationLogLine(QString("EPM Scope scan: %1").arg(unavailable.join("; ")));
+		QMessageBox::warning(this, "EPM device in use", message);
+	}
 
 	if (_model.deviceCount() > 0)
 		_recordBtn->setEnabled(true);

@@ -87,7 +87,9 @@ bool EPMDeviceList::selectFirstDevice()
 {
 	bool result{false};
 
-	if (_ui->_deviceList->count())
+	// Row 0 can be the "in use by another application" info row,
+	// which is not a device and must never be selected.
+	if (_ui->_deviceList->count() && (_ui->_deviceList->item(0)->flags() & Qt::ItemIsSelectable))
 	{
 		_ui->_deviceList->setCurrentRow(0, QItemSelectionModel::Select);
 		emit deviceSelected(true);
@@ -215,6 +217,24 @@ void EPMDeviceList::setupDeviceList()
 			logMessage = QString("   EPMDeviceList::setupDeviceList: Device added");
 			addToLog(logMessage);
 		}
+	}
+
+	// Boards seen on USB but held open by another application are not
+	// listed as devices. Show one info row (not selectable) so the user knows why.
+	const QStringList unavailable = _EPMDevice::unavailableDevices();
+	if (unavailable.isEmpty() == false)
+	{
+		lwi = new QListWidgetItem(QString("%1 EPM device(s) in use by another application - "
+			"close it, then click Probe for Devices").arg(unavailable.count()));
+		lwi->setData(kHashIndexRole, QVariant::fromValue<HashType>(0));
+		lwi->setData(kProgrammedRole, false);
+		lwi->setFlags(Qt::ItemIsEnabled);
+		lwi->setForeground(Qt::darkGray);
+		lwi->setToolTip(QString("Found but could not be opened. Close the other application "
+			"(for example EPM Scope), then click Probe for Devices.\n%1").arg(unavailable.join("\n")));
+		_ui->_deviceList->addItem(lwi);
+
+		addToLog(QString("   EPMDeviceList::setupDeviceList: Unavailable: %1").arg(unavailable.join("; ")));
 	}
 
 	if (lwiSelected != Q_NULLPTR)
