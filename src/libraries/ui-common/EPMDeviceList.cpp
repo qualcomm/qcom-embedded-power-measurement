@@ -224,8 +224,7 @@ void EPMDeviceList::setupDeviceList()
 	const QStringList unavailable = _EPMDevice::unavailableDevices();
 	if (unavailable.isEmpty() == false)
 	{
-		lwi = new QListWidgetItem(QString("%1 EPM device(s) in use by another application - "
-			"close it, then click Probe for Devices").arg(unavailable.count()));
+		lwi = new QListWidgetItem(QString("%1 device(s) in use (see tooltip)").arg(unavailable.count()));
 		lwi->setData(kHashIndexRole, QVariant::fromValue<HashType>(0));
 		lwi->setData(kProgrammedRole, false);
 		lwi->setFlags(Qt::ItemIsEnabled);
