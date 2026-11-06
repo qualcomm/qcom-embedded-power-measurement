@@ -84,9 +84,7 @@ void EPMRun::removeChannel
 			{
 				if ((*runChannelIter)->channel() == removeMe->channel())
 				{
-					_removedChannels.append(*runChannelIter);
-					
-					_activeChannels.erase(runChannelIter);	
+					_activeChannels.erase(runChannelIter);
 
 					log(QString("EPM Run Channel %1 removed\n").arg(removeMe->seriesName()));
 
@@ -105,12 +103,21 @@ void EPMRun::removeChannel
 
 void EPMRun::resetChannels()
 {
+	_activeChannels.clear();
+}
+
+void EPMRun::applyChannelsToDevice()
+{
+	// The device keeps its own channel selection between recordings, and the
+	// device used for this recording may not be the one used for the last.
+	// Rebuild the selection on this device from the current settings instead
+	// of replaying removals that may belong to another device.
+	_epmDevice->clearChannels();
+
 	for (const auto& runChannel: std::as_const(_activeChannels))
 	{
-		_removedChannels.append(runChannel);
+		_epmDevice->addChannel(runChannel);
 	}
-
-	_activeChannels.clear();
 }
 
 bool EPMRun::setMarkerTrigger(bool state)
@@ -139,19 +146,10 @@ void EPMRun::acquire()
 		throw error;
 	}
 
-	for (const auto& runChannel: std::as_const(_removedChannels))
-	{
-		_epmDevice->removeChannel(runChannel);
-	}
-	_removedChannels.clear();
+	applyChannelsToDevice();
 
 	if (_activeChannels.count() > 0)
 	{
-		for (const auto& runChannel: std::as_const(_activeChannels))
-		{
-			_epmDevice->addChannel(runChannel);
-		}
-
 		bool process{true};
 
 		try 
@@ -208,16 +206,7 @@ void EPMRun::startAcquire()
 		throw error;
 	}
 
-	for (const auto& runChannel: std::as_const(_removedChannels))
-	{
-		_epmDevice->removeChannel(runChannel);
-	}
-	_removedChannels.clear();
-
-	for (const auto& runChannel: std::as_const(_activeChannels))
-	{
-		_epmDevice->addChannel(runChannel);
-	}
+	applyChannelsToDevice();
 
 	_epmDevice->acquire();
 }
