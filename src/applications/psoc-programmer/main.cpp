@@ -200,7 +200,6 @@ bool getProgramming(PSOCCommandLine& commandLine)
 		}
 
 		result = true;
-		epmDevice->close();
 	}
 	catch (EPMException& error)
 	{
@@ -210,6 +209,10 @@ bool getProgramming(PSOCCommandLine& commandLine)
 	{
 		cout << "Could not read the device." << endl;
 	}
+
+	// Close on every path, including after an exception. close() is safe when open() failed;
+	// _EPMDevice::initializeDevice() relies on the same behaviour.
+	epmDevice->close();
 
 	return result;
 }
@@ -282,8 +285,6 @@ bool programDevice(PSOCCommandLine& commandLine)
 		{
 			cout << "EEPROM Error" << endl << "The EEPROM has not been updated with the new data: " << error.what() << endl;
 		}
-
-		epmDevice->close();
 	}
 	catch (EPMException& epmError)
 	{
@@ -299,6 +300,9 @@ bool programDevice(PSOCCommandLine& commandLine)
 			cout << "Could not open the device: " << epmError.what() << endl;
 		}
 	}
+
+	// Close on every path, including after an exception (see getProgramming()).
+	epmDevice->close();
 
 	return result;
 }
