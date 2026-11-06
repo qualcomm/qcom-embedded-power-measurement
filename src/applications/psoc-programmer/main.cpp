@@ -25,7 +25,7 @@ using namespace std;
 PlatformIDs gPsocIDS;
 
 const QByteArray kAppName{"PSOCProgrammer"};
-const QByteArray kAppVersion{"1.2.0"};
+const QByteArray kAppVersion{"1.3.0"};
 
 void listDevices()
 {
@@ -39,6 +39,7 @@ void listDevices()
 			auto epmDevice = _EPMDevice::device(index);
 
 			cout << "   Device:" << epmDevice->getTargetName().toLatin1().data() <<
+				 " USB Serial:" << epmDevice->serialNumber().toLatin1().data() <<
 				 " GUID:" << epmDevice->getUUID().toLatin1().data() <<
 				 " Platform ID:" << epmDevice->getPlatformIDString().toLatin1().data() << endl;
 		}
@@ -65,64 +66,152 @@ void listPlatforms()
 	cout << endl;
 }
 
-void getProgramming()
+static bool deviceMatches(EPMDevice& epmDevice, const QString& selector)
 {
+	const QString wanted = selector.trimmed();
+	if (wanted.isEmpty())
+		return false;
+
+	const QStringList candidates{epmDevice->serialNumber().trimmed(), epmDevice->getTargetName().trimmed(),
+		epmDevice->getUUID().trimmed()};
+
+	for (const auto& candidate : candidates)
+	{
+		if (candidate.isEmpty() == false && candidate.compare(wanted, Qt::CaseInsensitive) == 0)
+			return true;
+	}
+
+	return false;
+}
+
+static void printDeviceChoices(const EPMDevices& epmDevices)
+{
+	for (const auto& epmDevice : epmDevices)
+	{
+		if (epmDevice.isNull())
+			continue;
+
+		cout << "   Device:" << epmDevice->getTargetName().toLatin1().data() <<
+			 " USB Serial:" << epmDevice->serialNumber().toLatin1().data() <<
+			 " GUID:" << epmDevice->getUUID().toLatin1().data() << endl;
+	}
+}
+
+// Picks the device to work on. With select=, the matching device is used even when several are
+// connected. Without it, exactly one device must be connected, as before.
+static EPMDevice selectDevice(PSOCCommandLine& commandLine, EPMDevices& epmDevices)
+{
+	EPMDevice result;
+
+	const QString selector = commandLine.selector();
+	_EPMDevice::getEPMDevices(epmDevices);
+
+	if (epmDevices.isEmpty())
+	{
+		cout << "No devices found." << endl;
+		return result;
+	}
+
+	if (selector.isEmpty())
+	{
+		if (epmDevices.count() == 1)
+			return epmDevices.at(0);
+
+		cout << epmDevices.count() << " devices are connected. Choose one with select=<USB serial | device name | GUID>:" << endl;
+		printDeviceChoices(epmDevices);
+		cout << "   (i.e.) PSOCProgrammer -p platformID=7 select=" <<
+			epmDevices.at(0)->serialNumber().toLatin1().data() << endl;
+		return result;
+	}
+
+	EPMDevices matches;
+	for (auto& epmDevice : epmDevices)
+	{
+		if (epmDevice.isNull() == false && deviceMatches(epmDevice, selector))
+			matches.push_back(epmDevice);
+	}
+
+	if (matches.count() == 1)
+		return matches.at(0);
+
+	if (matches.isEmpty())
+		cout << "No connected device matches select=" << selector.toLatin1().data() << ". Connected devices:" << endl;
+	else
+		cout << "More than one connected device matches select=" << selector.toLatin1().data() << ":" << endl;
+
+	printDeviceChoices(matches.isEmpty() ? epmDevices : matches);
+
+	return result;
+}
+
+bool getProgramming(PSOCCommandLine& commandLine)
+{
+	bool result{false};
 	EPMDevices epmDevices;
 
-	quint32 deviceCount =_EPMDevice::getEPMDevices(epmDevices);
-	if (deviceCount == 1)
+	EPMDevice epmDevice = selectDevice(commandLine, epmDevices);
+	if (epmDevice.isNull())
+		return false;
+
+	// open() on Windows appends the USB serial again, so read it before opening.
+	const QString usbSerial = epmDevice->serialNumber();
+
+	try
 	{
-		EPMDevice epmDevice = epmDevices.at(0);
+		epmDevice->open();
 
-		if (epmDevice.isNull() == false)
+		if (epmDevice->programmed())
 		{
-			try
+			TargetInfo targetInfo;
+
+			epmDevice->eepromRead();
+
+			targetInfo = epmDevice->_targetInfo;
+
+			std::cout << "Device: " << std::endl;
+
+			quint8 chipset = epmDevice->_version._firmwareVersion[1];
+
+			QString chipsetString{"Unknown"};
+			switch (chipset)
 			{
-				epmDevice->open();
+			case 3:
+				chipsetString = "LP038";
+				break;
 
-				if (epmDevice->programmed())
-				{
-					TargetInfo targetInfo;
-
-					epmDevice->eepromRead();
-
-					targetInfo = epmDevice->_targetInfo;
-
-					std::cout << "Device: " << std::endl;
-
-					quint8 chipset = epmDevice->_version._firmwareVersion[1];
-
-					QString chipsetString{"Unknown"};
-					switch (chipset)
-					{
-					case 3:
-						chipsetString = "LP038";
-						break;
-
-					case 4:
-						chipsetString = "LP030";
-						break;
-					}
-
-					std::cout << "   Chipset: " << chipsetString.toLatin1().constData() << std::endl;
-					std::cout << "   Serial Number: " << targetInfo.serialNumber().constData() << std::endl;
-					QString platformDesc = PlatformContainer::toString(targetInfo._platformIdentifier);
-					std::cout << QString("   Platform ID: %1 (%2)").arg(platformDesc).arg(targetInfo._platformIdentifier).toLatin1().constData() << std::endl;
-					std::cout << "   Model Name: " << targetInfo.modelName().constData() << std::endl;
-					std::cout << "   UUID: " << targetInfo._epmBoardUuid.toQUuid().toString().toLatin1().constData() << std::endl;
-					QDateTime eepromTime = QDateTime::fromSecsSinceEpoch(targetInfo._eepromProgrammedTime);
-					std::cout << "   Program Time: " << eepromTime.toString().toLatin1().constData() << std::endl;
-
-				}
-
-				epmDevice->close();
+			case 4:
+				chipsetString = "LP030";
+				break;
 			}
-			catch (...)
-			{
 
-			}
+			std::cout << "   Chipset: " << chipsetString.toLatin1().constData() << std::endl;
+			std::cout << "   USB Serial: " << usbSerial.toLatin1().constData() << std::endl;
+			std::cout << "   Serial Number: " << targetInfo.serialNumber().constData() << std::endl;
+			QString platformDesc = PlatformContainer::toString(targetInfo._platformIdentifier);
+			std::cout << QString("   Platform ID: %1 (%2)").arg(platformDesc).arg(targetInfo._platformIdentifier).toLatin1().constData() << std::endl;
+			std::cout << "   Model Name: " << targetInfo.modelName().constData() << std::endl;
+			std::cout << "   UUID: " << targetInfo._epmBoardUuid.toQUuid().toString().toLatin1().constData() << std::endl;
+			QDateTime eepromTime = QDateTime::fromSecsSinceEpoch(targetInfo._eepromProgrammedTime);
+			std::cout << "   Program Time: " << eepromTime.toString().toLatin1().constData() << std::endl;
 		}
+		else
+		{
+			std::cout << "The device has not been programmed." << std::endl;
+		}
+
+		result = true;
+		epmDevice->close();
 	}
+	catch (EPMException& error)
+	{
+		cout << "Could not read the device: " << error.what() << endl;
+	}
+	catch (...)
+	{
+		cout << "Could not read the device." << endl;
+	}
+
+	return result;
 }
 
 bool programDevice(PSOCCommandLine& commandLine)
@@ -141,80 +230,74 @@ bool programDevice(PSOCCommandLine& commandLine)
 		return false;
 	}
 
-	quint32 deviceCount =_EPMDevice::getEPMDevices(epmDevices);
-	if (deviceCount == 1)
+	EPMDevice epmDevice = selectDevice(commandLine, epmDevices);
+	if (epmDevice.isNull())
+		return false;
+
+	// open() on Windows appends the USB serial again, so read it before opening.
+	const QString usbSerial = epmDevice->serialNumber();
+
+	TargetInfo targetInfo;
+
+	try
 	{
-		TargetInfo targetInfo;
+		epmDevice->open();
 
-		EPMDevice epmDevice = epmDevices.at(0);
-
-		if (epmDevice.isNull() == false)
+		if (epmDevice->programmed())
 		{
-			try
-			{
-				epmDevice->open();
+			epmDevice->eepromRead();
 
-				if (epmDevice->programmed())
-				{
-					epmDevice->eepromRead();
+			targetInfo = epmDevice->_targetInfo;
+		}
+		else
+			targetInfo._eepromProgrammedTime = QDateTime::currentDateTime().toSecsSinceEpoch();
 
-					targetInfo = epmDevice->_targetInfo;
-				}
-				else
-					targetInfo._eepromProgrammedTime = QDateTime::currentDateTime().toSecsSinceEpoch();
+		if (targetInfo._epmBoardUuid.toQUuid().isNull())
+		{
+			QUuid uuid = QUuid::createUuid();
+			targetInfo._epmBoardUuid = uuid;
+		}
 
-				if (targetInfo._epmBoardUuid.toQUuid().isNull())
-				{
-					QUuid uuid = QUuid::createUuid();
-					targetInfo._epmBoardUuid = uuid;
-				}
+		if (platformID != 0)
+			targetInfo._platformIdentifier = platformID;
 
-				if (platformID != 0)
-					targetInfo._platformIdentifier = platformID;
+		if (serialNumber.isEmpty() == false)
+			targetInfo.setSerialNumber(serialNumber);
 
-				if (serialNumber.isEmpty() == false)
-					targetInfo.setSerialNumber(serialNumber);
+		if (modelName.isEmpty() == false)
+			targetInfo.setModelName(modelName);
 
-				if (modelName.isEmpty() == false)
-					targetInfo.setModelName(modelName);
+		epmDevice->_targetInfo = targetInfo;
 
-				epmDevice->_targetInfo = targetInfo;
+		try
+		{
+			epmDevice->eepromWrite();
 
-				try
-				{
-					epmDevice->eepromWrite();
+			cout << "EEPROM Updated" << endl << "   The EEPROM of device " <<
+				usbSerial.toLatin1().data() << " has been updated with the new data." << endl;
 
-					cout << "EEPROM Updated" << endl << "   The EEPROM has been updated with the new data." << endl;
+			result = true;
+		}
+		catch (EPMException& error)
+		{
+			cout << "EEPROM Error" << endl << "The EEPROM has not been updated with the new data: " << error.what() << endl;
+		}
 
-					result = true;
-				}
-				catch (EPMException& error)
-				{
-					Q_UNUSED(error)
-
-					cout << "EEPROM Error" << endl << "The EEPROM has not been updated with the new data." << endl;
-				}
-
-			}
-			catch (EPMException& epmError)
-			{
-				if (epmError.epmError() == MICRO_EPM_NOT_PROGRAMMED)
-				{
-					cout << "Unprogrammed Debug Board \n" << endl <<
-						"This debug board has not been programmed by the factory. "
-						"The QEPM group has no idea who that contact is for your group. Ask the person who supplied the MTP or device.  You are going to have "
-						"to find the board supplier for your group." << endl;
-				}
-			}
+		epmDevice->close();
+	}
+	catch (EPMException& epmError)
+	{
+		if (epmError.epmError() == MICRO_EPM_NOT_PROGRAMMED)
+		{
+			cout << "Unprogrammed Debug Board \n" << endl <<
+				"This debug board has not been programmed by the factory. "
+				"The QEPM group has no idea who that contact is for your group. Ask the person who supplied the MTP or device.  You are going to have "
+				"to find the board supplier for your group." << endl;
 		}
 		else
 		{
-			cout << "Device Not Found" << endl;
+			cout << "Could not open the device: " << epmError.what() << endl;
 		}
-	}
-	else
-	{
-		cout << "One, and only one device can be plugged in for this operation" << endl;
 	}
 
 	return result;
@@ -235,7 +318,9 @@ int main(int argc, char *argv[])
 
 	InitializeQCommonConsole();
 
-		PSOCCommandLine parser(a.arguments());
+	PSOCCommandLine parser(a.arguments());
+
+	int exitCode{0};
 
 	if (parser.helpRequested() == false)
 	{
@@ -263,7 +348,8 @@ int main(int argc, char *argv[])
 
 		if (parser.getProgramming())
 		{
-			getProgramming();
+			if (getProgramming(parser) == false)
+				exitCode = 1;
 			earlyReturn = true;
 		}
 
@@ -271,7 +357,8 @@ int main(int argc, char *argv[])
 		{
 			if (parser.programSet())
 			{
-				programDevice(parser);
+				if (programDevice(parser) == false)
+					exitCode = 1;
 			}
 		}
 	}
@@ -281,5 +368,5 @@ int main(int argc, char *argv[])
 		std::cout << helpText.toLatin1().data();
 	}
 
-	return 0;
+	return exitCode;
 }
