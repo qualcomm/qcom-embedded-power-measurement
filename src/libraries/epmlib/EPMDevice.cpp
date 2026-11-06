@@ -769,6 +769,24 @@ void _EPMDevice::removeChannel
 	_runChannels.remove(static_cast<quint32>(epmRunChannel->channel()));
 }
 
+void _EPMDevice::clearChannels()
+{
+	// removeChannel() erases from _runChannels, so walk a copy.
+	const EPMChannelMap runChannels{_runChannels};
+
+	for (const auto& runChannel: runChannels)
+	{
+		removeChannel(runChannel);
+	}
+
+	_runChannels.clear();
+
+	// Both masks are rebuilt from _runChannels in applySettings(), so
+	// nothing selected on an earlier recording can stay enabled.
+	clearRunChannelBitmap();
+	_gpioEnMask = 0;
+}
+
 void _EPMDevice::applySettings()
 {
 	if (!_connected)

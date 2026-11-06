@@ -59,6 +59,10 @@ public:
 	void addChannel(const EPMChannel epmRunChannel);
 	void removeChannel(const EPMChannel epmRunChannel);
 
+	// Disable and forget every channel selected on this device, so the
+	// next acquisition records only the channels added after this call.
+	void clearChannels();
+
 	void applySettings();
 
 	void acquire();
