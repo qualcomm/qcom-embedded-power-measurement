@@ -61,6 +61,7 @@ private:
 
 EPMDevices _EPMDevice::_activeDevices;
 EPMDevices _EPMDevice::_inactiveDevices;
+QStringList _EPMDevice::_unavailableDevices;
 
 _EPMDevice::_EPMDevice()
 {
@@ -120,7 +121,15 @@ void _EPMDevice::addDevice
 				epmDevice->log(QString("Unprogrammed EPM device: %1").arg(epmDevice->_devicePath.data()));
 			}
 			else
+			{
 				epmDevice->log(QString("Device seen, but can't be opened %1").arg(epmDevice->_devicePath.data()));
+
+				// Remember it so the UI can tell the user why the device is missing.
+				QString reason = epmDevice->_connectionStatus.trimmed();
+				if (reason.isEmpty())
+					reason = QStringLiteral("could not be opened");
+				_unavailableDevices.append(QString("%1 (%2)").arg(QString::fromLatin1(epmDevice->_devicePath), reason));
+			}
 		}
 	}
 }
@@ -152,6 +161,8 @@ bool _EPMDevice::initializeDevice
 				case kUSBReceiveError:
 				case kUSBOpenError:
 					epmDevice->_errorStatus = true;
+					if (epmDevice->_connectionStatus.isEmpty())
+						epmDevice->_connectionStatus = QString::fromLatin1(error.what());
 					result = false;
 					break;
 				default:
@@ -1536,6 +1547,8 @@ void _EPMDevice::unpauseAdcConversions
 
 void _EPMDevice::updateDeviceList()
 {
+	_unavailableDevices.clear();
+
 	for (auto& device: _EPMDevice::_activeDevices)
 	{
 		device->_active = false;
