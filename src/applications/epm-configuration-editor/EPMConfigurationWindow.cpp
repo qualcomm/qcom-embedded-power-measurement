@@ -38,8 +38,10 @@
 #include <QDebug>
 #include <QDir>
 #include <QFileDialog>
+#include <QFileInfo>
 #include <QMessageBox>
 #include <QProcess>
+#include <QStringList>
 #include <QWindow>
 
 const QString kWindowTitle(QStringLiteral("QEPM Configuration Editor"));
@@ -47,6 +49,56 @@ const QString kWindowTitle(QStringLiteral("QEPM Configuration Editor"));
 QPoint EPMConfigurationWindow::_nextWindowPos(20, 20);
 const QByteArray kRow{QByteArrayLiteral("row")};
 const int kHashRole(Qt::UserRole);
+
+namespace
+{
+
+// Chooses the folder a file dialog starts in.
+//  1. lastPath, if it still exists. A stored file path is reduced to its folder, so
+//     values written by older versions (which stored the file) keep working.
+//  2. The first candidate folder that already contains files matching nameFilter,
+//     so a first-time user lands where the configuration files actually are.
+//  3. The first candidate folder that exists.
+//  4. The home folder.
+QString pickDialogFolder
+(
+	const QString& lastPath,
+	const QStringList& candidates,
+	const QString& nameFilter
+)
+{
+	if (lastPath.isEmpty() == false)
+	{
+		const QFileInfo info(lastPath);
+
+		if (info.isDir())
+			return QDir::cleanPath(info.absoluteFilePath());
+
+		// A file that still exists, or a stale file path whose folder is still there.
+		if ((info.isFile() || info.suffix().isEmpty() == false) && info.dir().exists())
+			return QDir::cleanPath(info.absolutePath());
+	}
+
+	for (const QString& candidate : candidates)
+	{
+		if (candidate.isEmpty())
+			continue;
+
+		const QDir dir(candidate);
+		if (dir.exists() && dir.entryList(QStringList(nameFilter), QDir::Files).isEmpty() == false)
+			return QDir::cleanPath(dir.absolutePath());
+	}
+
+	for (const QString& candidate : candidates)
+	{
+		if (candidate.isEmpty() == false && QDir(candidate).exists())
+			return QDir::cleanPath(QDir(candidate).absolutePath());
+	}
+
+	return QDir::homePath();
+}
+
+} // namespace
 
 EPMConfigurationWindow::EPMConfigurationWindow
 (
@@ -545,7 +597,10 @@ bool EPMConfigurationWindow::open()
 
 	AlpacaSettings settings(kAppName);
 
-	QString initialDir = settings.value(kEPMConfigPath, documentsDataPath(kAppName)).toString();
+	// Start in the last folder used. On first use, open the installed configurations folder
+	// rather than the per-application documents folder.
+	QString initialDir = pickDialogFolder(settings.value(kEPMConfigPath).toString(),
+		QStringList() << epmConfigRoot() << documentsDataPath(kAppName), QStringLiteral("*.ccnf"));
 
 	QString filters = "QEPM Channel Configuration (*.ccnf)";
 
@@ -595,8 +650,24 @@ bool EPMConfigurationWindow::save()
 
 	if (_epmConfigFile != Q_NULLPTR)
 	{
+		// Installed configurations are shared and replaced on reinstall, so never
+		// overwrite one: save the user's copy elsewhere instead.
+#ifdef Q_OS_WIN
+		const Qt::CaseSensitivity kPathCase{Qt::CaseInsensitive};
+#else
+		const Qt::CaseSensitivity kPathCase{Qt::CaseSensitive};
+#endif
+		const QString installedRoot = QDir::cleanPath(epmConfigRoot()) + "/";
+		const bool installedFile = _epmFilePath.isEmpty() == false && epmConfigRoot().isEmpty() == false
+			&& QDir::cleanPath(QFileInfo(_epmFilePath).absoluteFilePath()).startsWith(installedRoot, kPathCase);
+
 		if (_epmFilePath.isEmpty() == true)
 		{
+			result = saveAs();
+		}
+		else if (installedFile)
+		{
+			_statusBar->showMessage(tr("Installed configurations are not changed. Choose where to save your copy."), 10000);
 			result = saveAs();
 		}
 		else
@@ -620,7 +691,10 @@ bool EPMConfigurationWindow::saveAs()
 		AlpacaSettings settings(kAppName);
 		QString lastPath;
 
-		lastPath = settings.value(kEPMConfigPath, documentsDataPath(kAppName)).toString();
+		const QString lastFolder = pickDialogFolder(settings.value(kEPMConfigPath).toString(),
+			QStringList() << documentsDataPath(kAppName), QStringLiteral("*.ccnf"));
+		lastPath = _epmFilePath.isEmpty() ? lastFolder
+			: QDir(lastFolder).filePath(QFileInfo(_epmFilePath).fileName());
 
 		QString path = QFileDialog::getSaveFileName(Q_NULLPTR, "Save EPM Channel Configuration File",
 			lastPath, tr("EPM Channel Configuration File (*.ccnf)"));
@@ -628,7 +702,7 @@ bool EPMConfigurationWindow::saveAs()
 		{
 			if (lastPath != path)
 			{
-				settings.setValue(kEPMConfigPath, path);
+				settings.setValue(kEPMConfigPath, QFileInfo(path).absolutePath());
 			}
 
 			_epmFilePath = path;

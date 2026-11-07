@@ -45,8 +45,8 @@ class _SetupEPM:
         Path("C:/Program Files/Qualcomm/QEPM"),
     ]
     __linuxInstallDirs: list = [
-        Path("/opt/qcom/QEPM/lib"),
         Path("/opt/qcom/Alpaca/lib"),
+        Path("/opt/qcom/QEPM/lib"),
     ]
 
     __windowsLibraryName: str = "EPMDev.dll"

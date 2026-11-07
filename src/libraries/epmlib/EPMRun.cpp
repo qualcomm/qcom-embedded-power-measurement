@@ -57,6 +57,12 @@ void EPMRun::addChannel
 {
 	if (addMe->valid())
 	{
+		for (const auto& runChannel: std::as_const(_activeChannels))
+		{
+			if (runChannel->channel() == addMe->channel() && runChannel->waveForm() == addMe->waveForm())
+				return;
+		}
+
 		_activeChannels.append(addMe);
 
 		log(QString("EPM Run Channel %1 added\n").arg(addMe->seriesName()));
@@ -78,9 +84,7 @@ void EPMRun::removeChannel
 			{
 				if ((*runChannelIter)->channel() == removeMe->channel())
 				{
-					_removedChannels.append(*runChannelIter);
-					
-					_activeChannels.erase(runChannelIter);	
+					_activeChannels.erase(runChannelIter);
 
 					log(QString("EPM Run Channel %1 removed\n").arg(removeMe->seriesName()));
 
@@ -94,6 +98,25 @@ void EPMRun::removeChannel
 	else
 	{
 		log(QString("getEPMDevice %1 == null\n").arg(removeMe->index()));
+	}
+}
+
+void EPMRun::resetChannels()
+{
+	_activeChannels.clear();
+}
+
+void EPMRun::applyChannelsToDevice()
+{
+	// The device keeps its own channel selection between recordings, and the
+	// device used for this recording may not be the one used for the last.
+	// Rebuild the selection on this device from the current settings instead
+	// of replaying removals that may belong to another device.
+	_epmDevice->clearChannels();
+
+	for (const auto& runChannel: std::as_const(_activeChannels))
+	{
+		_epmDevice->addChannel(runChannel);
 	}
 }
 
@@ -123,18 +146,10 @@ void EPMRun::acquire()
 		throw error;
 	}
 
-	for (const auto& runChannel: std::as_const(_removedChannels))
-	{
-		_epmDevice->removeChannel(runChannel);
-	}
+	applyChannelsToDevice();
 
 	if (_activeChannels.count() > 0)
 	{
-		for (const auto& runChannel: std::as_const(_activeChannels))
-		{
-			_epmDevice->addChannel(runChannel);
-		}
-
 		bool process{true};
 
 		try 
@@ -191,15 +206,7 @@ void EPMRun::startAcquire()
 		throw error;
 	}
 
-	for (const auto& runChannel: std::as_const(_removedChannels))
-	{
-		_epmDevice->removeChannel(runChannel);
-	}
-
-	for (const auto& runChannel: std::as_const(_activeChannels))
-	{
-		_epmDevice->addChannel(runChannel);
-	}
+	applyChannelsToDevice();
 
 	_epmDevice->acquire();
 }

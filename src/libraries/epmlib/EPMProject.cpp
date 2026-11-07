@@ -615,20 +615,21 @@ void _EPMProject::setTemporaryResultsDirectory
 
 void _EPMProject::buildRuntimeChannels()
 {
+	// Start from an empty run so only the current selection is recorded.
+	// _epmRun lives for the whole session; appending to the previous
+	// recording's list carried channels the user has since turned off.
+	_epmRun.resetChannels();
+
 	for (auto& currentChannel: _currentChannels)
 	{
 		if (currentChannel->active())
 			_epmRun.addChannel(currentChannel);
-		else
-			_epmRun.removeChannel(currentChannel);
 	}
 
 	for (auto& voltageChannel: _voltageChannels)
 	{
 		if (voltageChannel->active())
 			_epmRun.addChannel(voltageChannel);
-		else
-			_epmRun.removeChannel(voltageChannel);
 	}
 }
 

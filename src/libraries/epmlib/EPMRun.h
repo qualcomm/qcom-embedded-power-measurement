@@ -51,6 +51,11 @@ public:
 	void addChannel(EPMChannel addMe);
 	void removeChannel(EPMChannel removeMe);
 
+	// Forget the channels of the previous recording. At the next acquisition
+	// the device's own selection is cleared and rebuilt from the channels
+	// added after this call, whichever device that acquisition uses.
+	void resetChannels();
+
     bool setMarkerTrigger(bool state);
 
 	// snapshot
@@ -65,13 +70,14 @@ private:
 
 	EPMDevice					_epmDevice;
 	EPMChannels					_activeChannels;
-	EPMChannels					_removedChannels;
 	QList<EPMResult>			_result;
 	QString						_resultsPath;
 
 	QString						_temporaryResultsPath;
 
 	void log(const QString& logMe);
+
+	void applyChannelsToDevice();
 
 	EPMDevice getEPMDevice(const quint32 index, const EPMIndexType indexType);
 };
