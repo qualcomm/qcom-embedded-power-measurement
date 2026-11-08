@@ -29,6 +29,9 @@ public:
 protected:
 	void closeInternal();
 
+	// Returns the USB serial (iSerialNumber) of a board, or an empty string if it cannot be read.
+	static QString readUsbSerialNumber(struct usb_device* usbDevice);
+
 	virtual void send(quint32 uLength);
 	virtual void receive(quint32 uRequestedLength, quint8 commandCode);
 	virtual void readBulkData(quint32 uRequestedLength);
@@ -44,4 +47,3 @@ protected:
 };
 
 #endif // LINUXBASEDEVICE_H
-
