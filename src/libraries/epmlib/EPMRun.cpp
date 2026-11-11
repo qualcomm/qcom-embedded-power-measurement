@@ -215,6 +215,15 @@ void EPMRun::stopAcquire()
 {
 	EpmErrorCode threadExitError{MICRO_EPM_SUCCESS};
 
+	// No device is attached until startAcquire() has been called, so a stop
+	// without a preceding start has nothing to stop. Dereferencing the null
+	// device here crashed callers of the EPMDev API (ALPACAHOST-1483).
+	if (_epmDevice.isNull())
+	{
+		log(QString("EPM Run stop requested with no acquisition started\n"));
+		return;
+	}
+
 	if (_epmDevice->isRunning() == false)
 	{
 		threadExitError = _epmDevice->threadExitCode();
