@@ -73,12 +73,9 @@ QString _EPMProject::platformPath()
 
 bool _EPMProject::setPlatformPath(const QString& platformPath)
 {
-	bool result{false};
-
-	if (platformPath.compare(_epmTarget.platformPath(), Qt::CaseInsensitive) != 0)
-		result = _epmTarget.setPlatformPath(platformPath);
-
-	return result;
+	// Setting the path that is already in use is not an error: report success as long as the
+	// folder exists, and re-scan it so platform files added since the last call are picked up.
+	return _epmTarget.setPlatformPath(platformPath);
 }
 
 quint32 _EPMProject::getPlatformCount()

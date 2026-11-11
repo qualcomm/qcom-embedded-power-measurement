@@ -292,7 +292,25 @@ EPM_RESULT SetPlatform
 	EPMProject epmProject = gDevEPMCore.getEPMProject(epmHandle);
 	if (epmProject.isNull() == false)
 	{
-		QString platformPath = gDevEPMCore.getPlatformConfigPath(platform);
+		// Resolve a platform name ("MTP8450") from the project's platform folder directly. The
+		// cached list in gDevEPMCore is only filled by GetPlatformCount(), so callers that go
+		// straight to SetPlatform() used to pass the bare name through and always fail.
+		const QString requested = QString::fromLatin1(platform).trimmed();
+		QString platformPath;
+
+		const quint32 platformCount = epmProject->getPlatformCount();
+		for (quint32 index = 0; index < platformCount && platformPath.isEmpty(); ++index)
+		{
+			QString name;
+			QString path;
+			if (epmProject->getPlatform(index, name, path) && name.compare(requested, Qt::CaseInsensitive) == 0)
+				platformPath = path;
+		}
+
+		// Not a known name: fall back to the old lookup, which also accepts a full .ccnf path.
+		if (platformPath.isEmpty())
+			platformPath = gDevEPMCore.getPlatformConfigPath(requested);
+
 		if (epmProject->loadPlatformConfigFile(platformPath) == false)
 			result = EPM_BAD_PATH;
 	}

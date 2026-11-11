@@ -45,6 +45,7 @@ void _EPMDevice3::updateDeviceList
         {
             _EPMDevice3* epmDevice3 = new _EPMDevice3;
             epmDevice3->_device = usbDevice;
+            epmDevice3->_serialNumber = readUsbSerialNumber(usbDevice);
 
 			EPMDevice epmDevice = EPMDevice(epmDevice3);
             epmDevice->_devicePath = QByteArray(usbDevice->filename);
@@ -288,4 +289,3 @@ void _EPMDevice3::getBulkData
 		emptyCount = 0;
 	}
 }
-
