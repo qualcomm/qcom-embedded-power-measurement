@@ -586,7 +586,13 @@ void _EPMProject::stopAcquire()
 {
 	_epmRun.stopAcquire();
 
-	_epmDevice->removeUDASRecorder();
+	// A project can be stopped before any device was attached to it, for
+	// example when StopAcquisition() is called without a recording
+	// (ALPACAHOST-1483).
+	if (_epmDevice.isNull() == false)
+	{
+		_epmDevice->removeUDASRecorder();
+	}
 	if (_udasRecorder)
 	{
 		delete _udasRecorder;
