@@ -38,8 +38,6 @@ The following methods will be available to you as soon as you import the **EPMDe
 | GetLoggingState() | None | boolean | It returns the state of application logging as boolean. |
 | SetLoggingState(state) | state: The boolean state to enable/disable logging. | None | Whether to enable application logging based on the `state` parameter. |
 | WriteToLog(log_message) | log_message: The string message to be written to the app-log. | None | It writes the `log_message` to the application log.|
-| GetAppLogPath() | None | string | It returns a string containing the path to the app-log. |
-| SetAppLogPath(app_log_path) | app_log_path: The path to the app-log. | None | It sets the path for the app-log and throws `RuntimeError` if the operation is unsuccessful. |
 | GetDeviceCount() | None | integer | It returns the number of connected EPM devices. |
 | GetDevice(device_index) | device_index: The index of the device (integer) | EPMDevice | It returns the EPMDevice object for the given device index. |
 
