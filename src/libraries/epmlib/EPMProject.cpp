@@ -73,12 +73,9 @@ QString _EPMProject::platformPath()
 
 bool _EPMProject::setPlatformPath(const QString& platformPath)
 {
-	bool result{false};
-
-	if (platformPath.compare(_epmTarget.platformPath(), Qt::CaseInsensitive) != 0)
-		result = _epmTarget.setPlatformPath(platformPath);
-
-	return result;
+	// Setting the path that is already in use is not an error: report success as long as the
+	// folder exists, and re-scan it so platform files added since the last call are picked up.
+	return _epmTarget.setPlatformPath(platformPath);
 }
 
 quint32 _EPMProject::getPlatformCount()
@@ -589,7 +586,13 @@ void _EPMProject::stopAcquire()
 {
 	_epmRun.stopAcquire();
 
-	_epmDevice->removeUDASRecorder();
+	// A project can be stopped before any device was attached to it, for
+	// example when StopAcquisition() is called without a recording
+	// (ALPACAHOST-1483).
+	if (_epmDevice.isNull() == false)
+	{
+		_epmDevice->removeUDASRecorder();
+	}
 	if (_udasRecorder)
 	{
 		delete _udasRecorder;
