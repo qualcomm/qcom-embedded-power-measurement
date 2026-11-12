@@ -79,7 +79,8 @@ inline QString MicroEpmConvertUuidToString
 	BoardUuid uuid
 )
 {
-	QString result = QString("%1-%2-%3-%5%6%7%8%9%10%11%12").
+	// 8-4-4-4-12, the same layout and byte order as QUuid::toString(QUuid::WithoutBraces)
+	QString result = QString("%1-%2-%3-%4%5-%6%7%8%9%10%11").
 			arg(uuid.data1, 8, 16, QChar('0')).
 			arg(uuid.data2, 4, 16, QChar('0')).
 			arg(uuid.data3, 4, 16, QChar('0')).
