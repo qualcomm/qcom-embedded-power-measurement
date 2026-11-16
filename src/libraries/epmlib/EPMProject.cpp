@@ -190,6 +190,19 @@ bool _EPMProject::getChannelPair
 {
 	bool result{false};
 
+	// The index comes straight from API callers, so reject one that is out of
+	// range instead of letting at() read past the end of the list and crash.
+	if (index >= static_cast<quint32>(_voltageChannels.count()))
+	{
+		AppCore::writeToApplicationLog(QString("Channel index %1 is out of range (channel count %2)\n")
+			.arg(index).arg(_voltageChannels.count()));
+
+		currentChannel = EPMChannel(Q_NULLPTR);
+		voltageChannel = EPMChannel(Q_NULLPTR);
+
+		return result;
+	}
+
 	voltageChannel = _voltageChannels.at(index);
 	if (voltageChannel.isNull() == false)
 	{
