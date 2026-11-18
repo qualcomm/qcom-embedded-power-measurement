@@ -46,13 +46,28 @@ function Resolve-DocsDir {
     if ($Explicit) { $candidates += $Explicit }
     $candidates += @(
         (Join-Path $Root '__Builds\docs'),
-        (Join-Path $Root 'docs\tools\_build\html')
+        (Join-Path $Root 'docs\tools\_build\html'),
+        (Join-Path $Root 'docs')
     )
     foreach ($c in $candidates) {
-        if (Test-Path $c) {
-            $files = Get-ChildItem $c -Recurse -File -ErrorAction SilentlyContinue
-            if ($files -and $files.Count -gt 0) { return (Resolve-Path $c).Path }
-            Write-Warning "Documentation directory '$c' exists but is empty; ignoring."
+        $gs = Join-Path $c 'getting-started'
+        if (Test-Path $gs) {
+            $htmlFiles = Get-ChildItem $gs -Filter '*.html' -File -ErrorAction SilentlyContinue
+            if ($htmlFiles -and $htmlFiles.Count -gt 0) { return (Resolve-Path $c).Path }
+        }
+    }
+    $genScript = Join-Path $Root 'docs\tools\generate-docs.py'
+    if (Test-Path $genScript) {
+        Write-Host "Built HTML docs not found; generating via $genScript ..."
+        Push-Location (Split-Path -Parent $genScript)
+        try {
+            & python generate-docs.py
+        } finally { Pop-Location }
+        $builtDir = Join-Path $Root 'docs\tools\_build\html'
+        $gs = Join-Path $builtDir 'getting-started'
+        if (Test-Path $gs) {
+            $htmlFiles = Get-ChildItem $gs -Filter '*.html' -File -ErrorAction SilentlyContinue
+            if ($htmlFiles -and $htmlFiles.Count -gt 0) { return (Resolve-Path $builtDir).Path }
         }
     }
     return $null
