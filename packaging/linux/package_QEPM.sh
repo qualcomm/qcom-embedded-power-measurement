@@ -36,13 +36,28 @@ if [ -z "${VERSION:-}" ]; then
 fi
 
 # Source directories
-SRC_DIR="$(realpath "$BASE_DIR/../../__Builds/Linux/Release")"
-CONFIG_SRC_DIR="$(realpath "$BASE_DIR/../../configurations")"
-EXAMPLES_SRC_DIR="$(realpath "$BASE_DIR/../../examples")"
-INTERFACES_SRC_DIR="$(realpath "$BASE_DIR/../../interfaces")"
-PYTHON_SRC_DIR="$(realpath "$BASE_DIR/../../interfaces/Python")"
+REPO_ROOT="$(realpath "$BASE_DIR/../..")"
+SRC_DIR="$(realpath "$REPO_ROOT/__Builds/Linux/Release")"
+CONFIG_SRC_DIR="$(realpath "$REPO_ROOT/configurations")"
+EXAMPLES_SRC_DIR="$(realpath "$REPO_ROOT/examples")"
+INTERFACES_SRC_DIR="$(realpath "$REPO_ROOT/interfaces")"
+PYTHON_SRC_DIR="$(realpath "$REPO_ROOT/interfaces/Python")"
 PLUGINS_SRC_DIR="$SRC_DIR/plugins"
-DOCS_SRC_DIR="$(realpath "$BASE_DIR/../../__Builds/docs" 2>/dev/null || echo "$BASE_DIR/../../__Builds/docs")"
+
+DOCS_SRC_DIR=""
+for cand in "$REPO_ROOT/__Builds/docs" "$REPO_ROOT/docs/tools/_build/html" "$REPO_ROOT/docs"; do
+    if [ -d "$cand/getting-started" ] && compgen -G "$cand/getting-started/*.html" >/dev/null 2>&1; then
+        DOCS_SRC_DIR="$(realpath "$cand")"
+        break
+    fi
+done
+if [ -z "$DOCS_SRC_DIR" ] && [ -f "$REPO_ROOT/docs/tools/generate-docs.py" ]; then
+    echo "Built HTML docs not found; generating via docs/tools/generate-docs.py..."
+    (cd "$REPO_ROOT/docs/tools" && python3 generate-docs.py) || true
+    if [ -d "$REPO_ROOT/docs/tools/_build/html/getting-started" ] && compgen -G "$REPO_ROOT/docs/tools/_build/html/getting-started/*.html" >/dev/null 2>&1; then
+        DOCS_SRC_DIR="$(realpath "$REPO_ROOT/docs/tools/_build/html")"
+    fi
+fi
 
 OUTPUT_DIR="${OUTPUT_DIR:-$BASE_DIR/build}"
 
@@ -178,12 +193,12 @@ echo "Copying plugins..."
 cp -a "$PLUGINS_SRC_DIR/." \
       "$BUILDROOT$INSTALL_PREFIX/plugins/"
 
-if [ -d "$DOCS_SRC_DIR" ]; then
-    echo "Copying docs..."
+if [ -n "$DOCS_SRC_DIR" ] && [ -d "$DOCS_SRC_DIR" ]; then
+    echo "Copying docs from $DOCS_SRC_DIR..."
     cp -a "$DOCS_SRC_DIR/." \
           "$BUILDROOT$INSTALL_PREFIX/docs/$APP_NAME/"
 else
-    echo "WARNING: No __Builds/docs directory found at $DOCS_SRC_DIR; offline documentation will be absent from the package." >&2
+    echo "WARNING: No built HTML docs directory found; offline documentation will be absent from the package." >&2
 fi
 
 find "$BUILDROOT$INSTALL_PREFIX/bin" -type f -exec chmod 755 {} \;
