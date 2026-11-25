@@ -12,6 +12,14 @@ qt_add_library(${LIBRARY_NAME} SHARED
 
 QCommonConsoleSettings(${LIBRARY_NAME})
 
+if(UNIX)
+    # QCommonConsoleSettings already adds $ORIGIN search paths. Stop CMake from
+    # also writing the absolute build-machine paths (build tree and Qt install
+    # folder) into the RUNPATH, since the packaged library carries them to every
+    # installed system.
+    set_target_properties(${LIBRARY_NAME} PROPERTIES SKIP_BUILD_RPATH ON)
+endif()
+
 target_include_directories(${LIBRARY_NAME} PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}
 )

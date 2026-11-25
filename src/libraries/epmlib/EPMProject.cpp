@@ -73,12 +73,9 @@ QString _EPMProject::platformPath()
 
 bool _EPMProject::setPlatformPath(const QString& platformPath)
 {
-	bool result{false};
-
-	if (platformPath.compare(_epmTarget.platformPath(), Qt::CaseInsensitive) != 0)
-		result = _epmTarget.setPlatformPath(platformPath);
-
-	return result;
+	// Setting the path that is already in use is not an error: report success as long as the
+	// folder exists, and re-scan it so platform files added since the last call are picked up.
+	return _epmTarget.setPlatformPath(platformPath);
 }
 
 quint32 _EPMProject::getPlatformCount()
@@ -192,6 +189,19 @@ bool _EPMProject::getChannelPair
 )
 {
 	bool result{false};
+
+	// The index comes straight from API callers, so reject one that is out of
+	// range instead of letting at() read past the end of the list and crash.
+	if (index >= static_cast<quint32>(_voltageChannels.count()))
+	{
+		AppCore::writeToApplicationLog(QString("Channel index %1 is out of range (channel count %2)\n")
+			.arg(index).arg(_voltageChannels.count()));
+
+		currentChannel = EPMChannel(Q_NULLPTR);
+		voltageChannel = EPMChannel(Q_NULLPTR);
+
+		return result;
+	}
 
 	voltageChannel = _voltageChannels.at(index);
 	if (voltageChannel.isNull() == false)
@@ -511,9 +521,23 @@ bool _EPMProject::acquire(qreal duration)
 	return result;
 }
 
+QString _EPMProject::lastError() const
+{
+	return _lastError;
+}
+
+void _EPMProject::setLastError(const QString& lastError)
+{
+	_lastError = lastError;
+}
+
 bool _EPMProject::startAcquire()
 {
 	bool result{false};
+
+	// Clear any reason recorded by an earlier attempt so a stale message is
+	// never reported against this one.
+	setLastError(QString());
 
 	if (_epmConfigFile != Q_NULLPTR)
 	{
@@ -555,11 +579,16 @@ bool _EPMProject::startAcquire()
 		}
 		catch (EPMException& epmException)
 		{
+			// The exception carries the only description of what the hardware
+			// refused. Record it as well as logging it, otherwise a caller
+			// using the API has no way to find out why acquisition failed.
+			setLastError(QString("Acquisition could not be started: %1").arg(epmException.what()));
 			AppCore::writeToApplicationLog(QString("EPMException epmException: %1\n").arg(epmException.what()));
 		}
 	}
 	else
 	{
+		setLastError("No configuration has been selected, so acquisition cannot be started.");
 		AppCore::writeToApplicationLogLine("Please select a configuration to start data acquisition");
 	}
 
@@ -570,7 +599,13 @@ void _EPMProject::stopAcquire()
 {
 	_epmRun.stopAcquire();
 
-	_epmDevice->removeUDASRecorder();
+	// A project can be stopped before any device was attached to it, for
+	// example when StopAcquisition() is called without a recording
+	// (ALPACAHOST-1483).
+	if (_epmDevice.isNull() == false)
+	{
+		_epmDevice->removeUDASRecorder();
+	}
 	if (_udasRecorder)
 	{
 		delete _udasRecorder;
@@ -596,20 +631,21 @@ void _EPMProject::setTemporaryResultsDirectory
 
 void _EPMProject::buildRuntimeChannels()
 {
+	// Start from an empty run so only the current selection is recorded.
+	// _epmRun lives for the whole session; appending to the previous
+	// recording's list carried channels the user has since turned off.
+	_epmRun.resetChannels();
+
 	for (auto& currentChannel: _currentChannels)
 	{
 		if (currentChannel->active())
 			_epmRun.addChannel(currentChannel);
-		else
-			_epmRun.removeChannel(currentChannel);
 	}
 
 	for (auto& voltageChannel: _voltageChannels)
 	{
 		if (voltageChannel->active())
 			_epmRun.addChannel(voltageChannel);
-		else
-			_epmRun.removeChannel(voltageChannel);
 	}
 }
 
@@ -824,4 +860,3 @@ bool _EPMProject::saveExportConfigurationFile()
 
 	return result;
 }
-

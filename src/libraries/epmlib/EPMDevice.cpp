@@ -61,6 +61,7 @@ private:
 
 EPMDevices _EPMDevice::_activeDevices;
 EPMDevices _EPMDevice::_inactiveDevices;
+QStringList _EPMDevice::_unavailableDevices;
 
 _EPMDevice::_EPMDevice()
 {
@@ -120,7 +121,15 @@ void _EPMDevice::addDevice
 				epmDevice->log(QString("Unprogrammed EPM device: %1").arg(epmDevice->_devicePath.data()));
 			}
 			else
+			{
 				epmDevice->log(QString("Device seen, but can't be opened %1").arg(epmDevice->_devicePath.data()));
+
+				// Remember it so the UI can tell the user why the device is missing.
+				QString reason = epmDevice->_connectionStatus.trimmed();
+				if (reason.isEmpty())
+					reason = QStringLiteral("could not be opened");
+				_unavailableDevices.append(QString("%1 (%2)").arg(QString::fromLatin1(epmDevice->_devicePath), reason));
+			}
 		}
 	}
 }
@@ -152,6 +161,8 @@ bool _EPMDevice::initializeDevice
 				case kUSBReceiveError:
 				case kUSBOpenError:
 					epmDevice->_errorStatus = true;
+					if (epmDevice->_connectionStatus.isEmpty())
+						epmDevice->_connectionStatus = QString::fromLatin1(error.what());
 					result = false;
 					break;
 				default:
@@ -343,22 +354,71 @@ EPMDevice _EPMDevice::deviceByName
 	return _EPMDevice::deviceByName(name, _activeDevices);
 }
 
+// Resolves a board by target name or serial number.
+//
+// One board's identifier can be a prefix of another's, so a plain substring
+// scan that stops at the first hit resolves to whichever board happens to be
+// enumerated first. Matching is therefore done in two passes: an exact,
+// case insensitive comparison always wins, and a substring comparison is only
+// honoured when it matches exactly one board. An ambiguous name resolves to no
+// board rather than to an arbitrary one, because acting on the wrong board is
+// worse than reporting that the name was not specific enough.
 EPMDevice _EPMDevice::deviceByName(const QString &name, const EPMDevices &epmDevices)
 {
 	EPMDevice result;
 
+	const QString searchTerm{name.trimmed()};
+
+	// An empty name cannot identify a board. Rejecting it here also keeps the
+	// partial pass honest, because QString::contains() is true for every
+	// candidate when the search term is empty.
+	if (searchTerm.isEmpty())
+	{
+		return result;
+	}
+
+	EPMDevice partialMatch;
+	int partialMatchCount{0};
+
 	for (const auto& epmDevice: epmDevices)
 	{
-		if (epmDevice->getTargetName().contains(name, Qt::CaseInsensitive))
+		if (epmDevice.isNull())
 		{
-			result = epmDevice;
-			break;
+			continue;
 		}
-		if (epmDevice->getSerialNumber().contains(name, Qt::CaseInsensitive))
+
+		const QString targetName{epmDevice->getTargetName().trimmed()};
+		const QString serialNumber{epmDevice->getSerialNumber().trimmed()};
+
+		if (targetName.compare(searchTerm, Qt::CaseInsensitive) == 0 ||
+			serialNumber.compare(searchTerm, Qt::CaseInsensitive) == 0)
 		{
-			result = epmDevice;
-			break;
+			return epmDevice;
 		}
+
+		// A board that does not populate a field must never match on it.
+		const bool partialHit =
+			(targetName.isEmpty() == false && targetName.contains(searchTerm, Qt::CaseInsensitive)) ||
+			(serialNumber.isEmpty() == false && serialNumber.contains(searchTerm, Qt::CaseInsensitive));
+
+		if (partialHit)
+		{
+			partialMatch = epmDevice;
+			partialMatchCount++;
+		}
+	}
+
+	if (partialMatchCount == 1)
+	{
+		result = partialMatch;
+	}
+	else if (partialMatchCount > 1)
+	{
+		AppCore::writeToApplicationLogLine(
+			QString("Board lookup for '%1' is ambiguous: %2 boards match. "
+					"Use the complete name or serial number to select one.")
+				.arg(name)
+				.arg(partialMatchCount));
 	}
 
 	return result;
@@ -707,6 +767,24 @@ void _EPMDevice::removeChannel
 	}
 
 	_runChannels.remove(static_cast<quint32>(epmRunChannel->channel()));
+}
+
+void _EPMDevice::clearChannels()
+{
+	// removeChannel() erases from _runChannels, so walk a copy.
+	const EPMChannelMap runChannels{_runChannels};
+
+	for (const auto& runChannel: runChannels)
+	{
+		removeChannel(runChannel);
+	}
+
+	_runChannels.clear();
+
+	// Both masks are rebuilt from _runChannels in applySettings(), so
+	// nothing selected on an earlier recording can stay enabled.
+	clearRunChannelBitmap();
+	_gpioEnMask = 0;
 }
 
 void _EPMDevice::applySettings()
@@ -1487,6 +1565,8 @@ void _EPMDevice::unpauseAdcConversions
 
 void _EPMDevice::updateDeviceList()
 {
+	_unavailableDevices.clear();
+
 	for (auto& device: _EPMDevice::_activeDevices)
 	{
 		device->_active = false;

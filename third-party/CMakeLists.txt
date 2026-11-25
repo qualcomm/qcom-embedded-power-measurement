@@ -1,12 +1,10 @@
 # Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
 # SPDX-License-Identifier: BSD-3-Clause
 
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.24)
 project(third_party VERSION 1.0 LANGUAGES C CXX)
 
 include(FetchContent)
-
-set(CMAKE_AUTOMOC_RELAXED_MODE ON)
 
 # ---------------------------------------------------------------------------
 # Qwt 6.3.0
@@ -29,10 +27,11 @@ else()
     )
 endif()
 
-FetchContent_GetProperties(qwt_source)
-if(NOT qwt_source_POPULATED)
+if(NOT TARGET qwt)
+    # The Qwt archive has no CMakeLists.txt, so MakeAvailable only downloads and
+    # extracts it. The library target is defined here from its sources.
     message(STATUS "Fetching Qwt 6.3.0...")
-    FetchContent_Populate(qwt_source)
+    FetchContent_MakeAvailable(qwt_source)
 
     file(GLOB QWT_SOURCES "${qwt_source_SOURCE_DIR}/src/*.cpp")
 
@@ -62,7 +61,10 @@ if(NOT qwt_source_POPULATED)
         AUTOMOC ON
     )
 
+    # Qwt is third-party code; its warnings (e.g. Qt 6 deprecations) are not ours to fix.
     if(MSVC)
         target_compile_options(qwt PRIVATE /W0)
+    else()
+        target_compile_options(qwt PRIVATE -w)
     endif()
 endif()

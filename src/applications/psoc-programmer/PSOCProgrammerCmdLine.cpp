@@ -29,16 +29,22 @@ PSOCCommandLine::PSOCCommandLine
 	addHelpLine("Options");
 	addHelpLine("   -l, list                         -- List Eeprom capable devices");
 	addHelpLine("   -lp, listplatforms               -- List the known platforms");
-	addHelpLine("   -gp, getprogram                  -- Get the programming the connected device");
-	addHelpLine("   -p, program                      -- Program the connected device");
+	addHelpLine("   -gp, getprogram                  -- Get the programming of the selected device");
+	addHelpLine("   -p, program                      -- Program the selected device");
 
+	addHelpLine("");
+	addHelpLine("Device selection (needed when more than one device is connected)");
+	addHelpLine("   select=<text>                    -- Choose the device by USB serial, device name or GUID");
+	addHelpLine("                                       as shown by -l. (i.e.) select=C90002030F162D84");
 	addHelpLine("");
 	addHelpLine("Parameters (optional), the program functions will uses these parameters");
 	addHelpLine("   platformID=<numeric>             -- Set the platform id. (i.e.) platformID=8");
-	addHelpLine("   serial=<text>                    -- Set the serial number. (i.e.) serial=foo");
+	addHelpLine("   serial=<text>                    -- Write a new serial number into the EEPROM. (i.e.) serial=foo");
+	addHelpLine("                                       This does not select the device, use select= for that.");
 	addHelpLine("   model=<text>                     -- Set the model number. (i.e.) model=bar");
 	addHelpLine("");
 	addHelpLine("   Enclose the parameter in a string if you want spaces in the value");
+	addHelpLine("   Exit code is 0 on success and 1 on failure.");
 
 	_listSet = isSet(QStringList{} << "-l" << "list");
 	_listPlatformSet = isSet(QStringList{} << "-lp" << "listplatforms");
@@ -48,6 +54,7 @@ PSOCCommandLine::PSOCCommandLine
 	_platformID = value("platformID");
 	_serialNumber = value("serial");
 	_modelName = value("model");
+	_selector = value("select");
 }
 
 bool PSOCCommandLine::listSet()
@@ -78,6 +85,11 @@ QByteArray PSOCCommandLine::serialNumber()
 QByteArray PSOCCommandLine::modelName()
 {
 	return _modelName.toLatin1();
+}
+
+QString PSOCCommandLine::selector()
+{
+	return _selector.trimmed();
 }
 
 quint32 PSOCCommandLine::platformID()

@@ -1,7 +1,0 @@
-<RCC>
-    <qresource prefix="/Resources"/>
-    <qresource prefix="/">
-        <file>BugWriter.png</file>
-        <file>About.txt</file>
-    </qresource>
-</RCC>

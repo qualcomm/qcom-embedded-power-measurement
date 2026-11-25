@@ -695,7 +695,10 @@ HashList UDASFile::buildSortedIVHashList()
 	auto currentBlockIter = _currentBlocks.begin();
 	auto voltageBlockIter = _voltageBlocks.begin();
 
-	while (currentBlockIter != _currentBlocks.end() && voltageBlockIter != _voltageBlocks.end())
+	// Keep going until both lists are consumed. With '&&' an I-only or
+	// V-only recording produced an empty list, and in mixed recordings the
+	// tail of the longer list was dropped (ALPACAHOST-1793).
+	while (currentBlockIter != _currentBlocks.end() || voltageBlockIter != _voltageBlocks.end())
 	{
 		HashType hash;
 		uint currentChannelNumber(0xFFFFFFFF);
@@ -711,7 +714,10 @@ HashList UDASFile::buildSortedIVHashList()
 			voltageChannelNumber = (*voltageBlockIter)->_channelNumber;
 		}
 
-		if (currentChannelNumber <= voltageChannelNumber)
+		const bool currentLeft = currentBlockIter != _currentBlocks.end();
+		const bool voltageLeft = voltageBlockIter != _voltageBlocks.end();
+
+		if (currentLeft && (voltageLeft == false || currentChannelNumber <= voltageChannelNumber))
 		{
 			hash = (*currentBlockIter)->channelHash();
 			if (memo.contains(hash) == false)

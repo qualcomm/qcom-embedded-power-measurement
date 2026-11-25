@@ -38,6 +38,10 @@ extern "C" {
 	EPMDEV_EXPORT EPM_RESULT InitializeEPMDev();
 
 	EPMDEV_EXPORT EPM_RESULT GetQEPMVersion(char* QEPMVersion, int bufferSize);
+	// Deprecated: kept as an exported alias of GetQEPMVersion for ABI compatibility with
+	// binaries built before the rename (e.g. EpmService.exe launched by QUTS, EPMDevInterop C#).
+	// Removing this export makes those binaries fail to load with STATUS_ENTRYPOINT_NOT_FOUND.
+	EPMDEV_EXPORT EPM_RESULT GetAlpacaVersion(char* version, int bufferSize);
 	EPMDEV_EXPORT EPM_RESULT GetEPMVersion(char* epmVersion, int bufferSize);
 	EPMDEV_EXPORT EPM_RESULT GetLastEPMError(char* lastError, int bufferSize);
 

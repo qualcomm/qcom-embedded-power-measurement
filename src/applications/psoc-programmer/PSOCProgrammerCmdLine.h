@@ -19,6 +19,7 @@ public:
 
 	QByteArray serialNumber();
 	QByteArray modelName();
+	QString selector();
 	quint32 platformID();
 
 private:
@@ -30,6 +31,7 @@ private:
 	QString						_serialNumber;
 	QString						_modelName;
 	QString						_platformID;
+	QString						_selector;
 };
 
 #endif // PSOCCOMMANDLINE_H

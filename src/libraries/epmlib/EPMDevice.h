@@ -21,6 +21,7 @@ class RecordingInterface;
 #include <QSharedPointer>
 #include <QThread>
 #include <QSet>
+#include <QStringList>
 
 class _EPMDevice;
 
@@ -58,6 +59,10 @@ public:
 	void addChannel(const EPMChannel epmRunChannel);
 	void removeChannel(const EPMChannel epmRunChannel);
 
+	// Disable and forget every channel selected on this device, so the
+	// next acquisition records only the channels added after this call.
+	void clearChannels();
+
 	void applySettings();
 
 	void acquire();
@@ -78,6 +83,14 @@ public:
 	static EPMDevice deviceByName(const QString& name, const EPMDevices& epmDevices);
 	static void addDevice(EPMDevice& epmDevice);
 	static bool initializeDevice(EPMDevice& epmDevice);
+
+	// Devices seen during the last updateDeviceList() that could not be opened,
+	// typically because another application (EPM, EPM Scope, a script) is using them.
+	// One entry per device: "<device path> (<reason>)".
+	static QStringList unavailableDevices()
+	{
+		return _unavailableDevices;
+	}
 
 	QString connectionStatus()
 	{
@@ -234,6 +247,7 @@ protected:
 
 	static EPMDevices				_activeDevices;
 	static EPMDevices				_inactiveDevices;
+	static QStringList				_unavailableDevices;
 
 	AppCore*						_appCore{Q_NULLPTR};
 	EPMChannelMap					_runChannels;

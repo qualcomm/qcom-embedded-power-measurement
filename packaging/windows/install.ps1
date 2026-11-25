@@ -98,6 +98,15 @@ Write-Host "  Documentation : $DocsRoot"
 # 1. Application binaries + Qt runtime
 Copy-Tree (Join-Path $src 'app') $InstallRoot
 
+# 1a. The open-source package no longer ships BugWriter. Remove a copy left
+# behind by an older install so the applications do not offer bug reporting
+# through it; issues are reported through GitHub Issues instead.
+$staleBugWriter = Join-Path $InstallRoot 'BugWriter.exe'
+if ((Test-Path $staleBugWriter) -and -not (Test-Path (Join-Path (Join-Path $src 'app') 'BugWriter.exe'))) {
+    Remove-Item $staleBugWriter -Force -ErrorAction SilentlyContinue
+    Log "removed stale $staleBugWriter (exists after removal: $(Test-Path $staleBugWriter))"
+}
+
 # 2. Shared, machine-wide data
 Copy-Tree (Join-Path $src 'configurations') (Join-Path $DataRoot 'configurations')
 
@@ -136,7 +145,6 @@ $shortcuts = @(
     [ordered]@{ Name = 'EPM Scope';                       Exe = 'EPMScope.exe';               Desc = 'EPM Scope Application' },
     [ordered]@{ Name = 'EPM Viewer';                      Exe = 'EPMViewer.exe';              Desc = 'EPM Viewer Application' },
     [ordered]@{ Name = 'EPM Configuration Editor';        Exe = 'EPMConfigurationEditor.exe'; Desc = 'EPM Configuration Editor Application' },
-    [ordered]@{ Name = 'Bug Writer';                      Exe = 'BugWriter.exe';              Desc = 'Bug Writer Application' },
     [ordered]@{ Name = 'Uninstall QEPM';                  Exe = 'uninstall.exe';              Desc = 'QEPM Uninstall' }
 )
 foreach ($s in $shortcuts) {

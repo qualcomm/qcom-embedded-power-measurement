@@ -15,9 +15,15 @@
 #include "ApplicationEnhancements.h"
 #include "Range.h"
 
+// EPMLib
+#include "EPMDevice.h"
+
 // Qt
 #include <QCloseEvent>
+#include <QCoreApplication>
 #include <QDateTime>
+#include <QDebug>
+#include <QDir>
 #include <QLabel>
 #include <QMessageBox>
 #include <QProcess>
@@ -31,6 +37,9 @@ EPMScopeWindow:: EPMScopeWindow(EPMScopePreferences* preferences, QWidget* paren
 	_plotUpdateTimer(new QTimer)
 {
 	setupUi(this);
+
+	// Only distributions that ship BugWriter offer bug reporting.
+	_actionSubmitBugReport->setVisible(bugWriterAvailable());
 
 	setWindowTitle(kAppName);
 
@@ -254,26 +263,13 @@ void EPMScopeWindow::on__actionQuit_triggered()
 
 void EPMScopeWindow::on__actionSubmitBugReport_triggered()
 {
-#ifdef Q_OS_LINUX
-	QString program = "/opt/qcom/Alpaca/bin/BugWriter"; // Linux Sucks
-#else
-	QString program = "BugWriter";
-#endif
-
 	QStringList arguments;
 	arguments << "product:Alpaca";
 	arguments << "prodversion:" + kProductVersion;
 	arguments << "application:" + windowTitle();
 	arguments << "appversion:" + kAppVersion;
 
-	QProcess* process = new QProcess(Q_NULLPTR);
-
-	process->setProgram(program);
-	process->setArguments(arguments);
-	bool started = process->startDetached();
-
-	if (started == false)
-		AppCore::writeToApplicationLog("Bug Writer failed to start.");
+	startBugWriter(arguments, this);
 }
 
 void EPMScopeWindow::on__scanDevices_clicked()
@@ -282,6 +278,22 @@ void EPMScopeWindow::on__scanDevices_clicked()
 		on__removeDeviceBtn_clicked();
 
 	_model.updateDeviceModel();
+
+	// A board that is open in another application (EPM, another EPM Scope,
+	// a script) is seen on USB but cannot be opened, so it is left out of the list. Say so.
+	const QStringList unavailable = _EPMDevice::unavailableDevices();
+	if (unavailable.isEmpty() == false)
+	{
+		const QString message = QString(
+			"%1 EPM device(s) were found but could not be opened.\n\n"
+			"They may be in use by another application (for example EPM or EPM Scope). "
+			"Close that application and scan again.\n\n%2")
+			.arg(unavailable.count())
+			.arg(unavailable.join("\n"));
+
+		AppCore::writeToApplicationLogLine(QString("EPM Scope scan: %1").arg(unavailable.join("; ")));
+		QMessageBox::warning(this, "EPM device in use", message);
+	}
 
 	if (_model.deviceCount() > 0)
 		_recordBtn->setEnabled(true);

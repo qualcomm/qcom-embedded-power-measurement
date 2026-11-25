@@ -79,12 +79,20 @@ public:
 	bool startAcquire();
 	void stopAcquire();
 
+	// Describes why the most recent operation failed, or an empty string when
+	// the last operation succeeded. Set whenever startAcquire() returns false
+	// so the reason can be reported to the caller rather than only logged.
+	QString lastError() const;
+
 	QString getResultsPath();
 
 	void setTemporaryResultsDirectory(const QString& resultsFolder);
 
 protected:
+	void setLastError(const QString& lastError);
+
 	EPMPreferences*				_preferences{Q_NULLPTR};
+	QString						_lastError;
 	EPMTarget					_epmTarget;
 	EPMDevice					_epmDevice;
 	EPMRun						_epmRun;

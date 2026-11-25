@@ -47,6 +47,16 @@ EPM_RESULT GetQEPMVersion
 	return result;
 }
 
+// Deprecated alias retained for ABI compatibility (see EPMDev.h).
+EPM_RESULT GetAlpacaVersion
+(
+	char* version,
+	int bufferSize
+)
+{
+	return GetQEPMVersion(version, bufferSize);
+}
+
 EPM_RESULT GetEPMVersion(char* epmVersion, int bufferSize)
 {
 	EPM_RESULT result{NO_EPM_ERROR};
@@ -282,7 +292,25 @@ EPM_RESULT SetPlatform
 	EPMProject epmProject = gDevEPMCore.getEPMProject(epmHandle);
 	if (epmProject.isNull() == false)
 	{
-		QString platformPath = gDevEPMCore.getPlatformConfigPath(platform);
+		// Resolve a platform name ("MTP8450") from the project's platform folder directly. The
+		// cached list in gDevEPMCore is only filled by GetPlatformCount(), so callers that go
+		// straight to SetPlatform() used to pass the bare name through and always fail.
+		const QString requested = QString::fromLatin1(platform).trimmed();
+		QString platformPath;
+
+		const quint32 platformCount = epmProject->getPlatformCount();
+		for (quint32 index = 0; index < platformCount && platformPath.isEmpty(); ++index)
+		{
+			QString name;
+			QString path;
+			if (epmProject->getPlatform(index, name, path) && name.compare(requested, Qt::CaseInsensitive) == 0)
+				platformPath = path;
+		}
+
+		// Not a known name: fall back to the old lookup, which also accepts a full .ccnf path.
+		if (platformPath.isEmpty())
+			platformPath = gDevEPMCore.getPlatformConfigPath(requested);
+
 		if (epmProject->loadPlatformConfigFile(platformPath) == false)
 			result = EPM_BAD_PATH;
 	}
@@ -525,8 +553,20 @@ EPM_RESULT StartAcquisition
 		{
 			epmProject->setEPMDevice(epmDevice);
 			if (epmProject->startAcquire() == false)
-				result = EPM_ACQUIRE_FAILED;
+			{
+				// Carry the reason out to the caller. Returning only the result
+				// code left GetLastEPMError() empty, so callers had no way to
+				// discover why acquisition did not start.
+				QString lastError = epmProject->lastError();
+				if (lastError.isEmpty())
+				{
+					lastError = "Acquisition could not be started and no reason was reported.";
+				}
 
+				gDevEPMCore.setLastError(lastError.toLatin1());
+
+				result = EPM_ACQUIRE_FAILED;
+			}
 		}
 		else
 		{

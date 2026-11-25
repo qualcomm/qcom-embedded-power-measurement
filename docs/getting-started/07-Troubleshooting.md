@@ -29,14 +29,15 @@ for your device, or open a GitHub issue at https://github.com/qualcomm/qcom-embe
 ## General
 
 Turn on logging in the Preferences dialog. This produces a log of the communication transactions between the
-software and the debug board. If you open a GitHub issue from the About menu, the log is included as an attachment.
+software and the debug board. Attach the log when you open a GitHub issue.
 
 1. Try another USB cable — cables are known to fail.
 2. Try another debug board on the same device. If the new debug board works, the original debug board was bad.
 3. Try another device with your original debug board. If the new device works, the problem is with your original device. Try updating its software.
 4. Try another device with another debug board. If the new combination works, the problem is with the original combination.
 5. If none of the above resolves the issue, enable logging.
-6. Run your simplified test again and file a bug report from the About menu. The log is included with the report.
+6. Run your simplified test again and open a GitHub issue at
+   https://github.com/qualcomm/qcom-embedded-power-measurement/issues with the log attached.
 
 ## Endpoint Exhaustion
 

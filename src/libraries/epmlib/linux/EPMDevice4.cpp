@@ -137,6 +137,9 @@ void _EPMDevice4::updateDeviceList
         {
             _EPMDevice4* epmDevice4 = new _EPMDevice4;
             epmDevice4->_device = usbDevice;
+            // Without this, serialNumber() is empty on Linux, so PSOCProgrammer -l shows no
+            // USB serial and select=<USB serial> (used by Device Catalog) never matches.
+            epmDevice4->_serialNumber = readUsbSerialNumber(usbDevice);
 
             EPMDevice epmDevice = EPMDevice(epmDevice4);
             epmDevice->_devicePath = QByteArray(usbDevice->filename);
@@ -478,4 +481,3 @@ void _EPMDevice4::getBulkData
 		overflowCount = 0;
 	}
 }
-

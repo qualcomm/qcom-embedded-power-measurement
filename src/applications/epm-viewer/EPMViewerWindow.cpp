@@ -23,6 +23,9 @@
 // Qt
 #include <QCheckBox>
 #include <QColorDialog>
+#include <QCoreApplication>
+#include <QDebug>
+#include <QDir>
 #include <QFileDialog>
 #include <QFileInfo>
 #include <QGuiApplication>
@@ -98,7 +101,9 @@ EPMViewerWindow::EPMViewerWindow
 	helpMenu->addAction("Contents", [&]{ startLocalBrowser(docsRoot() + "/getting-started/04-EPM-Viewer.html");});
 	helpMenu->addSeparator();
 	helpMenu->addAction("About...", this, &EPMViewerWindow::onAboutTriggered);
-	helpMenu->addAction(QIcon(":/BugWriter.png"), "Submit Bug Report", this, &EPMViewerWindow::onSubmitBugReportTriggered);
+	QAction* bugAction = helpMenu->addAction(QIcon(":/BugWriter.png"), "Submit Bug Report", this, &EPMViewerWindow::onSubmitBugReportTriggered);
+	// Only distributions that ship BugWriter offer bug reporting.
+	bugAction->setVisible(bugWriterAvailable());
 
 	_menuBar->addMenu(helpMenu);
 
@@ -369,23 +374,13 @@ void EPMViewerWindow::onAboutTriggered()
 
 void EPMViewerWindow::onSubmitBugReportTriggered()
 {
-#ifdef Q_OS_LINUX
-	QString program = "/opt/qcom/QEPM/bin/BugWriter"; // Linux Sucks
-#else
-	QString program = "BugWriter";
-#endif
-
 	QStringList arguments;
 	arguments << "product:QEPM";
 	arguments << "prodversion:" + kProductVersion;
 	arguments << "application:QEPM_Viewer";
 	arguments << "appversion:" + kAppVersion;
 
-	QProcess* process = new QProcess(Q_NULLPTR);
-
-	process->setProgram(program);
-	process->setArguments(arguments);
-	process->startDetached();
+	startBugWriter(arguments, this);
 }
 
 void EPMViewerWindow::on__tabWidget_currentChanged

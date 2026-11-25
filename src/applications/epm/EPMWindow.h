@@ -96,6 +96,7 @@ private:
 	void loadPlatformConfigFile(const QString& filePath);
 	bool setupPlatform();
 	void setupPlatformCombo();
+	static int findPreferredPlatform(const QString& lastPlatform, const QStringList& platformNames, const QStringList& platformPaths);
 	void setPlatformLabel(const QString& platform);
 	bool setupOutputPath();
 	void setupTable();

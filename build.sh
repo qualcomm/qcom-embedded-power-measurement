@@ -124,6 +124,7 @@ echo "Deploying Qt plugins..."
 for plugin_dir in \
     iconengines \
     imageformats \
+    multimedia \
     platforminputcontexts \
     platforms \
     platformthemes \
@@ -134,6 +135,13 @@ do
         echo "  $plugin_dir"
         cp -a "$QT_ROOT/plugins/$plugin_dir/." "$DEPLOY_PLUGIN_DIR/$plugin_dir/"
     fi
+done
+
+
+# FFmpeg libraries required by plugins/multimedia/libffmpegmediaplugin.so
+# (Qt ships them in $QT_ROOT/lib; mirrors the Windows av*/sw* DLL deployment).
+for ff_lib in libavcodec.so libavformat.so libavutil.so libswresample.so libswscale.so; do
+    find "$QT_ROOT/lib" -maxdepth 1 -name "${ff_lib}*" -exec cp -a {} "$DEPLOY_LIB_DIR/" \; 2>/dev/null || true
 done
 
 ###############################################################################

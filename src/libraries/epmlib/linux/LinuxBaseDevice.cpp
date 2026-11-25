@@ -9,7 +9,74 @@
 #include "LibUsbInitializer.h"
 #include "MicroEpmErrors.h"
 
+// Qt
+#include <QDir>
+#include <QFile>
+
 const QString kNoUSBError(QStringLiteral("No error"));
+
+static QString readSysfsValue(const QString& path)
+{
+	QFile file(path);
+	if (file.open(QIODevice::ReadOnly) == false)
+		return QString();
+
+	return QString::fromLatin1(file.readAll()).trimmed();
+}
+
+QString _LinuxBaseDevice::readUsbSerialNumber
+(
+	struct usb_device* usbDevice
+)
+{
+	if (usbDevice == Q_NULLPTR)
+		return QString();
+
+	// libusb-0.1 names the bus and device by number ("001", "058"); sysfs has the same numbers
+	// in busnum/devnum, plus the serial string, so no device open (or extra permission) is needed.
+	bool busOk{false};
+	bool devOk{false};
+	const int busNumber = QString::fromLatin1(usbDevice->bus != Q_NULLPTR ? usbDevice->bus->dirname : "").toInt(&busOk);
+	const int deviceNumber = QString::fromLatin1(usbDevice->filename).toInt(&devOk);
+
+	if (busOk && devOk)
+	{
+		const QString sysfsRoot(QStringLiteral("/sys/bus/usb/devices"));
+		const QStringList entries = QDir(sysfsRoot).entryList(QDir::Dirs | QDir::NoDotAndDotDot);
+
+		for (const auto& entry : entries)
+		{
+			const QString base = sysfsRoot + "/" + entry + "/";
+			if (QFile::exists(base + "serial") == false)
+				continue;
+
+			if (readSysfsValue(base + "busnum").toInt() == busNumber &&
+				readSysfsValue(base + "devnum").toInt() == deviceNumber)
+			{
+				const QString serial = readSysfsValue(base + "serial");
+				if (serial.isEmpty() == false)
+					return serial;
+			}
+		}
+	}
+
+	// Fallback: read the iSerialNumber string descriptor directly.
+	if (usbDevice->descriptor.iSerialNumber != 0)
+	{
+		usb_dev_handle* handle = usb_open(usbDevice);
+		if (handle != Q_NULLPTR)
+		{
+			char buffer[256] = {0};
+			const int length = usb_get_string_simple(handle, usbDevice->descriptor.iSerialNumber, buffer, sizeof(buffer) - 1);
+			usb_close(handle);
+
+			if (length > 0)
+				return QString::fromLatin1(buffer, length).trimmed();
+		}
+	}
+
+	return QString();
+}
 
 _LinuxBaseDevice::~_LinuxBaseDevice()
 {
@@ -166,4 +233,3 @@ void _LinuxBaseDevice::readBulkData
 
     }
 }
-

@@ -14,6 +14,7 @@
 #include <QLibrary>
 #include <QMdiSubWindow>
 #include <QMenu>
+#include <QMessageBox>
 #include <QProcess>
 #include <QSettings>
 #include <QStandardPaths>
@@ -23,6 +24,7 @@
 #include <QWidget>
 #include <QDesktopServices>
 #include <QUrl>
+#include <QDebug>
 
 #ifdef Q_OS_WIN
 #include <windows.h>
@@ -137,32 +139,109 @@ void launchFolder
 
 void startLocalBrowser(const QString &filePath)
 {
-	QDesktopServices::openUrl(QUrl::fromLocalFile(filePath));
-}
+	const QString nativePath = QDir::toNativeSeparators(QDir::cleanPath(filePath));
 
-QString docsRoot()
-{
-	QString result;
-
-	// Derive the actual install folder name ("Alpaca", "QEPM", ...)
-	// from where this binary is running, i.e. .../Qualcomm/<X>/<exe> -> "<X>".
-	// This is more reliable than QCoreApplication::applicationName(), which
-	// is rarely set explicitly and silently falls back to a hardcoded
-	// default otherwise.
-	QString appName = "QEPM";
-	QDir binDir(QCoreApplication::applicationDirPath());
-	if (binDir.exists())
+	if (QFileInfo::exists(filePath) == false)
 	{
-		const QString folderName = binDir.dirName();
-		if (folderName.isEmpty() == false)
-			appName = folderName;
+		qWarning().noquote() << "startLocalBrowser: help file not found:" << nativePath;
+		QMessageBox::warning(QApplication::activeWindow(), QStringLiteral("Help Not Found"),
+			QStringLiteral("The help file could not be found:\n\n%1\n\n"
+						   "The documentation may not be installed with this package.").arg(nativePath));
+		return;
 	}
 
+	if (QDesktopServices::openUrl(QUrl::fromLocalFile(filePath)) == false)
+	{
+		qWarning().noquote() << "startLocalBrowser: could not open" << nativePath;
+		QMessageBox::warning(QApplication::activeWindow(), QStringLiteral("Unable to Open Help"),
+			QStringLiteral("No application could open the help file:\n\n%1").arg(nativePath));
+	}
+}
+
+QString bugWriterProgram()
+{
+	const QString binDir = QCoreApplication::applicationDirPath();
+	return QStandardPaths::findExecutable(QStringLiteral("BugWriter"), {binDir});
+}
+
+bool bugWriterAvailable()
+{
+	return bugWriterProgram().isEmpty() == false;
+}
+
+bool startBugWriter(const QStringList& arguments, QWidget* parent)
+{
+	const QString program = bugWriterProgram();
+
+	if (program.isEmpty())
+	{
+		// The menu entry is hidden when BugWriter is absent, so this only
+		// happens if it was removed while the application was running.
+		qWarning().noquote() << "startBugWriter: BugWriter not found in"
+							 << QDir::toNativeSeparators(QCoreApplication::applicationDirPath());
+		return false;
+	}
+
+	if (QProcess::startDetached(program, arguments) == false)
+	{
+		const QString nativeProgram = QDir::toNativeSeparators(program);
+		qWarning().noquote() << "startBugWriter: failed to start" << nativeProgram;
+		QMessageBox::warning(parent, QStringLiteral("Submit Bug Report"),
+			QStringLiteral("BugWriter could not be started:\n\n%1").arg(nativeProgram));
+		return false;
+	}
+
+	return true;
+}
+
+// Returns the folder that holds this product's documentation (the folder that
+// contains "getting-started/"), with a trailing '/'.
+//
+// The docs are located relative to the executable, not derived from the name of
+// the folder the executable lives in. That name is "Alpaca" for the bundled
+// Windows install and "bin" for the Linux install (/opt/qcom/Alpaca/bin), so it
+// cannot be used as a product name. Layouts handled:
+//   Windows install:  <install>/<exe>          docs in <install>/docs/QEPM/
+//   Linux install:    <install>/bin/<exe>      docs in <install>/docs/QEPM/ or <install>/docs/QEPM/QEPM/
+//   Developer build:  <repo>/__Builds/.../bin  docs in <repo>/docs/
+QString docsRoot()
+{
+	const QString kProduct = "QEPM";
+	const QString kMarker = "/getting-started";
+
+	QStringList candidates;
+	const QString exeDir = QCoreApplication::applicationDirPath();
+	if (exeDir.isEmpty() == false)
+	{
+		for (const QString& base : {exeDir, exeDir + "/.."})
+		{
+			candidates << base + "/docs/" + kProduct;
+			candidates << base + "/docs/" + kProduct + "/" + kProduct;
+		}
+
+		// Developer build tree: walk up from the executable looking for the repo's docs/.
+		QDir dir(exeDir);
+		for (int level = 0; level < 6 && dir.cdUp(); ++level)
+			candidates << dir.absolutePath() + "/docs";
+	}
+
+	for (const QString& candidate : candidates)
+	{
+		const QString root = QDir::cleanPath(candidate);
+		if (QDir(root + kMarker).exists())
+			return root + "/";
+	}
+
+	// Legacy fixed install locations, kept as the last resort.
+	QString result;
 #ifdef Q_OS_WIN
-	result = "C:/Program Files/Qualcomm/" + appName + "/docs/" + appName + "/";
+	result = "C:/Program Files/Qualcomm/" + kProduct + "/docs/" + kProduct + "/";
 #endif
 #ifdef Q_OS_LINUX
-    result = "/opt/qcom/" + appName + "/docs/" + appName + "/";
+	result = "/opt/qcom/" + kProduct + "/docs/" + kProduct + "/";
 #endif
+	if (QDir(result + kMarker).exists() == false)
+		qWarning().noquote() << "docsRoot: no documentation folder found; searched" << candidates.join(", ")
+							 << "and" << result;
 	return result;
 }
