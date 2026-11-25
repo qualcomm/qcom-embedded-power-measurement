@@ -1,0 +1,212 @@
+{
+    "author": "MTOMA",
+    "channels": [
+        {
+            "category": "Battery",
+            "color": "#1c91e2",
+            "description": "",
+            "disabled": "false",
+            "index": 0,
+            "name": "VBATT",
+            "resistor_value": 1,
+            "type": "SPM"
+        },
+        {
+            "category": "VPH",
+            "color": "#6ac6ff",
+            "description": "",
+            "disabled": "false",
+            "index": 1,
+            "name": "VPH_PWR",
+            "resistor_value": 1,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "false",
+            "index": 2,
+            "name": "DISPLAY_VREG_S6G_0P712",
+            "resistor_value": 3,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM DDR PDN",
+            "color": "#bde958",
+            "description": "",
+            "disabled": "false",
+            "index": 3,
+            "name": "VDD2H_VREG_S3C_1P052",
+            "resistor_value": 3,
+            "type": "SPM"
+        },
+        {
+            "category": "VPH",
+            "color": "#3acdcb",
+            "description": "",
+            "disabled": "false",
+            "index": 4,
+            "name": "VPH_FWL",
+            "resistor_value": 100,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#2c7a79",
+            "description": "",
+            "disabled": "false",
+            "index": 5,
+            "name": "NSP1_VREG_S2:4D_0P712",
+            "resistor_value": 1,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#6a9212",
+            "description": "",
+            "disabled": "false",
+            "index": 6,
+            "name": "NSP1_VREG_S2:4D_0P712",
+            "resistor_value": 1,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#004a4a",
+            "description": "",
+            "disabled": "false",
+            "index": 7,
+            "name": "MX_A_VREG_S9D_0P752",
+            "resistor_value": 3,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#295800",
+            "description": "",
+            "disabled": "false",
+            "index": 8,
+            "name": "MX_C_VREG_S10D_0P752",
+            "resistor_value": 3,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#47abff",
+            "description": "",
+            "disabled": "false",
+            "index": 9,
+            "name": "GFX_MXC_VREG_VREG_S7G_0P752",
+            "resistor_value": 3,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#9fcc3b",
+            "description": "",
+            "disabled": "false",
+            "index": 10,
+            "name": "GFX_BX_VREG_S8G_0P712",
+            "resistor_value": 3,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#109e9c",
+            "description": "",
+            "disabled": "false",
+            "index": 11,
+            "name": "CH12_MM_VREG_S10:9F_0P712",
+            "resistor_value": 3,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#005daa",
+            "description": "",
+            "disabled": "false",
+            "index": 12,
+            "name": "CX_VREG_S7:8F_0P712",
+            "resistor_value": 3,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#00ff00",
+            "description": "",
+            "disabled": "false",
+            "index": 13,
+            "name": "GFX_VREG_S10:5G_0P712",
+            "resistor_value": 1,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#046262",
+            "description": "",
+            "disabled": "false",
+            "index": 14,
+            "name": "VDDQ_VREG_S2C_0P5",
+            "resistor_value": 3,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#002f75",
+            "description": "",
+            "disabled": "false",
+            "index": 15,
+            "name": "LPI_MX_VREG_L1D_0P752",
+            "resistor_value": 3,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#003434",
+            "description": "",
+            "disabled": "false",
+            "index": 16,
+            "name": "LPI_CX_VREG_S5F_0P712",
+            "resistor_value": 3,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM DDR PDN",
+            "color": "#104100",
+            "description": "",
+            "disabled": "false",
+            "index": 17,
+            "name": "VDD1_VREG_L15B_1P8",
+            "resistor_value": 3,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM DDR PDN",
+            "color": "#d4b217",
+            "description": "",
+            "disabled": "false",
+            "index": 18,
+            "name": "VDD2L_VREG_S1C_0P9",
+            "resistor_value": 3,
+            "type": "SPM"
+        },
+        {
+            "category": "MSM Core PDN",
+            "color": "#917a13",
+            "description": "",
+            "disabled": "false",
+            "index": 19,
+            "name": "MODEM_VREG_S10I_0P712",
+            "resistor_value": 3,
+            "type": "SPM"
+        }
+    ],
+    "creation_date": "Tue Nov 17 16:31:05 2026",
+    "description": "MTP8A75_HONU",
+    "epm_version": "QEPM 6.1.0",
+    "label": "HONU",
+    "modify_date": "Tue Nov 17 17:14:24 2026",
+    "spm_version": 3,
+    "target": "SM8A75"
+}
